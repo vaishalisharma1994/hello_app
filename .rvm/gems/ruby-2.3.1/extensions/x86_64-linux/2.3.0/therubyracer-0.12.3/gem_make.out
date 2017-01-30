@@ -1,0 +1,43 @@
+current directory: /home/vaishali/.rvm/gems/ruby-2.3.1/gems/therubyracer-0.12.3/ext/v8
+/home/vaishali/.rvm/rubies/ruby-2.3.1/bin/ruby -r ./siteconf20170130-32327-82q24d.rb extconf.rb 
+checking for main() in -lpthread... yes
+creating Makefile
+
+current directory: /home/vaishali/.rvm/gems/ruby-2.3.1/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR=" clean
+
+current directory: /home/vaishali/.rvm/gems/ruby-2.3.1/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR="
+compiling v8.cc
+compiling exception.cc
+compiling constants.cc
+compiling object.cc
+compiling date.cc
+compiling message.cc
+compiling function.cc
+compiling template.cc
+compiling script.cc
+compiling trycatch.cc
+compiling constraints.cc
+compiling primitive.cc
+compiling handles.cc
+compiling accessor.cc
+compiling gc.cc
+compiling init.cc
+compiling invocation.cc
+compiling context.cc
+compiling heap.cc
+compiling locker.cc
+compiling backref.cc
+compiling signature.cc
+compiling string.cc
+compiling rr.cc
+compiling stack.cc
+compiling value.cc
+compiling external.cc
+compiling array.cc
+linking shared-object v8/init.so
+
+current directory: /home/vaishali/.rvm/gems/ruby-2.3.1/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 init.so ./.gem.20170130-32327-1gtdtcc/v8

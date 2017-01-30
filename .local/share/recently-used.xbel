@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/vaishali/Desktop/hello.rb" added="2017-01-27T10:16:31Z" modified="2017-01-27T10:41:35Z" visited="2017-01-27T10:16:31Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-ruby"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text 2" exec="&apos;sublime_text %u&apos;" modified="2017-01-27T10:16:31Z" count="1"/>
+          <bookmark:application name="nautilus" exec="&apos;gedit %U&apos;" modified="2017-01-27T10:41:35Z" count="1"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-27T10:41:35Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/Desktop/puts%20%22hi%22%3B" added="2017-01-27T10:44:14Z" modified="2017-01-27T10:44:54Z" visited="2017-01-27T10:44:14Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text 2" exec="&apos;sublime_text %u&apos;" modified="2017-01-27T10:44:14Z" count="1"/>
+          <bookmark:application name="nautilus" exec="&apos;/usr/bin/subl %F&apos;" modified="2017-01-27T10:44:54Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/Desktop/hi.rb" added="2017-01-27T10:45:09Z" modified="2017-01-30T06:56:55Z" visited="2017-01-27T10:45:10Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-ruby"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text 2" exec="&apos;sublime_text %u&apos;" modified="2017-01-27T10:45:09Z" count="1"/>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T06:56:55Z" count="5"/>
+          <bookmark:application name="nautilus" exec="&apos;gedit %U&apos;" modified="2017-01-30T06:49:53Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/block.rb" added="2017-01-30T06:55:13Z" modified="2017-01-30T07:59:51Z" visited="2017-01-30T06:55:14Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-ruby"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T07:47:41Z" count="5"/>
+          <bookmark:application name="nautilus" exec="&apos;gedit %U&apos;" modified="2017-01-30T07:59:51Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/block1.rb" added="2017-01-30T06:57:34Z" modified="2017-01-30T07:59:31Z" visited="2017-01-30T06:57:34Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-ruby"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T07:59:31Z" count="4"/>
+          <bookmark:application name="nautilus" exec="&apos;gedit %U&apos;" modified="2017-01-30T07:15:21Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/it.rb" added="2017-01-30T07:18:07Z" modified="2017-01-30T07:18:08Z" visited="2017-01-30T07:18:08Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-ruby"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T07:18:08Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/Downloads/firefox-51.0.1.tar.bz2" added="2017-01-30T07:20:04Z" modified="2017-01-30T10:26:11Z" visited="2017-01-30T07:20:04Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-bzip-compressed-tar"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2017-01-30T07:20:04Z" count="1"/>
+          <bookmark:application name="File Roller" exec="&apos;file-roller&apos;" modified="2017-01-30T10:26:11Z" count="3"/>
+          <bookmark:application name="nautilus" exec="&apos;file-roller %U&apos;" modified="2017-01-30T10:26:03Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/.cache/.fr-ANtGpN/firefox/update-settings.ini" added="2017-01-30T07:20:39Z" modified="2017-01-30T07:20:39Z" visited="2017-01-30T07:20:39Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T07:20:39Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/.cache/.fr-qnFdXH/firefox/Throbber-small.gif" added="2017-01-30T07:20:48Z" modified="2017-01-30T07:20:48Z" visited="2017-01-30T07:20:49Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/gif"/>
+        <bookmark:groups>
+          <bookmark:group>Graphics</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="Image Viewer" exec="&apos;eog %u&apos;" modified="2017-01-30T07:20:48Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/if.rb" added="2017-01-30T07:28:24Z" modified="2017-01-30T07:28:25Z" visited="2017-01-30T07:28:25Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-ruby"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T07:28:25Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/case.rb" added="2017-01-30T07:29:13Z" modified="2017-01-30T07:29:14Z" visited="2017-01-30T07:29:14Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-ruby"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T07:29:14Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/each.rb" added="2017-01-30T07:31:10Z" modified="2017-01-30T07:31:11Z" visited="2017-01-30T07:31:11Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-ruby"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T07:31:11Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/.cache/.fr-2b6itf/firefox/update-settings.ini" added="2017-01-30T07:38:34Z" modified="2017-01-30T07:38:34Z" visited="2017-01-30T07:38:35Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T07:38:34Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/def.rb" added="2017-01-30T07:47:56Z" modified="2017-01-30T08:21:20Z" visited="2017-01-30T07:47:57Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-ruby"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T08:21:20Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/Downloads/google-chrome-42-0-2311-90-32-bit-multi-ubu.deb" added="2017-01-30T10:18:08Z" modified="2017-01-30T10:19:18Z" visited="2017-01-30T10:18:08Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-deb"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2017-01-30T10:18:08Z" count="1"/>
+          <bookmark:application name="nautilus" exec="&apos;/usr/bin/software-center %u&apos;" modified="2017-01-30T10:19:18Z" count="10"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/Downloads/the_ruby_programming_language.pdf" added="2017-01-30T10:23:34Z" modified="2017-01-30T10:23:34Z" visited="2017-01-30T10:23:35Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2017-01-30T10:23:34Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/workspace/hello_app/Gemfile" added="2017-01-30T11:18:20Z" modified="2017-01-30T11:39:44Z" visited="2017-01-30T11:18:20Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="text/plain"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T11:39:44Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/workspace" added="2017-01-30T11:30:30Z" modified="2017-01-30T11:30:30Z" visited="2017-01-30T11:30:31Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Sublime Text 2" exec="&apos;sublime_text %u&apos;" modified="2017-01-30T11:30:30Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/workspace/hello_app/app/controllers/application_controller.rb" added="2017-01-30T11:34:11Z" modified="2017-01-30T11:35:42Z" visited="2017-01-30T11:34:12Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-ruby"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T11:35:42Z" count="3"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/vaishali/workspace/hello_app/config/routes.rb" added="2017-01-30T11:37:37Z" modified="2017-01-30T11:38:05Z" visited="2017-01-30T11:37:37Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/x-ruby"/>
+        <bookmark:groups>
+          <bookmark:group>gedit</bookmark:group>
+        </bookmark:groups>
+        <bookmark:applications>
+          <bookmark:application name="gedit" exec="&apos;gedit %u&apos;" modified="2017-01-30T11:38:05Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

@@ -1,0 +1,209 @@
+2017-01-30 15:36:27,197 - softwarecenter.ui.gtk3.app - INFO - setting up proxy 'None'
+2017-01-30 15:36:28,003 - softwarecenter.region - WARNING - failed to use geoclue: 'org.freedesktop.Geoclue.Error.notAvailable: Geoclue master client has no usable Address providers'
+2017-01-30 15:36:28,126 - softwarecenter.backend.reviews - WARNING - Could not get usefulness from server, no username in config file
+2017-01-30 15:36:28,128 - softwarecenter.plugin - INFO - activating plugin '<module 'webapps_activation' from '/usr/share/software-center/softwarecenter/plugins/webapps_activation.pyc'>'
+2017-01-30 15:36:28,223 - softwarecenter.db.pkginfo_impl.aptcache - INFO - aptcache.open()
+2017-01-30 15:36:31,567 - softwarecenter.backend.reviews - WARNING - error creating bsddb: '(22, 'Invalid argument -- BDB0054 illegal flag combination specified to DB_ENV->open')' (corrupted?)
+2017-01-30 15:36:31,567 - softwarecenter.backend.reviews - ERROR - trying to repair DB failed
+Traceback (most recent call last):
+  File "/usr/share/software-center/softwarecenter/backend/reviews/__init__.py", line 358, in _save_review_stats_cache_blocking
+    self._dump_bsddbm_for_unity(outfile, outdir)
+  File "/usr/share/software-center/softwarecenter/backend/reviews/__init__.py", line 377, in _dump_bsddbm_for_unity
+    0600)
+DBInvalidArgError: (22, 'Invalid argument -- BDB0054 illegal flag combination specified to DB_ENV->open')
+2017-01-30 15:36:33,258 - softwarecenter.db.utils - INFO - software-center-agent finished with status 0
+2017-01-30 15:39:06,878 - softwarecenter.db.pkginfo_impl.aptcache - INFO - aptcache.open()
+2017-01-30 15:39:07,370 - softwarecenter.utils - WARNING - Could not determine the installed desktop file path for app-install desktop file: ''
+2017-01-30 15:39:07,370 - softwarecenter.backend.zeitgeist_logger - WARNING - Invalid desktop file provided, impossible to log event
+2017-01-30 15:39:14,900 - softwarecenter.db.pkginfo_impl.aptcache - INFO - aptcache.open()
+2017-01-30 15:40:07,559 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:40:07,560 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:43:53,828 - softwarecenter.utils - WARNING - Could not determine the installed desktop file path for app-install desktop file: ''
+2017-01-30 15:44:08,189 - softwarecenter.db.pkginfo_impl.aptcache - INFO - aptcache.open()
+2017-01-30 15:44:08,701 - softwarecenter.utils - WARNING - Could not determine the installed desktop file path for app-install desktop file: ''
+2017-01-30 15:44:08,701 - softwarecenter.backend.zeitgeist_logger - WARNING - Invalid desktop file provided, impossible to log event
+2017-01-30 15:44:17,900 - softwarecenter.db.pkginfo_impl.aptcache - INFO - aptcache.open()
+2017-01-30 15:48:12,430 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:48:12,605 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:48:12,606 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:48:20,209 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:48:20,374 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:48:20,375 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:48:27,553 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:48:27,671 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:48:27,671 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:48:45,431 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:48:45,549 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:48:45,550 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:49:12,328 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:49:12,511 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:49:12,511 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:49:13,427 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:49:13,590 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:49:13,590 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:49:14,377 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:49:14,557 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:49:14,558 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:49:19,035 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:49:19,190 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:49:19,191 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:49:19,984 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:49:20,156 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:49:20,156 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:49:21,215 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:49:21,474 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:49:21,474 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:49:22,214 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:49:22,396 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:49:22,396 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:49:23,174 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+2017-01-30 15:49:23,363 - softwarecenter.backend.spawn_helper - WARNING - exit code 1 from helper for '['/usr/share/software-center/piston_get_reviews_helper.py', '--language', 'en', '--origin', 'google, inc.', '--distroseries', 'utopic', '--pkgname', 'google-chrome-stable', '--page', '1', '--sort', 'helpful']'
+2017-01-30 15:49:23,364 - softwarecenter.backend.spawn_helper - WARNING - got error from helper: 'ERROR:__main__:get_reviews
+Traceback (most recent call last):
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 68, in <module>
+    piston_reviews = try_get_reviews(kwargs)
+  File "/usr/share/software-center/piston_get_reviews_helper.py", line 23, in try_get_reviews
+    piston_reviews = rnrclient.get_reviews(**kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 49, in wrapper
+    return func(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/piston_mini_client/validators.py", line 45, in wrapper
+    (varname, pattern))
+ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
+'
+2017-01-30 15:49:41,339 - softwarecenter.db.pkginfo_impl.aptcache - WARNING - broken packages encountered while getting deps for google-chrome-stable
+2017-01-30 15:52:02,906 - softwarecenter.db.pkginfo_impl.aptcache - INFO - aptcache.open()
+2017-01-30 15:52:05,876 - softwarecenter.utils - WARNING - Could not determine the installed desktop file path for app-install desktop file: ''
+2017-01-30 15:52:05,876 - softwarecenter.backend.zeitgeist_logger - WARNING - Invalid desktop file provided, impossible to log event
+2017-01-30 15:52:05,941 - softwarecenter.db.pkginfo_impl.aptcache - INFO - aptcache.open()

@@ -1,0 +1,33 @@
+/usr/sbin/lightdm-session: 27: /home/vaishali/.profile: [[: not found
+openConnection: connect: No such file or directory
+cannot connect to brltty at :0
+Script for ibus started at run_im.
+Script for auto started at run_im.
+Script for default started at run_im.
+upstart: at-spi2-registryd main process ended, respawning
+upstart: at-spi2-registryd main process ended, respawning
+upstart: at-spi2-registryd main process ended, respawning
+upstart: at-spi2-registryd main process ended, respawning
+upstart: at-spi2-registryd main process ended, respawning
+upstart: at-spi2-registryd main process ended, respawning
+upstart: at-spi2-registryd main process ended, respawning
+upstart: at-spi2-registryd main process ended, respawning
+upstart: at-spi2-registryd main process ended, respawning
+upstart: at-spi2-registryd main process ended, respawning
+upstart: at-spi2-registryd respawning too fast, stopped
+upstart: upstart-event-bridge main process (2578) terminated with status 1
+upstart: upstart-event-bridge main process ended, respawning
+upstart: upstart-file-bridge main process (2593) terminated with status 1
+upstart: upstart-file-bridge main process ended, respawning
+upstart: upstart-dbus-session-bridge main process (2595) terminated with status 1
+upstart: upstart-dbus-session-bridge main process ended, respawning
+upstart: upstart-dbus-system-bridge main process (2597) terminated with status 1
+upstart: upstart-dbus-system-bridge main process ended, respawning
+upstart: upstart-event-bridge main process (16933) terminated with status 1
+upstart: upstart-event-bridge main process ended, respawning
+upstart: upstart-file-bridge main process (16940) terminated with status 1
+upstart: upstart-file-bridge main process ended, respawning
+upstart: upstart-dbus-system-bridge main process (16945) terminated with status 1
+upstart: upstart-dbus-system-bridge main process ended, respawning
+upstart: upstart-dbus-session-bridge main process (16948) terminated with status 1
+upstart: upstart-dbus-session-bridge main process ended, respawning

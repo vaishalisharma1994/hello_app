@@ -1,0 +1,20 @@
+/usr/sbin/lightdm-session: 27: /home/vaishali/.profile: [[: not found
+openConnection: connect: No such file or directory
+cannot connect to brltty at :0
+Script for ibus started at run_im.
+Script for auto started at run_im.
+Script for default started at run_im.
+upstart: hud main process (2474) terminated with status 1
+upstart: unity-settings-daemon main process (2476) terminated with status 1
+upstart: gnome-session (Unity) main process (2492) terminated with status 1
+upstart: unity-panel-service main process (2503) terminated with status 1
+upstart: indicator-keyboard main process (2550) terminated with status 1
+upstart: indicator-printers main process (2553) terminated with status 1
+upstart: upstart-dbus-session-bridge main process (2423) terminated with status 1
+upstart: indicator-bluetooth main process (2541) killed by TERM signal
+upstart: indicator-power main process (2542) killed by TERM signal
+upstart: indicator-datetime main process (2544) killed by TERM signal
+upstart: indicator-session main process (2555) killed by TERM signal
+upstart: Disconnected from notified D-Bus bus
+upstart: indicator-application main process (2576) killed by TERM signal
+upstart: unity7 main process (2488) terminated with status 1

@@ -1,0 +1,818 @@
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+Activating service name='com.canonical.Unity.Scope.File.Gdrive'
+Successfully activated service 'com.canonical.Unity.Scope.File.Gdrive'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+** (process:2834): WARNING **: send_done_cb: No such interface 'org.gtk.vfs.Enumerator' on object at path /org/gtk/vfs/client/enumerator/2 (g-dbus-error-quark, 19)
+
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+** (zeitgeist-fts:2992): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+Activating service name='com.canonical.Unity.Scope.File.Gdrive'
+Successfully activated service 'com.canonical.Unity.Scope.File.Gdrive'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+** (zeitgeist-fts:2992): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+Activating service name='com.canonical.Unity.Scope.File.Gdrive'
+Successfully activated service 'com.canonical.Unity.Scope.File.Gdrive'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(process:2930): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x9cf140'
+
+(bamfdaemon:2439): Gdk-WARNING **: bamfdaemon: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
+
+
+(notify-osd:2648): Gdk-WARNING **: notify-osd: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
+
+
+(zeitgeist-daemon:2986): GLib-GIO-WARNING **: Error releasing name org.gnome.zeitgeist.Engine: The connection is closed
+[31m[07:08:10.678594 WARNING][0m zeitgeist-daemon.vala:449: The connection is closed
+Activating service name='org.ayatana.bamf'
+Activating service name='org.a11y.Bus'
+Successfully activated service 'org.a11y.Bus'
+Activating service name='org.a11y.atspi.Registry'
+Successfully activated service 'org.a11y.atspi.Registry'
+
+** (at-spi2-registryd:2621): WARNING **: Failed to register client: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+
+** (at-spi2-registryd:2621): WARNING **: Unable to register client with session manager
+Activating service name='org.gtk.vfs.Daemon'
+Successfully activated service 'org.gtk.vfs.Daemon'
+Successfully activated service 'org.ayatana.bamf'
+Activating service name='ca.desrt.dconf'
+Successfully activated service 'ca.desrt.dconf'
+Activating service name='org.gnome.evolution.dataserver.Sources3'
+Activating service name='org.gnome.ScreenSaver'
+Successfully activated service 'org.gnome.evolution.dataserver.Sources3'
+Activating service name='org.freedesktop.Notifications'
+Activating service name='org.gnome.evolution.dataserver.Calendar4'
+Successfully activated service 'org.gnome.ScreenSaver'
+Successfully activated service 'org.freedesktop.Notifications'
+Activating service name='org.gtk.Private.UDisks2VolumeMonitor'
+Activating service name='org.gnome.GConf'
+Successfully activated service 'org.gnome.GConf'
+Successfully activated service 'org.gtk.Private.UDisks2VolumeMonitor'
+Activating service name='org.gtk.Private.AfcVolumeMonitor'
+Successfully activated service 'org.gtk.Private.AfcVolumeMonitor'
+Activating service name='org.gtk.Private.MTPVolumeMonitor'
+Successfully activated service 'org.gtk.Private.MTPVolumeMonitor'
+Activating service name='org.gtk.Private.GPhoto2VolumeMonitor'
+Successfully activated service 'org.gtk.Private.GPhoto2VolumeMonitor'
+Successfully activated service 'org.gnome.evolution.dataserver.Calendar4'
+** Message: Lost the name, shutting down.
+Activating service name='org.gtk.vfs.Metadata'
+Successfully activated service 'org.gtk.vfs.Metadata'
+Activating service name='org.freedesktop.Telepathy.AccountManager'
+Successfully activated service 'org.freedesktop.Telepathy.AccountManager'
+Activating service name='com.canonical.indicators.webcredentials'
+Successfully activated service 'com.canonical.indicators.webcredentials'
+Activating service name='org.gnome.zeitgeist.Engine'
+Activating service name='org.gnome.zeitgeist.SimpleIndexer'
+Successfully activated service 'org.gnome.zeitgeist.Engine'
+
+** (zeitgeist-datahub:3194): WARNING **: zeitgeist-datahub.vala:229: Unable to get name "org.gnome.zeitgeist.datahub" on the bus!
+Successfully activated service 'org.gnome.zeitgeist.SimpleIndexer'
+Activating service name='com.canonical.Unity.Webapps.Service'
+Successfully activated service 'com.canonical.Unity.Webapps.Service'
+** Message: Investigating webapp: unity-webapps-common 
+
+
+** (process:3246): WARNING **: Found newline before all of metadata, skipping app
+** Message: Investigating webapp: unity-webapps-qml 
+
+
+** (process:3246): WARNING **: Found newline before all of metadata, skipping app
+** Message: Investigating webapp: unity-webapps-qml-doc 
+
+
+** (process:3246): WARNING **: Found newline before all of metadata, skipping app
+** Message: Investigating webapp: unity-webapps-qml-examples 
+
+
+** (process:3246): WARNING **: Found newline before all of metadata, skipping app
+** Message: Investigating webapp: unity-webapps-service 
+
+
+** (process:3246): WARNING **: Found newline before all of metadata, skipping app
+** Message: Investigating webapp: unity-webapps-amazoncloudreader 
+
+** Message: Investigating webapp: unity-webapps-bbcnews 
+
+** Message: Investigating webapp: unity-webapps-cnn-news 
+
+** Message: Investigating webapp: unity-webapps-deezer 
+
+** Message: Investigating webapp: unity-webapps-dev 
+
+
+** (process:3246): WARNING **: Found newline before all of metadata, skipping app
+** Message: Investigating webapp: unity-webapps-deviantart 
+
+** Message: Investigating webapp: unity-webapps-facebookmessenger 
+
+** Message: Investigating webapp: unity-webapps-gmail 
+
+** Message: Investigating webapp: unity-webapps-googlecalendar 
+
+** Message: Investigating webapp: unity-webapps-googledocs 
+
+** Message: Investigating webapp: unity-webapps-googlenews 
+
+** Message: Investigating webapp: unity-webapps-googleplus 
+
+** Message: Investigating webapp: unity-webapps-googleplusgames 
+
+
+** (process:3246): WARNING **: Found newline before all of metadata, skipping app
+** Message: Investigating webapp: unity-webapps-grooveshark 
+
+** Message: Investigating webapp: unity-webapps-hulu-player 
+
+** Message: Investigating webapp: unity-webapps-lastfm-radio 
+
+** Message: Investigating webapp: unity-webapps-launchpad 
+
+** Message: Investigating webapp: unity-webapps-librefm 
+
+** Message: Investigating webapp: unity-webapps-linkedin 
+
+** Message: Investigating webapp: unity-webapps-livemail 
+
+** Message: Investigating webapp: unity-webapps-mail-ru 
+
+** Message: Investigating webapp: unity-webapps-newsblur 
+
+** Message: Investigating webapp: unity-webapps-pandora 
+
+** Message: Investigating webapp: unity-webapps-qml-autopilot 
+
+
+** (process:3246): WARNING **: Found newline before all of metadata, skipping app
+** Message: Investigating webapp: unity-webapps-qq-mail 
+
+** Message: Investigating webapp: unity-webapps-reddit 
+
+** Message: Investigating webapp: unity-webapps-tumblr 
+
+** Message: Investigating webapp: unity-webapps-twitter 
+
+** Message: Investigating webapp: unity-webapps-vkcom 
+
+** Message: Investigating webapp: unity-webapps-wordpress 
+
+** Message: Investigating webapp: unity-webapps-wordpress-com 
+
+** Message: Investigating webapp: unity-webapps-yahoomail 
+
+** Message: Investigating webapp: unity-webapps-yahoonews 
+
+** Message: Investigating webapp: unity-webapps-yandex-music 
+
+** Message: Investigating webapp: unity-webapps-yandexmail 
+
+** Message: Investigating webapp: unity-webapps-yandexmusic 
+
+** Message: Investigating webapp: unity-webapps-yandexnews 
+
+** Message: Investigating webapp: unity-webapps-youtube 
+
+** Message: Investigating webapp: unity-webapps-qml 
+
+
+** (process:3246): WARNING **: Found newline before all of metadata, skipping app
+** Message: Investigating webapp: unity-webapps-qml-examples 
+
+
+** (process:3246): WARNING **: Found newline before all of metadata, skipping app
+** Message: Investigating webapp: unity-webapps-service 
+
+
+** (process:3246): WARNING **: Found newline before all of metadata, skipping app
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.canonical.Unity.Scope.Home'
+Successfully activated service 'com.canonical.Unity.Scope.Home'
+
+(unity-scope-home:3383): unity-scope-home-WARNING **: platform-info.vala:112: Unable to read SIM properties: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.ofono was not provided by any .service files
+Activating service name='com.canonical.Unity.Scope.Applications'
+Activating service name='com.canonical.Unity.Scope.File.Gdrive'
+Activating service name='com.canonical.Unity.Scope.LocalFiles'
+
+(process:3398): unity-files-daemon-WARNING **: folder.vala:65: Failed to read favorites: Failed to open file '/home/vaishali/.gtk-bookmarks': No such file or directory
+Successfully activated service 'com.canonical.Unity.Scope.LocalFiles'
+Successfully activated service 'com.canonical.Unity.Scope.File.Gdrive'
+Successfully activated service 'com.canonical.Unity.Scope.Applications'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (process:3064): WARNING **: send_done_cb: No such interface 'org.gtk.vfs.Enumerator' on object at path /org/gtk/vfs/client/enumerator/2 (g-dbus-error-quark, 19)
+
+
+** (zeitgeist-fts:3192): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (process:3064): WARNING **: send_done_cb: No such interface 'org.gtk.vfs.Enumerator' on object at path /org/gtk/vfs/client/enumerator/1 (g-dbus-error-quark, 19)
+
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (zeitgeist-fts:3192): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (process:3064): WARNING **: send_done_cb: No such interface 'org.gtk.vfs.Enumerator' on object at path /org/gtk/vfs/client/enumerator/1 (g-dbus-error-quark, 19)
+
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (process:3064): WARNING **: send_done_cb: No such interface 'org.gtk.vfs.Enumerator' on object at path /org/gtk/vfs/client/enumerator/3 (g-dbus-error-quark, 19)
+
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.ubuntu.OneConf'
+Successfully activated service 'com.ubuntu.OneConf'
+WARNING:oneconf.hosts:Error in loading other_hosts file: [Errno 2] No such file or directory: '/home/vaishali/.cache/oneconf/813e56ef1c4f171bda95b46b5448007c/other_hosts'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (zeitgeist-fts:3192): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (process:3064): WARNING **: *** Unsupported operation detected on trash directory
+
+** (process:3064): WARNING **:     A trash files/ directory should only have files linked or unlinked (via moves or deletes).  Some other operation has been detected on a file in the directory (eg: a file has been modified).  Likely, the data reported by the trash backend will now be inconsistent.
+
+** (process:3064): WARNING **:   dir: /home/vaishali/.local/share/Trash/files, file: def.rb, type: 1
+
+
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (zeitgeist-fts:3192): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.ubuntu.OneConf'
+Successfully activated service 'com.ubuntu.OneConf'
+WARNING:oneconf.hosts:Error in loading other_hosts file: [Errno 2] No such file or directory: '/home/vaishali/.cache/oneconf/813e56ef1c4f171bda95b46b5448007c/other_hosts'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+Activating service name='com.canonical.Unity.Scope.File.Gdrive'
+Activating service name='com.canonical.Unity.Scope.Music'
+Successfully activated service 'com.canonical.Unity.Scope.Music'
+Successfully activated service 'com.canonical.Unity.Scope.File.Gdrive'
+
+(unity-music-daemon:6585): unity-music-daemon-WARNING **: rhythmbox-collection.vala:510: Unable to open album-art DB!
+
+(unity-music-daemon:6585): unity-music-daemon-WARNING **: rhythmbox-collection.vala:574: Error while parsing rhythmbox DB: Error opening file: No such file or directory
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.ubuntu.OneConf'
+Successfully activated service 'com.ubuntu.OneConf'
+WARNING:oneconf.hosts:Error in loading other_hosts file: [Errno 2] No such file or directory: '/home/vaishali/.cache/oneconf/813e56ef1c4f171bda95b46b5448007c/other_hosts'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+Activating service name='com.canonical.Unity.Scope.Academic.Zotero'
+Successfully activated service 'com.canonical.Unity.Scope.Academic.Zotero'
+Activating service name='com.canonical.Unity.Scope.File.Gdrive'
+Successfully activated service 'com.canonical.Unity.Scope.File.Gdrive'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.canonical.Unity.Scope.File.Gdrive'
+Successfully activated service 'com.canonical.Unity.Scope.File.Gdrive'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.ubuntu.OneConf'
+Successfully activated service 'com.ubuntu.OneConf'
+WARNING:oneconf.hosts:Error in loading other_hosts file: [Errno 2] No such file or directory: '/home/vaishali/.cache/oneconf/813e56ef1c4f171bda95b46b5448007c/other_hosts'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+Activating service name='org.freedesktop.Geoclue.Master'
+Successfully activated service 'org.freedesktop.Geoclue.Master'
+** Message: GSettings key 'gps-baudrate' initialised to '0'
+** Message: GSettings key 'gps-device' initialised to '(null)'
+Activating service name='org.freedesktop.Geoclue.Providers.UbuntuGeoIP'
+Successfully activated service 'org.freedesktop.Geoclue.Providers.UbuntuGeoIP'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (zeitgeist-fts:3192): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+** (zeitgeist-fts:3192): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.canonical.Unity.Scope.File.Gdrive'
+Successfully activated service 'com.canonical.Unity.Scope.File.Gdrive'
+
+(unity-scope-loader:3395): GLib-GIO-WARNING **: Missing callback called fullpath = /home/vaishali/.config/menus/unity-lens-applications.menu
+
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+Activating service name='com.ubuntu.OneConf'
+Successfully activated service 'com.ubuntu.OneConf'
+WARNING:oneconf.hosts:Error in loading other_hosts file: [Errno 2] No such file or directory: '/home/vaishali/.cache/oneconf/813e56ef1c4f171bda95b46b5448007c/other_hosts'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (zeitgeist-fts:3192): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (zeitgeist-fts:3192): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+Activating service name='com.canonical.Unity.Scope.File.Gdrive'
+Successfully activated service 'com.canonical.Unity.Scope.File.Gdrive'
+
+(unity-scope-home:3383): libunity-WARNING **: unity-aggregator-scope.vala:145: Error serializing GVariant with type string 'mv' to the D-Bus wire format
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+** (zeitgeist-fts:3192): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+** (zeitgeist-fts:3192): WARNING **: Unable to get info on application://nautilus-autostart.desktop
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:3159): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '47' is invalid for instance '0x254e790'
+
+(ubuntu-geoip-provider:11933): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '29' is invalid for instance '0x12fce30'
+
+(process:11929): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '20' is invalid for instance '0x198add0'
+Activating service name='com.ubuntu.OneConf'
+Successfully activated service 'com.ubuntu.OneConf'
+WARNING:oneconf.hosts:Error in loading other_hosts file: [Errno 2] No such file or directory: '/home/vaishali/.cache/oneconf/813e56ef1c4f171bda95b46b5448007c/other_hosts'
+Activating service name='com.ubuntu.sso'
+Successfully activated service 'com.ubuntu.sso'

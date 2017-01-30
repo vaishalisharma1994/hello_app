@@ -1,0 +1,339 @@
+status: 200
+content-length: 20993
+via: 1.1 juju-prod45-u1-sca-machine-25 (squid/3.3.8)
+x-cache: HIT from juju-prod45-u1-sca-machine-25
+content-language: en
+age: 456
+expires: Mon, 30 Jan 2017 10:08:58 GMT
+vary: Authorization,Accept-Encoding,Accept-Language,Cookie
+x-request-id: 369bfd6e-5aa7-42ac-b263-0533e6312ed5
+-content-encoding: gzip
+server: gunicorn/19.6.0
+last-modified: Mon, 30 Jan 2017 09:58:58 GMT
+x-vcs-revision: 13.2
+etag: "3ffde4f2b5700e583be5cef665ba4cda"
+x-bzr-revision-number: 3764
+cache-control: max-age=600
+date: Mon, 30 Jan 2017 09:58:58 GMT
+content-type: application/json; charset=utf-8
+x-cache-lookup: HIT from juju-prod45-u1-sca-machine-25:3128
+content-location: http://software-center.ubuntu.com/api/2.0/applications/en/ubuntu/utopic/amd64/
+-varied-accept-encoding: gzip, deflate
+
+[
+    {
+        "status": "Published", 
+        "package_name": "incopos", 
+        "video_embedded_html_urls": [], 
+        "demo": null, 
+        "keywords": "point of sale, management, sales, dashboard, report", 
+        "video_urls": [], 
+        "screenshot_url": "http://myapps.developer.ubuntu.com/site_media/screenshots/2011/10/TSItems_800x600.png", 
+        "id": 297, 
+        "archive_id": "commercial-ppa-uploaders/incopos", 
+        "support_url": "http://incopos.com", 
+        "icon_url": "http://myapps.developer.ubuntu.com/site_media/icons/2011/10/App64.png", 
+        "binary_filesize": 46030748, 
+        "version": "1.15.10.21", 
+        "company_name": "Vladster", 
+        "department": [
+            "Office"
+        ], 
+        "published_id": 74, 
+        "tos_url": "http://myapps.developer.ubuntu.com/licenses/297/", 
+        "screenshot_urls": [
+            "http://myapps.developer.ubuntu.com/site_media/screenshots/2011/10/TSItems_800x600.png"
+        ], 
+        "website": "", 
+        "signing_key_id": "EC63D02697EDFFBE375BBC185CB9D8493D29D438", 
+        "description": "Point of Sale management\nIncoPOS is an inventory and point of sale management application \r\ndesigned for easy use and quick operation in shops, bars, cafes and warehouses.\r\n \r\nIn addition to the free core of this application there are a number of\r\nspecialized modules for points of sale with touch screen displays. Graphical\r\nanalisys of the data stored and export and import of information is also availabe.", 
+        "price": "0.00", 
+        "debtags": [], 
+        "date_published": "2012-02-13 17:16:06.592160", 
+        "categories": "Office", 
+        "name": "IncoPOS", 
+        "license": "Proprietary", 
+        "channel": "For Purchase", 
+        "archive_root": "https://private-ppa.launchpad.net/"
+    }, 
+    {
+        "status": "Published", 
+        "package_name": "compresita", 
+        "video_embedded_html_urls": [], 
+        "demo": null, 
+        "keywords": "Traffic Compression, VPN, WebPurifier, Web Filter, Antivirus, Security, Privacy", 
+        "video_urls": [], 
+        "screenshot_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/03/1_oMVBldV_YLpDyeI.png", 
+        "id": 4214, 
+        "archive_id": "commercial-ppa-uploaders/compresita", 
+        "support_url": "http://www.compresita.com/support", 
+        "icon_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/03/64x64_tOWCaEP.png", 
+        "binary_filesize": 135482, 
+        "version": "1.2.3", 
+        "company_name": "The Kernel", 
+        "department": [
+            "Internet"
+        ], 
+        "published_id": 1293, 
+        "tos_url": "http://myapps.developer.ubuntu.com/licenses/4214/", 
+        "screenshot_urls": [
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/03/1_oMVBldV_YLpDyeI.png", 
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/03/2_XukPvFN_HNyxkLP.png", 
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/03/3_9GyHvJA_1AsFezQ.png"
+        ], 
+        "website": "http://www.compresita.com", 
+        "signing_key_id": "EC63D02697EDFFBE375BBC185CB9D8493D29D438", 
+        "description": "Traffic Compression, VPN, Web Filter Antivirus\nCompresita connects you to the Internet through a secure VPN connection with military-grade encryption and validates every site you connect to make sure that they are who they claim they are. This way, no crook can trick you with a fake online banking website.\r\n\r\nCompresita shrinks* down your data usage by compressing Internet traffic up to 80% depending on the content completely transparently. You can save up to 4 times of the data you use, and in effect stretching your budget much further.\r\n\r\nCompresita comes with optional additional features available for purchase when you subscribe. These additional features are:\r\n\r\n▪ Traffic Saving – by compressing the traffic exchanged between your device and the Internet to save* up to 80% of your plan. This means your data plan will be *increased up to 4 times for the same amount you pay for your provider.\r\n\r\n▪ VPN Connection – to make sure that the users have a complete security and privacy. Our VPN is based on licensed hardware tools connected to various sub-networks with many international gateways. This ensures connection to almost 100%.\r\n\r\n▪ WebPurifier – a strong filtering system. It cleans your traffic from unwanted content such as advertising, banners. WebPurifier is blocking bad websites basing on analyzing their content and their DNS settings in addition to checking them in our huge categorized database with over 550 million records.\r\n\r\n▪ Antivirus – all your data goes through a virus scanner to protect user from any spyware and malware or threats that can come from some specious websites. The database is hourly updated.\r\n\r\nTechnical details:\r\n\r\nCompresita system fully integrated with OS. It supports all the modern desktops and mobile platforms. The VPN it uses is supported by a large variety of devices and platforms. We currently support PPTP, and in the future, we plan to support the more secure OpenVPN, and L2TP/IPSec.\r\n\r\nWith the help of GRE tunnel PPTP connection is established by the server and the end-user device. Encrypted compressed traffic is transmitted through the established tunnel. The level of compression and the type of encryption are agreed between the client and the server at the moment of tunnel establishment. The server supports various types of encryption and compressions, which allows different kinds of clients to connect to it.\r\n\r\nCompresita has the following features:\r\n- A client opens a web page, starts checking e-mail and downloading content & attachments.\r\n- The closest to the client server recognizes the client type and provides a script for auto-creation and VPN profiles.\r\n- Server with several multi-processor** VPN routers explores the most available. The client will be attached to this particular device.\r\n- A user launches a prepared script by touching the ‘configure VPN connection’ button.\r\n- The user receives a ready, built-in VPN on a device which is easy to switch on and off depending on user’s needs.\r\n- The client connects through a previously configured PPTP to VPN multi-processor router and gets an encrypted VPN connected with traffic compression.\r\n- VPN multi-processor router collects statistics on the user live and stores it in its RAM.\r\n- Once per minute the server queries all VPN multi-processor routers, gathering statistics using the system and transferring it to the SQL database.\r\n- On client request (web-page or mobile app) the statistics of traffic usage is transmitted to the client.\r\n\r\nCompresita editions:\r\nCompresita created to make sure that users can enjoy all features on most poplar devices/platforms: Android (SmartPhone, Tablet, and Tablet mini/Note), iOS (iPhone, iPad, iPad mini), Mac OS, Windows, Windows Mobile and Linux-like OS (Debian, Ubuntu, RedHat, etc.)\r\n\r\n* Ratio depends on traffic contents. For example, for video/audio streaming will be no more than 3-5% while for social network sites is 60-65%, and text compression can be up to 90-95%.\r\n** Our multi-processor redundant routers are based on Tilera 36-core processor with up to 28Gbit/s throughput.", 
+        "price": "0.00", 
+        "debtags": [
+            "hardware::form-factor:pc"
+        ], 
+        "date_published": "2015-03-24 08:25:46.341506", 
+        "categories": "Network", 
+        "name": "Compresita", 
+        "license": "Proprietary", 
+        "channel": "For Purchase", 
+        "archive_root": "https://private-ppa.launchpad.net/"
+    }, 
+    {
+        "website": "http://dmsimpleapps.blogspot.ro/2014/04/dmmediaconverter.html", 
+        "package_name": "dmmediaconverter", 
+        "video_embedded_html_urls": [
+            "http://myapps.developer.ubuntu.com/dev/apps/3803/video/3bbbf93018b24450f8d0cb92cc80e6e79d9b938e/"
+        ], 
+        "demo": null, 
+        "keywords": "ffmpeg GUI,ffmpeg frontend, handbrake,winff,ffmpeg", 
+        "video_urls": [
+            "http://vimeo.com/117570084"
+        ], 
+        "screenshot_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2014/10/Screenshot_from_2014-10-31_12_30_13.png", 
+        "id": 3803, 
+        "archive_id": "commercial-ppa-uploaders/dmmedia", 
+        "support_url": "http://dmsimpleapps.blogspot.ro/2014/04/dmmediaconverter.html", 
+        "icon_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2014/05/dmMediaConverter_logo_64x64.png", 
+        "binary_filesize": 21889702, 
+        "version": "1.8.0", 
+        "company_name": "", 
+        "department": [
+            "Sound & Video"
+        ], 
+        "published_id": 1275, 
+        "tos_url": "", 
+        "screenshot_urls": [
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2014/10/Screenshot_from_2014-10-31_12_30_13.png", 
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2014/10/Screenshot_from_2014-10-27_14_10_25.png", 
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2014/10/Screenshot_from_2014-10-31_12_33_28.png"
+        ], 
+        "status": "Published", 
+        "signing_key_id": "EC63D02697EDFFBE375BBC185CB9D8493D29D438", 
+        "description": "ffmpeg GUI\ndmMediaConverter is a FFmpeg frontend (GUI) exposing some of its features. It is intended to be simple and easy to use but also to be able to achieve complex tasks. I have inspired myself from a lot of media converters like Handbrake, WinFF and MkvMergeGui. One feature was lacking from most of them, video stream copy (pass-through), that made me build this.", 
+        "price": "3.00", 
+        "debtags": [
+            "hardware::form-factor:pc"
+        ], 
+        "date_published": "2014-06-19 19:18:48.141878", 
+        "categories": "AudioVideo", 
+        "name": "dmMediaConverter", 
+        "license": "Proprietary", 
+        "channel": "For Purchase", 
+        "archive_root": "https://private-ppa.launchpad.net/"
+    }, 
+    {
+        "status": "Published", 
+        "package_name": " my-weather-indicator:i386", 
+        "video_embedded_html_urls": [
+            "http://myapps.developer.ubuntu.com/dev/apps/4296/video/9c77a8a30394dd8854c50ba36ee7fa90a976f940/"
+        ], 
+        "demo": null, 
+        "keywords": "weather, forecast, maps, indicator, openweathermap", 
+        "video_urls": [
+            "http://vimeo.com/131305047"
+        ], 
+        "screenshot_url": "", 
+        "id": 4296, 
+        "archive_id": "commercial-ppa-uploaders/my-weather-indicator", 
+        "support_url": "http://www.atareao.es/", 
+        "icon_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/mwi_064.png", 
+        "binary_filesize": 4140870, 
+        "version": "0.6.9.1", 
+        "company_name": "", 
+        "department": [
+            "Accessories"
+        ], 
+        "published_id": 1302, 
+        "tos_url": "", 
+        "screenshot_urls": [], 
+        "website": "http://www.atareao.es/tag/my-weather-indicator", 
+        "signing_key_id": "EC63D02697EDFFBE375BBC185CB9D8493D29D438", 
+        "description": "A weather indicator\nMy-Weather-Indicator is an an application especially designed for Ubuntu,\r\n you will be informed of current weather and the weather forecast.\r\n Integrated with the Ubuntu desktop via an indicator. With local maps,\r\n showing the conditions in nearby towns. The weather forecast for the\r\n next few days in your city. You can have up to two indicators for two\r\n cities, and choose the best weather service information that you provide.\r\n You select customizable widgets to make your desktop more personalized.", 
+        "price": "0.00", 
+        "debtags": [
+            "hardware::form-factor:pc"
+        ], 
+        "date_published": "2015-07-15 20:30:21.206431", 
+        "categories": "Utility", 
+        "name": "My-Weather-Indicator", 
+        "license": "GNU GPL v3", 
+        "channel": "For Purchase", 
+        "archive_root": "https://private-ppa.launchpad.net/"
+    }, 
+    {
+        "status": "Published", 
+        "package_name": "tic-tac-toe2:i386", 
+        "video_embedded_html_urls": [], 
+        "demo": null, 
+        "keywords": "game , tic tac toe, keshav bhatt , qml tic tac toe , board games , ttt ,ttt2 , tic tac toe2", 
+        "video_urls": [], 
+        "screenshot_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/1.jpg", 
+        "id": 4297, 
+        "archive_id": "commercial-ppa-uploaders/tic-tac-toe2", 
+        "support_url": "mailto:keshavnrj@gmail.com", 
+        "icon_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/64_hmojXQC.png", 
+        "binary_filesize": 63598, 
+        "version": "0.1", 
+        "company_name": "Ktechpit.org", 
+        "department": [
+            "Games", 
+            "Board Games"
+        ], 
+        "published_id": 1301, 
+        "tos_url": "", 
+        "screenshot_urls": [
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/1.jpg", 
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/2.jpg", 
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/3.jpg", 
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/4.jpg"
+        ], 
+        "website": "http://www.armybharti.in/", 
+        "signing_key_id": "EC63D02697EDFFBE375BBC185CB9D8493D29D438", 
+        "description": "Port using Qml\nHere is an interactive game of good old fashioned tic-tac-toe! The game includes automatic scoring and alternating \"first moves\".\r\nTheming using Ubuntu UI components and more ....\r\n Enjoy!\r\n", 
+        "price": "0.00", 
+        "debtags": [
+            "hardware::form-factor:pc"
+        ], 
+        "date_published": "2015-07-10 23:41:48.700812", 
+        "categories": "Game;BoardGame", 
+        "name": "Tic-Tac-Toe2", 
+        "license": "GNU GPL v3", 
+        "channel": "For Purchase", 
+        "archive_root": "https://private-ppa.launchpad.net/"
+    }, 
+    {
+        "status": "Published", 
+        "package_name": "tomato:i386", 
+        "video_embedded_html_urls": [], 
+        "demo": null, 
+        "keywords": "guitar, amplifier, modelling, tube", 
+        "video_urls": [], 
+        "screenshot_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/05/Screenshot_AyNiKn2.png", 
+        "id": 4267, 
+        "archive_id": "commercial-ppa-uploaders/tomato", 
+        "support_url": "mailto: maksym.baginskyi@gmail.com", 
+        "icon_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/05/Icon64.png", 
+        "binary_filesize": 2834014, 
+        "version": "0.8.1", 
+        "company_name": "", 
+        "department": [
+            "Sound & Video"
+        ], 
+        "published_id": 1300, 
+        "tos_url": "", 
+        "screenshot_urls": [
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/05/Screenshot_AyNiKn2.png"
+        ], 
+        "website": "", 
+        "signing_key_id": "EC63D02697EDFFBE375BBC185CB9D8493D29D438", 
+        "description": "Single tube guitar preamplifier simulator\nTomato is a single tube preamplifier simulator. Its sound varies from clean to light overdrive. The preamplifier can be boosted with pedals or another instance of itself to get more distorted sound. Be aware, that speaker simulator is needed to get realistic sound. For example, demo records utilize guitarix cabinet simulator.\r\n\r\nSimulation uses true real-time circuit equations solver and requires intensive CPU usage to provide realistic circuit components behaviour and natural sound.\r\n\r\nContact me if you are interested in more guitar software stuff.", 
+        "price": "2.99", 
+        "debtags": [
+            "hardware::form-factor:pc"
+        ], 
+        "date_published": "2015-07-07 09:37:05.404273", 
+        "categories": "AudioVideo", 
+        "name": "Tomato", 
+        "license": "Proprietary", 
+        "channel": "For Purchase", 
+        "archive_root": "https://private-ppa.launchpad.net/"
+    }, 
+    {
+        "website": "http://korsoftware.com", 
+        "package_name": "stickynotes:i386", 
+        "video_embedded_html_urls": [], 
+        "demo": null, 
+        "keywords": "creative, color, colour, sticky, note, post-it, post-it notes, sticky notes, editor, alarm, office", 
+        "video_urls": [], 
+        "screenshot_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/05/sticky_screenshot.png", 
+        "id": 4276, 
+        "archive_id": "commercial-ppa-uploaders/sticky", 
+        "support_url": "mailto:dupingping86@hotmail.com", 
+        "icon_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/05/ubuntu_sticky.png", 
+        "binary_filesize": 40128, 
+        "version": "1.0.0.1", 
+        "company_name": "LT", 
+        "department": [
+            "Office"
+        ], 
+        "published_id": 1298, 
+        "tos_url": "", 
+        "screenshot_urls": [
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/05/sticky_screenshot.png"
+        ], 
+        "status": "Published", 
+        "signing_key_id": "EC63D02697EDFFBE375BBC185CB9D8493D29D438", 
+        "description": "Important notes and alarms on your screen.\nSticky Notes is a simple notes and alarm clock.\r\nYou can write important notes on your screen always. And you can use it as a alarm clock or clipboard, too.\r\nSometimes It can be a store for simple documents, urls.\r\n\r\nOfcourse, it's very light and flexible.\r\nIt's offer four color themes and four opacity levels.\r\n\r\nThank you.", 
+        "price": "2.99", 
+        "debtags": [
+            "hardware::form-factor:pc"
+        ], 
+        "date_published": "2015-06-16 20:08:12.671555", 
+        "categories": "Office", 
+        "name": "Sticky Notes", 
+        "license": "Proprietary", 
+        "channel": "For Purchase", 
+        "archive_root": "https://private-ppa.launchpad.net/"
+    }, 
+    {
+        "status": "Published", 
+        "package_name": "lightmusic:i386", 
+        "video_embedded_html_urls": [
+            "http://myapps.developer.ubuntu.com/dev/apps/4278/video/b77a2a35b00908be6c6560a1b6d1360a4dddbf8a/"
+        ], 
+        "demo": null, 
+        "keywords": "music, player, qml, qt, audacious, keshav, kmusicplay, ubuntu music player, flac,alac, video to audio , lyrics, sqlite, ubuntu touch,lightmusic,", 
+        "video_urls": [
+            "http://vimeo.com/129456424"
+        ], 
+        "screenshot_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/Screenshot_from_2015-06-01_21_10_14.png", 
+        "id": 4278, 
+        "archive_id": "commercial-ppa-uploaders/lightmusic", 
+        "support_url": "mailto:keshavnrj@gmail.com", 
+        "icon_url": "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/64.png", 
+        "binary_filesize": 356506, 
+        "version": "2.00", 
+        "company_name": "Ktechpit.org", 
+        "department": [
+            "Sound & Video"
+        ], 
+        "published_id": 1297, 
+        "tos_url": "", 
+        "screenshot_urls": [
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/Screenshot_from_2015-06-01_21_10_14.png", 
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/Screenshot_from_2015-06-01_21_10_25.png", 
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/Screenshot_from_2015-06-01_21_11_02.png", 
+            "http://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/Screenshot_from_2015-06-01_21_11_20.png"
+        ], 
+        "website": "http://www.armybharti.in/lightmusic_ubuntu_keshav_bhatt", 
+        "signing_key_id": "EC63D02697EDFFBE375BBC185CB9D8493D29D438", 
+        "description": "Beautiful and Fast Music Player for Ubuntu \nIf you are looking for a lightweight media player that couples capability with a tiny footprint, lightmusic can be choices that you may wish to take a look at.\r\nLightMusic  comes with interface that is clean and intuitive, since Music Player is almost done using QML it runs with tiny footprint on your system. LightMusic is quick to launch and keeps memory usage fairly low.\r\nDepending on how many songs you load into its library, the RAM requirements can hover close to the 75 MB cutoff that I use as one of the criteria for lightweight.\r\nIts a beta version of app and we are working hard to bring all essential features as soon as possible. \r\nIf you like the application , please feel free to share your view.\r\nThanks.", 
+        "price": "0.00", 
+        "debtags": [
+            "hardware::form-factor:pc"
+        ], 
+        "date_published": "2015-06-03 23:19:29.103975", 
+        "categories": "AudioVideo", 
+        "name": "LightMusic", 
+        "license": "Proprietary", 
+        "channel": "For Purchase", 
+        "archive_root": "https://private-ppa.launchpad.net/"
+    }
+]

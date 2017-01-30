@@ -1,0 +1,48 @@
+current directory: /home/vaishali/.rvm/gems/ruby-2.3.1/gems/ffi-1.9.17/ext/ffi_c
+/home/vaishali/.rvm/rubies/ruby-2.3.1/bin/ruby -r ./siteconf20170130-31423-1pvewxy.rb extconf.rb 
+checking for ffi_call() in -lffi... yes
+checking for ffi_prep_closure()... yes
+checking for ffi_raw_call()... yes
+checking for ffi_prep_raw_closure()... yes
+checking for rb_thread_blocking_region()... no
+checking for rb_thread_call_with_gvl()... yes
+checking for rb_thread_call_without_gvl()... yes
+checking for ffi_prep_cif_var()... yes
+creating extconf.h
+creating Makefile
+
+current directory: /home/vaishali/.rvm/gems/ruby-2.3.1/gems/ffi-1.9.17/ext/ffi_c
+make "DESTDIR=" clean
+
+current directory: /home/vaishali/.rvm/gems/ruby-2.3.1/gems/ffi-1.9.17/ext/ffi_c
+make "DESTDIR="
+compiling MemoryPointer.c
+compiling Struct.c
+compiling StructByReference.c
+compiling Platform.c
+compiling Buffer.c
+compiling LastError.c
+compiling Function.c
+compiling Type.c
+compiling StructLayout.c
+compiling Variadic.c
+compiling Call.c
+compiling FunctionInfo.c
+compiling LongDouble.c
+compiling MethodHandle.c
+compiling AbstractMemory.c
+compiling MappedType.c
+compiling ArrayType.c
+compiling ffi.c
+compiling Thread.c
+compiling DataConverter.c
+compiling StructByValue.c
+compiling DynamicLibrary.c
+compiling ClosurePool.c
+compiling Pointer.c
+compiling Types.c
+linking shared-object ffi_c.so
+
+current directory: /home/vaishali/.rvm/gems/ruby-2.3.1/gems/ffi-1.9.17/ext/ffi_c
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ffi_c.so ./.gem.20170130-31423-1m3ha0m

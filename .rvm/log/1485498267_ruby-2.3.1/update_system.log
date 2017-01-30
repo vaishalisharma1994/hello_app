@@ -1,0 +1,128 @@
+[2017-01-27 11:54:27] requirements_debian_update_system
+requirements_debian_update_system () 
+{ 
+    __rvm_try_sudo apt-get --quiet --yes update || { 
+        \typeset __ret=$?;
+        case ${__ret} in 
+            100)
+                rvm_error "There has been error while updating 'apt-get', please give it some time and try again later.
+404 errors should be fixed for rvm to proceed. Check your sources configured in:
+    /etc/apt/sources.list
+    /etc/apt/sources.list.d/*.list
+"
+            ;;
+        esac;
+        return ${__ret}
+    }
+}
+current path: /home/vaishali
+PATH=/home/vaishali/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/:/home/vaishali/.rvm/bin
+command(2): requirements_debian_update_system ruby-2.3.1
+++ __rvm_try_sudo apt-get --quiet --yes update
+++ typeset -a command_to_run
+++ typeset sudo_path sbin_path missing_paths
+++ command_to_run=("$@")
+++ ((  UID == 0  ))
+++ case "$rvm_autolibs_flag_number" in
+++ is_a_function __rvm_sudo
+++ typeset -f __rvm_sudo
+++ missing_paths=
+++ for sbin_path in /sbin /usr/sbin /usr/local/sbin
+++ [[ -d /sbin ]]
+++ [[ :/home/vaishali/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/:/home/vaishali/.rvm/bin: != *\:\/\s\b\i\n\:* ]]
+++ for sbin_path in /sbin /usr/sbin /usr/local/sbin
+++ [[ -d /usr/sbin ]]
+++ [[ :/home/vaishali/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/:/home/vaishali/.rvm/bin: != *\:\/\u\s\r\/\s\b\i\n\:* ]]
+++ for sbin_path in /sbin /usr/sbin /usr/local/sbin
+++ [[ -d /usr/local/sbin ]]
+++ [[ :/home/vaishali/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/:/home/vaishali/.rvm/bin: != *\:\/\u\s\r\/\l\o\c\a\l\/\s\b\i\n\:* ]]
+++ [[ -n '' ]]
+++ command_to_run=(__rvm_sudo -p "%p password required for '$*': " "${command_to_run[@]}")
+++ __rvm_sudo -p '%p password required for '\''apt-get --quiet --yes update'\'': ' apt-get --quiet --yes update
+++ command sudo -p '%p password required for '\''apt-get --quiet --yes update'\'': ' apt-get --quiet --yes update
+++ sudo -p '%p password required for '\''apt-get --quiet --yes update'\'': ' apt-get --quiet --yes update
+Ign http://ubuntu.excellmedia.net utopic InRelease
+Ign http://ubuntu.excellmedia.net utopic-updates InRelease
+Ign http://ubuntu.excellmedia.net utopic-backports InRelease
+Ign http://ubuntu.excellmedia.net utopic-security InRelease
+Ign http://extras.ubuntu.com utopic InRelease
+Hit http://ubuntu.excellmedia.net utopic Release.gpg
+Hit http://ubuntu.excellmedia.net utopic-updates Release.gpg
+Hit http://ubuntu.excellmedia.net utopic-backports Release.gpg
+Hit http://extras.ubuntu.com utopic Release.gpg
+Hit http://ubuntu.excellmedia.net utopic-security Release.gpg
+Hit http://ubuntu.excellmedia.net utopic Release
+Hit http://ubuntu.excellmedia.net utopic-updates Release
+Hit http://extras.ubuntu.com utopic Release
+Hit http://ubuntu.excellmedia.net utopic-backports Release
+Hit http://ubuntu.excellmedia.net utopic-security Release
+Hit http://ubuntu.excellmedia.net utopic/main Sources
+Hit http://extras.ubuntu.com utopic/main Sources
+Hit http://ubuntu.excellmedia.net utopic/restricted Sources
+Hit http://ubuntu.excellmedia.net utopic/universe Sources
+Hit http://ubuntu.excellmedia.net utopic/multiverse Sources
+Hit http://extras.ubuntu.com utopic/main amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic/main amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic/restricted amd64 Packages
+Hit http://extras.ubuntu.com utopic/main i386 Packages
+Hit http://ubuntu.excellmedia.net utopic/universe amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic/multiverse amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic/main i386 Packages
+Hit http://ubuntu.excellmedia.net utopic/restricted i386 Packages
+Hit http://ubuntu.excellmedia.net utopic/universe i386 Packages
+Hit http://ubuntu.excellmedia.net utopic/multiverse i386 Packages
+Hit http://ubuntu.excellmedia.net utopic/main Translation-en
+Hit http://ubuntu.excellmedia.net utopic/multiverse Translation-en
+Hit http://ubuntu.excellmedia.net utopic/restricted Translation-en
+Hit http://ubuntu.excellmedia.net utopic/universe Translation-en
+Hit http://ubuntu.excellmedia.net utopic-updates/main Sources
+Hit http://ubuntu.excellmedia.net utopic-updates/restricted Sources
+Hit http://ubuntu.excellmedia.net utopic-updates/universe Sources
+Hit http://ubuntu.excellmedia.net utopic-updates/multiverse Sources
+Hit http://ubuntu.excellmedia.net utopic-updates/main amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-updates/restricted amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-updates/universe amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-updates/multiverse amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-updates/main i386 Packages
+Hit http://ubuntu.excellmedia.net utopic-updates/restricted i386 Packages
+Hit http://ubuntu.excellmedia.net utopic-updates/universe i386 Packages
+Ign http://extras.ubuntu.com utopic/main Translation-en_IN
+Hit http://ubuntu.excellmedia.net utopic-updates/multiverse i386 Packages
+Hit http://ubuntu.excellmedia.net utopic-updates/main Translation-en
+Hit http://ubuntu.excellmedia.net utopic-updates/multiverse Translation-en
+Ign http://extras.ubuntu.com utopic/main Translation-en
+Hit http://ubuntu.excellmedia.net utopic-updates/restricted Translation-en
+Hit http://ubuntu.excellmedia.net utopic-updates/universe Translation-en
+Hit http://ubuntu.excellmedia.net utopic-backports/main Sources
+Hit http://ubuntu.excellmedia.net utopic-backports/restricted Sources
+Hit http://ubuntu.excellmedia.net utopic-backports/universe Sources
+Hit http://ubuntu.excellmedia.net utopic-backports/multiverse Sources
+Hit http://ubuntu.excellmedia.net utopic-backports/main amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-backports/restricted amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-backports/universe amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-backports/multiverse amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-backports/main i386 Packages
+Hit http://ubuntu.excellmedia.net utopic-backports/restricted i386 Packages
+Hit http://ubuntu.excellmedia.net utopic-backports/universe i386 Packages
+Hit http://ubuntu.excellmedia.net utopic-backports/multiverse i386 Packages
+Hit http://ubuntu.excellmedia.net utopic-backports/main Translation-en
+Hit http://ubuntu.excellmedia.net utopic-backports/multiverse Translation-en
+Hit http://ubuntu.excellmedia.net utopic-backports/restricted Translation-en
+Hit http://ubuntu.excellmedia.net utopic-backports/universe Translation-en
+Hit http://ubuntu.excellmedia.net utopic-security/main Sources
+Hit http://ubuntu.excellmedia.net utopic-security/restricted Sources
+Hit http://ubuntu.excellmedia.net utopic-security/universe Sources
+Hit http://ubuntu.excellmedia.net utopic-security/multiverse Sources
+Hit http://ubuntu.excellmedia.net utopic-security/main amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-security/restricted amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-security/universe amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-security/multiverse amd64 Packages
+Hit http://ubuntu.excellmedia.net utopic-security/main i386 Packages
+Hit http://ubuntu.excellmedia.net utopic-security/restricted i386 Packages
+Hit http://ubuntu.excellmedia.net utopic-security/universe i386 Packages
+Hit http://ubuntu.excellmedia.net utopic-security/multiverse i386 Packages
+Hit http://ubuntu.excellmedia.net utopic-security/main Translation-en
+Hit http://ubuntu.excellmedia.net utopic-security/multiverse Translation-en
+Hit http://ubuntu.excellmedia.net utopic-security/restricted Translation-en
+Hit http://ubuntu.excellmedia.net utopic-security/universe Translation-en
+Reading package lists...

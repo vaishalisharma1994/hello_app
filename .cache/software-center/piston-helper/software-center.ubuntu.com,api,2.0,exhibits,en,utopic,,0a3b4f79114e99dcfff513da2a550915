@@ -1,0 +1,21 @@
+status: 200
+x-request-id: WI8QJwoZOCUAADZVNgwAAAAY1
+via: 1.1 juju-prod45-u1-sca-machine-26 (squid/3.3.8)
+x-cache: HIT from juju-prod45-u1-sca-machine-26
+content-language: en
+age: 438
+expires: Mon, 30 Jan 2017 10:09:13 GMT
+vary: Authorization,Accept-Language,Cookie
+server: gunicorn/19.6.0
+last-modified: Mon, 30 Jan 2017 09:59:13 GMT
+x-vcs-revision: 13.2
+etag: "d751713988987e9331980363e24189ce"
+strict-transport-security: max-age=2592000
+cache-control: max-age=600
+date: Mon, 30 Jan 2017 09:59:13 GMT
+x-bzr-revision-number: 3764
+content-type: application/json; charset=utf-8
+x-cache-lookup: HIT from juju-prod45-u1-sca-machine-26:3128
+content-location: https://software-center.ubuntu.com/api/2.0/exhibits/en/utopic/
+
+[]
