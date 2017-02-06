@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<title></title>
+
+<!-- Rich snippets -->
+<meta name="description=" content="Master new skills by diving into a web project. Learn the fundamentals of Rails 4, Ruby 2, Bootstrap, databases, APIs, and other powerful tools.">
+
+<!-- Facebook -->
+<meta property="og:title" content="Build web apps like Etsy and Airbnb in 30 days." />
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://dl.dropbox.com/s/6tm0qh51vplzm7g/bannernew.png" />
+<meta property="og:url" content="https://www.baserails.com" />
+<meta property="og:description" content="Don't waste $20,000 outsourcing your projects. Build it yourself for $49." />
+
+<link data-turbolinks-track="true" href="/assets/application-8eeb0664543cfec47c567761e38c484f.css" media="all" rel="stylesheet" />
+<script data-turbolinks-track="true" src="/assets/application-e1ba470aed15c514a1187d096eb5d72b.js"></script>
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="ZP8aGv8OPFevpXq3xltHNtnhNfDXOt+LLGIgttVMGmg=" name="csrf-token" />
+<link href="https://dl.dropboxusercontent.com/s/s82cg7msu6y6zaz/BaseRails.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+<meta content="pk_live_nMUBnM4hDDw31kdZLZBmXOjW" name="stripe-key" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="uJn6XnqmOBGZny9ssS5cNXe9PxVf6tPWAx8-_wQvc-c" />
+
+
+<!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("cb400d421ef2be1aa4fda72a88a07f92");</script><!-- end Mixpanel -->
+
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-47218019-2', 'baserails.com');
+ga('send', 'pageview');
+
+</script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body class="questions show">
+
+
+  <span itemscope itemtype="http://data-vocabulary.org/Organization">
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+      <a class="navbar-brand" data-no-turbolink="true" href="https://www.baserails.com" itemprop="url">
+        <span itemprop="name">BaseRails</span>
+</a>
+      <!-- <a href="https://www.baserails.com" itemprop="url" class="navbar-brand"><span itemprop="name">BaseRails</span></a> -->
+    <p>Build something that works</p>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a data-no-turbolink="true" href="/#course">Courses</a></li>
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a data-no-turbolink="true" href="/videos">Features library</a></li>
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a data-no-turbolink="true" href="/questions">Ask a Developer</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a data-no-turbolink="true" href="/pricing">Pricing</a></li>
+        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/users/sign_in">Login</a></li>
+      </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+  <section class="single-question">
+  <div class="row">
+    <div class="col-md-11">
+      <div class="newq btn btn-primary">
+        <a href="/questions/new">Post new question</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>I messed up while generating my migration. How can I undo it?</h3>
+      <h4></h3>
+      <h5>
+        Posted almost 3 years ago by
+          <span id="name">
+          Patty Whitman
+        </span>
+      </h5>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+
+
+        <!-- Display all comments -->
+          <div class="comment">
+
+
+  <small>
+    Posted almost 3 years ago by
+      <span id="admin">
+      Alex Yang
+    </span>
+  </small>
+  <p class="etsycomment">You need to be careful when manually fiddling with migration files. Rails uses migration files as a record of all the changes you‚Äôve ever made to your database. Manually deleting a migration file that Rails thinks should exist is like rewriting history. And if you‚Äôve watched enough movies, you know that rewriting history is never a good idea. Here‚Äôs what you can do to fix the situation safely.<br/><br/>If you‚Äôve created the migration file but haven&#39;t run the migration yet (‚Äòrake db:migrate‚Äô), you can just delete that specific migration file under your db/migrate folder and generate another one. <br/><br/>On the other hand, if you‚Äôve already run the migration, you should first run &#39;rake db:migrate:status&#39; to see a list of all your migrations. As long as the migration you want to modify is the most recent one and it shows as &#39;up&#39;, you can run &#39;rake db:rollback&#39;. That will un-run the migration so it becomes &#39;down&#39; (you can confirm with &#39;rake db:migrate:status&#39; again). Once it&#39;s down, you can delete the migration file under your db/migrate folder safely, and then generate a new one.<br/></p>
+  
+  <div class="row comment-partial">
+    <div class="col-md-1">
+      <!-- Display number of upvotes -->
+      <span class="vote-count">
+        0
+      </span>
+      
+    </div>
+    
+    <div class="col-md-11">
+    </div>
+  </div>
+
+      <div class="comment response">
+
+
+  <small>
+    Posted over 2 years ago by
+      <span id="name">
+      Harry Lee
+    </span>
+  </small>
+  <p class="etsycomment">Hi Alex, <br/>So luckily, the migration i want to un-run was the most recent one. However, I&#39;ve got the following response from gitbash:<br/><br/>SQLite3::SQLException: duplicate column name: name: ALTER TABLE &quot;users&quot; ADD &quot;nam<br/>e&quot; varchar(255)c:in `migrate&#39;<br/>Tasks: TOP =&gt; db:rollback<br/><br/>and has failed to un-run previous migration.<br/><br/>Is there a reason for this?</p>
+  
+  <div class="row comment-partial">
+    <div class="col-md-1">
+      <!-- Display number of upvotes -->
+      <span class="vote-count">
+        0
+      </span>
+      
+    </div>
+    
+    <div class="col-md-11">
+    </div>
+  </div>
+
+      <div class="comment response">
+
+
+  <small>
+    Posted over 2 years ago by
+      <span id="admin">
+      Alex Yang
+    </span>
+  </small>
+  <p class="etsycomment">Can you tell me which commands you ran as well as what your migration file contains? You&#39;ll be able to find this under db/migrations</p>
+  
+  <div class="row comment-partial">
+    <div class="col-md-1">
+      <!-- Display number of upvotes -->
+      <span class="vote-count">
+        0
+      </span>
+      
+    </div>
+    
+    <div class="col-md-11">
+    </div>
+  </div>
+
+      <div class="comment response">
+
+
+  <small>
+    Posted over 2 years ago by
+      <span id="name">
+      Harry Lee
+    </span>
+  </small>
+  <p class="etsycomment">I did <br/>removename from users</p>
+  
+  <div class="row comment-partial">
+    <div class="col-md-1">
+      <!-- Display number of upvotes -->
+      <span class="vote-count">
+        0
+      </span>
+      
+    </div>
+    
+    <div class="col-md-11">
+    </div>
+  </div>
+
+
+</div>  <div class="comment response">
+
+
+  <small>
+    Posted over 2 years ago by
+      <span id="name">
+      Harry Lee
+    </span>
+  </small>
+  <p class="etsycomment">This are my rake db:migrate:status<br/>database: c:/Sites/etsydemo/db/development.sqlite3<br/><br/> Status   Migration ID    Migration Name<br/>--------------------------------------------------<br/>   up     20140618223709  Create listings<br/>   up     20140619215549  Add attachment image to listings<br/>   up     20140627190736  Devise create users<br/>   up     20140627214225  Add name to users<br/>   up     20140627223922  Add user id to listings<br/>   up     20140628094745  Add university to listings<br/>   up     20140628095310  Add features to listings<br/>   up     20140705100221  Create tutorial requests<br/>   up     20140705103211  Add listing id to tutorial requests<br/>   up     20140705104440  Add fields to tutorial requests<br/>   up     20140726185156  Create reviews<br/>   up     20140730150950  Add user id to reviews<br/>   up     20140730163643  Add listing id to reviews<br/>   up     20140731153741  Add fields to users<br/>   up     20140731160708  Remove name from users<br/><br/>then as you have said i did rake db:rollback<br/><br/>remove_name_from_users.rb contains:<br/>class RemoveNameFromUsers &lt; ActiveRecord::Migration<br/>  def change<br/>  	remove_column :users, :name, :string<br/>  end<br/>end<br/></p>
+  
+  <div class="row comment-partial">
+    <div class="col-md-1">
+      <!-- Display number of upvotes -->
+      <span class="vote-count">
+        0
+      </span>
+      
+    </div>
+    
+    <div class="col-md-11">
+    </div>
+  </div>
+
+      <div class="comment response">
+
+
+  <small>
+    Posted over 2 years ago by
+      <span id="admin">
+      Alex Yang
+    </span>
+  </small>
+  <p class="etsycomment">The problem is that you edited the migration file manually after it was already run. Now, when Rails tries to undo it, it&#39;s trying to undo a change that was never made in the first place. Instead, you need to manually change the migration back to what it was before, then run &#39;rake db:rollback&#39;, and then delete the migration file manually.</p>
+  
+  <div class="row comment-partial">
+    <div class="col-md-1">
+      <!-- Display number of upvotes -->
+      <span class="vote-count">
+        0
+      </span>
+      
+    </div>
+    
+    <div class="col-md-11">
+    </div>
+  </div>
+
+      <div class="comment response">
+
+
+  <small>
+    Posted over 2 years ago by
+      <span id="name">
+      Harry Lee
+    </span>
+  </small>
+  <p class="etsycomment">perfect! got it to work thanks!:)</p>
+  
+  <div class="row comment-partial">
+    <div class="col-md-1">
+      <!-- Display number of upvotes -->
+      <span class="vote-count">
+        0
+      </span>
+      
+    </div>
+    
+    <div class="col-md-11">
+    </div>
+  </div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <a class="btn btn-md btn-default" href="/questions">Back</a>
+      </div>
+    </div>
+
+  <br>
+
+</section>
+
+<!-- Mixpanel event and identity tracking -->
+<script>
+  mixpanel.track("Show Question", {
+    "Title": "I messed up while generating my migration. How can I undo it?"
+  });
+</script>
+  <footer class="site-footer">
+	<div class="container">
+		<div class="footer-links center">
+			<a href="/about">About us</a>
+        	<a data-no-turbolink="true" href="/#course">Courses</a>
+        	<a data-no-turbolink="true" href="/videos">Features library</a>
+        	<a data-no-turbolink="true" href="/studentprojects">Student projects</a>
+			<a href="/blog">Blog</a>
+			<a href="mailto:alex@baserails.com">
+			  Contact
+</a>		</div>
+		<div class="social center">
+			<a href="http://www.twitter.com/baserails"><img alt="Twitter" src="https://dl.dropboxusercontent.com/s/onv8sst20hjsqrn/twitter.png" /></a>
+			<a href="https://www.facebook.com/baserails"><img alt="Facebook" src="https://dl.dropboxusercontent.com/s/99aqgtpqitvo9vs/facebook.png" /></a>
+		</div>
+		<p class="copyright center">Copyright ¬© 2014 BaseRails</p>
+	</div>
+</footer>
+
+
+
+</body>
+</html>
+4ùÚõtX      XîMXîM=fú       `:https://www.baserails.com/questions/i-messed-up-while-generating-my-migration-how-can-i-undo-it necko:classified 1 security-info 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 request-method GET response-head HTTP/1.1 200 OK 
+Strict-Transport-Security: max-age=31536000
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+x-ua-compatible: chrome=1
+Content-Type: text/html; charset=utf-8
+Etag: "3d2879b34596434b5e1c66a73d20eb48"
+Cache-Control: max-age=0, private, must-revalidate
+x-request-id: 6f608c95-7cef-4898-8eae-253e89875180
+x-runtime: 0.321173
+Server: WEBrick/1.3.1 (Ruby/2.1.8/2015-12-16)
+Date: Fri, 03 Feb 2017 09:27:44 GMT
+Content-Length: 13295
+Via: 1.1 vegur
+ charset UTF-8 uncompressed-len 0   3Ô

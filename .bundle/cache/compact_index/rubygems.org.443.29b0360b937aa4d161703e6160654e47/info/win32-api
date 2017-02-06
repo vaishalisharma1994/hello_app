@@ -50,3 +50,4 @@
 1.5.3-universal-mingw32 |checksum:f0918f416e34e2eb34a8c2bfd575e868426c2fcc11c4b80fb6d4370f3f974acb,ruby:>= 1.8.2
 1.6.0-universal-mingw32 |checksum:4532f13c0a2ce8e981dfc9baaf5fab92d9b2b6a40b2ec9f851a7a7707d125b08,ruby:>= 1.8.2
 1.6.1.beta1-universal-mingw32 |checksum:4f02e2d0011e77679762ecbc33d4ff4e9b302eae4b5672d9bc82c2c2b61fe54c,ruby:>= 1.8.2,rubygems:> 1.3.1
+1.6.1.2-universal-mingw32 |checksum:4401604ed9079d29ebcb60b33fdfd691b4cece570bb4cfd067f53f585b15bdf0,ruby:>= 1.8.2

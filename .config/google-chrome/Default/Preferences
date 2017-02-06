@@ -10,7 +10,7 @@
          "bottom": 758,
          "docked": false,
          "left": 75,
-         "maximized": false,
+         "maximized": true,
          "right": 1125,
          "top": 34,
          "work_area_bottom": 768,
@@ -21,7 +21,7 @@
    },
    "countryid_at_install": 18766,
    "data_reduction": {
-      "daily_original_length": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1257665" ],
+      "daily_original_length": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "2011913", "5977544", "14525922", "20039380", "10932348", "0", "2378740", "2169979" ],
       "daily_original_length_application": "0",
       "daily_original_length_unknown": "332",
       "daily_original_length_via_data_reduction_proxy": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
@@ -33,7 +33,7 @@
       "daily_original_length_with_data_reduction_proxy_enabled_application": "0",
       "daily_original_length_with_data_reduction_proxy_enabled_unknown": "0",
       "daily_original_length_with_data_reduction_proxy_enabled_video": "0",
-      "daily_received_length": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "1257665" ],
+      "daily_received_length": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "2011913", "5977544", "14525922", "20039380", "10932348", "0", "2378740", "2169979" ],
       "daily_received_length_application": "0",
       "daily_received_length_https_with_data_reduction_proxy_enabled": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
       "daily_received_length_long_bypass_with_data_reduction_proxy_enabled": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
@@ -49,7 +49,7 @@
       "daily_received_length_with_data_reduction_proxy_enabled_application": "0",
       "daily_received_length_with_data_reduction_proxy_enabled_unknown": "0",
       "daily_received_length_with_data_reduction_proxy_enabled_video": "0",
-      "last_update_date": "13130188200000000"
+      "last_update_date": "13130793000000000"
    },
    "data_reduction_lo_fi": {
       "load_images_requests_per_session": 0,
@@ -66,8 +66,8 @@
          "initialized": true
       },
       "autoupdate": {
-         "last_check": "13130245861080859",
-         "next_check": "13130261057276135"
+         "last_check": "13130836503570286",
+         "next_check": "13130854228933355"
       },
       "chrome_url_overrides": {
          "bookmarks": [ "chrome-extension://eemcgdkfndhakfknompkggombfjjjeno/main.html", {
@@ -156,7 +156,7 @@
             },
             "initial_keybindings_set": true,
             "install_time": "13130245345416346",
-            "lastpingday": "13130236800358040",
+            "lastpingday": "13130755200010457",
             "location": 1,
             "manifest": {
                "api_console_project_id": "619683526622",
@@ -217,7 +217,7 @@
 
             },
             "install_time": "13130245345667341",
-            "lastpingday": "13130236800358040",
+            "lastpingday": "13130755200010457",
             "location": 1,
             "manifest": {
                "app": {
@@ -285,7 +285,7 @@
 
             },
             "install_time": "13130245345540486",
-            "lastpingday": "13130236800358040",
+            "lastpingday": "13130755200010457",
             "location": 1,
             "manifest": {
                "app": {
@@ -565,7 +565,7 @@
 
             },
             "install_time": "13130250193897142",
-            "lastpingday": "13130236800335325",
+            "lastpingday": "13130755200010457",
             "location": 10,
             "manifest": {
                "description": "Support files for Chrome Hotwording.",
@@ -1204,7 +1204,7 @@
             },
             "initial_keybindings_set": true,
             "install_time": "13130245345210223",
-            "lastpingday": "13130236800358040",
+            "lastpingday": "13130755200010457",
             "location": 10,
             "manifest": {
                "app": {
@@ -1270,7 +1270,7 @@
 
             },
             "install_time": "13130245345773836",
-            "lastpingday": "13130236800358040",
+            "lastpingday": "13130755200010457",
             "location": 1,
             "manifest": {
                "app": {
@@ -1318,8 +1318,8 @@
    "hotword": {
       "previous_language": "en-US"
    },
-   "http_original_content_length": "1257665",
-   "http_received_content_length": "1257665",
+   "http_original_content_length": "58035826",
+   "http_received_content_length": "58035826",
    "intl": {
       "accept_languages": "en-US,en"
    },
@@ -1328,6 +1328,82 @@
    },
    "media": {
       "device_id_salt": "dxBHXntiQ5iCxEDA1q8t/A=="
+   },
+   "net": {
+      "http_server_properties": {
+         "servers": {
+            "ad.atdmt.com:443": {
+               "supports_spdy": true
+            },
+            "analytics.twitter.com:443": {
+               "supports_spdy": true
+            },
+            "cdn.jsdelivr.net:443": {
+               "supports_spdy": true
+            },
+            "cdn.mathjax.org:443": {
+               "supports_spdy": true
+            },
+            "cdn.optimizely.com:443": {
+               "supports_spdy": true
+            },
+            "cdnjs.cloudflare.com:443": {
+               "supports_spdy": true
+            },
+            "connect.facebook.net:443": {
+               "supports_spdy": true
+            },
+            "ghbtns.com:443": {
+               "supports_spdy": true
+            },
+            "go.digitalocean.com:443": {
+               "supports_spdy": true
+            },
+            "graph.facebook.com:443": {
+               "supports_spdy": true
+            },
+            "i.stack.imgur.com:443": {
+               "supports_spdy": true
+            },
+            "scontent.xx.fbcdn.net:443": {
+               "supports_spdy": true
+            },
+            "settings.luckyorange.net:443": {
+               "supports_spdy": true
+            },
+            "srv.buysellads.com:443": {
+               "supports_spdy": true
+            },
+            "ssl.luckyorange.com:443": {
+               "supports_spdy": true
+            },
+            "syndication.twitter.com:443": {
+               "supports_spdy": true
+            },
+            "t.co:443": {
+               "supports_spdy": true
+            },
+            "use.typekit.com:443": {
+               "supports_spdy": true
+            },
+            "use.typekit.net:443": {
+               "supports_spdy": true
+            },
+            "www.digitalocean.com:443": {
+               "supports_spdy": true
+            },
+            "www.facebook.com:443": {
+               "supports_spdy": true
+            },
+            "www.linkedin.com:443": {
+               "supports_spdy": true
+            },
+            "www.railstutorial.org:443": {
+               "supports_spdy": true
+            }
+         },
+         "version": 3
+      }
    },
    "pinned_tabs": [  ],
    "plugins": {
@@ -1420,7 +1496,15 @@
             }
          },
          "pattern_pairs": {
-
+            "https://202.78.173.18:443,https://202.78.173.18:443": {
+               "ssl-cert-decisions": {
+                  "cert_exceptions_map": {
+                     "429496709479ojG3jm64QvHHhzTTqcApGqAQn1dr7TjFFcTVEMXF0=": 1
+                  },
+                  "guid": "FBE1AD1F-2145-4278-B88F-4EAA0E31DE59",
+                  "version": 1
+               }
+            }
          },
          "pref_version": 1
       },
@@ -1450,15 +1534,15 @@
          "extensions": {
             "settings": {
                "ahfgeienlihckogmohjhadlkjgocpleb": "82389360CBAD6EFA42754E95E70D55E2FB53A98157887A80F4078AD42E58C8BF",
-               "aohghmighlieiainnegkcijnfilokake": "B50D332C06FAF911F4162727D20C7F15338E0A528117A5B54DBFDCD113246E69",
-               "apdfllckaahabafndbhieahigkjlhalf": "0832BDE5028871E5A7ECC07FB5B5B609DA2AF68DCBC3C2170BB53CC164495E4A",
+               "aohghmighlieiainnegkcijnfilokake": "26BCF0675572C4B6C077FDFDA32D4C3AC01BA986AE0FC95A6E0805C0F1E5C191",
+               "apdfllckaahabafndbhieahigkjlhalf": "9D3CDB3EE2C2A5914E1F7683D61ECD8D57D77481151F6D8D19DE415F6477447D",
                "bepbmhgboaologfdajaanbcjmnhjmhfn": "1AF5697DC58855220EC37C72526ED6ADDC2D3D47161F97F5D99B6A849DB352D6",
-               "blpcfgokakmgnkcojhhkbfbldkacnbeo": "C6DEAEAE5899A28E1E681E6A340A9DA89BCDA27F71A81E21999E52EB9D996926",
+               "blpcfgokakmgnkcojhhkbfbldkacnbeo": "9BC207CBE063D064649E1AE868EE018700F0A03CDA8C70142077EA757313E981",
                "eemcgdkfndhakfknompkggombfjjjeno": "08C2A2086CEB38FFD84F7B3ABC52F6D28C59495425F4E13741B21E9A80475C52",
                "ennkphjdgehloodpbhlhldgbnhmacadg": "2833A6604CAF158EDB8203353D2D4F0E0773C0CE1E24CD2B552083F206EEFDEA",
                "gfdkimpbcpahaombhbimeihdjnejgicl": "C87FC8155BE6573296F6A297BB2FCF69AFFB616E7528CE02338816E1FC4310D9",
                "kmendfapggjehodndflmmgagdbamhnfd": "DF593B5CEB93D17A1D26E6043F429AD2FB572431AFF08EBD3615FCEED79384FC",
-               "lccekmodgklaepjeofjdjpbminllajkg": "6502FC549AF80F22696EF9940BA2A96E33009F34DA2081A26D37C8E5E6285E30",
+               "lccekmodgklaepjeofjdjpbminllajkg": "F6B8DAA385D6850252A2E1D25E95F5C7C611DDF5044BC1945CC81062766C7EAD",
                "mfehgcgbbipciphmccgaenjidiccnmng": "095298EB14862A44F1215B4F958FB99317838D8C28E1860CE5A0487534C52988",
                "mfffpogegjflfpflabcdkioaeobkgjik": "6F11C1847EAAEE0D9C9887841C4ED588A958300A02F2C857051AACAF42B0A846",
                "mgndgikekgjfcpckkfioiadnlibdjbkf": "B4FD3B5EC40886424F76A0899EB35F1BB6D0BE06897E985472ECBD5FBE440477",
@@ -1466,8 +1550,8 @@
                "nbpagnldghgfoolbancepceaanlmhfmd": "DFD98C2DE200CDCCA9580A7807D42532FECCA16E6F6AAD55EE55E379D4D98BF3",
                "neajdppkdcdipfabeoofebfddakdcjhd": "D7AE1BC0A80ED9000D4E08D1C392C5260C04972CEE33632C02DB625AEF6251E6",
                "nkeimhogjdpnpccoofpliimaahmaaome": "DCB15FE1357109EB20026E67FEC8F2016FA657F1BA78D6C7D89A8B06AC46198D",
-               "nmmhkkegccagdldgiimedpiccmgmieda": "F3E52724E3944EE1E6CDBA16ACF718149B74F18CFAFFFCAD37D583CCAD5E19D0",
-               "pjkljhegncpnkpknbcohdijeoejaedia": "3B80649DC11F8725A473ECFF6C039D8A64B35E763E2CF4EE7C87F145C34D00B8"
+               "nmmhkkegccagdldgiimedpiccmgmieda": "F10D0C08497BCB05EB03C6AC48B0A8BEE94915F24A0C2C5218E2C53ED21F1CC5",
+               "pjkljhegncpnkpknbcohdijeoejaedia": "DAB63CB3DC77659D61EDCF6AEE30B358E1E594FEBFAEE86D565CB773E52E0E99"
             }
          },
          "google": {
@@ -1509,7 +1593,7 @@
       "dictionary": ""
    },
    "sync_promo": {
-      "startup_count": 6
+      "startup_count": 10
    },
    "translate_blocked_languages": [ "en" ],
    "translate_whitelists": {

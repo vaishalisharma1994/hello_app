@@ -1,0 +1,1079 @@
+<div id="cha-password_reset" data-tralics-id="cid66" class="chapter" data-number="12" data-chapter="password_reset"><h1><a href="password_reset_fragment.html#cha-password_reset" class="heading hyperref"><span class="number">Chapter 12 </span>Password reset</a></h1>
+<p>Having completed account activation (and thereby verified the user’s email address) in <a href="account_activation_fragment.html#cha-account_activation" class="hyperref">Chapter <span class="ref">11</span></a>, we’re now in a good position to implement <em>password reset</em>, and thereby handle the common case of users forgetting their passwords.<sup id="cha-12_footnote-ref-1" class="footnote"><a href="#cha-12_footnote-1">1</a></sup><span class="intersentencespace"></span> As we’ll see, many of the steps are similar to those for account activation, and we will have several opportunities to apply the lessons learned in <a href="account_activation_fragment.html#cha-account_activation" class="hyperref">Chapter <span class="ref">11</span></a>.<span class="intersentencespace"></span> The beginning is different, though; unlike account activation, implementing password resets requires both a change to one of our views and two new forms (to handle email and new password submission).</p>
+<p>Before writing any code, let’s mock up the expected sequence for resetting passwords.<span class="intersentencespace"></span> We’ll start by adding a “forgot password” link to the sample application’s login form (<a href="password_reset_fragment.html#fig-login_forgot_password_mockup" class="hyperref">Figure <span class="ref">12.1</span></a>).<span class="intersentencespace"></span> The “forgot password” link will go to a page with a form that takes in an email address and sends an email containing a password reset link (<a href="password_reset_fragment.html#fig-forgot_password_form_mockup" class="hyperref">Figure <span class="ref">12.2</span></a>).<span class="intersentencespace"></span> The reset link will go to a form for resetting the user’s password (with confirmation), as shown in <a href="password_reset_fragment.html#fig-reset_password_form_mockup" class="hyperref">Figure <span class="ref">12.3</span></a>.</p>
+<div class="center figure" id="fig-login_forgot_password_mockup" data-tralics-id="uid1455" data-number="12.1">
+<div class="graphics image box"><img src="images/figures/login_forgot_password_mockup.png" alt="images/figures/login_forgot_password_mockup"></div><div class="caption"><span class="header">Figure 12.1: </span><span class="description">A mockup of a “forgot password” link.
+</span></div></div>
+<div class="center figure" id="fig-forgot_password_form_mockup" data-tralics-id="uid1456" data-number="12.2">
+<div class="graphics image box"><img src="images/figures/forgot_password_form_mockup.png" alt="images/figures/forgot_password_form_mockup"></div><div class="caption"><span class="header">Figure 12.2: </span><span class="description">A mockup of the “forgot password” form.
+</span></div></div>
+<div class="center figure" id="fig-reset_password_form_mockup" data-tralics-id="uid1457" data-number="12.3">
+<div class="graphics image box"><img src="images/figures/reset_password_form_mockup.png" alt="images/figures/reset_password_form_mockup"></div><div class="caption"><span class="header">Figure 12.3: </span><span class="description">A mockup of the reset password form.
+</span></div></div>
+<p>If you followed <a href="account_activation_fragment.html#cha-account_activation" class="hyperref">Chapter <span class="ref">11</span></a>, you already have a mailer for password resets, which was generated in <a href="account_activation_fragment.html#sec-account_activation_emails" class="hyperref">Section <span class="ref">11.2</span></a> (<a href="account_activation_fragment.html#code-generate_user_mailer" class="hyperref">Listing <span class="ref">11.6</span></a>).<span class="intersentencespace"></span> In this section, we’ll complete the necessary preliminaries by adding a resource and data model for password resets (<a href="password_reset_fragment.html#sec-password_resets_resource" class="hyperref">Section <span class="ref">12.1</span></a>) to go along with the mailer.<span class="intersentencespace"></span> We’ll implement the actual password reset in <a href="password_reset_fragment.html#sec-resetting_the_password" class="hyperref">Section <span class="ref">12.3</span></a>.</p>
+<p>In analogy with account activations, our general plan is to make a Password Resets resource, with each password reset consisting of a reset token and corresponding reset digest.<span class="intersentencespace"></span> The primary sequence goes like this:</p>
+<ol>
+<li>When a user requests a password reset, find the user by the submitted email address.<span class="intersentencespace"></span>
+</li>
+<li>If the email address exists in the database, generate a reset token and corresponding reset digest.<span class="intersentencespace"></span>
+</li>
+<li>Save the reset digest to the database, and then send an email to the user with a link containing the reset token and user’s email address.<span class="intersentencespace"></span>
+</li>
+<li>When the user clicks the link, find the user by email address, and then authenticate the token by comparing it to the reset digest.<span class="intersentencespace"></span>
+</li>
+<li>If authenticated, present the user with the form for changing the password.<span class="intersentencespace"></span>
+</li></ol>
+</div><div id="sec-password_resets_resource" data-tralics-id="cid67" class="section" data-number="12.1"><h2><a href="password_reset_fragment.html#sec-password_resets_resource" class="heading hyperref"><span class="number">12.1 </span>Password resets resource</a></h2>
+<p>As with sessions (<a href="basic_login_fragment.html#sec-sessions_and_failed_login" class="hyperref">Section <span class="ref">8.1</span></a>) and account activations (<a href="account_activation_fragment.html#cha-account_activation" class="hyperref">Chapter <span class="ref">11</span></a>), we’ll model password resets as a resource even though they won’t be associated with an Active Record model.<span class="intersentencespace"></span> Instead, we’ll include the relevant data (including the reset token) in the User model itself.</p>
+<p>Because we’ll be treating password resets as a resource, we’ll interact with them via the standard REST URLs.<span class="intersentencespace"></span> Unlike the activation link, which required only an <code>edit</code> action, in this case we’ll be rendering both <code>new</code> and <code>edit</code> forms for manipulating password resets, as well as creating and updating them, so we’ll end up using four RESTful routes in total.</p>
+<p>As usual, we’ll make a topic branch for the new feature:</p>
+<div class="code"><div class="highlight"><pre><span class="gp">$</span> git checkout -b password-reset
+</pre></div></div>
+<div id="sec-password_resets_controller" data-tralics-id="uid1463" class="subsection" data-number="12.1.1"><h3><a href="password_reset_fragment.html#sec-password_resets_controller" class="heading hyperref"><span class="number">12.1.1 </span>Password resets controller</a></h3>
+<p>Our first step is to generate a controller for the Password Resets resource, in this case making both <code>new</code> and <code>edit</code> actions per the discussion above:</p>
+<div class="code"><div class="highlight"><pre><span class="gp">$</span> rails generate controller PasswordResets new edit --no-test-framework
+</pre></div></div>
+<p>Note that we’ve included a flag to skip generating tests.<span class="intersentencespace"></span> This is because we don’t need the controller tests, preferring instead to build on the integration test from <a href="account_activation_fragment.html#sec-activation_test_and_refactoring" class="hyperref">Section <span class="ref">11.3.3</span></a>.</p>
+<p>Because we’ll need forms both for creating new password resets (<a href="password_reset_fragment.html#fig-forgot_password_form_mockup" class="hyperref">Figure <span class="ref">12.2</span></a>) and for updating them by changing the password in the User model (<a href="password_reset_fragment.html#fig-reset_password_form_mockup" class="hyperref">Figure <span class="ref">12.3</span></a>), we need routes for <code>new</code>, <code>create</code>, <code>edit</code>, and <code>update</code>.<span class="intersentencespace"></span> We can arrange this with the <code>resources</code> line shown in <a href="password_reset_fragment.html#code-password_resets_resource" class="hyperref">Listing <span class="ref">12.1</span></a>.</p>
+<div class="codelisting" id="code-password_resets_resource" data-tralics-id="uid1464" data-number="12.1"><div class="heading"><span class="number">Listing 12.1:</span> 
+
+<span class="description">Adding a resource for password resets.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">config/routes.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">draw</span> <span class="k">do</span>
+  <span class="n">root</span>   <span class="s1">'static_pages#home'</span>
+  <span class="n">get</span>    <span class="s1">'/help'</span><span class="p">,</span>    <span class="ss">to</span><span class="p">:</span> <span class="s1">'static_pages#help'</span>
+  <span class="n">get</span>    <span class="s1">'/about'</span><span class="p">,</span>   <span class="ss">to</span><span class="p">:</span> <span class="s1">'static_pages#about'</span>
+  <span class="n">get</span>    <span class="s1">'/contact'</span><span class="p">,</span> <span class="ss">to</span><span class="p">:</span> <span class="s1">'static_pages#contact'</span>
+  <span class="n">get</span>    <span class="s1">'/signup'</span><span class="p">,</span>  <span class="ss">to</span><span class="p">:</span> <span class="s1">'users#new'</span>
+  <span class="n">get</span>    <span class="s1">'/login'</span><span class="p">,</span>   <span class="ss">to</span><span class="p">:</span> <span class="s1">'sessions#new'</span>
+  <span class="n">post</span>   <span class="s1">'/login'</span><span class="p">,</span>   <span class="ss">to</span><span class="p">:</span> <span class="s1">'sessions#create'</span>
+  <span class="n">delete</span> <span class="s1">'/logout'</span><span class="p">,</span>  <span class="ss">to</span><span class="p">:</span> <span class="s1">'sessions#destroy'</span>
+  <span class="n">resources</span> <span class="ss">:users</span>
+  <span class="n">resources</span> <span class="ss">:account_activations</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:edit</span><span class="o">]</span>
+<span class="hll">  <span class="n">resources</span> <span class="ss">:password_resets</span><span class="p">,</span>     <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:new</span><span class="p">,</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">:edit</span><span class="p">,</span> <span class="ss">:update</span><span class="o">]</span>
+</span><span class="k">end</span>
+</pre></div></div></div><p>The code in <a href="password_reset_fragment.html#code-password_resets_resource" class="hyperref">Listing <span class="ref">12.1</span></a> arranges for the RESTful routes shown in <a href="password_reset_fragment.html#table-RESTful_password_resets" class="hyperref">Table <span class="ref">12.1</span></a>.<span class="intersentencespace"></span> In particular, the first route in <a href="password_reset_fragment.html#table-RESTful_password_resets" class="hyperref">Table <span class="ref">12.1</span></a> gives a link to the “forgot password” form via</p>
+<div class="code"><div class="highlight"><pre><span class="n">new_password_reset_path</span>
+</pre></div></div>
+<p>as seen in <a href="password_reset_fragment.html#code-log_in_password_reset" class="hyperref">Listing <span class="ref">12.2</span></a> and <a href="password_reset_fragment.html#fig-forgot_password_link" class="hyperref">Figure <span class="ref">12.4</span></a>.</p>
+<div class="table" id="table-RESTful_password_resets" data-tralics-id="uid1465" data-number="12.1"><table class="tabular">
+<tbody><tr class="bottom_border"><td class="align_left"><strong>HTTP request</strong></td>
+<td class="align_left"><strong>URL</strong></td>
+<td class="align_left"><strong>Action</strong></td>
+<td class="align_left"><strong>Named route</strong></td>
+</tr><tr><td class="align_left"><code class="tt">GET</code></td>
+<td class="align_left">/password_resets/new</td>
+<td class="align_left"><code>new</code></td>
+<td class="align_left"><code>new_password_reset_path</code></td>
+</tr><tr><td class="align_left"><code class="tt">POST</code></td>
+<td class="align_left">/password_resets</td>
+<td class="align_left"><code>create</code></td>
+<td class="align_left"><code>password_resets_path</code></td>
+</tr><tr><td class="align_left"><code class="tt">GET</code></td>
+<td class="align_left">/password_resets/&lt;token&gt;/edit</td>
+<td class="align_left"><code>edit</code></td>
+<td class="align_left"><code>edit_password_reset_path(token)</code></td>
+</tr><tr><td class="align_left"><code class="tt">PATCH</code></td>
+<td class="align_left">/password_resets/&lt;token&gt;</td>
+<td class="align_left"><code>update</code></td>
+<td class="align_left"><code>password_reset_url(token)</code></td>
+</tr></tbody></table><div class="caption"><span class="header">Table 12.1: </span><span class="description">RESTful routes provided by the Password Resets resource in <a href="password_reset_fragment.html#code-password_resets_resource" class="hyperref">Listing <span class="ref">12.1</span></a>.
+</span></div></div>
+<div class="codelisting" id="code-log_in_password_reset" data-tralics-id="uid1466" data-number="12.2"><div class="heading"><span class="number">Listing 12.2:</span> 
+
+<span class="description">Adding a link to password resets.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/views/sessions/new.html.erb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="cp">&lt;%</span> <span class="n">provide</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="s2">"Log in"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Log in<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-offset-3"</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form_for</span><span class="p">(</span><span class="ss">:session</span><span class="p">,</span> <span class="ss">url</span><span class="p">:</span> <span class="n">login_path</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="cp">%&gt;</span>
+
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:email</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">email_field</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s1">'form-control'</span> <span class="cp">%&gt;</span>
+
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:password</span> <span class="cp">%&gt;</span>
+<span class="hll">      <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"(forgot password)"</span><span class="p">,</span> <span class="n">new_password_reset_path</span> <span class="cp">%&gt;</span>
+</span>      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">password_field</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s1">'form-control'</span> <span class="cp">%&gt;</span>
+
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:remember_me</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">"checkbox inline"</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">check_box</span> <span class="ss">:remember_me</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;span&gt;</span>Remember me on this computer<span class="nt">&lt;/span&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="s2">"Log in"</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">"btn btn-primary"</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+
+    <span class="nt">&lt;p&gt;</span>New user? <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Sign up now!"</span><span class="p">,</span> <span class="n">signup_path</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><div class="center figure" id="fig-forgot_password_link" data-tralics-id="uid1467" data-number="12.4">
+<div class="graphics image"><img src="images/figures/forgot_password_link.png" alt="images/figures/forgot_password_link"></div><div class="caption"><span class="header">Figure 12.4: </span><span class="description">The login page with a “forgot password” link.
+</span></div></div>
+<div id="sec-exercises_password_resets_controller" data-tralics-id="uid1468" class="subsubsection" data-number="12.1.1.1"><h4><a href="#sec-exercises_password_resets_controller" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="intersentencespace"></span>  </p></div>
+<ol>
+<li>Verify that the test suite is still <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span>. <span class="exercise" id="ex-4d9267"></span>
+</li>
+<li>Why does <a href="password_reset_fragment.html#table-RESTful_password_resets" class="hyperref">Table <span class="ref">12.1</span></a> list the <code>_url</code> form of the <code>edit</code> named route instead of the <code>_path</code> form?<span class="intersentencespace"></span> <em>Hint</em>: The answer is the same as for the similar account activations exercise (<a href="account_activation_fragment.html#sec-exercises_account_activations_controller" class="hyperref">Section <span class="ref">11.1.1.1</span></a>). <span class="exercise" id="ex-17b50e"></span>
+</li></ol>
+</div></div>
+<div id="sec-new_password_resets" data-tralics-id="uid1471" class="subsection" data-number="12.1.2"><h3><a href="password_reset_fragment.html#sec-new_password_resets" class="heading hyperref"><span class="number">12.1.2 </span>New password resets</a></h3>
+<p>To create new password resets, we first need to define the data model, which is similar to the one used for account activation (<a href="account_activation_fragment.html#fig-user_model_account_activation" class="hyperref">Figure <span class="ref">11.1</span></a>).<span class="intersentencespace"></span> Following the pattern set by remember tokens (<a href="advanced_login_fragment.html#cha-advanced_login" class="hyperref">Chapter <span class="ref">9</span></a>) and account activation tokens (<a href="account_activation_fragment.html#cha-account_activation" class="hyperref">Chapter <span class="ref">11</span></a>), password resets will pair a virtual reset token for use in the reset email with a corresponding reset digest for retrieving the user.<span class="intersentencespace"></span> If we instead stored an unhashed token, an attacker with access to the database could send a reset request to the user’s email address and then use the token and email to visit the corresponding password reset link, thereby gaining control of the account.<span class="intersentencespace"></span> Using a digest for password resets is thus essential.<span class="intersentencespace"></span> As an additional security precaution, we’ll also plan to <em>expire</em> the reset link after a couple of hours, which requires recording the time when the reset gets sent.<span class="intersentencespace"></span> The resulting <code>reset_digest</code> and <code>reset_sent_at</code> attributes appear in <a href="password_reset_fragment.html#fig-user_model_password_reset" class="hyperref">Figure <span class="ref">12.5</span></a>.</p>
+<div class="center figure" id="fig-user_model_password_reset" data-tralics-id="uid1472" data-number="12.5"><span class="graphics"><img src="images/figures/user_model_password_reset.png" alt="user_model_password_reset"></span>
+<div class="caption"><span class="header">Figure 12.5: </span><span class="description">The User model with added password reset attributes.
+</span></div></div>
+<p>The migration to add the attributes from <a href="password_reset_fragment.html#fig-user_model_password_reset" class="hyperref">Figure <span class="ref">12.5</span></a> appears as follows:</p>
+<div class="code"><div class="highlight"><pre><span class="gp">$</span> rails generate migration add_reset_to_users reset_digest:string <span class="se">\</span>
+<span class="gp">&gt;</span> reset_sent_at:datetime
+</pre></div></div>
+<p>(As before, the <code>&gt;</code> on the second line is a “line continuation” character inserted automatically by the shell, and should not be typed literally.)<span class="intersentencespace"></span> We then migrate as usual:</p>
+<div class="code"><div class="highlight"><pre>$ rails db:migrate
+</pre></div></div>
+<p>To make the view for new password resets, we’ll work in analogy with the previous form for making a new non–Active Record resource, namely, the login form (<a href="basic_login_fragment.html#code-login_form" class="hyperref">Listing <span class="ref">8.4</span></a>) for creating a new session, shown again in <a href="password_reset_fragment.html#code-login_form_redux" class="hyperref">Listing <span class="ref">12.3</span></a> for reference.</p>
+<div class="codelisting" id="code-login_form_redux" data-tralics-id="uid1473" data-number="12.3"><div class="heading"><span class="number">Listing 12.3:</span> 
+
+<span class="description">Reviewing the code for the login form.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/views/sessions/new.html.erb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="cp">&lt;%</span> <span class="n">provide</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="s2">"Log in"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Log in<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-offset-3"</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form_for</span><span class="p">(</span><span class="ss">:session</span><span class="p">,</span> <span class="ss">url</span><span class="p">:</span> <span class="n">login_path</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="cp">%&gt;</span>
+
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:email</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">email_field</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s1">'form-control'</span> <span class="cp">%&gt;</span>
+
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:password</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">password_field</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s1">'form-control'</span> <span class="cp">%&gt;</span>
+
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:remember_me</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">"checkbox inline"</span> <span class="k">do</span> <span class="cp">%&gt;</span>
+        <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">check_box</span> <span class="ss">:remember_me</span> <span class="cp">%&gt;</span>
+        <span class="nt">&lt;span&gt;</span>Remember me on this computer<span class="nt">&lt;/span&gt;</span>
+      <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="s2">"Log in"</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">"btn btn-primary"</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+
+    <span class="nt">&lt;p&gt;</span>New user? <span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Sign up now!"</span><span class="p">,</span> <span class="n">signup_path</span> <span class="cp">%&gt;</span><span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><p>The new password resets form has a lot in common with <a href="password_reset_fragment.html#code-login_form_redux" class="hyperref">Listing <span class="ref">12.3</span></a>; the most important differences are the use of a different resource and URL in the call to <code>form_for</code> and the omission of the password attribute.<span class="intersentencespace"></span> The result appears in <a href="password_reset_fragment.html#code-new_password_reset" class="hyperref">Listing <span class="ref">12.4</span></a> and <a href="password_reset_fragment.html#fig-forgot_password_form" class="hyperref">Figure <span class="ref">12.6</span></a>.</p>
+<div class="codelisting" id="code-new_password_reset" data-tralics-id="uid1474" data-number="12.4"><div class="heading"><span class="number">Listing 12.4:</span> 
+
+<span class="description">A new password reset view.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/views/password_resets/new.html.erb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="cp">&lt;%</span> <span class="n">provide</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="s2">"Forgot password"</span><span class="p">)</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Forgot password<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-offset-3"</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form_for</span><span class="p">(</span><span class="ss">:password_reset</span><span class="p">,</span> <span class="ss">url</span><span class="p">:</span> <span class="n">password_resets_path</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:email</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">email_field</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s1">'form-control'</span> <span class="cp">%&gt;</span>
+
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="s2">"Submit"</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">"btn btn-primary"</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><div class="center figure" id="fig-forgot_password_form" data-tralics-id="uid1475" data-number="12.6">
+<div class="graphics image"><img src="images/figures/forgot_password_form.png" alt="images/figures/forgot_password_form"></div><div class="caption"><span class="header">Figure 12.6: </span><span class="description">The “forgot password” form.
+</span></div></div>
+<div id="sec-exercises_new_password_resets" data-tralics-id="uid1476" class="subsubsection" data-number="12.1.2.1"><h4><a href="#sec-exercises_new_password_resets" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="intersentencespace"></span>  </p></div>
+<ol>
+<li>Why does the <code>form_for</code> in <a href="password_reset_fragment.html#code-new_password_reset" class="hyperref">Listing <span class="ref">12.4</span></a> use <code>:password_reset</code> instead of <code>@password_reset</code>? <span class="exercise" id="ex-3421f4"></span>
+</li></ol>
+</div></div>
+<div id="sec-password_reset_create_action" data-tralics-id="uid1478" class="subsection" data-number="12.1.3"><h3><a href="password_reset_fragment.html#sec-password_reset_create_action" class="heading hyperref"><span class="number">12.1.3 </span>Password reset <code class="tt">create</code> action</a></h3>
+<p>Upon submitting the form in <a href="password_reset_fragment.html#fig-forgot_password_form" class="hyperref">Figure <span class="ref">12.6</span></a>, we need to find the user by email address and update its attributes with the password reset token and sent-at timestamp.<span class="intersentencespace"></span> We then redirect to the root URL with an informative flash message.<span class="intersentencespace"></span> As with login (<a href="basic_login_fragment.html#code-correct_login_failure" class="hyperref">Listing <span class="ref">8.11</span></a>), in the case of an invalid submission we re-render the <code>new</code> page with a <code>flash.now</code> message.<span class="intersentencespace"></span> The results appear in <a href="password_reset_fragment.html#code-create_password_reset" class="hyperref">Listing <span class="ref">12.5</span></a>.</p>
+<div class="codelisting" id="code-create_password_reset" data-tralics-id="uid1479" data-number="12.5"><div class="heading"><span class="number">Listing 12.5:</span> 
+
+<span class="description">A <code>create</code> action for password resets.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/controllers/password_resets_controller.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PasswordResetsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+
+  <span class="k">def</span> <span class="nf">new</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="ss">email</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:password_reset</span><span class="o">][</span><span class="ss">:email</span><span class="o">].</span><span class="n">downcase</span><span class="p">)</span>
+    <span class="k">if</span> <span class="vi">@user</span>
+      <span class="vi">@user</span><span class="o">.</span><span class="n">create_reset_digest</span>
+      <span class="vi">@user</span><span class="o">.</span><span class="n">send_password_reset_email</span>
+      <span class="n">flash</span><span class="o">[</span><span class="ss">:info</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"Email sent with password reset instructions"</span>
+      <span class="n">redirect_to</span> <span class="n">root_url</span>
+    <span class="k">else</span>
+      <span class="n">flash</span><span class="o">.</span><span class="n">now</span><span class="o">[</span><span class="ss">:danger</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"Email address not found"</span>
+      <span class="n">render</span> <span class="s1">'new'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">edit</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>The code in the User model parallels the <code>create_activation_digest</code> method used in the <code>before_create</code> callback (<a href="account_activation_fragment.html#code-user_model_activation_code" class="hyperref">Listing <span class="ref">11.3</span></a>), as seen in <a href="password_reset_fragment.html#code-user_model_password_reset" class="hyperref">Listing <span class="ref">12.6</span></a>.</p>
+<div class="codelisting" id="code-user_model_password_reset" data-tralics-id="uid1480" data-number="12.6"><div class="heading"><span class="number">Listing 12.6:</span> 
+
+<span class="description">Adding password reset methods to the User model.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/models/user.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<span class="hll">  <span class="kp">attr_accessor</span> <span class="ss">:remember_token</span><span class="p">,</span> <span class="ss">:activation_token</span><span class="p">,</span> <span class="ss">:reset_token</span>
+</span>  <span class="n">before_save</span>   <span class="ss">:downcase_email</span>
+  <span class="n">before_create</span> <span class="ss">:create_activation_digest</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="c1"># Activates an account.</span>
+  <span class="k">def</span> <span class="nf">activate</span>
+    <span class="n">update_attribute</span><span class="p">(</span><span class="ss">:activated</span><span class="p">,</span>    <span class="kp">true</span><span class="p">)</span>
+    <span class="n">update_attribute</span><span class="p">(</span><span class="ss">:activated_at</span><span class="p">,</span> <span class="no">Time</span><span class="o">.</span><span class="n">zone</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Sends activation email.</span>
+  <span class="k">def</span> <span class="nf">send_activation_email</span>
+    <span class="no">UserMailer</span><span class="o">.</span><span class="n">account_activation</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span><span class="o">.</span><span class="n">deliver_now</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Sets the password reset attributes.</span>
+  <span class="k">def</span> <span class="nf">create_reset_digest</span>
+<span class="hll">    <span class="nb">self</span><span class="o">.</span><span class="n">reset_token</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new_token</span>
+</span><span class="hll">    <span class="n">update_attribute</span><span class="p">(</span><span class="ss">:reset_digest</span><span class="p">,</span>  <span class="no">User</span><span class="o">.</span><span class="n">digest</span><span class="p">(</span><span class="n">reset_token</span><span class="p">))</span>
+</span><span class="hll">    <span class="n">update_attribute</span><span class="p">(</span><span class="ss">:reset_sent_at</span><span class="p">,</span> <span class="no">Time</span><span class="o">.</span><span class="n">zone</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+</span>  <span class="k">end</span>
+
+  <span class="c1"># Sends password reset email.</span>
+  <span class="k">def</span> <span class="nf">send_password_reset_email</span>
+<span class="hll">    <span class="no">UserMailer</span><span class="o">.</span><span class="n">password_reset</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span><span class="o">.</span><span class="n">deliver_now</span>
+</span>  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+    <span class="c1"># Converts email to all lower-case.</span>
+    <span class="k">def</span> <span class="nf">downcase_email</span>
+      <span class="nb">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">downcase</span>
+    <span class="k">end</span>
+
+    <span class="c1"># Creates and assigns the activation token and digest.</span>
+    <span class="k">def</span> <span class="nf">create_activation_digest</span>
+      <span class="nb">self</span><span class="o">.</span><span class="n">activation_token</span>  <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new_token</span>
+      <span class="nb">self</span><span class="o">.</span><span class="n">activation_digest</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">digest</span><span class="p">(</span><span class="n">activation_token</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>As shown in <a href="password_reset_fragment.html#fig-invalid_email_password_reset" class="hyperref">Figure <span class="ref">12.7</span></a>, at this point the application’s behavior for invalid email addresses is already working.<span class="intersentencespace"></span> To get the application working upon submission of a valid email address as well, we need to define a password reset mailer method.</p>
+<div class="center figure" id="fig-invalid_email_password_reset" data-tralics-id="uid1481" data-number="12.7">
+<div class="graphics image"><img src="images/figures/invalid_email_password_reset.png" alt="images/figures/invalid_email_password_reset"></div><div class="caption"><span class="header">Figure 12.7: </span><span class="description">The “forgot password” form for an invalid email address.
+</span></div></div>
+<div id="sec-exercises_password_reset_create_action" data-tralics-id="uid1482" class="subsubsection" data-number="12.1.3.1"><h4><a href="#sec-exercises_password_reset_create_action" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="intersentencespace"></span>  </p></div>
+<ol>
+<li>Submit a valid email address to the form shown in <a href="password_reset_fragment.html#fig-forgot_password_form" class="hyperref">Figure <span class="ref">12.6</span></a>.<span class="intersentencespace"></span> What error message do you get? <span class="exercise" id="ex-2f9a24"></span>
+</li>
+<li>Confirm at the console that the user in the previous exercise has valid <code>reset_digest</code> and <code>reset_sent_at</code> attributes, despite the error.<span class="intersentencespace"></span> What are the attribute values? <span class="exercise" id="ex-6eac27"></span>
+</li></ol>
+</div></div></div><div id="sec-password_reset_emails" data-tralics-id="cid68" class="section" data-number="12.2"><h2><a href="password_reset_fragment.html#sec-password_reset_emails" class="heading hyperref"><span class="number">12.2 </span>Password reset emails</a></h2>
+<p>We left <a href="password_reset_fragment.html#sec-password_resets_resource" class="hyperref">Section <span class="ref">12.1</span></a> with a nearly working <code>create</code> action in the Password Resets controller.<span class="intersentencespace"></span> The only thing missing is the method to deliver valid password reset emails.</p>
+<p>If you followed <a href="account_activation_fragment.html#sec-account_activations_resource" class="hyperref">Section <span class="ref">11.1</span></a>, you already have a default <code>password_reset</code> method in <code>app/mailers/user_mailer.rb</code> as a result of the User mailer generation in <a href="account_activation_fragment.html#code-generate_user_mailer" class="hyperref">Listing <span class="ref">11.6</span></a>.<span class="intersentencespace"></span> If you skipped <a href="account_activation_fragment.html#cha-account_activation" class="hyperref">Chapter <span class="ref">11</span></a>, you can just copy the code below (omitting the <code>account_activation</code> and related methods) and create the missing files as necessary.</p>
+<div id="sec-password_reset_mailer" data-tralics-id="uid1485" class="subsection" data-number="12.2.1"><h3><a href="password_reset_fragment.html#sec-password_reset_mailer" class="heading hyperref"><span class="number">12.2.1 </span>Password reset mailer and templates</a></h3>
+<p>In <a href="password_reset_fragment.html#code-user_model_password_reset" class="hyperref">Listing <span class="ref">12.6</span></a>, we applied the design pattern implemented as a refactoring in <a href="account_activation_fragment.html#sec-activation_test_and_refactoring" class="hyperref">Section <span class="ref">11.3.3</span></a> by putting the User mailer directly in the model (<a href="password_reset_fragment.html#code-user_model_password_reset" class="hyperref">Listing <span class="ref">12.6</span></a>):</p>
+<div class="code"><div class="highlight"><pre><span class="no">UserMailer</span><span class="o">.</span><span class="n">password_reset</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span><span class="o">.</span><span class="n">deliver_now</span>
+</pre></div></div>
+<p>The password reset mailer method needed to get this working is nearly identical to the mailer for account activation developed in <a href="account_activation_fragment.html#sec-account_activation_emails" class="hyperref">Section <span class="ref">11.2</span></a>.<span class="intersentencespace"></span> We first create a <code>password_reset</code> method in the user mailer (<a href="password_reset_fragment.html#code-mail_password_reset" class="hyperref">Listing <span class="ref">12.7</span></a>), and then define view templates for plain-text email (<a href="password_reset_fragment.html#code-password_reset_text" class="hyperref">Listing <span class="ref">12.8</span></a>) and HTML email (<a href="password_reset_fragment.html#code-password_reset_html" class="hyperref">Listing <span class="ref">12.9</span></a>).</p>
+<div class="codelisting" id="code-mail_password_reset" data-tralics-id="uid1486" data-number="12.7"><div class="heading"><span class="number">Listing 12.7:</span> 
+
+<span class="description">Mailing the password reset link.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/mailers/user_mailer.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">UserMailer</span> <span class="o">&lt;</span> <span class="no">ApplicationMailer</span>
+
+  <span class="k">def</span> <span class="nf">account_activation</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="n">user</span>
+    <span class="n">mail</span> <span class="ss">to</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="ss">subject</span><span class="p">:</span> <span class="s2">"Account activation"</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">password_reset</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="hll">    <span class="vi">@user</span> <span class="o">=</span> <span class="n">user</span>
+</span><span class="hll">    <span class="n">mail</span> <span class="ss">to</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="ss">subject</span><span class="p">:</span> <span class="s2">"Password reset"</span>
+</span>  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><div class="codelisting" id="code-password_reset_text" data-tralics-id="uid1487" data-number="12.8"><div class="heading"><span class="number">Listing 12.8:</span> 
+
+<span class="description">The password reset plain-text email template.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/views/user_mailer/password_reset.text.erb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre>To reset your password click the link below:
+
+<span class="cp">&lt;%=</span> <span class="n">edit_password_reset_url</span><span class="p">(</span><span class="vi">@user</span><span class="o">.</span><span class="n">reset_token</span><span class="p">,</span> <span class="ss">email</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span> <span class="cp">%&gt;</span>
+
+This link will expire in two hours.
+
+If you did not request your password to be reset, please ignore this email and
+your password will stay as it is.
+</pre></div></div></div><div class="codelisting" id="code-password_reset_html" data-tralics-id="uid1488" data-number="12.9"><div class="heading"><span class="number">Listing 12.9:</span> 
+
+<span class="description">The password reset HTML email template.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/views/user_mailer/password_reset.html.erb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="nt">&lt;h1&gt;</span>Password reset<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>To reset your password click the link below:<span class="nt">&lt;/p&gt;</span>
+
+<span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="s2">"Reset password"</span><span class="p">,</span> <span class="n">edit_password_reset_url</span><span class="p">(</span><span class="vi">@user</span><span class="o">.</span><span class="n">reset_token</span><span class="p">,</span>
+                                                      <span class="ss">email</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span> <span class="cp">%&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>This link will expire in two hours.<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>
+If you did not request your password to be reset, please ignore this email and
+your password will stay as it is.
+<span class="nt">&lt;/p&gt;</span>
+</pre></div></div></div><p>As with account activation emails (<a href="account_activation_fragment.html#sec-account_activation_emails" class="hyperref">Section <span class="ref">11.2</span></a>), we can preview password reset emails using the Rails email previewer.<span class="intersentencespace"></span> The code is exactly analogous to <a href="account_activation_fragment.html#code-account_activation_preview" class="hyperref">Listing <span class="ref">11.18</span></a>, as shown in <a href="password_reset_fragment.html#code-password_reset_preview" class="hyperref">Listing <span class="ref">12.10</span></a>.</p>
+<div class="codelisting" id="code-password_reset_preview" data-tralics-id="uid1489" data-number="12.10"><div class="heading"><span class="number">Listing 12.10:</span> 
+
+<span class="description">A working preview method for password reset.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">test/mailers/previews/user_mailer_preview.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="c1"># Preview all emails at http://localhost:3000/rails/mailers/user_mailer</span>
+<span class="k">class</span> <span class="nc">UserMailerPreview</span> <span class="o">&lt;</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Preview</span>
+
+  <span class="c1"># Preview this email at</span>
+  <span class="c1"># http://localhost:3000/rails/mailers/user_mailer/account_activation</span>
+  <span class="k">def</span> <span class="nf">account_activation</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">first</span>
+    <span class="n">user</span><span class="o">.</span><span class="n">activation_token</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new_token</span>
+    <span class="no">UserMailer</span><span class="o">.</span><span class="n">account_activation</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Preview this email at</span>
+  <span class="c1"># http://localhost:3000/rails/mailers/user_mailer/password_reset</span>
+  <span class="k">def</span> <span class="nf">password_reset</span>
+<span class="hll">    <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">first</span>
+</span><span class="hll">    <span class="n">user</span><span class="o">.</span><span class="n">reset_token</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new_token</span>
+</span><span class="hll">    <span class="no">UserMailer</span><span class="o">.</span><span class="n">password_reset</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</span>  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>With the code in <a href="password_reset_fragment.html#code-password_reset_preview" class="hyperref">Listing <span class="ref">12.10</span></a>, the HTML and text email previews appear as in <a href="password_reset_fragment.html#fig-password_reset_html_preview" class="hyperref">Figure <span class="ref">12.8</span></a> and <a href="password_reset_fragment.html#fig-password_reset_text_preview" class="hyperref">Figure <span class="ref">12.9</span></a>.</p>
+<div class="center figure" id="fig-password_reset_html_preview" data-tralics-id="uid1490" data-number="12.8">
+<div class="graphics image"><img src="images/figures/password_reset_html_preview_4th_ed.png" alt="images/figures/password_reset_html_preview_4th_ed"></div><div class="caption"><span class="header">Figure 12.8: </span><span class="description">A preview of the HTML version of the password reset email.
+</span></div></div>
+<div class="center figure" id="fig-password_reset_text_preview" data-tralics-id="uid1491" data-number="12.9">
+<div class="graphics image"><img src="images/figures/password_reset_text_preview_4th_ed.png" alt="images/figures/password_reset_text_preview_4th_ed"></div><div class="caption"><span class="header">Figure 12.9: </span><span class="description">A preview of the text version of the password reset email.
+</span></div></div>
+<p>With the code in <a href="password_reset_fragment.html#code-mail_password_reset" class="hyperref">Listing <span class="ref">12.7</span></a>, <a href="password_reset_fragment.html#code-password_reset_text" class="hyperref">Listing <span class="ref">12.8</span></a>, and <a href="password_reset_fragment.html#code-password_reset_html" class="hyperref">Listing <span class="ref">12.9</span></a>, submission of a valid email address appears as shown in <a href="password_reset_fragment.html#fig-valid_email_password_reset" class="hyperref">Figure <span class="ref">12.10</span></a>.<span class="intersentencespace"></span> The corresponding email appears in the server log and should look something like <a href="password_reset_fragment.html#code-password_reset_email" class="hyperref">Listing <span class="ref">12.11</span></a>.</p>
+<div class="center figure" id="fig-valid_email_password_reset" data-tralics-id="uid1492" data-number="12.10">
+<div class="graphics image"><img src="images/figures/valid_email_password_reset.png" alt="images/figures/valid_email_password_reset"></div><div class="caption"><span class="header">Figure 12.10: </span><span class="description">The result of submitting a valid email address.
+</span></div></div>
+<div class="codelisting" id="code-password_reset_email" data-tralics-id="uid1493" data-number="12.11"><div class="heading"><span class="number">Listing 12.11:</span> 
+
+<span class="description">A sample password reset email from the server log.</span>
+</div>
+
+<div class="code"><div class="highlight"><pre>Sent mail to michael@michaelhartl.com (66.8ms)
+Date: Mon, 06 Jun 2016 22:00:41 +0000
+From: noreply@example.com
+To: michael@michaelhartl.com
+Message-ID: &lt;5407babbee139_8722b257d04576a@mhartl-rails-tutorial-953753.mail&gt;
+Subject: Password reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5407babbe3505_8722b257d045617";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5407babbe3505_8722b257d045617
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+To reset your password click the link below:
+
+https://rails-tutorial-mhartl.c9users.io/password_resets/3BdBrXeQZSWqFIDRN8cxHA/
+edit?email=michael%40michaelhartl.com
+
+This link will expire in two hours.
+
+If you did not request your password to be reset, please ignore this email and
+your password will stay as it is.
+----==_mimepart_5407babbe3505_8722b257d045617
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+&lt;h1&gt;Password reset&lt;/h1&gt;
+
+&lt;p&gt;To reset your password click the link below:&lt;/p&gt;
+
+&lt;a href="https://rails-tutorial-mhartl.c9users.io/
+password_resets/3BdBrXeQZSWqFIDRN8cxHA/
+edit?email=michael%40michaelhartl.com"&gt;Reset password&lt;/a&gt;
+
+&lt;p&gt;This link will expire in two hours.&lt;/p&gt;
+
+&lt;p&gt;
+If you did not request your password to be reset, please ignore this email and
+your password will stay as it is.
+&lt;/p&gt;
+----==_mimepart_5407babbe3505_8722b257d045617--
+</pre></div></div></div>
+<div id="sec-exercises_password_reset_mailer" data-tralics-id="uid1494" class="subsubsection" data-number="12.2.1.1"><h4><a href="#sec-exercises_password_reset_mailer" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="intersentencespace"></span>  </p></div>
+<ol>
+<li>Preview the email templates in your browser.<span class="intersentencespace"></span> What do the Date fields read for your previews? <span class="exercise" id="ex-eafd2c"></span>
+</li>
+<li>Submit a valid email address to the new password reset form.<span class="intersentencespace"></span> What is the content of the generated email in the server log? <span class="exercise" id="ex-2da441"></span>
+</li>
+<li>At the console, find the user object corresponding to the email address from the previous exercise and verify that it has valid <code>reset_digest</code> and <code>reset_sent_at</code> attributes. <span class="exercise" id="ex-e45e7a"></span>
+</li></ol>
+</div></div>
+<div id="sec-reset_email_tests" data-tralics-id="uid1498" class="subsection" data-number="12.2.2"><h3><a href="password_reset_fragment.html#sec-reset_email_tests" class="heading hyperref"><span class="number">12.2.2 </span>Email tests</a></h3>
+<p>In analogy with the account activation mailer method test (<a href="account_activation_fragment.html#code-real_account_activation_test" class="hyperref">Listing <span class="ref">11.20</span></a>), we’ll write a test of the password reset mailer method, as shown in <a href="password_reset_fragment.html#code-password_reset_mailer_test" class="hyperref">Listing <span class="ref">12.12</span></a>.</p>
+<div class="codelisting" id="code-password_reset_mailer_test" data-tralics-id="uid1499" data-number="12.12"><div class="heading"><span class="number">Listing 12.12:</span> 
+
+<span class="description">Adding a test of the password reset mailer method.<span class="intersentencespace"></span> <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span><span class="break"></span> <span class="filepath">test/mailers/user_mailer_test.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="nb">require</span> <span class="s1">'test_helper'</span>
+
+<span class="k">class</span> <span class="nc">UserMailerTest</span> <span class="o">&lt;</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">TestCase</span>
+
+  <span class="nb">test</span> <span class="s2">"account_activation"</span> <span class="k">do</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">users</span><span class="p">(</span><span class="ss">:michael</span><span class="p">)</span>
+    <span class="n">user</span><span class="o">.</span><span class="n">activation_token</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new_token</span>
+    <span class="n">mail</span> <span class="o">=</span> <span class="no">UserMailer</span><span class="o">.</span><span class="n">account_activation</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">assert_equal</span> <span class="s2">"Account activation"</span><span class="p">,</span> <span class="n">mail</span><span class="o">.</span><span class="n">subject</span>
+    <span class="n">assert_equal</span> <span class="o">[</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="o">]</span><span class="p">,</span> <span class="n">mail</span><span class="o">.</span><span class="n">to</span>
+    <span class="n">assert_equal</span> <span class="o">[</span><span class="s2">"noreply@example.com"</span><span class="o">]</span><span class="p">,</span> <span class="n">mail</span><span class="o">.</span><span class="n">from</span>
+    <span class="n">assert_match</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>               <span class="n">mail</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">encoded</span>
+    <span class="n">assert_match</span> <span class="n">user</span><span class="o">.</span><span class="n">activation_token</span><span class="p">,</span>   <span class="n">mail</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">encoded</span>
+    <span class="n">assert_match</span> <span class="no">CGI</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">),</span>  <span class="n">mail</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">encoded</span>
+  <span class="k">end</span>
+
+  <span class="nb">test</span> <span class="s2">"password_reset"</span> <span class="k">do</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">users</span><span class="p">(</span><span class="ss">:michael</span><span class="p">)</span>
+<span class="hll">    <span class="n">user</span><span class="o">.</span><span class="n">reset_token</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new_token</span>
+</span>    <span class="n">mail</span> <span class="o">=</span> <span class="no">UserMailer</span><span class="o">.</span><span class="n">password_reset</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">assert_equal</span> <span class="s2">"Password reset"</span><span class="p">,</span> <span class="n">mail</span><span class="o">.</span><span class="n">subject</span>
+    <span class="n">assert_equal</span> <span class="o">[</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="o">]</span><span class="p">,</span> <span class="n">mail</span><span class="o">.</span><span class="n">to</span>
+    <span class="n">assert_equal</span> <span class="o">[</span><span class="s2">"noreply@example.com"</span><span class="o">]</span><span class="p">,</span> <span class="n">mail</span><span class="o">.</span><span class="n">from</span>
+    <span class="n">assert_match</span> <span class="n">user</span><span class="o">.</span><span class="n">reset_token</span><span class="p">,</span>        <span class="n">mail</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">encoded</span>
+    <span class="n">assert_match</span> <span class="no">CGI</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">),</span>  <span class="n">mail</span><span class="o">.</span><span class="n">body</span><span class="o">.</span><span class="n">encoded</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>At this point, the test suite should be <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span>:</p>
+<div class="codelisting" id="uid1500" data-tralics-id="uid1500" data-number="12.13"><div class="heading"><span class="number">Listing 12.13:</span> <span class="description"><span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre>$ rails test
+</pre></div></div></div>
+<div id="sec-exercises_reset_email_tests" data-tralics-id="uid1501" class="subsubsection" data-number="12.2.2.1"><h4><a href="#sec-exercises_reset_email_tests" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="intersentencespace"></span>  </p></div>
+<ol>
+<li>Run just the mailer tests.<span class="intersentencespace"></span> Are they <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span>? <span class="exercise" id="ex-902b57"></span>
+</li>
+<li>Confirm that the test goes <span style="color: red"><span class="sc"></span><span class="sc"><strong>red</strong></span><span class="sc"></span></span> if you remove the second call to <code>CGI.escape</code> in <a href="password_reset_fragment.html#code-password_reset_mailer_test" class="hyperref">Listing <span class="ref">12.12</span></a>. <span class="exercise" id="ex-ff6506"></span>
+</li></ol>
+</div></div></div><div id="sec-resetting_the_password" data-tralics-id="cid69" class="section" data-number="12.3"><h2><a href="password_reset_fragment.html#sec-resetting_the_password" class="heading hyperref"><span class="number">12.3 </span>Resetting the password</a></h2>
+<p>Now that we have a correctly generated email as in <a href="password_reset_fragment.html#code-password_reset_email" class="hyperref">Listing <span class="ref">12.11</span></a>, we need to write the <code>edit</code> action in the Password Resets controller that actually resets the user’s password.<span class="intersentencespace"></span> As in <a href="account_activation_fragment.html#sec-activation_test_and_refactoring" class="hyperref">Section <span class="ref">11.3.3</span></a>, we’ll write a thorough integration test as well.</p>
+<div id="sec-reset_edit_action" data-tralics-id="uid1504" class="subsection" data-number="12.3.1"><h3><a href="password_reset_fragment.html#sec-reset_edit_action" class="heading hyperref"><span class="number">12.3.1 </span>Reset <code class="tt">edit</code> action</a></h3>
+<p>Password reset emails such as that shown in <a href="password_reset_fragment.html#code-password_reset_email" class="hyperref">Listing <span class="ref">12.11</span></a> contain links of the following form:</p>
+<div class="code"><div class="highlight"><pre>https://example.com/password_resets/3BdBrXeQZSWqFIDRN8cxHA/edit?email=fu%40bar.com
+</pre></div></div>
+<p>To get these links to work, we need a form for resetting passwords.<span class="intersentencespace"></span> The task is similar to updating users via the user edit view (<a href="updating_and_deleting_users_fragment.html#code-user_edit_view" class="hyperref">Listing <span class="ref">10.2</span></a>), but in this case with only password and confirmation fields.</p>
+<p>There’s an additional complication, though: we expect to find the user by email address, which means we need its value in both the <code>edit</code> and <code>update</code> actions.<span class="intersentencespace"></span> The email will automatically be available in the <code>edit</code> action because of its presence in the link above, but after we submit the form its value will be lost.<span class="intersentencespace"></span> The solution is to use a <em>hidden field</em> to place (but not display) the email on the page, and then submit it along with the rest of the form’s information.<span class="intersentencespace"></span> The result appears in <a href="password_reset_fragment.html#code-password_reset_form" class="hyperref">Listing <span class="ref">12.14</span></a>.</p>
+<div class="codelisting" id="code-password_reset_form" data-tralics-id="uid1505" data-number="12.14"><div class="heading"><span class="number">Listing 12.14:</span> 
+
+<span class="description">The form to reset a password.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/views/password_resets/edit.html.erb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="cp">&lt;%</span> <span class="n">provide</span><span class="p">(</span><span class="ss">:title</span><span class="p">,</span> <span class="s1">'Reset password'</span><span class="p">)</span> <span class="cp">%&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Reset password<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-offset-3"</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;%=</span> <span class="n">form_for</span><span class="p">(</span><span class="vi">@user</span><span class="p">,</span> <span class="ss">url</span><span class="p">:</span> <span class="n">password_reset_path</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">))</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">render</span> <span class="s1">'shared/error_messages'</span> <span class="cp">%&gt;</span>
+
+<span class="hll">      <span class="cp">&lt;%=</span> <span class="n">hidden_field_tag</span> <span class="ss">:email</span><span class="p">,</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span> <span class="cp">%&gt;</span>
+</span>
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:password</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">password_field</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s1">'form-control'</span> <span class="cp">%&gt;</span>
+
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">label</span> <span class="ss">:password_confirmation</span><span class="p">,</span> <span class="s2">"Confirmation"</span> <span class="cp">%&gt;</span>
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">password_field</span> <span class="ss">:password_confirmation</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s1">'form-control'</span> <span class="cp">%&gt;</span>
+
+      <span class="cp">&lt;%=</span> <span class="n">f</span><span class="o">.</span><span class="n">submit</span> <span class="s2">"Update password"</span><span class="p">,</span> <span class="ss">class</span><span class="p">:</span> <span class="s2">"btn btn-primary"</span> <span class="cp">%&gt;</span>
+    <span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><p>Note that <a href="password_reset_fragment.html#code-password_reset_form" class="hyperref">Listing <span class="ref">12.14</span></a> uses the form tag helper</p>
+<div class="code"><div class="highlight"><pre><span class="n">hidden_field_tag</span> <span class="ss">:email</span><span class="p">,</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span>
+</pre></div></div>
+<p>instead of</p>
+<div class="code"><div class="highlight"><pre><span class="n">f</span><span class="o">.</span><span class="n">hidden_field</span> <span class="ss">:email</span><span class="p">,</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span>
+</pre></div></div>
+<p>because the reset link puts the email in <code>params[:email]</code>, whereas the latter would put it in <code>params[:user][:email]</code>.</p>
+<p>To get the form to render, we need to define an <code>@user</code> variable in the Password Resets controller’s <code>edit</code> action.<span class="intersentencespace"></span> As with account activation (<a href="account_activation_fragment.html#code-account_activation_edit_action" class="hyperref">Listing <span class="ref">11.31</span></a>), this involves finding the user corresponding to the email address in <code>params[:email]</code>.<span class="intersentencespace"></span> We then need to verify that the user is valid, i.e., that it exists, is activated, and is authenticated according to the reset token from <code>params[:id]</code> (using the generalized <code>authenticated?</code> method defined in <a href="account_activation_fragment.html#code-generalized_authenticated_p" class="hyperref">Listing <span class="ref">11.26</span></a>).<span class="intersentencespace"></span> Because the existence of a valid <code>@user</code> is needed in both the <code>edit</code> and <code>update</code> actions, we’ll put the code to find and validate it in a couple of before filters, as shown in <a href="password_reset_fragment.html#code-password_reset_edit_action" class="hyperref">Listing <span class="ref">12.15</span></a>.</p>
+<div class="codelisting" id="code-password_reset_edit_action" data-tralics-id="uid1506" data-number="12.15"><div class="heading"><span class="number">Listing 12.15:</span> 
+
+<span class="description">The <code>edit</code> action for password reset.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/controllers/password_resets_controller.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PasswordResetsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<span class="hll">  <span class="n">before_action</span> <span class="ss">:get_user</span><span class="p">,</span>   <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:edit</span><span class="p">,</span> <span class="ss">:update</span><span class="o">]</span>
+</span><span class="hll">  <span class="n">before_action</span> <span class="ss">:valid_user</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:edit</span><span class="p">,</span> <span class="ss">:update</span><span class="o">]</span>
+</span>  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="k">def</span> <span class="nf">edit</span>
+  <span class="k">end</span>
+
+<span class="hll">  <span class="kp">private</span>
+</span>
+    <span class="k">def</span> <span class="nf">get_user</span>
+<span class="hll">      <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="ss">email</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">)</span>
+</span>    <span class="k">end</span>
+
+    <span class="c1"># Confirms a valid user.</span>
+    <span class="k">def</span> <span class="nf">valid_user</span>
+<span class="hll">      <span class="k">unless</span> <span class="p">(</span><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">activated?</span> <span class="o">&amp;&amp;</span>
+</span><span class="hll">              <span class="vi">@user</span><span class="o">.</span><span class="n">authenticated?</span><span class="p">(</span><span class="ss">:reset</span><span class="p">,</span> <span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">))</span>
+</span><span class="hll">        <span class="n">redirect_to</span> <span class="n">root_url</span>
+</span><span class="hll">      <span class="k">end</span>
+</span>    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>In <a href="password_reset_fragment.html#code-password_reset_edit_action" class="hyperref">Listing <span class="ref">12.15</span></a>, compare the use of</p>
+<div class="code"><div class="highlight"><pre><span class="n">authenticated?</span><span class="p">(</span><span class="ss">:reset</span><span class="p">,</span> <span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</pre></div></div>
+<p>to</p>
+<div class="code"><div class="highlight"><pre><span class="n">authenticated?</span><span class="p">(</span><span class="ss">:remember</span><span class="p">,</span> <span class="n">cookies</span><span class="o">[</span><span class="ss">:remember_token</span><span class="o">]</span><span class="p">)</span>
+</pre></div></div>
+<p>in <a href="account_activation_fragment.html#code-generalized_current_user" class="hyperref">Listing <span class="ref">11.28</span></a> and</p>
+<div class="code"><div class="highlight"><pre><span class="n">authenticated?</span><span class="p">(</span><span class="ss">:activation</span><span class="p">,</span> <span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+</pre></div></div>
+<p>in <a href="account_activation_fragment.html#code-account_activation_edit_action" class="hyperref">Listing <span class="ref">11.31</span></a>.<span class="intersentencespace"></span> Together, these three uses complete the authentication methods shown in <a href="account_activation_fragment.html#table-password_token_digest" class="hyperref">Table <span class="ref">11.1</span></a>.</p>
+<p>With the code as above, following the link from <a href="password_reset_fragment.html#code-password_reset_email" class="hyperref">Listing <span class="ref">12.11</span></a> should render a password reset form.<span class="intersentencespace"></span> The result appears in <a href="password_reset_fragment.html#fig-password_reset_form" class="hyperref">Figure <span class="ref">12.11</span></a>.</p>
+<div class="center figure" id="fig-password_reset_form" data-tralics-id="uid1507" data-number="12.11">
+<div class="graphics image"><img src="images/figures/password_reset_form.png" alt="images/figures/password_reset_form"></div><div class="caption"><span class="header">Figure 12.11: </span><span class="description">The password reset form.
+</span></div></div>
+<div id="sec-exercises_reset_edit_action" data-tralics-id="uid1508" class="subsubsection" data-number="12.3.1.1"><h4><a href="#sec-exercises_reset_edit_action" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="intersentencespace"></span>  </p></div>
+<ol>
+<li>Follow the link in the email from the server log in <a href="password_reset_fragment.html#sec-exercises_password_reset_mailer" class="hyperref">Section <span class="ref">12.2.1.1</span></a>.<span class="intersentencespace"></span> Does it properly render the form as shown in <a href="password_reset_fragment.html#fig-password_reset_form" class="hyperref">Figure <span class="ref">12.11</span></a>? <span class="exercise" id="ex-d39746"></span>
+</li>
+<li>What happens if you submit the form from the previous exercise? <span class="exercise" id="ex-fdabd9"></span>
+</li></ol>
+</div></div>
+<div id="sec-updating_the_reset" data-tralics-id="uid1511" class="subsection" data-number="12.3.2"><h3><a href="password_reset_fragment.html#sec-updating_the_reset" class="heading hyperref"><span class="number">12.3.2 </span>Updating the reset</a></h3>
+<p>Unlike the Account Activations <code>edit</code> method, which simply toggles the user from “inactive” to “active”, the <code>edit</code> method for Password Resets is a form, which must therefore submit to a corresponding <code>update</code> action.<span class="intersentencespace"></span> To define this <code>update</code> action, we need to consider four cases:</p>
+<ol>
+<li>An expired password reset
+</li>
+<li>A failed update due to an invalid password
+</li>
+<li>A failed update (which initially looks “successful”) due to a blank password and confirmation
+</li>
+<li>A successful update
+</li></ol>
+<p>Cases (1), (2), and (4) are fairly straightforward, but Case (3) is non-obvious and is explained in more detail below.</p>
+<p>Case (1) applies to both the <code>edit</code> and <code>update</code> actions, and so logically belongs in a before filter:</p>
+<div class="code"><div class="highlight"><pre><span class="n">before_action</span> <span class="ss">:check_expiration</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:edit</span><span class="p">,</span> <span class="ss">:update</span><span class="o">]</span>    <span class="c1"># Case (1)</span>
+</pre></div></div>
+<p>This requires defining a private <code>check_expiration</code> method, and while we’re at it we also need to add to the <code>valid_user</code> filter the requirement that the user be activated:</p>
+<div class="code"><div class="highlight"><pre><span class="c1"># Confirms a valid user.</span>
+<span class="k">def</span> <span class="nf">valid_user</span>
+<span class="hll">  <span class="k">unless</span> <span class="p">(</span><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">activated?</span> <span class="o">&amp;&amp;</span>
+</span>          <span class="vi">@user</span><span class="o">.</span><span class="n">authenticated?</span><span class="p">(</span><span class="ss">:reset</span><span class="p">,</span> <span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">))</span>
+    <span class="n">redirect_to</span> <span class="n">root_url</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># Checks expiration of reset token.</span>
+<span class="hll"><span class="k">def</span> <span class="nf">check_expiration</span>
+</span>  <span class="k">if</span> <span class="vi">@user</span><span class="o">.</span><span class="n">password_reset_expired?</span>
+    <span class="n">flash</span><span class="o">[</span><span class="ss">:danger</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"Password reset has expired."</span>
+    <span class="n">redirect_to</span> <span class="n">new_password_reset_url</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div>
+<p>In the <code>check_expiration</code> method, we’ve deferred the expiration check to the instance method <code>password_reset_expired?</code>, which is a little tricky and will be defined in a moment.</p>
+<p><a href="password_reset_fragment.html#code-password_reset_update_action" class="hyperref">Listing <span class="ref">12.16</span></a> shows the implementation of these filters, together with the <code>update</code> action that implements Cases (2)–(4).<span class="intersentencespace"></span> Case (2) gets handled by a failed update, with the error messages from the shared partial in <a href="password_reset_fragment.html#code-password_reset_form" class="hyperref">Listing <span class="ref">12.14</span></a> displaying automatically when the <code>edit</code> form is re-rendered.<span class="intersentencespace"></span> Case (4) corresponds to a successful change, and the result is similar to a successful login (<a href="basic_login_fragment.html#code-login_upon_signup" class="hyperref">Listing <span class="ref">8.25</span></a>).</p>
+<p>The only failure case not handled by Case (2) is when the password is empty, which is currently allowed by our User model (<a href="updating_and_deleting_users_fragment.html#code-allow_blank_password" class="hyperref">Listing <span class="ref">10.13</span></a>) and so needs to be caught and handled explicitly.<sup id="cha-12_footnote-ref-2" class="footnote"><a href="#cha-12_footnote-2">2</a></sup><span class="intersentencespace"></span> This is Case (3) above.<span class="intersentencespace"></span> Our method in this case is to add an error directly to the <code>@user</code> object’s error messages using <code>errors.add</code>:</p>
+<div class="code"><div class="highlight"><pre><span class="vi">@user</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="ss">:password</span><span class="p">,</span> <span class="s2">"can't be empty"</span><span class="p">)</span>
+</pre></div></div>
+<p>The result of putting Cases (1)–(4) together is the the <code>update</code> action shown in <a href="password_reset_fragment.html#code-password_reset_update_action" class="hyperref">Listing <span class="ref">12.16</span></a>.</p>
+<div class="codelisting" id="code-password_reset_update_action" data-tralics-id="uid1517" data-number="12.16"><div class="heading"><span class="number">Listing 12.16:</span> 
+
+<span class="description">The <code>update</code> action for password reset.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/controllers/password_resets_controller.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PasswordResetsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">before_action</span> <span class="ss">:get_user</span><span class="p">,</span>         <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:edit</span><span class="p">,</span> <span class="ss">:update</span><span class="o">]</span>
+  <span class="n">before_action</span> <span class="ss">:valid_user</span><span class="p">,</span>       <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:edit</span><span class="p">,</span> <span class="ss">:update</span><span class="o">]</span>
+<span class="hll">  <span class="n">before_action</span> <span class="ss">:check_expiration</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:edit</span><span class="p">,</span> <span class="ss">:update</span><span class="o">]</span>    <span class="c1"># Case (1)</span>
+</span>
+  <span class="k">def</span> <span class="nf">new</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="ss">email</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:password_reset</span><span class="o">][</span><span class="ss">:email</span><span class="o">].</span><span class="n">downcase</span><span class="p">)</span>
+    <span class="k">if</span> <span class="vi">@user</span>
+      <span class="vi">@user</span><span class="o">.</span><span class="n">create_reset_digest</span>
+      <span class="vi">@user</span><span class="o">.</span><span class="n">send_password_reset_email</span>
+      <span class="n">flash</span><span class="o">[</span><span class="ss">:info</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"Email sent with password reset instructions"</span>
+      <span class="n">redirect_to</span> <span class="n">root_url</span>
+    <span class="k">else</span>
+      <span class="n">flash</span><span class="o">.</span><span class="n">now</span><span class="o">[</span><span class="ss">:danger</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"Email address not found"</span>
+      <span class="n">render</span> <span class="s1">'new'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">edit</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">update</span>
+<span class="hll">    <span class="k">if</span> <span class="n">params</span><span class="o">[</span><span class="ss">:user</span><span class="o">][</span><span class="ss">:password</span><span class="o">].</span><span class="n">empty?</span>                  <span class="c1"># Case (3)</span>
+</span>      <span class="vi">@user</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="ss">:password</span><span class="p">,</span> <span class="s2">"can't be empty"</span><span class="p">)</span>
+      <span class="n">render</span> <span class="s1">'edit'</span>
+<span class="hll">    <span class="k">elsif</span> <span class="vi">@user</span><span class="o">.</span><span class="n">update_attributes</span><span class="p">(</span><span class="n">user_params</span><span class="p">)</span>          <span class="c1"># Case (4)</span>
+</span>      <span class="n">log_in</span> <span class="vi">@user</span>
+      <span class="n">flash</span><span class="o">[</span><span class="ss">:success</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"Password has been reset."</span>
+      <span class="n">redirect_to</span> <span class="vi">@user</span>
+    <span class="k">else</span>
+<span class="hll">      <span class="n">render</span> <span class="s1">'edit'</span>                                     <span class="c1"># Case (2)</span>
+</span>    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+    <span class="k">def</span> <span class="nf">user_params</span>
+<span class="hll">      <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:password</span><span class="p">,</span> <span class="ss">:password_confirmation</span><span class="p">)</span>
+</span>    <span class="k">end</span>
+
+    <span class="c1"># Before filters</span>
+
+    <span class="k">def</span> <span class="nf">get_user</span>
+      <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="ss">email</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="c1"># Confirms a valid user.</span>
+<span class="hll">    <span class="k">def</span> <span class="nf">valid_user</span>
+</span>      <span class="k">unless</span> <span class="p">(</span><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">activated?</span> <span class="o">&amp;&amp;</span>
+              <span class="vi">@user</span><span class="o">.</span><span class="n">authenticated?</span><span class="p">(</span><span class="ss">:reset</span><span class="p">,</span> <span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">))</span>
+        <span class="n">redirect_to</span> <span class="n">root_url</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="c1"># Checks expiration of reset token.</span>
+<span class="hll">    <span class="k">def</span> <span class="nf">check_expiration</span>
+</span>      <span class="k">if</span> <span class="vi">@user</span><span class="o">.</span><span class="n">password_reset_expired?</span>
+        <span class="n">flash</span><span class="o">[</span><span class="ss">:danger</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"Password reset has expired."</span>
+        <span class="n">redirect_to</span> <span class="n">new_password_reset_url</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>Note that we’ve added a <code>user_params</code> method permitting both the password and password confirmation attributes (<a href="sign_up_fragment.html#sec-strong_parameters" class="hyperref">Section <span class="ref">7.3.2</span></a>).</p>
+<p>As noted above, the implementation in <a href="password_reset_fragment.html#code-password_reset_update_action" class="hyperref">Listing <span class="ref">12.16</span></a> delegates the boolean test for password reset expiration to the User model via the code</p>
+<div class="code"><div class="highlight"><pre><span class="vi">@user</span><span class="o">.</span><span class="n">password_reset_expired?</span>
+</pre></div></div>
+<p>To get this to work, we need to define the <code>password_reset_expired?</code> method.<span class="intersentencespace"></span> As indicated in the email templates from <a href="password_reset_fragment.html#sec-password_reset_mailer" class="hyperref">Section <span class="ref">12.2.1</span></a>, we’ll consider a password reset to be expired if it was sent more than two hours ago, which we can express in Ruby as follows:</p>
+<div class="code"><div class="highlight"><pre><span class="n">reset_sent_at</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">.</span><span class="n">hours</span><span class="o">.</span><span class="n">ago</span>
+</pre></div></div>
+<p>This can be confusing if you read <code>&lt;</code> as “less than”, because then it sounds like “Password reset sent less than two hours ago”, which is the opposite of what we want.<span class="intersentencespace"></span> In this context, it’s better to read <code>&lt;</code> as “earlier than”, which gives something like “Password reset sent earlier than two hours ago.”<span class="intersentencespace"></span> That <em>is</em> what we want, and it leads to the <code>password_reset_expired?</code> method in <a href="password_reset_fragment.html#code-user_model_password_reset_expired" class="hyperref">Listing <span class="ref">12.17</span></a>.<span class="intersentencespace"></span> (For a formal demonstration that the comparison is correct, see the proof in <a href="password_reset_fragment.html#sec-expiration_proof" class="hyperref">Section <span class="ref">12.6</span></a>.)</p>
+<div class="codelisting" id="code-user_model_password_reset_expired" data-tralics-id="uid1518" data-number="12.17"><div class="heading"><span class="number">Listing 12.17:</span> 
+
+<span class="description">Adding password reset methods to the User model.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/models/user.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="c1"># Returns true if a password reset has expired.</span>
+  <span class="k">def</span> <span class="nf">password_reset_expired?</span>
+<span class="hll">    <span class="n">reset_sent_at</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">.</span><span class="n">hours</span><span class="o">.</span><span class="n">ago</span>
+</span>  <span class="k">end</span>
+
+  <span class="kp">private</span>
+    <span class="o">.</span>
+    <span class="o">.</span>
+    <span class="o">.</span>
+<span class="k">end</span>
+</pre></div></div></div><p>With the code in <a href="password_reset_fragment.html#code-user_model_password_reset_expired" class="hyperref">Listing <span class="ref">12.17</span></a>, the <code>update</code> action in <a href="password_reset_fragment.html#code-password_reset_update_action" class="hyperref">Listing <span class="ref">12.16</span></a> should be working.<span class="intersentencespace"></span> The results for invalid and valid submissions are shown in <a href="password_reset_fragment.html#fig-password_reset_failure" class="hyperref">Figure <span class="ref">12.12</span></a> and <a href="password_reset_fragment.html#fig-password_reset_success" class="hyperref">Figure <span class="ref">12.13</span></a>, respectively.<span class="intersentencespace"></span> (Lacking the patience to wait two hours, we’ll cover the third branch in a test, which is left as an exercise (<a href="password_reset_fragment.html#sec-exercises_updating_the_reset" class="hyperref">Section <span class="ref">12.3.2.1</span></a>).)</p>
+<div class="center figure" id="fig-password_reset_failure" data-tralics-id="uid1519" data-number="12.12">
+<div class="graphics image"><img src="images/figures/password_reset_failure_4th_ed.png" alt="images/figures/password_reset_failure_4th_ed"></div><div class="caption"><span class="header">Figure 12.12: </span><span class="description">A failed password reset.
+</span></div></div>
+<div class="center figure" id="fig-password_reset_success" data-tralics-id="uid1520" data-number="12.13">
+<div class="graphics image"><img src="images/figures/password_reset_success_4th_ed.png" alt="images/figures/password_reset_success_4th_ed"></div><div class="caption"><span class="header">Figure 12.13: </span><span class="description">A successful password reset.
+</span></div></div>
+<div id="sec-exercises_updating_the_reset" data-tralics-id="uid1521" class="subsubsection" data-number="12.3.2.1"><h4><a href="#sec-exercises_updating_the_reset" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="intersentencespace"></span>  </p></div>
+<ol>
+<li>Follow the email link from <a href="password_reset_fragment.html#sec-exercises_password_reset_mailer" class="hyperref">Section <span class="ref">12.2.1.1</span></a> again and submit mismatched passwords to the form.<span class="intersentencespace"></span> What is the error message? <span class="exercise" id="ex-a3e543"></span>
+</li>
+<li>In the console, find the user belonging to the email link, and retrieve the value of the <code>password_digest</code> attribute.<span class="intersentencespace"></span> Now submit valid matching passwords to the form shown in <a href="password_reset_fragment.html#fig-password_reset_failure" class="hyperref">Figure <span class="ref">12.12</span></a>.<span class="intersentencespace"></span> Did the submission appear to work?<span class="intersentencespace"></span> How did it affect the value of <code>password_digest</code>?<span class="intersentencespace"></span> <em>Hint</em>: Use <code>user.reload</code> to retrieve the new value. <span class="exercise" id="ex-140f50"></span>
+</li></ol>
+</div></div>
+<div id="sec-password_reset_test" data-tralics-id="uid1524" class="subsection" data-number="12.3.3"><h3><a href="password_reset_fragment.html#sec-password_reset_test" class="heading hyperref"><span class="number">12.3.3 </span>Password reset test</a></h3>
+<p>In this section, we’ll write an integration test covering two of the three branches in <a href="password_reset_fragment.html#code-password_reset_update_action" class="hyperref">Listing <span class="ref">12.16</span></a>, invalid and valid submission.<span class="intersentencespace"></span> (As noted above, testing the third branch is left as an exercise.)<span class="intersentencespace"></span> We’ll get started by generating a test file for password resets:</p>
+<div class="code"><div class="highlight"><pre><span class="gp">$</span> rails generate integration_test password_resets
+<span class="go">      invoke  test_unit</span>
+<span class="go">      create    test/integration/password_resets_test.rb</span>
+</pre></div></div>
+<p>The steps to test password resets broadly parallel the test for account activation from <a href="account_activation_fragment.html#code-signup_with_account_activation_test" class="hyperref">Listing <span class="ref">11.33</span></a>, though there is a difference at the outset: we first visit the “forgot password” form and submit invalid and then valid email addresses, the latter of which creates a password reset token and sends the reset email.<span class="intersentencespace"></span> We then visit the link from the email and again submit invalid and valid information, verifying the correct behavior in each case.<span class="intersentencespace"></span> The resulting test, shown in <a href="password_reset_fragment.html#code-password_reset_integration_test" class="hyperref">Listing <span class="ref">12.18</span></a>, is an excellent exercise in reading code.</p>
+<div class="codelisting" id="code-password_reset_integration_test" data-tralics-id="uid1525" data-number="12.18"><div class="heading"><span class="number">Listing 12.18:</span> 
+
+<span class="description">An integration test for password resets.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">test/integration/password_resets_test.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="nb">require</span> <span class="s1">'test_helper'</span>
+
+<span class="k">class</span> <span class="nc">PasswordResetsTest</span> <span class="o">&lt;</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">IntegrationTest</span>
+
+  <span class="k">def</span> <span class="nf">setup</span>
+    <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">clear</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="n">users</span><span class="p">(</span><span class="ss">:michael</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="nb">test</span> <span class="s2">"password resets"</span> <span class="k">do</span>
+    <span class="n">get</span> <span class="n">new_password_reset_path</span>
+    <span class="n">assert_template</span> <span class="s1">'password_resets/new'</span>
+    <span class="c1"># Invalid email</span>
+    <span class="n">post</span> <span class="n">password_resets_path</span><span class="p">,</span> <span class="ss">params</span><span class="p">:</span> <span class="p">{</span> <span class="ss">password_reset</span><span class="p">:</span> <span class="p">{</span> <span class="ss">email</span><span class="p">:</span> <span class="s2">""</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="n">assert_not</span> <span class="n">flash</span><span class="o">.</span><span class="n">empty?</span>
+    <span class="n">assert_template</span> <span class="s1">'password_resets/new'</span>
+    <span class="c1"># Valid email</span>
+    <span class="n">post</span> <span class="n">password_resets_path</span><span class="p">,</span>
+         <span class="ss">params</span><span class="p">:</span> <span class="p">{</span> <span class="ss">password_reset</span><span class="p">:</span> <span class="p">{</span> <span class="ss">email</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="n">assert_not_equal</span> <span class="vi">@user</span><span class="o">.</span><span class="n">reset_digest</span><span class="p">,</span> <span class="vi">@user</span><span class="o">.</span><span class="n">reload</span><span class="o">.</span><span class="n">reset_digest</span>
+    <span class="n">assert_equal</span> <span class="mi">1</span><span class="p">,</span> <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">assert_not</span> <span class="n">flash</span><span class="o">.</span><span class="n">empty?</span>
+    <span class="n">assert_redirected_to</span> <span class="n">root_url</span>
+    <span class="c1"># Password reset form</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">assigns</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>
+    <span class="c1"># Wrong email</span>
+    <span class="n">get</span> <span class="n">edit_password_reset_path</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">reset_token</span><span class="p">,</span> <span class="ss">email</span><span class="p">:</span> <span class="s2">""</span><span class="p">)</span>
+    <span class="n">assert_redirected_to</span> <span class="n">root_url</span>
+    <span class="c1"># Inactive user</span>
+    <span class="n">user</span><span class="o">.</span><span class="n">toggle!</span><span class="p">(</span><span class="ss">:activated</span><span class="p">)</span>
+    <span class="n">get</span> <span class="n">edit_password_reset_path</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">reset_token</span><span class="p">,</span> <span class="ss">email</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+    <span class="n">assert_redirected_to</span> <span class="n">root_url</span>
+    <span class="n">user</span><span class="o">.</span><span class="n">toggle!</span><span class="p">(</span><span class="ss">:activated</span><span class="p">)</span>
+    <span class="c1"># Right email, wrong token</span>
+    <span class="n">get</span> <span class="n">edit_password_reset_path</span><span class="p">(</span><span class="s1">'wrong token'</span><span class="p">,</span> <span class="ss">email</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+    <span class="n">assert_redirected_to</span> <span class="n">root_url</span>
+    <span class="c1"># Right email, right token</span>
+    <span class="n">get</span> <span class="n">edit_password_reset_path</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">reset_token</span><span class="p">,</span> <span class="ss">email</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">)</span>
+    <span class="n">assert_template</span> <span class="s1">'password_resets/edit'</span>
+    <span class="n">assert_select</span> <span class="s2">"input[name=email][type=hidden][value=?]"</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span>
+    <span class="c1"># Invalid password &amp; confirmation</span>
+    <span class="n">patch</span> <span class="n">password_reset_path</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">reset_token</span><span class="p">),</span>
+          <span class="ss">params</span><span class="p">:</span> <span class="p">{</span> <span class="ss">email</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+                    <span class="ss">user</span><span class="p">:</span> <span class="p">{</span> <span class="ss">password</span><span class="p">:</span>              <span class="s2">"foobaz"</span><span class="p">,</span>
+                            <span class="ss">password_confirmation</span><span class="p">:</span> <span class="s2">"barquux"</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="n">assert_select</span> <span class="s1">'div#error_explanation'</span>
+    <span class="c1"># Empty password</span>
+    <span class="n">patch</span> <span class="n">password_reset_path</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">reset_token</span><span class="p">),</span>
+          <span class="ss">params</span><span class="p">:</span> <span class="p">{</span> <span class="ss">email</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+                    <span class="ss">user</span><span class="p">:</span> <span class="p">{</span> <span class="ss">password</span><span class="p">:</span>              <span class="s2">""</span><span class="p">,</span>
+                            <span class="ss">password_confirmation</span><span class="p">:</span> <span class="s2">""</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="n">assert_select</span> <span class="s1">'div#error_explanation'</span>
+    <span class="c1"># Valid password &amp; confirmation</span>
+    <span class="n">patch</span> <span class="n">password_reset_path</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">reset_token</span><span class="p">),</span>
+          <span class="ss">params</span><span class="p">:</span> <span class="p">{</span> <span class="ss">email</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+                    <span class="ss">user</span><span class="p">:</span> <span class="p">{</span> <span class="ss">password</span><span class="p">:</span>              <span class="s2">"foobaz"</span><span class="p">,</span>
+                            <span class="ss">password_confirmation</span><span class="p">:</span> <span class="s2">"foobaz"</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="n">assert</span> <span class="n">is_logged_in?</span>
+    <span class="n">assert_not</span> <span class="n">flash</span><span class="o">.</span><span class="n">empty?</span>
+    <span class="n">assert_redirected_to</span> <span class="n">user</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>Most of the ideas in <a href="password_reset_fragment.html#code-password_reset_integration_test" class="hyperref">Listing <span class="ref">12.18</span></a> have appeared previously in this tutorial; the only really novel element is the test of the <code>input</code> tag:</p>
+<div class="code"><div class="highlight"><pre><span class="n">assert_select</span> <span class="s2">"input[name=email][type=hidden][value=?]"</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span>
+</pre></div></div>
+<p>This makes sure that there is an <code>input</code> tag with the right name, (hidden) type, and email address:</p>
+<div class="code"><div class="highlight"><pre><span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"email"</span> <span class="na">name=</span><span class="s">"email"</span> <span class="na">type=</span><span class="s">"hidden"</span> <span class="na">value=</span><span class="s">"michael@example.com"</span> <span class="nt">/&gt;</span>
+</pre></div></div>
+<p>With the code as in <a href="password_reset_fragment.html#code-password_reset_integration_test" class="hyperref">Listing <span class="ref">12.18</span></a>, our test suite should be <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span>:</p>
+<div class="codelisting" id="uid1526" data-tralics-id="uid1526" data-number="12.19"><div class="heading"><span class="number">Listing 12.19:</span> <span class="description"><span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre>$ rails test
+</pre></div></div></div>
+<div id="sec-exercises_password_reset_test" data-tralics-id="uid1527" class="subsubsection" data-number="12.3.3.1"><h4><a href="#sec-exercises_password_reset_test" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="intersentencespace"></span>  </p></div>
+<ol>
+<li>In <a href="password_reset_fragment.html#code-user_model_password_reset" class="hyperref">Listing <span class="ref">12.6</span></a>, the <code>create_reset_digest</code> method makes two calls to <code>update_attribute</code>, each of which requires a separate database operation.<span class="intersentencespace"></span> By filling in the template shown in <a href="password_reset_fragment.html#code-update_columns_redux" class="hyperref">Listing <span class="ref">12.20</span></a>, replace the two <code>update_attribute</code> calls with a single call to <code>update_columns</code>, which hits the database only once.<span class="intersentencespace"></span> After making the changes, verify that the test suite is still <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span>.<span class="intersentencespace"></span> (For convenience, <a href="password_reset_fragment.html#code-update_columns_redux" class="hyperref">Listing <span class="ref">12.20</span></a> includes the results of solving the exercise in <a href="account_activation_fragment.html#code-update_columns" class="hyperref">Listing <span class="ref">11.39</span></a>.) <span class="exercise" id="ex-697d08"></span>
+</li>
+<li>Write an integration test for the expired password reset branch in <a href="password_reset_fragment.html#code-password_reset_update_action" class="hyperref">Listing <span class="ref">12.16</span></a> by filling in the template shown in <a href="password_reset_fragment.html#code-password_reset_expire_test" class="hyperref">Listing <span class="ref">12.21</span></a>.<span class="intersentencespace"></span> (This code introduces <code>response.body</code>, which returns the full HTML body of the page.)<span class="intersentencespace"></span> There are many ways to test for the result of an expiration, but the method suggested by <a href="password_reset_fragment.html#code-password_reset_expire_test" class="hyperref">Listing <span class="ref">12.21</span></a> is to (case-insensitively) check that the response body includes the word “expired”. <span class="exercise" id="ex-06cd0f"></span>
+</li>
+<li>Expiring password resets after a couple of hours is a nice security precaution, but there is an even more secure solution for cases where a public computer is used.<span class="intersentencespace"></span> The reason is that the password reset link remains active for 2 hours and can be used even if logged out.<span class="intersentencespace"></span> If a user reset their password from a public machine, anyone could press the back button and change the password (and get logged in to the site).<span class="intersentencespace"></span> To fix this, add the code shown in <a href="password_reset_fragment.html#code-update_clear_reset" class="hyperref">Listing <span class="ref">12.22</span></a> to clear the reset digest on successful password update.<sup id="cha-12_footnote-ref-3" class="footnote intersentence"><a href="#cha-12_footnote-3">3</a></sup><span class="intersentencespace"></span> <span class="exercise" id="ex-680ffb"></span>
+</li>
+<li>Add a line to <a href="password_reset_fragment.html#code-password_reset_integration_test" class="hyperref">Listing <span class="ref">12.18</span></a> to test for the clearing of the reset digest in the previous exercise.<span class="intersentencespace"></span> <em>Hint</em>: Combine <code>assert_nil</code> (first seen in <a href="advanced_login_fragment.html#code-remember_me_test" class="hyperref">Listing <span class="ref">9.25</span></a>) with <code>user.reload</code> (<a href="account_activation_fragment.html#code-signup_with_account_activation_test" class="hyperref">Listing <span class="ref">11.33</span></a>) to test the <code>reset_digest</code> attribute directly. <span class="exercise" id="ex-52ff2f"></span>
+</li></ol>
+<div class="codelisting" id="code-update_columns_redux" data-tralics-id="uid1533" data-number="12.20"><div class="heading"><span class="number">Listing 12.20:</span> 
+
+<span class="description">A template for using <code>update_columns</code>.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/models/user.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="kp">attr_accessor</span> <span class="ss">:remember_token</span><span class="p">,</span> <span class="ss">:activation_token</span><span class="p">,</span> <span class="ss">:reset_token</span>
+  <span class="n">before_save</span>   <span class="ss">:downcase_email</span>
+  <span class="n">before_create</span> <span class="ss">:create_activation_digest</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="c1"># Activates an account.</span>
+  <span class="k">def</span> <span class="nf">activate</span>
+    <span class="n">update_columns</span><span class="p">(</span><span class="ss">activated</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">activated_at</span><span class="p">:</span> <span class="no">Time</span><span class="o">.</span><span class="n">zone</span><span class="o">.</span><span class="n">now</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Sends activation email.</span>
+  <span class="k">def</span> <span class="nf">send_activation_email</span>
+    <span class="no">UserMailer</span><span class="o">.</span><span class="n">account_activation</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span><span class="o">.</span><span class="n">deliver_now</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Sets the password reset attributes.</span>
+  <span class="k">def</span> <span class="nf">create_reset_digest</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">reset_token</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new_token</span>
+<span class="hll">    <span class="n">update_columns</span><span class="p">(</span><span class="ss">reset_digest</span><span class="p">:</span>  <span class="no">FILL_IN</span><span class="p">,</span> <span class="ss">reset_sent_at</span><span class="p">:</span> <span class="no">FILL_IN</span><span class="p">)</span>
+</span>  <span class="k">end</span>
+
+  <span class="c1"># Sends password reset email.</span>
+  <span class="k">def</span> <span class="nf">send_password_reset_email</span>
+    <span class="no">UserMailer</span><span class="o">.</span><span class="n">password_reset</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span><span class="o">.</span><span class="n">deliver_now</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+    <span class="c1"># Converts email to all lower-case.</span>
+    <span class="k">def</span> <span class="nf">downcase_email</span>
+      <span class="nb">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">downcase</span>
+    <span class="k">end</span>
+
+    <span class="c1"># Creates and assigns the activation token and digest.</span>
+    <span class="k">def</span> <span class="nf">create_activation_digest</span>
+      <span class="nb">self</span><span class="o">.</span><span class="n">activation_token</span>  <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new_token</span>
+      <span class="nb">self</span><span class="o">.</span><span class="n">activation_digest</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">digest</span><span class="p">(</span><span class="n">activation_token</span><span class="p">)</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><div class="codelisting" id="code-password_reset_expire_test" data-tralics-id="uid1534" data-number="12.21"><div class="heading"><span class="number">Listing 12.21:</span> 
+
+<span class="description">A test for an expired password reset.<span class="intersentencespace"></span> <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span><span class="break"></span> <span class="filepath">test/integration/password_resets_test.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="nb">require</span> <span class="s1">'test_helper'</span>
+
+<span class="k">class</span> <span class="nc">PasswordResetsTest</span> <span class="o">&lt;</span> <span class="no">ActionDispatch</span><span class="o">::</span><span class="no">IntegrationTest</span>
+
+  <span class="k">def</span> <span class="nf">setup</span>
+    <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Base</span><span class="o">.</span><span class="n">deliveries</span><span class="o">.</span><span class="n">clear</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="n">users</span><span class="p">(</span><span class="ss">:michael</span><span class="p">)</span>
+  <span class="k">end</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="nb">test</span> <span class="s2">"expired token"</span> <span class="k">do</span>
+    <span class="n">get</span> <span class="n">new_password_reset_path</span>
+    <span class="n">post</span> <span class="n">password_resets_path</span><span class="p">,</span>
+         <span class="ss">params</span><span class="p">:</span> <span class="p">{</span> <span class="ss">password_reset</span><span class="p">:</span> <span class="p">{</span> <span class="ss">email</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span> <span class="p">}</span> <span class="p">}</span>
+
+    <span class="vi">@user</span> <span class="o">=</span> <span class="n">assigns</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>
+    <span class="vi">@user</span><span class="o">.</span><span class="n">update_attribute</span><span class="p">(</span><span class="ss">:reset_sent_at</span><span class="p">,</span> <span class="mi">3</span><span class="o">.</span><span class="n">hours</span><span class="o">.</span><span class="n">ago</span><span class="p">)</span>
+    <span class="n">patch</span> <span class="n">password_reset_path</span><span class="p">(</span><span class="vi">@user</span><span class="o">.</span><span class="n">reset_token</span><span class="p">),</span>
+          <span class="ss">params</span><span class="p">:</span> <span class="p">{</span> <span class="ss">email</span><span class="p">:</span> <span class="vi">@user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+                    <span class="ss">user</span><span class="p">:</span> <span class="p">{</span> <span class="ss">password</span><span class="p">:</span>              <span class="s2">"foobar"</span><span class="p">,</span>
+                            <span class="ss">password_confirmation</span><span class="p">:</span> <span class="s2">"foobar"</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="n">assert_response</span> <span class="ss">:redirect</span>
+    <span class="n">follow_redirect!</span>
+<span class="hll">    <span class="n">assert_match</span> <span class="sr">/FILL_IN/i</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">body</span>
+</span>  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><div class="codelisting" id="code-update_clear_reset" data-tralics-id="uid1535" data-number="12.22"><div class="heading"><span class="number">Listing 12.22:</span> 
+
+<span class="description">Clearing the reset digest on successful password reset.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/controllers/password_resets_controller.rb</span> </span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">PasswordResetsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="k">def</span> <span class="nf">update</span>
+    <span class="k">if</span> <span class="n">params</span><span class="o">[</span><span class="ss">:user</span><span class="o">][</span><span class="ss">:password</span><span class="o">].</span><span class="n">empty?</span>
+      <span class="vi">@user</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="ss">:password</span><span class="p">,</span> <span class="s2">"can't be empty"</span><span class="p">)</span>
+      <span class="n">render</span> <span class="s1">'edit'</span>
+    <span class="k">elsif</span> <span class="vi">@user</span><span class="o">.</span><span class="n">update_attributes</span><span class="p">(</span><span class="n">user_params</span><span class="p">)</span>
+      <span class="n">log_in</span> <span class="vi">@user</span>
+<span class="hll">      <span class="vi">@user</span><span class="o">.</span><span class="n">update_attribute</span><span class="p">(</span><span class="ss">:reset_digest</span><span class="p">,</span> <span class="kp">nil</span><span class="p">)</span>
+</span>      <span class="n">flash</span><span class="o">[</span><span class="ss">:success</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"Password has been reset."</span>
+      <span class="n">redirect_to</span> <span class="vi">@user</span>
+    <span class="k">else</span>
+      <span class="n">render</span> <span class="s1">'edit'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+<span class="k">end</span>
+</pre></div></div></div></div></div></div><div id="sec-reset_email_in_production" data-tralics-id="cid70" class="section" data-number="12.4"><h2><a href="password_reset_fragment.html#sec-reset_email_in_production" class="heading hyperref"><span class="number">12.4 </span>Email in production (take two)</a></h2>
+<p>Now that we’ve got password resets working in development, in this section we’ll get them working in production as well.<span class="intersentencespace"></span> The steps are exactly the same as for account activations, so if you already followed <a href="account_activation_fragment.html#sec-activation_email_in_production" class="hyperref">Section <span class="ref">11.4</span></a> you can skip right to <a href="password_reset_fragment.html#code-merge_password_reset" class="hyperref">Listing <span class="ref">12.24</span></a>.</p>
+<p>To send email in production, we’ll use SendGrid, which is available as an add-on at Heroku for verified accounts.<span class="intersentencespace"></span> (This requires adding credit card information to your Heroku account, but there is no charge when verifying an account.)<span class="intersentencespace"></span> For our purposes, the “starter” tier (which as of this writing is limited to 400 emails a day but costs nothing) is the best fit.<span class="intersentencespace"></span> We can add it to our app as follows:</p>
+<div class="code"><div class="highlight"><pre><span class="gp">$</span> heroku addons:create sendgrid:starter
+</pre></div></div>
+<p>(This might fail on systems with older version of Heroku’s command-line interface.<span class="intersentencespace"></span> In this case, either <a href="https://toolbelt.heroku.com/" target="_blank" rel="noopener">upgrade to the latest Heroku toolbelt</a> or try the older syntax <code>heroku addons:add sendgrid:starter</code>.)</p>
+<p>To configure our application to use SendGrid, we need to fill out the <a href="https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol" target="_blank" rel="noopener">SMTP</a> settings for our production environment.<span class="intersentencespace"></span> As shown in <a href="password_reset_fragment.html#code-sendgrid_config_redux" class="hyperref">Listing <span class="ref">12.23</span></a>, you will also have to define a <code>host</code> variable with the address of your production website.</p>
+<div class="codelisting" id="code-sendgrid_config_redux" data-tralics-id="uid1536" data-number="12.23"><div class="heading"><span class="number">Listing 12.23:</span> 
+
+<span class="description">Configuring Rails to use SendGrid in production.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">config/environments/production.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="no">Rails</span><span class="o">.</span><span class="n">application</span><span class="o">.</span><span class="n">configure</span> <span class="k">do</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">action_mailer</span><span class="o">.</span><span class="n">raise_delivery_errors</span> <span class="o">=</span> <span class="kp">true</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">action_mailer</span><span class="o">.</span><span class="n">delivery_method</span> <span class="o">=</span> <span class="ss">:smtp</span>
+  <span class="n">host</span> <span class="o">=</span> <span class="s1">'&lt;your heroku app&gt;.herokuapp.com'</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">action_mailer</span><span class="o">.</span><span class="n">default_url_options</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">host</span><span class="p">:</span> <span class="n">host</span> <span class="p">}</span>
+  <span class="no">ActionMailer</span><span class="o">::</span><span class="no">Base</span><span class="o">.</span><span class="n">smtp_settings</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="ss">:address</span>        <span class="o">=&gt;</span> <span class="s1">'smtp.sendgrid.net'</span><span class="p">,</span>
+    <span class="ss">:port</span>           <span class="o">=&gt;</span> <span class="s1">'587'</span><span class="p">,</span>
+    <span class="ss">:authentication</span> <span class="o">=&gt;</span> <span class="ss">:plain</span><span class="p">,</span>
+    <span class="ss">:user_name</span>      <span class="o">=&gt;</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">'SENDGRID_USERNAME'</span><span class="o">]</span><span class="p">,</span>
+    <span class="ss">:password</span>       <span class="o">=&gt;</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">'SENDGRID_PASSWORD'</span><span class="o">]</span><span class="p">,</span>
+    <span class="ss">:domain</span>         <span class="o">=&gt;</span> <span class="s1">'heroku.com'</span><span class="p">,</span>
+    <span class="ss">:enable_starttls_auto</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+  <span class="p">}</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+<span class="k">end</span>
+</pre></div></div></div><p>The email configuration in <a href="account_activation_fragment.html#code-sendgrid_config" class="hyperref">Listing <span class="ref">11.41</span></a> includes the <code>user_name</code> and <code>password</code> of the SendGrid account, but note that they are accessed via the <code>ENV</code> environment variable instead of being hard-coded.<span class="intersentencespace"></span> This is a best practice for production applications, which for security reasons should never expose sensitive information such as raw passwords in source code.<span class="intersentencespace"></span> In the present case, these variables are configured automatically via the SendGrid add-on, but we’ll see an example in <a href="user_microposts_fragment.html#sec-image_upload_in_production" class="hyperref">Section <span class="ref">13.4.4</span></a> where we’ll have to define them ourselves.</p>
+<p>At this point, you should merge the topic branch into master (<a href="password_reset_fragment.html#code-merge_password_reset" class="hyperref">Listing <span class="ref">12.24</span></a>).</p>
+<div class="codelisting" id="code-merge_password_reset" data-tralics-id="uid1537" data-number="12.24"><div class="heading"><span class="number">Listing 12.24:</span> 
+
+<span class="description">Merging the <code>password-reset</code> branch into <code>master</code>.</span>
+</div>
+
+<div class="code"><div class="highlight"><pre>$ rails test
+$ git add -A
+$ git commit -m "Add password reset"
+$ git checkout master
+$ git merge password-reset
+</pre></div></div></div><p>Then push up to the remote repository and deploy to Heroku:</p>
+<div class="code"><div class="highlight"><pre>$ rails test
+$ git push
+$ git push heroku
+$ heroku run rails db:migrate
+</pre></div></div>
+<p>Once the Heroku deploy has finished, you can reset your password by clicking the “(forgot password)” link (<a href="password_reset_fragment.html#fig-forgot_password_link" class="hyperref">Figure <span class="ref">12.4</span></a>).<span class="intersentencespace"></span> The result should be a reset email as shown in <a href="password_reset_fragment.html#fig-reset_email_production" class="hyperref">Figure <span class="ref">12.14</span></a>.<span class="intersentencespace"></span> Following the link and making invalid or valid submissions should work as it did in development (<a href="password_reset_fragment.html#fig-password_reset_failure" class="hyperref">Figure <span class="ref">12.12</span></a> and <a href="password_reset_fragment.html#fig-password_reset_success" class="hyperref">Figure <span class="ref">12.13</span></a>).</p>
+<div class="center figure" id="fig-reset_email_production" data-tralics-id="uid1538" data-number="12.14">
+<div class="graphics image box"><img src="images/figures/reset_email_production_4th_ed.png" alt="images/figures/reset_email_production_4th_ed"></div><div class="caption"><span class="header">Figure 12.14: </span><span class="description">A password reset email sent in production.
+</span></div></div>
+<div id="sec-exercises_reset_email_in_production" data-tralics-id="uid1539" class="subsubsection" data-number="12.4.3.2"><h4><a href="#sec-exercises_reset_email_in_production" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="intersentencespace"></span>  </p></div>
+<ol>
+<li>Sign up for a new account in production.<span class="intersentencespace"></span> Did you get the email? <span class="exercise" id="ex-6c5c45"></span>
+</li>
+<li>Click on the link in the activation email to confirm that it works.<span class="intersentencespace"></span> What is the corresponding entry in the server log?<span class="intersentencespace"></span> <em>Hint</em>: Run <code>heroku logs</code> at the command line. <span class="exercise" id="ex-59f9aa"></span>
+</li>
+<li>Are you able to successfully update your password? <span class="exercise" id="ex-f449af"></span>
+</li></ol>
+</div></div><div id="sec-resets_conclusion" data-tralics-id="cid71" class="section" data-number="12.5"><h2><a href="password_reset_fragment.html#sec-resets_conclusion" class="heading hyperref"><span class="number">12.5 </span>Conclusion</a></h2>
+<p>With the added password resets, our sample application’s sign up, log in, and log out machinery is complete and professional-grade.<span class="intersentencespace"></span> The rest of the <em>Ruby on Rails Tutorial</em> builds on this foundation to make a site with Twitter-like microposts (<a href="user_microposts_fragment.html#cha-user_microposts" class="hyperref">Chapter <span class="ref">13</span></a>) and a status feed of posts from followed users (<a href="following_users_fragment.html#cha-following_users" class="hyperref">Chapter <span class="ref">14</span></a>).<span class="intersentencespace"></span> In the process, we’ll learn about some of the most powerful features of Rails, including image upload, custom database queries, and advanced data modeling with <code>has_many</code> and <code>has_many :through</code>.</p>
+<div id="sec-activation_resets_what_we_learned_in_this_chapter" data-tralics-id="uid1543" class="subsection" data-number="12.5.1"><h3><a href="password_reset_fragment.html#sec-activation_resets_what_we_learned_in_this_chapter" class="heading hyperref"><span class="number">12.5.1 </span>What we learned in this chapter</a></h3>
+<ul>
+<li>Like sessions and account activations, password resets can be modeled as a resource despite not being Active Record objects.
+</li>
+<li>Rails can generate Action Mailer actions and views to send email.
+</li>
+<li>Action Mailer supports both plain-text and HTML mail.
+</li>
+<li>As with ordinary actions and views, instance variables defined in mailer actions are available in mailer views.
+</li>
+<li>Password resets use a generated token to create a unique URL for resetting passwords.
+</li>
+<li>Password resets use a hashed reset digest to securely identify valid reset requests.
+</li>
+<li>Both mailer tests and integration tests are useful for verifying the behavior of the User mailer.
+</li>
+<li>We can send email in production using SendGrid.
+</li></ul>
+</div></div><div id="sec-expiration_proof" data-tralics-id="cid72" class="section" data-number="12.6"><h2><a href="password_reset_fragment.html#sec-expiration_proof" class="heading hyperref"><span class="number">12.6 </span>Proof of expiration comparison</a></h2>
+<p>We saw in <a href="password_reset_fragment.html#sec-resetting_the_password" class="hyperref">Section <span class="ref">12.3</span></a> that the comparison test for determining when a password reset has expired is</p>
+<div class="code"><div class="highlight"><pre><span class="n">reset_sent_at</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">.</span><span class="n">hours</span><span class="o">.</span><span class="n">ago</span>
+</pre></div></div>
+<p>as seen in <a href="password_reset_fragment.html#code-user_model_password_reset_expired" class="hyperref">Listing <span class="ref">12.17</span></a>.<span class="intersentencespace"></span> This looks likes it might be read as “reset sent less than two hours ago”, which is the opposite of what we want.<span class="intersentencespace"></span> In this section, we’ll prove that the above comparison is correct.<sup id="cha-12_footnote-ref-4" class="footnote"><a href="#cha-12_footnote-4">4</a></sup></p>
+<p>We start by defining two time intervals.<span class="intersentencespace"></span> Let <span class="inline_math">\( \Delta t_r \)</span> be the time interval since sending the password reset and <span class="inline_math">\( \Delta t_e \)</span> be the expiration time limit (e.g., two hours).<span class="intersentencespace"></span> A password reset has expired if the time interval since the reset was sent is greater than the expiration limit:</p>
+<div id="eq-time_delta" data-tralics-id="uid1553" data-number="12.1" class="equation">\begin{equation}
+\label{eq:time_delta}
+\Delta t_r &gt; \Delta t_e.
+\end{equation}
+</div><p>If we write the time now as <span class="inline_math">\( t_N \)</span>, the password reset sending time as <span class="inline_math">\( t_r \)</span>, and the expiration time as <span class="inline_math">\( t_e \)</span> (e.g., two hours ago), then we have</p>
+<div id="eq-delta_p" data-tralics-id="uid1554" data-number="12.2" class="equation">\begin{equation}
+\label{eq:delta_p}
+\Delta t_r = t_N - t_r
+\end{equation}
+</div><p>and</p>
+<div id="eq-delta_e" data-tralics-id="uid1555" data-number="12.3" class="equation">\begin{equation}
+\label{eq:delta_e}
+\Delta t_e = t_N - t_e.
+\end{equation}
+</div><p>Plugging <a href="password_reset_fragment.html#eq-delta_p" class="hyperref">Eq. (<span class="ref">12.2</span>)</a> and <a href="password_reset_fragment.html#eq-delta_e" class="hyperref">Eq. (<span class="ref">12.3</span>)</a> into <a href="password_reset_fragment.html#eq-time_delta" class="hyperref">(<span class="ref">12.1</span>)</a> then gives</p>
+<div class="equation">\[ 
+\begin{array}{rcl}
+\Delta t_r &amp; &gt; &amp; \Delta t_e \\
+t_N - t_r &amp; &gt; &amp; t_N - t_e \\
+-t_r &amp; &gt; &amp; -t_e,
+\end{array}
+ \]
+</div><p>which upon multiplying through by <span class="inline_math">\( -1 \)</span> yields</p>
+<div id="eq-time_comparison" data-tralics-id="uid1556" data-number="12.4" class="equation">\begin{equation}
+\label{eq:time_comparison}
+t_r &lt; t_e.
+\end{equation}
+</div><p>Converting <a href="password_reset_fragment.html#eq-time_comparison" class="hyperref">(<span class="ref">12.4</span>)</a> to code with the value <span class="inline_math">\( t_e = \mathrm{2\ hours\ ago} \)</span> gives the <code>password_reset_expired?</code> method shown in <a href="password_reset_fragment.html#code-user_model_password_reset_expired" class="hyperref">Listing <span class="ref">12.17</span></a>:</p>
+<div class="code"><div class="highlight"><pre><span class="k">def</span> <span class="nf">password_reset_expired?</span>
+  <span class="n">reset_sent_at</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">.</span><span class="n">hours</span><span class="o">.</span><span class="n">ago</span>
+<span class="k">end</span>
+</pre></div></div>
+<p>As noted in <a href="password_reset_fragment.html#sec-resetting_the_password" class="hyperref">Section <span class="ref">12.3</span></a>, if we read <code>&lt;</code> as “earlier than” instead of “less than”, this code makes sense as the English sentence “The password reset was sent earlier than two hours ago.”</p>
+</div><div id="cha-12_footnotes">
+  <ol class="footnotes">
+    <li id="cha-12_footnote-1">This chapter is independent of the others apart from using the mailer generation in <a href="account_activation_fragment.html#code-generate_user_mailer" class="hyperref">Listing <span class="ref">11.6</span></a>, but it closely parallels <a href="account_activation_fragment.html#cha-account_activation" class="hyperref">Chapter <span class="ref">11</span></a>, so it’s much easier if you’ve followed that chapter first. <a class="arrow" href="#cha-12_footnote-ref-1">↑</a></li>
+    <li id="cha-12_footnote-2">We need only handle the case where the password is empty because if the confirmation is empty, the confirmation validation (which is skipped if the password is empty) will catch the problem and supply a relevant error message. <a class="arrow" href="#cha-12_footnote-ref-2">↑</a></li>
+    <li id="cha-12_footnote-3">Thanks to reader Tristan Ludowyk for suggesting this feature and for providing both a detailed description and a suggested implementation. <a class="arrow" href="#cha-12_footnote-ref-3">↑</a></li>
+    <li id="cha-12_footnote-4">This proof is the price you pay for reading a web development tutorial written by a Ph.D. physicist.<span class="intersentencespace"></span> Just be grateful I couldn’t find a way to work <span class="inline_math">\( \left(-\frac{\hbar^2}{2m}\nabla^2 + V\right)\psi = E\psi \)</span> or <span class="inline_math">\( G^{\mu\nu} = 8\pi T^{\mu\nu} (=4\tau T^{\mu\nu}) \)</span> into the exposition. <a class="arrow" href="#cha-12_footnote-ref-4">↑</a></li>
+  </ol>
+</div>�|:��      X�i�X�i�=f�HX�6  }a,:https://softcover.s3-us-west-2.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/html/password_reset_fragment.html?X-Amz-Expires=604800&X-Amz-Date=20170203T054647Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJMNNDDBSYVXVHGAA/20170203/us-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=0f811faf413ffb5feea219832c80191d4b91c11665a0c64ea168a0812a629de4 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjoj9ApAYLLhYqsrhSapAAQAAgAAAAAAAAAAAAAAACw4N6+LhUposNgK7YiYWzI/H82DxalM0aJQdnbKfH40ZgoyJpFcT/u7IImFpjLfBfjtg2TO2UxuhrpIr1PDk+YAAAAAAAAGGzCCBhcwggT/oAMCAQICEAkMEh1kGcxPzNQuULyfEo0wDQYJKoZIhvcNAQELBQAwZDELMAkGA1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IEluYzEZMBcGA1UECxMQd3d3LmRpZ2ljZXJ0LmNvbTEjMCEGA1UEAxMaRGlnaUNlcnQgQmFsdGltb3JlIENBLTIgRzIwHhcNMTYwNzE4MDAwMDAwWhcNMTcxMDI2MTIwMDAwWjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKV2FzaGluZ3RvbjEQMA4GA1UEBxMHU2VhdHRsZTEYMBYGA1UEChMPQW1hem9uLmNvbSBJbmMuMSUwIwYDVQQDDBwqLnMzLXVzLXdlc3QtMi5hbWF6b25hd3MuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtPtaIwJ9+anWiEq/qLdHgQkQ51FdpjU3C/o1HSP3DGHcijP8q6gpOQ2GIT4xaAOOEstz5v5WY8kOfEE0UXsyB8LxmNyu4nPz4gEE1jCKXaFaMQUexl2nz1hNBCzabnDV10EB2+XPOWPw1troTgtKWuBxZ4EaC7dQXkgpqSqzcio33y9sZHlcEa2ok0DMgxTaEY0ryVdODJMlTIVoFwzkiedRV3dl7yRK8EqWMfWnVJzJ2JVMRqakWjQeLE+8oeo4F0m6BEch9qpIA8JV20oFv0cQLM6QQNFzX2EN/2v5uBtrB5g/g39+5Yu+kgkfhedTSkFunjEGol8G7jssC3jijwIDAQABo4ICsjCCAq4wHwYDVR0jBBgwFoAUwBKyKHRoRmfpcCV0GgBFWwZ9XEQwHQYDVR0OBBYEFF1JaGNuDmFfuVhgXPTd3tg4yz2iMIHhBgNVHREEgdkwgdaCGnMzLXVzLXdlc3QtMi5hbWF6b25hd3MuY29tghwqLnMzLXVzLXdlc3QtMi5hbWF6b25hd3MuY29tghpzMy51cy13ZXN0LTIuYW1hem9uYXdzLmNvbYIcKi5zMy51cy13ZXN0LTIuYW1hem9uYXdzLmNvbYIkczMuZHVhbHN0YWNrLnVzLXdlc3QtMi5hbWF6b25hd3MuY29tgiYqLnMzLmR1YWxzdGFjay51cy13ZXN0LTIuYW1hem9uYXdzLmNvbYISKi5zMy5hbWF6b25hd3MuY29tMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwgYEGA1UdHwR6MHgwOqA4oDaGNGh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEJhbHRpbW9yZUNBLTJHMi5jcmwwOqA4oDaGNGh0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEJhbHRpbW9yZUNBLTJHMi5jcmwwTAYDVR0gBEUwQzA3BglghkgBhv1sAQEwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cuZGlnaWNlcnQuY29tL0NQUzAIBgZngQwBAgIweQYIKwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYBBQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEJhbHRpbW9yZUNBLTJHMi5jcnQwDAYDVR0TAQH/BAIwADANBgkqhkiG9w0BAQsFAAOCAQEAYH38ntfWdhwWcuD895IsKMmdlnbReTnnEKe6n6tldoxpWEJkjMA0hURZnZrbr5FL3ar6bWF9wnFKMYPxMfjhNzpB8/lbp63yZSDmVpDIsOIRWjkdcMsnpBHDHQWPV9T7fIgxT4WqAK92O3kQs1+bmsuXISBelIMev1G02BYa7EDD8JZyoltleTcs8rzvRRgE37GfxAtu07fxQqyDSvj7ojpSoIUmTVDVJMTGCkSemYpdR3DqTzmsej6eV7TbLdvFTjFnRJ4Zdehb17CoVvkOTB1v/oXaabIIi3UEsDu3UpxdB7mU4G1qgy8XDMitAtpBL6+EIw0QKw5+JoSuzbybEgAAAIAAAACAAAAAJVRMU19FQ0RIRV9SU0FfV0lUSF9BRVNfMTI4X0dDTV9TSEEyNTYAAAABAAA= request-method GET request-Origin https://www.railstutorial.org response-head HTTP/1.1 200 OK
+x-amz-id-2: XRq8tyiDTx7ApEMMd/aLFJ0rNGHS4O8gQO0jXBcvjMgSICWHHrPbmUkpU+4jUDuW8f77kawTjO0=
+x-amz-request-id: D114DE54D30B1925
+Date: Fri, 03 Feb 2017 11:29:10 GMT
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET
+Access-Control-Max-Age: 3000
+Vary: Origin, Access-Control-Request-Headers, Access-Control-Request-Method
+Last-Modified: Thu, 22 Dec 2016 05:28:41 GMT
+Etag: "da409673cf4ee29f1201175840e05827"
+Accept-Ranges: bytes
+Content-Type: text/html
+Content-Length: 147993
+Server: AmazonS3
+ uncompressed-len 0  B

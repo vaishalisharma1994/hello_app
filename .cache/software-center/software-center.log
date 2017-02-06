@@ -207,3 +207,16 @@ ValidationException: Argument 'origin' must match pattern '[0-9a-z+-.:/]+$'
 2017-01-30 15:52:05,876 - softwarecenter.utils - WARNING - Could not determine the installed desktop file path for app-install desktop file: ''
 2017-01-30 15:52:05,876 - softwarecenter.backend.zeitgeist_logger - WARNING - Invalid desktop file provided, impossible to log event
 2017-01-30 15:52:05,941 - softwarecenter.db.pkginfo_impl.aptcache - INFO - aptcache.open()
+2017-02-02 18:53:02,395 - softwarecenter.ui.gtk3.app - INFO - setting up proxy 'None'
+2017-02-02 18:53:02,932 - softwarecenter.backend.reviews - WARNING - Could not get usefulness from server, no username in config file
+2017-02-02 18:53:02,934 - softwarecenter.plugin - INFO - activating plugin '<module 'webapps_activation' from '/usr/share/software-center/softwarecenter/plugins/webapps_activation.pyc'>'
+2017-02-02 18:53:02,985 - softwarecenter.db.pkginfo_impl.aptcache - INFO - aptcache.open()
+2017-02-02 18:53:03,309 - softwarecenter.backend.reviews - WARNING - error creating bsddb: '(22, 'Invalid argument -- BDB0054 illegal flag combination specified to DB_ENV->open')' (corrupted?)
+2017-02-02 18:53:03,309 - softwarecenter.backend.reviews - ERROR - trying to repair DB failed
+Traceback (most recent call last):
+  File "/usr/share/software-center/softwarecenter/backend/reviews/__init__.py", line 358, in _save_review_stats_cache_blocking
+    self._dump_bsddbm_for_unity(outfile, outdir)
+  File "/usr/share/software-center/softwarecenter/backend/reviews/__init__.py", line 377, in _dump_bsddbm_for_unity
+    0600)
+DBInvalidArgError: (22, 'Invalid argument -- BDB0054 illegal flag combination specified to DB_ENV->open')
+2017-02-02 18:53:06,997 - softwarecenter.db.utils - INFO - software-center-agent finished with status 0

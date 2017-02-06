@@ -1,0 +1,1049 @@
+
+/*
+ *                         e BANK WORKS
+ * ____________________________________________________________________________________________
+
+ * Module		: General
+
+ * File  Name	 : validate1.js		 Created Date : 17:38 17/02/00
+
+ * Package Name	        : 		 	  Modified Date : 7:02 PM 7/10/00
+
+ * @author		:         		 @version  : 1.0
+
+ * Last Modified By	:
+
+ * Purpose of the program :
+
+ * Comments     : Nil
+
+ * Release Details:
+ ********************************************************************************************
+ * Release Date :  7:02 PM 7/10/00				Release Version : 1.0
+ ********************************************************************************************
+
+ * Modification Details:
+ ********************************************************************************************
+ * Mod. Date  5:39 AM 8/11/00    * Mod. By JP		* Mod. Version * Mod. Done:  				   				*
+ ********************************************************************************************
+ *
+ *
+ ********************************************************************************************
+ *
+ *
+ *
+  ____________________________________________________________________________________
+
+*/
+
+
+//this.top.window.document.title = this.document.title;
+
+function checkDate(ale,date)
+{
+	//FOR time being APPPLET is used.
+	//ck=this.parent.Mainsub1.document.simApp.isDate(date.value);
+	if(isBlank(date.value))
+	{
+		alert(ale+" cannot be blank. Enter "+ ale);
+		date.select();
+		date.focus();
+		return false;
+	}
+	if(!isBlank(date.value)){
+	ck=validateDate(date.value);
+	if(!ck)
+	{
+		alert("Enter valid "+ ale);
+		date.focus();
+		date.select();
+		return false;
+	}
+	}
+	return true;
+}
+function checkexpDate(ale,date)
+{
+	//FOR time being APPPLET is used.
+	//ck=this.parent.Mainsub1.document.simApp.isDate(date.value);
+	if(isBlank(date.value))
+	{
+		alert(ale+" cannot be blank. Enter "+ ale);
+		date.select();
+		date.focus();
+		return false;
+	}
+	if(!isBlank(date.value)){
+	ck1=validateDate(date.value);
+	if(!ck1)
+	{
+		alert("Enter valid "+ ale);
+		date.focus();
+		date.select();
+		return false;
+	}
+	}
+	return true;
+}
+
+function isSameFinancialYr(date1,date2)
+{
+	//alert(date1);
+	//alert(date2);
+	var mm1;
+	var yy1;
+	var mm2;
+	var yy2;
+	var mmt1;
+	var mmt2;
+	
+	mm1=date1.substring(3,5)
+	mmt1=date1.substring(3,4)
+	yy1=date1.substring(6,10)
+	mm2=date2.substring(3,5)
+	mmt2=date2.substring(3,4)
+	yy2=date2.substring(6,10)
+    
+	if(mmt1 == "0")
+	{
+	   mm1=mm1.substring(1,2)
+       mm1=parseInt(mm1);
+	}
+	if(mmt2 == "0")
+	{
+		mm2=mm2.substring(1,2)
+		mm2=parseInt(mm2);
+	}
+	//alert(mm2);
+    yy1=parseInt(yy1);
+    yy2=parseInt(yy2);
+    mm1=parseInt(mm1);
+    mm2=parseInt(mm2);
+    
+	if(mm1 > 3)
+	{
+		if(  yy2 == yy1 ||
+		   ((yy2 == (yy1+1)) && (mm2 <= 3)) )
+		{
+		    //alert("ok");
+			return true;
+		}
+		else
+		{
+			//alert("Not ok");
+			return false;
+		}
+	}
+	else if(mm1 <= 3)
+	{
+
+		//if( (yy1 == yy2) && ((mm1 <= mm2) && (mm2 <= 12)) )
+		if( (yy1 == yy2) && ((mm1 <= mm2) && (mm2 <= 3)) )
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+}
+
+function checkNumber(ale,amt)
+{
+	if(isBlank(amt.value))
+	{
+		alert(ale+" cannot be blank. Enter "+ ale);
+		amt.select();
+		amt.focus();
+		return false;
+	}
+	if(isNaN(amt.value)==true)
+	{
+
+		alert("Enter valid "+ ale);
+		amt.select();
+		amt.focus();
+		return false;
+	}
+	//alert("BEFORE CHECKING VALID AMOUNT");
+	if(parseFloat(amt.value) < 1)
+	{
+		//alert("BEFORE CHECKING VALID AMOUNT  Invalid");
+		alert("Enter valid "+ale);
+		amt.select();
+		amt.focus();
+		return false;
+	}
+	return true;
+}
+
+
+
+
+function checkText(ale,alfanumeric)
+{
+	if(isBlank(alfanumeric.value))
+	{
+		alert(ale+"  cannot be blank. Enter "+ale);
+		alfanumeric.focus();
+		alfanumeric.select();
+		return false;
+	}
+	return true;
+}
+
+function checkTextOnly(ale,alfanumeric)
+{
+	//alert("inside checkTextOnly"+isNaN(alfanumeric.value));
+	if(isBlank(alfanumeric.value))
+	{
+		alert(ale+"  cannot be blank. Enter "+ale);
+		alfanumeric.focus();
+		alfanumeric.select();
+		return false;
+	}
+	if(!(isNaN(alfanumeric.value)))
+	{
+		alert("Enter Valid "+ale);
+		alfanumeric.select();
+		alfanumeric.focus();
+		return false;
+	}
+
+	var stTemp = alfanumeric.value;
+
+	for(i=0; i < stTemp.length ; i++)
+	{
+
+		if (!( ((stTemp.charAt(i)>="A") && (stTemp.charAt(i)<="Z")) || ((stTemp.charAt(i)>="a")&&(stTemp.charAt(i)<="z"))))
+		{
+			alert("Invalid "+ale);
+			alfanumeric.select();
+		    alfanumeric.focus();
+			return false;
+		}
+	}
+	return true;
+}
+
+
+function checkamt(ale,amt)
+{
+	var stTemp = amt.value;
+	if (stTemp.charAt(0)=="+")
+	{
+		alert("Symbol + or - not allowed");
+		alert("Enter valid "+ale);
+		amt.select();
+		amt.focus();
+		return false;
+	}
+	return true;
+}
+
+/* function isAlphaNumeric() */
+/* Verifies if the argument contains only digits and alphabets */
+/* Added on 27-02-2002 */
+
+
+function checkAlphaNumeric(errorMessage,alfaNumeric)
+{
+
+	if (isBlank(alfaNumeric.value))
+	{
+		alert(errorMessage+" cannot be blank. Enter "+errorMessage);
+		alfaNumeric.focus();
+		alfaNumeric.select();
+		return false;
+	}
+	/* Now Check only for Digits and Alphabets */
+
+	var stTemp = alfaNumeric.value;
+
+	for(i=0; i < stTemp.length ; i++)
+	{
+
+		if (!( ((stTemp.charAt(i)>="A") && (stTemp.charAt(i)<="Z")) || ((stTemp.charAt(i)>="a")&&(stTemp.charAt(i)<="z")) || ((stTemp.charAt(i)>="0")&&(stTemp.charAt(i)<="9")) ))
+		{
+			alert("Invalid "+errorMessage);
+			return false;
+		}
+	}
+	return true;
+}
+
+
+
+
+function checkTextWithCommas(errorMessage,alfaNumeric)
+{
+
+	if (isBlank(alfaNumeric.value))
+	{
+		alert(errorMessage+" cannot be blank. Enter "+errorMessage);
+		alfaNumeric.focus();
+		alfaNumeric.select();
+		return false;
+	}
+	/* Now Check only for Digits and Alphabets */
+
+	var stTemp = alfaNumeric.value;
+
+	for(i=0; i < stTemp.length ; i++)
+	{
+
+		if ((stTemp.charAt(i)>="0")&&(stTemp.charAt(i)<="9"))
+		{
+			alert("Invalid "+errorMessage);
+			 return false;
+		}
+	}
+	return true;
+}
+
+function checkNumeric(errorMessage,alfaNumeric)
+{
+
+	if (isBlank(alfaNumeric.value))
+	{
+		alert(errorMessage+" cannot be blank. Enter "+errorMessage);
+		alfaNumeric.focus();
+		alfaNumeric.select();
+		return false;
+	}
+	/* Now Check only for Digits and Alphabets */
+
+	var stTemp = alfaNumeric.value;
+
+	for(i=0; i < stTemp.length ; i++)
+	{
+		
+		if ((stTemp.charAt(i) =="."))
+		{
+			alert("Amount should be in rupees ");
+			return false;
+		}
+
+		if (!((stTemp.charAt(i)>="0")&&(stTemp.charAt(i)<="9")))
+		{
+			alert("Invalid "+errorMessage);
+			return false;
+		}
+	}
+	return true;
+}
+
+function checkAlphabetsonly(errorMessage,alfaNumeric)
+{
+
+	if (isBlank(alfaNumeric.value))
+	{
+		alert(errorMessage+" cannot be blank. Enter "+errorMessage);
+		alfaNumeric.focus();
+		alfaNumeric.select();
+		return false;
+	}
+	/* Now Check only for Digits and Alphabets */
+
+	var stTemp = alfaNumeric.value;
+
+	for(i=0; i < stTemp.length ; i++)
+	{
+
+		if (!( ((stTemp.charAt(i)>="A") && (stTemp.charAt(i)<="Z")) || ((stTemp.charAt(i)>="a")&&(stTemp.charAt(i)<="z")) || (stTemp.charAt(i) == " ")))
+		{
+			alert(errorMessage+" can not contain characters other than alphabets ");
+			return false;
+		}
+	}
+	return true;
+}
+
+function isEmailAddr(email)
+{
+  var result = false;
+  var theStr = new String(email)
+  var index = theStr.indexOf("@");
+  var lastIndex = theStr.lastIndexOf("@");
+  if(index != lastIndex)
+  {
+  	alert("Only one \'@\' should come");
+  	return false;
+  }
+  if (index > 0)
+  {
+    var pindex = theStr.indexOf(".",index);
+    if ((pindex > index+1) && (theStr.length > pindex+1))
+	result = true;
+  }
+  return result;
+}
+
+function validateEmail(email)
+{
+
+  if (email.value == "")
+  {
+    alert("Please enter a value for the \"email\" field.");
+    email.focus();
+    return (false);
+  }
+
+  if (!isEmailAddr(email.value))
+  {
+    alert("Please enter a complete email address in the form: yourname@yourdomain.com");
+    email.focus();
+    return (false);
+  }
+
+  if (email.value.length < 3)
+  {
+    alert("Please enter at least 3 characters in the \"email\" field.");
+    email.focus();
+    return (false);
+  }
+  return (true);
+}
+
+
+
+function isBlank(s)
+{
+	//alert("Inside validation");
+	var len =s.length;
+	var i;
+	if(len==0)
+		return true;
+
+	for(i=0;i<len;++i)
+	{
+		if(s.charAt(i) != " ")
+			return false;
+	}
+	return true;
+}
+
+
+/*
+function isInt(ale,varIn){
+	if(isBlank(varIn.value)){
+		alert(ale+" cannot be blank. Enter "+ale);
+
+		varIn.focus();
+		varIn.select();
+		return false;
+	}
+	ckInt = this.parent.Mainsub1.document.applets[0].isInteger(varIn.value);
+	if(!ckInt){
+		alert(ale+" should be an Integer");
+		varIn.focus();
+		varIn.select();
+		return false;
+	}
+	return true;
+}
+*/
+
+// modified Function by Subbu
+
+function validateDate(getDate)
+{
+	var checkvar=getDate;
+	var loopcount;
+	var date,month,year;
+	var local=new Array(9);
+	var chk=true;
+
+	if  ((checkvar.length==0)||(checkvar== "")||(checkvar==null))
+	{
+		alert("Please Enter the Date!");
+		return false;
+	}
+	else if  (checkvar.length>10)
+        {
+            //alert("Excess Arguments!");
+            return false;
+        }
+      	else if  (checkvar.length<10)
+        {
+            alert("Enter Date in the  format DD/MM/YYYY");
+            return false;
+		}
+
+        for(loopcount=0;loopcount<(checkvar.length);loopcount++)
+        {
+                local[loopcount]=(checkvar.substring(loopcount,loopcount+1) );
+                if(local[loopcount]==" ")
+		{
+			alert("Invalid Entry - Blank Spaces");
+ 			return false;
+		}
+	}
+
+        if (isNaN(local[0]) || isNaN(local[1]) || isNaN(local[3]) || isNaN(local[4])|| isNaN(local[6])
+                      ||isNaN(local[7]) || isNaN(local[8]) || isNaN(local[9]) )
+        {
+		alert("Enter valid Digits.")
+                return false;
+        }
+	else if   ( ((local[2]!="/") || (local[5]  !="/")) && ( (local[2]!="-") || (local[5] )!="-") )
+	{
+        	alert("Enter valid delimiters.") ;
+                return false;
+        }
+	date=local[0]+local[1];
+	if(date==08)
+		date=08;
+	if(date==09)
+		date=09;
+	date=parseInt(date);
+
+	//alert("date is "+date);
+	if (date>31)
+        {
+ 		alert("Invalid date");
+		return false;
+	}
+
+        month=local[3]+local[4];
+
+	if(month==08)
+	month=08;
+
+	if(month==09)
+	month= 09;
+
+        month=parseInt(month);
+	//alert("month is "+month);
+	year = local[6]+local[7]+local[8]+local[9];
+	year=parseInt(year);
+	//alert("year is"+year);
+
+	/* Code Added for a LIMITING YEAR */
+	/* Added on 27-02-2002 */
+	if (year>=2500)
+	{
+		chk=false;
+	}
+
+	if((date==0) || (month==0) || (year==0))
+	{
+		//alert("Zero values");
+		chk=false;
+	}
+
+
+	//alert("day is "+date);
+
+	/*if((month%2)==0)
+	{
+		if((month==2) || (month==4))
+		{
+		if(date>30)
+		{
+		//alert("Date should not be greater that 30");
+			chk=false;
+		}
+		}
+	}
+
+	else
+	{
+		if(date>31)
+		{
+			//alert("Date should not be greater that 31");
+			chk=false;
+		}
+	}*/
+	if(month==04 || month==06 || month==09 || month==11)
+		{
+			if(date>30)
+			{
+			 	//alert("Date should not be greater that 30");
+				chk=false;
+			}
+		}
+		else if(month==02)
+		{
+
+		 	if(year % 4 ==0 && date>29)
+			{
+				//alert("Date should not be greater that 29");
+				chk=false;
+			}else if(year % 4 !=0 && date>28)
+			{
+			       // alert("Date should not be greater that 29");
+				chk=false;
+			}
+
+		}
+
+	if(month>12)
+	{	//alert("Month should not be greater than 12");
+		chk=false;
+	}
+
+	if((year%400)==0)
+	{
+		if(month==2)
+		{
+			if(date>29)
+			{
+				//alert("Date should not be greater that 29");
+				chk=false;
+			}
+		}
+	}
+	else if((year%100)==0)
+	{
+		if(month==2)
+		{
+			if(date>28)
+			{
+				//alert("Date should not be greater that 28");
+				chk=false;
+			}
+		}
+	}
+	else if((year%4)==0)
+	{
+		if(month==2)
+		{
+			if(date>29)
+			{
+				//alert("Date should not be greater that 29");
+				chk=false;
+			}
+		}
+	}
+	else
+	{
+		if(month==2)
+		{
+			if(date>28)
+			{
+				//alert("Date should not be greater that 28");
+				chk=false;
+			}
+		}
+	}
+
+	return chk;
+}
+
+function isGreaterDate(date1,date2)
+{
+	//alert("inside isGreaterDate");
+	firstDate= Date.parse(date1);
+	secondDate=Date.parse(date2);
+	var chk =true;
+	diff = firstDate-secondDate;
+	//alert("entered first date is "+firstDate);
+	//alert("entered second date is "+secondDate);
+	//alert("diff is "+diff);
+
+	if(diff>0)
+	{
+		chk=false;
+	}
+	else
+	{
+		chk=true;
+	}
+	return chk;
+}
+
+function parseComma(amount)
+{
+
+	flag = "0";
+	while(flag == "0")
+	{
+	matcharr = amount.search(",");
+		if(matcharr != "-1")
+		{
+			amount = amount.replace(",","");
+		}
+		else
+		{
+			flag = "1";
+		}
+	}
+	return amount;
+}
+
+function isFutureDate(date1)
+{
+	var curDate = new Date();
+	dd = curDate.getDate();
+	mm = curDate.getMonth()+1;
+	yyyy = curDate.getYear();
+
+	if(dd<10)
+	{
+		dd = '0'+dd;
+	}
+	if(mm<10)
+	{
+		mm = '0'+mm;
+	}
+
+	if(isDateLesser(dd+'/'+mm+'/'+yyyy,date1))
+	{
+//		alert('Date is normal Date');
+		return true;
+	}
+	else
+	{
+		// alert('Date is futureDate');
+		return false;
+	}
+}
+
+function isFuture(date1)
+{
+	//alert ("called"+date1);
+	var curDate = new Date();
+	dd = curDate.getDate();
+	mm = curDate.getMonth()+1;
+	yyyy = curDate.getYear();
+
+	if(dd<10)
+	{
+		dd = '0'+dd;
+	}
+	if(mm<10)
+	{
+		mm = '0'+mm;
+	}
+
+	if(isDateLesser(date1,dd+'/'+mm+'/'+yyyy))
+	{
+//		alert('Date is normal Date');
+		return true;
+	}
+	else
+	{
+		// alert('Date is futureDate');
+		return false;
+	}
+}
+
+function isFutureDt(date1)
+{
+	var curDate = new Date();
+	dd = curDate.getDate();
+	mm = curDate.getMonth()+1;
+	yyyy = curDate.getFullYear();
+	
+	if(dd<10)
+	{
+		dd = '0'+dd;
+	}
+	if(mm<10)
+	{
+		mm = '0'+mm;
+	}
+
+	if(!isDateLesser(dd+'/'+mm+'/'+yyyy,date1))
+	{
+		return false;
+	}
+	else
+	{
+		 alert('Date is futureDate');
+		return true;
+	}
+}
+
+function isBeforeDate(date1)
+{
+
+	var curDate = new Date();
+	dd = curDate.getDate();
+	mm = curDate.getMonth()+1;
+	yyyy = curDate.getYear();
+
+	if(isDateLesser(date1,dd+'/'+mm+'/'+yyyy))
+	{
+		//alert('Date is normal Date');
+		return true;
+	}
+	else
+	{
+		//alert('Date is futureDate');
+		return false;
+	}
+}
+
+function isDateGreaterOrEqual(date1,date2)
+{
+	if(date1 == null || date2 == null || date1.length==0 || date2.length==0 )
+	{
+		return true;
+	}
+	var dd1;
+	var mm1;
+	var yy1;
+	var dd2;
+	var mm2;
+	var yy2;
+
+	dd1=date1.substring(0,2)
+	mm1=date1.substring(3,5)
+	yy1=date1.substring(6,10)
+	dd2=date2.substring(0,2)
+	mm2=date2.substring(3,5)
+	yy2=date2.substring(6,10)
+
+	if(yy2 == yy1)
+	{
+		if ( mm2 == mm1)
+		{
+			if( dd2 == dd1 )
+			{
+				return true;
+			}
+			else
+			{
+				if ( dd2 < dd1)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				};
+			};
+		}
+		else
+		{
+			if ( mm2 < mm1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			};
+		};
+	}
+	else
+	{
+		if( yy2 < yy1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		};
+	};
+}
+function isDateEqual(date1,date2)
+{
+	if(date1 == null || date2 == null || date1.length==0 || date2.length==0 )
+	{
+		return true;
+	}
+	var dd1;
+	var mm1;
+	var yy1;
+	var dd2;
+	var mm2;
+	var yy2;
+
+	dd1=date1.substring(0,2)
+	mm1=date1.substring(3,5)
+	yy1=date1.substring(6,10)
+	dd2=date2.substring(0,2)
+	mm2=date2.substring(3,5)
+	yy2=date2.substring(6,10)//
+	if(yy2 == yy1 && mm2 == mm1 && dd2 == dd1 )
+	{
+				return true;
+	}
+	else 
+		return false;
+}
+function isDateLesser(date1,date2)
+{
+
+	
+	//firstDate = date1.value;
+	firstDate = date1;
+	secDate = date2;
+
+	dd1=parseInt(firstDate.substring(0,firstDate.indexOf('/'),10),10);
+	firstDate = firstDate.substring(firstDate.indexOf('/')+1,firstDate.length);
+	month=firstDate.substring(0,firstDate.indexOf('/'))
+
+	mm1=parseInt(month,10);
+
+	firstDate = firstDate.substring(firstDate.indexOf('/')+1,firstDate.length);
+	yy1 = parseInt(firstDate,10);
+
+
+
+	dd2=parseInt(secDate.substring(0,secDate.indexOf('/'),10),10);
+	secDate = secDate.substring(secDate.indexOf('/')+1,secDate.length);
+	mm2=parseInt(secDate.substring(0,secDate.indexOf('/'),10),10);
+	secDate = secDate.substring(secDate.indexOf('/')+1,secDate.length);
+	yy2 = parseInt(secDate,10);
+
+	
+
+	if(yy2 == yy1)
+	{
+		if ( mm2 == mm1)
+		{
+			if( dd2 > dd1 )
+			{
+				return true;
+			}
+
+				else
+				{
+					return false;
+				};
+
+		}
+		else
+		{
+			if ( mm2 > mm1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			};
+		};
+	}
+	else
+	{
+		if( yy2 > yy1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		};
+	};
+};
+
+
+function isDateGreater(date1,date2)
+{
+
+	var dd1;
+	var mm1;
+	var yy1;
+	var dd2;
+	var mm2;
+	var yy2;
+
+	dd1=date1.substring(0,2)
+	mm1=date1.substring(3,5)
+	yy1=date1.substring(6,10)
+
+	dd2=date2.substring(0,2)
+	mm2=date2.substring(3,5)
+	yy2=date2.substring(6,10)
+
+
+
+	if(yy2 == yy1)
+	{
+		if ( mm2 == mm1)
+		{
+			if( dd2 == dd1 )
+			{
+				return true;
+			}
+			else
+			{
+				if ( dd2 < dd1)
+				{
+					return false;
+				}
+				else
+				{
+
+					return true;
+				};
+			};
+		}
+		else
+		{
+			if ( mm2 > mm1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			};
+		};
+	}
+	else
+	{
+		if( yy2 > yy1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		};
+	};
+};
+
+
+// Function to Validate the Decimal Numbers
+
+function validateDecimalNumbers(ale,amt) {
+	var s=amt.value;
+	var t1 = s.indexOf(".");
+	var t2 = s.substring(t1,s.length);
+
+
+	if ((s.length > 12) || (s.length == 0) || (s.charAt(0) == '.' ) ) {
+		alert('Invalid '+ale);
+		return false;
+	}
+
+
+	for (i=0; i < s.length ; i++)
+	{
+
+		if(s.charAt(i) != "." && (s.charAt(i)<"0" || s.charAt(i)>"9"))
+		{
+			alert('Invalid '+ale);
+			return false;
+		}
+		//if(s.charAt(i) == ".")
+		//{
+			if(t2.length > 3)
+			{
+				 alert('Invalid '+ale);
+				 return false;
+			}
+
+			if(isNaN(s))
+			 {
+				 alert('Invalid '+ale);
+				 return false;
+			}
+
+
+		//}
+
+	}
+
+
+	return true;
+}
+

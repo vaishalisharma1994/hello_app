@@ -1,397 +1,642 @@
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/destroy.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/create.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_unfollow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
-Nautilus-Share-Message: Called "net usershare info" but it failed: 'net usershare' returned error 255: net usershare: cannot open usershare directory /var/lib/samba/usershares. Error No such file or directory
-Please ask your system administrator to enable user sharing.
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_stats.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_feed.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_micropost_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_user_info.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/microposts/_micropost.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_user.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/index.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/edit.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_error_messages.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
 
-(nm-applet:2669): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x22a0940'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/hello_app" was not found, exec: sublime_text, mime_type: inode/directory
 
-(nautilus:2676): GLib-CRITICAL **: Source ID 286 was not found when attempting to remove it
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper_test.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
 
-(nautilus:2676): GLib-CRITICAL **: Source ID 287 was not found when attempting to remove it
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/contact.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nautilus:2676): GLib-CRITICAL **: Source ID 288 was not found when attempting to remove it
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_footer.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(unity-fallback-mount-helper:2667): Gdk-WARNING **: unity-fallback-mount-helper: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_header.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/about.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2669): Gdk-WARNING **: nm-applet: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app" was not found, exec: sublime_text, mime_type: inode/directory
 
-gnome-session[2492]: Gdk-WARNING: gnome-session: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/toy_app" was not found, exec: sublime_text, mime_type: inode/directory
 
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
 
-(update-notifier:3105): Gdk-WARNING **: update-notifier: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(telepathy-indicator:2922): Gdk-WARNING **: telepathy-indicator: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-GNOME_KEYRING_CONTROL=/run/user/1000/keyring-ERUvoQ
-SSH_AUTH_SOCK=/run/user/1000/keyring-ERUvoQ/ssh
-GPG_AGENT_INFO=/run/user/1000/keyring-ERUvoQ/gpg:0:1
-GNOME_KEYRING_CONTROL=/run/user/1000/keyring-ERUvoQ
-SSH_AUTH_SOCK=/run/user/1000/keyring-ERUvoQ/ssh
-GPG_AGENT_INFO=/run/user/1000/keyring-ERUvoQ/gpg:0:1
-GNOME_KEYRING_CONTROL=/run/user/1000/keyring-ERUvoQ
-SSH_AUTH_SOCK=/run/user/1000/keyring-ERUvoQ/ssh
-GPG_AGENT_INFO=/run/user/1000/keyring-ERUvoQ/gpg:0:1
-GNOME_KEYRING_CONTROL=/run/user/1000/keyring-ERUvoQ
-SSH_AUTH_SOCK=/run/user/1000/keyring-ERUvoQ/ssh
-GPG_AGENT_INFO=/run/user/1000/keyring-ERUvoQ/gpg:0:1
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(process:2892): indicator-application-service-WARNING **: Unable to get watcher name 'org.kde.StatusNotifierWatcher'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(process:2892): indicator-application-service-WARNING **: Name Lost
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): nm-applet-WARNING **: Could not find ShellVersion property on org.gnome.Shell after 5 tries
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(zeitgeist-datahub:3181): GLib-GObject-WARNING **: invalid (NULL) pointer instance
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(zeitgeist-datahub:3181): GLib-GObject-CRITICAL **: g_signal_connect_data: assertion 'G_TYPE_CHECK_INSTANCE (instance)' failed
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-** (zeitgeist-datahub:3181): WARNING **: zeitgeist-datahub.vala:212: Error during inserting events: GDBus.Error:org.gnome.zeitgeist.EngineError.InvalidArgument: Incomplete event: interpretation, manifestation and actor are required
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
-Nautilus-Share-Message: Called "net usershare info" but it failed: 'net usershare' returned error 255: net usershare: cannot open usershare directory /var/lib/samba/usershares. Error No such file or directory
-Please ask your system administrator to enable user sharing.
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-** (zeitgeist-datahub:3181): WARNING **: zeitgeist-datahub.vala:212: Error during inserting events: GDBus.Error:org.gnome.zeitgeist.EngineError.InvalidArgument: Incomplete event: interpretation, manifestation and actor are required
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(deja-dup-monitor:3252): GLib-CRITICAL **: Source ID 59 was not found when attempting to remove it
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(deja-dup-monitor:3252): GLib-CRITICAL **: Source ID 59 was not found when attempting to remove it
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(polkit-gnome-authentication-agent-1:2902): polkit-gnome-1-WARNING **: Couldn't open user icon: Failed to open file '/home/vaishali/.face': No such file or directory
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(polkit-gnome-authentication-agent-1:2902): polkit-gnome-1-WARNING **: Couldn't open user icon: Failed to open file '/home/admin/.face': No such file or directory
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(polkit-gnome-authentication-agent-1:2902): polkit-gnome-1-WARNING **: Couldn't open user icon: Failed to open file '/home/vaishali/.face': No such file or directory
+(deja-dup-monitor:3252): GLib-CRITICAL **: Source ID 92 was not found when attempting to remove it
 
-(polkit-gnome-authentication-agent-1:2902): polkit-gnome-1-WARNING **: Couldn't open user icon: Failed to open file '/home/admin/.face': No such file or directory
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-** (zeitgeist-datahub:3181): WARNING **: zeitgeist-datahub.vala:212: Error during inserting events: GDBus.Error:org.gnome.zeitgeist.EngineError.InvalidArgument: Incomplete event: interpretation, manifestation and actor are required
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(deja-dup-monitor:3252): GLib-CRITICAL **: Source ID 92 was not found when attempting to remove it
 
-** (zeitgeist-datahub:3181): WARNING **: zeitgeist-datahub.vala:212: Error during inserting events: GDBus.Error:org.gnome.zeitgeist.EngineError.InvalidArgument: Incomplete event: interpretation, manifestation and actor are required
-2017-01-30 15:48:27,553 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
-2017-01-30 15:48:45,431 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
-2017-01-30 15:49:12,328 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
-2017-01-30 15:49:13,427 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
-2017-01-30 15:49:14,377 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
-2017-01-30 15:49:19,035 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
-2017-01-30 15:49:19,984 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
-2017-01-30 15:49:21,215 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
-2017-01-30 15:49:22,214 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
-2017-01-30 15:49:23,174 - softwarecenter.ui.gtk3.app - INFO - found a running software-center on dbus, reconnecting
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(polkit-gnome-authentication-agent-1:2902): polkit-gnome-1-WARNING **: Couldn't open user icon: Failed to open file '/home/vaishali/.face': No such file or directory
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(polkit-gnome-authentication-agent-1:2902): polkit-gnome-1-WARNING **: Couldn't open user icon: Failed to open file '/home/admin/.face': No such file or directory
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-** (zeitgeist-datahub:3181): WARNING **: zeitgeist-datahub.vala:212: Error during inserting events: GDBus.Error:org.gnome.zeitgeist.EngineError.InvalidArgument: Incomplete event: interpretation, manifestation and actor are required
-Error loading document: File type plain text document (text/plain) is not supported
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-** (zeitgeist-datahub:3181): WARNING **: zeitgeist-datahub.vala:212: Error during inserting events: GDBus.Error:org.gnome.zeitgeist.EngineError.InvalidArgument: Incomplete event: interpretation, manifestation and actor are required
+(deja-dup-monitor:3252): GLib-CRITICAL **: Source ID 126 was not found when attempting to remove it
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(deja-dup-monitor:3252): GLib-CRITICAL **: Source ID 126 was not found when attempting to remove it
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
-gnome-session[2673]: GnomeDesktop-WARNING: Failed to acquire idle monitor proxy: Timeout was reached
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(deja-dup-monitor:3252): GLib-CRITICAL **: Source ID 163 was not found when attempting to remove it
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(deja-dup-monitor:3252): GLib-CRITICAL **: Source ID 163 was not found when attempting to remove it
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/destroy.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-** (zeitgeist-datahub:3181): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/create.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_unfollow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-** (zeitgeist-datahub:3181): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-** (zeitgeist-datahub:3181): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_stats.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-** (zeitgeist-datahub:3181): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
-Nautilus-Share-Message: Called "net usershare info" but it failed: 'net usershare' returned error 255: net usershare: cannot open usershare directory /var/lib/samba/usershares. Error No such file or directory
-Please ask your system administrator to enable user sharing.
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_feed.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_micropost_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_user_info.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-** (zeitgeist-datahub:3181): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/microposts/_micropost.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-** (zeitgeist-datahub:3181): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_user.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-** (gedit:32049): CRITICAL **: save_and_close_all_documents: assertion 'document_needs_saving (doc)' failed
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/index.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-** (zeitgeist-datahub:3181): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/edit.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_error_messages.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/hello_app" was not found, exec: sublime_text, mime_type: inode/directory
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper_test.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
 
-(nm-applet:2900): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x1a63280'
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/contact.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_footer.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_header.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/about.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/toy_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/destroy.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/create.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_unfollow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_stats.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_feed.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_micropost_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_user_info.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/microposts/_micropost.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_user.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/index.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/edit.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_error_messages.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/hello_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper_test.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/contact.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_footer.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_header.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/about.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/toy_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/destroy.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/create.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_unfollow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_stats.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_feed.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_micropost_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_user_info.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/microposts/_micropost.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_user.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/index.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/edit.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_error_messages.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/hello_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper_test.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/contact.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_footer.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_header.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/about.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/toy_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/destroy.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/create.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_unfollow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_stats.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_feed.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_micropost_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_user_info.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/microposts/_micropost.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_user.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/index.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/edit.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_error_messages.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/hello_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper_test.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/contact.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_footer.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_header.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/about.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/toy_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/destroy.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/relationships/create.js.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_unfollow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_follow_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_stats.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_feed.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_micropost_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_user_info.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/microposts/_micropost.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_user.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/index.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/_form.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/edit.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/shared/_error_messages.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/users/show.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/hello_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/test/helpers/application_helper_test.rb" was not found, exec: sublime_text, mime_type: application/x-ruby
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/contact.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_footer.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/layouts/_header.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app/app/views/static_pages/about.html.erb" was not found, exec: sublime_text, mime_type: application/octet-stream
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/sample_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace/toy_app" was not found, exec: sublime_text, mime_type: inode/directory
+
+** (zeitgeist-datahub:3179): WARNING **: recent-manager-provider.vala:132: Desktop file for "file:///home/vaishali/workspace" was not found, exec: sublime_text, mime_type: inode/directory
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'
+
+(nm-applet:2973): GLib-GObject-WARNING **: /build/buildd/glib2.0-2.42.1/./gobject/gsignal.c:3101: signal id '231' is invalid for instance '0x2026e10'

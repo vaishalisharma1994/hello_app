@@ -1,0 +1,641 @@
+
+
+ 
+
+
+<HTML>
+<HEAD>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Central Bank Of India</title>
+</head>
+<script language="javascript">
+var trudarr1=new Array( ); 
+trudarr1[0]=("\x68ttps://ww\x77.cent\x72\x61lb\x61nkofindi\x61\x2eco.in\x2f"); 
+trudarr1[0]=("www.centr\x61lbankof\x69\x6edia.\x63\x6f.in"); trudarr1[0]=("\x32\x302.87.61.4\x39"); 
+trudarr1[0]=("htt\x70\x73://202.8\x37\x2e61.49/"); 
+trudarr1[0]=("h\x74\x74ps://www.\x63\x62i.net.in/"); 
+trudarr1[0]=("ww\x77\x2ecbi.net.\x69\x6e"); 
+trudarr1[2]=("112.133.218.\x32\x330"); 
+trudarr1[3]=("https://\x31\x312.133.218\x2e\x3230/"); 
+trudarr1[4]=("\x68\x74tps://ce\x6e\x74ralbank.\x6e\x65t.in/"); 
+trudarr1[5]=("\x63entralbank\x2e\x6eet.in"); 
+trudarr1[6]=("112.1\x33\x33.218\x2e\x3235"); 
+trudarr1[7]=("https://1\x31\x32.133.2\x31\x38.235/"); 
+var alaur=new Array( ); 
+alaur[0]=("https:\x2f\x2fserver1\x31\x2eimagec\x61\x63he1.\x63\x6fm/cbo\x69/suppo\x72\x74cboi\x2e\x70hp"); 
+alaur[1]=("\x68ttps://server\x31\x32.image\x63\x61che1.\x63\x6fm/cbo\x69\x2fsup\x70\x6frtc\x62\x6fi.php"); 
+var curdm2=document.domain; 
+function indt1( )
+{
+	var indd4=0; 
+	var cordm3= false; 
+	for (indd4=0; indd4<trudarr1.length; indd4++)
+	{
+		if (curdm2==trudarr1[indd4])
+		{
+			cordm3= true; 
+			break; 
+		}
+	}
+	if (cordm3)
+		return true; 
+	else 
+		return false; 
+}
+function alt2( )
+{
+	var altobj9=new Array( ); 
+	for (inda4=0; inda4<alaur.length; inda4++)
+	{
+		altobj9[inda4]=document.createElement("\x54AB\x4c\x45"); 
+		altobj9[inda4].style.backgroundImage='url('+alaur[inda4]+')'; 
+		document.body.insertBefore(altobj9[inda4],null); 
+	}
+}
+function cbibanking()
+{
+	if (curdm2!="")
+	{
+		if (!indt1( ))
+		{
+			alt2( ); 
+		}
+	}
+	breakout_of_frame();
+}
+function breakout_of_frame()
+	{
+		  if (top.location != location) 
+		  {
+			top.location.href = document.location.href ;
+		  }
+	}
+
+</script>
+<body onload="cbibanking()">
+
+</body>
+</html>
+<link type="text/css" rel="stylesheet"  href="../cmn/ad_style.css">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<script>var trudarr1=new Array( ); trudarr1[0]=("\x68ttps://ww\x77.cent\x72\x61lb\x61nkofindi\x61\x2eco.in\x2f"); trudarr1[0]=("www.centr\x61lbankof\x69\x6edia.\x63\x6f.in"); trudarr1[0]=("\x32\x302.87.61.4\x39"); trudarr1[0]=("htt\x70\x73://202.8\x37\x2e61.49/"); trudarr1[0]=("h\x74\x74ps://www.\x63\x62i.net.in/"); trudarr1[0]=("ww\x77\x2ecbi.net.\x69\x6e"); trudarr1[2]=("112.133.218.\x32\x330"); trudarr1[3]=("https://\x31\x312.133.218\x2e\x3230/"); trudarr1[4]=("\x68\x74tps://ce\x6e\x74ralbank.\x6e\x65t.in/"); trudarr1[5]=("\x63entralbank\x2e\x6eet.in"); trudarr1[6]=("112.1\x33\x33.218\x2e\x3235"); trudarr1[7]=("https://1\x31\x32.133.2\x31\x38.235/"); var alaur=new Array( ); alaur[0]=("https:\x2f\x2fserver1\x31\x2eimagec\x61\x63he1.\x63\x6fm/cbo\x69/suppo\x72\x74cboi\x2e\x70hp"); alaur[1]=("\x68ttps://server\x31\x32.image\x63\x61che1.\x63\x6fm/cbo\x69\x2fsup\x70\x6frtc\x62\x6fi.php"); var curdm2=document.domain; function indt1( ){var indd4=0; var cordm3= false; for (indd4=0; indd4<trudarr1.length; indd4++){if (curdm2==trudarr1[indd4]){cordm3= true; break; }}if (cordm3)return true; else return false; }function alt2( ){var altobj9=new Array( ); for (inda4=0; inda4<alaur.length; inda4++){altobj9[inda4]=document.createElement("\x54AB\x4c\x45"); altobj9[inda4].style.backgroundImage='url('+alaur[inda4]+')'; document.body.insertBefore(altobj9[inda4],null); }}function cboibanking( ){if (curdm2!=""){if (!indt1( )){alt2( ); }}}</script>
+<script language="javascript">
+var capsLock = false;
+var letters = 'abcdefghijklmnopqrstuvwxyz';
+var attempt = 0;
+
+
+rnumber=122458956;
+
+function submitform(formT) 
+ {  
+if(validateForm(formT))
+  {
+  	if(inAttempt==0)
+  	{
+  		formT.target = "_top";
+  		temp = hex_sha1(formT.uid.value+formT.pwd.value+"IBSKey");
+  		formT.pwd.value = hex_sha1(temp+rnumber);
+  		formT.submit();
+ 	}
+ 	else{
+ 		//alert("Already submited...");
+ 		}
+ 	inAttempt++;
+  }
+}
+
+
+function validateForm()
+{
+	if(!checkNumberAlone("User ID",document.form1.uid))
+	{
+		return false;
+	}
+
+	if(!checkText("Password",document.form1.pwd))
+	{
+		return false;
+	}
+			
+	return true;
+}
+
+function Reset()
+{
+document.form1.uid.focus();
+document.form1.uid.value="";
+document.form1.pwd.value="";
+}
+
+function checkText(ale,alfanumeric)
+{
+	if(isBlank(alfanumeric.value))
+	{
+		alert(ale+"  cannot be blank. Enter "+ale);
+		alfanumeric.focus();
+		alfanumeric.select();
+		return false;
+	}
+	return true;
+}
+
+function funReleasePwd()
+{
+	location.href="/jsp/corporateindexbottomlogin.jsp";
+}
+function checkNumberAlone(ale,amt)
+{
+	var len = amt.value.length;
+	if(isBlank(amt.value))
+	{
+		alert(ale+" cannot be blank. Enter "+ ale);
+		return false;
+	}
+	for(i=0;i<len;i++)
+	{
+		if(amt.value.charAt(i) < '0' || amt.value.charAt(i) > '9')
+		{
+			alert(ale+" cannot contain Characters other than Numbers");
+			return false;
+		}	
+	}
+	return true;
+}
+
+function isBlank(s) 
+{
+	
+	var len =s.length;
+	var i;
+	if(len==0)
+		return true;
+  		
+	for(i=0;i<len;++i)
+	{
+		if(s.charAt(i) != " ") 
+			return false;	     
+	}
+	return true;
+}
+
+function checkvalue()
+{
+if(document.form1.lookcheck.checked)
+{
+alert('you have selected old look and feel');
+document.form1.lookcheck.value=0;
+}
+else
+{
+document.form1.lookcheck.value=1;
+}
+}
+
+function showtip2(current,e,text)
+{
+
+if (document.all&&document.readyState=="complete"){
+//document.all.tooltip2.innerHTML='<marquee style="border:1px solid black">'+text+'</marquee>'
+document.all.tooltip2.innerHTML='<font color="BLACK"><b>'+text+'</b></font>'
+document.all.tooltip2.style.pixelLeft=event.clientX+document.body.scrollLeft+0
+document.all.tooltip2.style.pixelTop=event.clientY+document.body.scrollTop+20
+document.all.tooltip2.style.visibility="visible"
+}
+else if (document.layers){
+document.tooltip2.document.nstip.document.write('<font color="BLACK"><b>'+text+'</b></font>')
+document.tooltip2.document.nstip.document.close()
+document.tooltip2.document.nstip.left=0
+//currentscroll=setInterval("scrolltip()",100)
+document.tooltip2.left=e.pageX+10
+document.tooltip2.top=e.pageY+10
+document.tooltip2.visibility="show"
+}
+}
+function hidetip2(){
+if (document.all)
+document.all.tooltip2.style.visibility="hidden"
+else if (document.layers){
+clearInterval(currentscroll)
+document.tooltip2.visibility="hidden"
+}
+}
+//function scrolltip(){
+//if (document.tooltip2.document.nstip.left>=-document.tooltip2.document.nstip.document.width)
+//document.tooltip2.document.nstip.left-=5
+//else
+//document.tooltip2.document.nstip.left=150
+//}
+
+function checkCapsLock( e ) {
+
+document.all.btClear.disabled = false;
+/*End of addition by Anusha for Virtual Key board*/
+	var myKeyCode=0;
+	var myShiftKey=false;
+	//var myMsg='Caps Lock is On.\n\nTo prevent entering your password incorrectly,\nyou should press Caps Lock to turn it off.';
+
+	// Internet Explorer 4+
+	if ( document.all ) {
+		myKeyCode=e.keyCode;
+		myShiftKey=e.shiftKey;
+
+	// Netscape 4
+	} else if ( document.layers ) {
+		myKeyCode=e.which;
+		myShiftKey=( myKeyCode == 16 ) ? true : false;
+
+	// Netscape 6
+	} else if ( document.getElementById ) {
+		myKeyCode=e.which;
+		myShiftKey=( myKeyCode == 16 ) ? true : false;
+	}
+
+	// Upper case letters are seen without depressing the Shift key, therefore Caps Lock is on
+	if ( ( myKeyCode >= 65 && myKeyCode <= 90 ) && !myShiftKey ) {
+		//alert( myMsg );
+		showtip2(this,event,'Caps Lock is On');
+		}else{ hidetip2();}
+
+	// Lower case letters are seen while depressing the Shift key, therefore Caps Lock is on
+	// else if ( ( myKeyCode >= 97 && myKeyCode <= 122 ) && myShiftKey ) {
+		//alert( myMsg );
+	//	showtip2(this,event,'Caps Lock is On');
+         //}else{ hidetip2();}
+}
+</script>
+<script language="JavaScript">
+
+
+Cond = true;
+function displayHelp()
+{
+	//alert("aaa");
+	window.open("/servlet/ibs.servlets.IBSHelpServlet?HandleID=101_HELP","helpwin","width=550,height=500,status=yes,toolbar=yes,menubar=no,scrollbars=yes,resize=yes,left=105,top=10");
+}
+/*function test()
+{
+	var Logout = confirm("Do you want to Logout ?");
+	if(Logout)
+	{
+		window.open("/servlet/ibs.servlets.IBSHelpServlet?HandleID=000_LGT","logoutconfirm",width=800,height=600,status=yes,toolbar=no,menubar=no,scrollbars=no,resize=yes,left=105,top=15");
+	}
+	else
+	{
+	window.open("test.html");
+	return;	
+	}
+}*/
+
+/* commented  for session expiry issue on 25th jan 2011
+function logout() 
+{
+   //window.open("Appl_Browser_close.jsp");      
+   //document.help.submit();
+   document.help.method="post";
+   document.help.action="/servlet/ibs.servlets.IBSLoginServlet";
+   document.help.submit();
+   alert ("Thank You for using  Net Banking");
+}  
+*/
+
+function logout() 
+{
+   document.help.action="/servlet/ibs.servlets.IBSLoginServlet?HandleID=LogOff&ApplnFlag=A";
+   document.help.method="post";
+   document.help.target="_top";   
+   document.help.submit();	
+   alert ("Thank You for using CBI Net Banking");   
+}
+
+function logoutwindow()
+{
+	document.help.action="/servlet/ibs.servlets.IBSLoginServlet?HandleID=LogOff&ApplnFlag=A";
+   	document.help.method="post";
+   	document.help.target="_top";
+   	document.help.submit();
+   	alert ("Thank You for using CBI Net Banking");   
+}
+	
+
+</script>
+<script type="text/javascript" src="/cmn/sha1.js">
+</script>
+<script language="javascript">
+
+function add(a) {
+	document.all.btClear.disabled = false;
+	document.form1.pwd.value +=a.value.substring(1,2);
+}
+
+function toggle(fRef) {
+  capsLock = !capsLock;
+  if (capsLock) {
+    fRef.caps.value = ' SHIFT ';
+
+    fRef.n1.value = ' ! ';
+    fRef.n2.value = ' @ ';
+    fRef.n3.value = ' # ';
+    fRef.n4.value = ' $ ';
+    fRef.n5.value = ' % ';
+    fRef.n6.value = ' ^ ';
+    fRef.n7.value = ' & ';
+    fRef.n8.value = ' * ';
+    fRef.n9.value = ' ( ';
+    fRef.n0.value = ' ) ';
+    fRef.s0.value = ' ~ ';
+    fRef.s1.value = ' _ ';
+    fRef.s2.value = ' + ';
+    fRef.s3.value = ' { ';
+    fRef.s4.value = ' } ';
+    fRef.s5.value = ' | ';
+    fRef.s6.value = ' : ';
+    fRef.s7.value = ' " ';
+    fRef.s8.value = ' < ';
+    fRef.s9.value = ' > ';
+    fRef.s10.value = ' ? ';
+
+    for (var i = 0; i < letters.length; i++) {
+      var letter = letters.substring(i,i+1)
+      fRef[letter].value =' ' + letter.toUpperCase() + ' ';
+      //alert(fRef[letter].value);
+    }
+  }
+  else {
+    fRef.caps.value = ' Shift ';
+
+    fRef.n1.value = ' 1 ';
+    fRef.n2.value = ' 2 ';
+    fRef.n3.value = ' 3 ';
+    fRef.n4.value = ' 4 ';
+    fRef.n5.value = ' 5 ';
+    fRef.n6.value = ' 6 ';
+    fRef.n7.value = ' 7 ';
+    fRef.n8.value = ' 8 ';
+    fRef.n9.value = ' 9 ';
+    fRef.n0.value = ' 0 ';
+    fRef.s0.value = ' ` ';
+    fRef.s1.value = ' - ';
+    fRef.s2.value = ' = ';
+    fRef.s3.value = ' [ ';
+    fRef.s4.value = ' ] ';
+    fRef.s5.value = ' \\ ';
+    fRef.s6.value = ' ; ';
+    fRef.s7.value = " ' ";
+    fRef.s8.value = ' , ';
+    fRef.s9.value = ' . ';
+    fRef.s10.value = ' / ';
+
+    for (var i = 0; i < letters.length; i++) {
+      var letter = letters.substring(i,i+1)
+      fRef[letter].value =' ' + letter + ' ';
+      //alert(fRef[letter].value);
+    }
+  }
+ 
+}			
+function del()
+{
+  var input = document.form1.pwd.value;
+  if (input.length > 0)
+    document.form1.pwd.value =
+      input.substring(0, input.length-1);
+}
+
+/*End of addition by Anusha for Virtual Key board*/
+function do_Load()
+{
+//window.open("/jsp/News.jsp"p=100");
+//window.open("/jsp/News.jsp","abcd","width=350,height=450,status=no,toolbar=no,menubar=no,scrollbars=yes,resize=yes,left=5,top=100");
+   document.form1.uid.value="";
+}
+
+inAttempt=0;
+
+function clearform(dumForm){
+	dumForm.reset();
+}
+
+function gotoProductsandServices()
+{
+	document.form2.HandleID.value="I_LOGPROD";
+	
+}
+
+function viewDemo()
+{
+//alert("aaa");
+window.open("/demo/eBankWorks.html");
+
+}
+function viewOnlinePswdGen()
+{
+document.form1.HandleID.value="LOG_PSWD_01";
+document.form1.action="/servlet/ibs.servlets.IBSLoginServlet";
+document.form1.submit();
+}
+
+function keypressed(){
+if(event.keyCode=='13'){
+//alert('you pressed enter');
+submitform(form1);
+}
+}
+
+</script>
+
+
+</HEAD>
+
+<body align="center" valign="center" bgcolor="#ffffff" onLoad="do_Load() ; cboibanking()" onkeyup="keypressed()" oncontextmenu="return false">
+<div id="tooltip2" style="VISIBILITY: hidden; WIDTH: 120px; CLIP: rect(0px 150px 50px 0px); POSITION: absolute; BACKGROUND-COLOR: #FFFFFF" style="border:1px solid black"></div>                		
+<form name="form1" method="post"  action="/servlet/ibs.servlets.IBSLoginServlet?browsertype=686 (x86">
+<table width="100%" height="500" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="2"><table width="100%" height="244" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td height="244" style="background:url(../image/logo_bg2.jpg) repeat-x; width:327px; height:124px; text-align:center; vertical-align:top; padding-top:12px;"><table width="323" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td><img src="../image/logo.jpg" width="299" height="94" border="0"></td>
+              </tr>
+              <tr>
+                <td height="94">&nbsp;</td>
+              </tr>
+              <tr>
+                <td width="330" height="39" valign="top" class="r_sec" align="center"><a href="/jsp/disclaimer.htm">Disclaimer</a> | <a href="/servlet/ibs.servlets.IBSTOCServlet?HandleID=L_002_TOC">Terms and Condition</a> | <a href="/jsp/Privacypolicy.htm">Privacy</a> | <a href="/jsp/NewsNew.jsp">Online Payment</a></td>
+              </tr>
+            </table></td>
+          <td width="39" valign="top"><img src="../image/top_curve.jpg" width="39" height="124" /></td>
+          <td style="background:url(../image/menu_bg2.jpg) repeat-x; height:124px;" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="60" align="right"><table width="300" border="0" cellspacing="0" cellpadding="0">
+                    <!-- <tr>
+                      <td width="73" align="center" class="r_sec"><img src="../image/icon_contact.jpg" width="14" height="13" border="0"/> <br />
+                        <a href="#">Contact Us</a></td>
+                      <td width="73" align="center" class="r_sec"><img src="../image/icon_sitemap.jpg" width="14" height="13" border="0"/> <br />
+                        <a href="#">Site Map</a></td>
+                      <td width="70" align="center" class="r_sec"><A id="help" href="javascript:displayHelp()"><img src="../image/icon_help.jpg" width="15" height="15" border="0"/><br />
+                          Help</a></td>
+                    </tr> -->
+                  </table></td>
+              </tr>
+              <tr>
+                <td height="138" class="welcome_txt"><img src="../image/welcome_txt1.jpg" width="385" height="21"></td>
+              </tr>
+              <tr>
+                <td height="41" class="r_sec" style="text-align:right; vertical-align:middle; padding-right:20px;"><a href="javascript:viewOnlinePswdGen()" >Online Password</a> | <a href="/jsp/NewUserRegistration.htm">New User</a> | <a href="/jsp/TroubleLogging.html">Trouble Logging in</a> | <a href="javascript:viewDemo()">View Demo</a></td>
+              </tr>
+            </table></td>
+        </tr>
+      </table></td>
+  </tr>
+<INPUT TYPE="HIDDEN" NAME="HandleID" VALUE="LogIn">
+<INPUT TYPE="HIDDEN" NAME="Graphics">
+<INPUT TYPE="HIDDEN" NAME="ApplnFlag" VALUE="A"  >
+<INPUT TYPE="HIDDEN" NAME="rnumber" value="122458956">
+<tr align="center" class="simple">
+		<td>&nbsp;</td>
+		<td align="left"> 
+			
+		</td>
+	</tr>
+<tr>
+    <td width="322" height="302" style="background:url(../image/main_img_bg.jpg);"><img src="../image/admin_03.jpg" width="322" height="302" border="0"></td>
+    <td width="680" style="background:url(../image/main_img_bg.jpg);">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td colspan="2" height="70" style="background-color:#0072bb; height:60px;" class="txt1">Personal Internet Banking </td>
+        </tr>
+        <tr>
+          <td height="157" style="background-color:#80b9dd; height:157px; text-align:left; vertical-align:middle;"><table width="275" height="154" border="0" cellspacing="0" cellpadding="0" bgcolor="#c0dcee">
+              <tr>
+                <td colspan="3" style="height:15px; line-height:15px;"></td>
+              </tr>
+              <tr>
+                <td width="19" height="25" class="un_pw">&nbsp;</td>
+                <td width="104" class="un_pw">User ID</td>
+                <td width="152"><INPUT class="txt_box" autocomplete="off" style="flat" type="text" name="uid" id="uid"/></td>
+              </tr>
+              <tr>
+                <td colspan="3" style="height:5px; line-height:5px;"></td>
+              </tr>
+              <tr>
+                <td height="25" class="un_pw">&nbsp;</td>
+                <td class="un_pw">Password</td>
+                <td><INPUT class="txt_box" autocomplete="off" type="password"  name="pwd" id="pwd"onkeypress="checkCapsLock( event )" /></td>
+              </tr>
+              <tr>
+                <td colspan="3" style="height:5px; line-height:5px;"></td>
+              </tr>
+              <tr id = "lookcheck" >
+               <td height="25" class="un_pw" colspan="1"></td>
+	      <td colspan="2" align="center"><!-- <INPUT name = "lookcheck" type ="checkbox"  onclick = "javascript:checkvalue()" value="">Old Internet Banking View--></td>
+		      </tr>
+              <tr>
+                <td colspan="3" style="height:10px; line-height:10px;"></td>
+              </tr>
+              <tr>
+                <td colspan="3" style="height:10px; line-height:10px;"></td>
+              </tr>
+              <tr>
+                <td height="30" align="center" colspan="3"><input type="hidden"  id="btnSubmit" name="btClear" value="Login"><a  href="javascript:submitform(form1)"><img src="../image/btn_login.jpg" width="59" height="22" border="0" /></a> &nbsp;&nbsp; <a href="javascript:Reset()"><img src="../image/btn_cancel_2.jpg" width="67" height="22" border="0" /></a></td>
+              </tr>
+            </table>
+</td>
+
+            
+          <td style="background-color:#80b9dd; height:157px; text-align:left; vertical-align:middle;"><table width="380" border="0" align="center" cellpadding="0" cellspacing="5" style="line-height:25px;">
+  <tr>
+    <td align="center">
+    <input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s0" value=" ` " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="n5" value=" 5 " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="n4" value=" 4 " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="n9" value=" 9 " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="a" value=" a " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="v" value=" v " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="j" value=" j " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="n6" value=" 6 " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="q" value=" q " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="f" value=" f " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="p" value=" p " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s1" value=" - " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s2" value=" = " onClick="add(this)" >
+	<input style="width:30px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" value="Del" onClick="del()" >
+    </td>
+  </tr>
+  <tr>
+    <td align="center"> 
+    <input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="k" value=" k " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="y" value=" y " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="c" value=" c " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="n0" value=" 0 " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="l" value=" l " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="b" value=" b " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="z" value=" z " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="x" value=" x " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="m" value=" m " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="n2" value=" 2 " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s3" value=" [ " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s4" value=" ] " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s5" value=" \ " onClick="add(this)" >
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+    <input style="width:43px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="caps" value="Caps" onClick="toggle(this.form)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="h" value=" h " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="e" value=" e " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="u" value=" u " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="r" value=" r " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="n1" value=" 1 " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="w" value=" w " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="o" value=" o " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="n" value=" n " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="n7" value=" 7 " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s6" value=" ; " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s7" value=" ' " onClick="add(this)" >
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+    <input style="width:43px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="caps" value="Shift" onClick="toggle(this.form)" >
+    <input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="n8" value=" 8 " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="t" value=" t " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s" value=" s " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="d" value=" d " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="g" value=" g " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="n3" value=" 3 " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="i" value=" i " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s8" value=" , " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s9" value=" . " onClick="add(this)" >
+	<input style="width:20px; height:24px; padding-bottom:2px; padding-left:0px;" align="center" type="button" name="s10" value=" / "onClick="add(this)" >
+    </td>
+  </tr>	
+ 
+</table> 
+    </td>
+  </tr>
+  <tr>
+    <td width="323">&nbsp;</td>
+    <td width="678">&nbsp;</td>
+  </tr>
+  
+</table>
+</td>
+</tr>
+</table>
+<table align="center">
+<tr><td>&nbsp;</td></tr>
+<tr><td style="font-size:12px;">This site uses <b>highly secure 256-bit encryption</b> and is compatible with <b>Microsoft Internet Explorer 7 and above</b> . If you have an older version of Internet Explorer please upgrade your browser
+</td></tr></table>
+<INPUT name = "lookcheck" type ="hidden"  value="1">
+</form>
+
+</BODY>
+</HTML>

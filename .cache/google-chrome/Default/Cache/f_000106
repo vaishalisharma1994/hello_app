@@ -1,0 +1,1381 @@
+function checkAlphaOnly(msg,obj)
+{
+	if(obj.value.length == 0)
+	{
+		alert(msg+" should be entered");
+		obj.select();
+		return false;
+	}
+	
+	for(i=0; i<obj.value.length; i++)
+	{
+		
+		if(((obj.value.charAt(i) >= 'a') && (obj.value.charAt(i) <= 'z')) 
+			|| ((obj.value.charAt(i) >= 'A') && (obj.value.charAt(i) <= 'Z'))) 
+		{
+			// Valid Character
+		}
+		else
+		{
+			 alert(msg+" cannot contain characters like "+obj.value.charAt(i));
+			 obj.select();
+			 return false;
+		}
+	}
+	return true;
+}
+
+function checkAlphaAndNumberOnly(msg,obj)
+{
+	if(obj.value.length == 0)
+	{
+		alert(msg+" should be entered");
+		obj.select();
+		return false;
+	}
+	
+	for(i=0; i<obj.value.length; i++)
+	{
+		
+		if(((obj.value.charAt(i) >= 'a') && (obj.value.charAt(i) <= 'z')) 
+			|| ((obj.value.charAt(i) >= 'A') && (obj.value.charAt(i) <= 'Z')) 
+			|| ((obj.value.charAt(i) >= '0') && (obj.value.charAt(i) <= '9')))
+		{
+			// Valid Character
+		}
+		else if(obj.value.charAt(i) == ' ')
+		{
+			alert(msg+" cannot contain space");
+			return false;
+		}
+		else
+		{
+			 alert(msg+" cannot contain special characters like "+obj.value.charAt(i));
+			 obj.select();
+			 return false;
+		}
+	}
+	return true;
+}
+function checkAlphaUser(msg,obj)
+{
+	
+	for(i=0; i<obj.value.length; i++)
+	{
+		
+		if(((obj.value.charAt(i) >= 'a') && (obj.value.charAt(i) <= 'z')) 
+			|| ((obj.value.charAt(i) >= 'A') && (obj.value.charAt(i) <= 'Z')))
+		{
+			// Valid Character
+		}
+		else if(obj.value.charAt(i) == ' ')
+		{
+			alert(msg+" cannot contain space");
+			return false;
+		}
+		else
+		{
+			 alert(msg+" cannot contain characters like "+obj.value.charAt(i));
+			 obj.select();
+			 return false;
+		}
+	}
+	return true;
+}
+function checkAlphaAndSpaceOnly(msg,obj)
+{
+	if(obj.value.length == 0)
+	{
+		alert(msg+" should be entered");
+		obj.select();
+		return false;
+	}
+	
+	for(i=0; i<obj.value.length; i++)
+	{
+		
+		if(((obj.value.charAt(i) >= 'a') && (obj.value.charAt(i) <= 'z')) 
+			|| ((obj.value.charAt(i) >= 'A') && (obj.value.charAt(i) <= 'Z')) 
+			|| (obj.value.charAt(i) == ' '))
+		{
+			// Valid Character
+		}
+		else
+		{
+			 alert(msg+" cannot contain characters like "+obj.value.charAt(i));
+			 obj.select();
+			 return false;
+		}
+	}
+	return true;
+}		
+			
+function checkText(msg,obj)
+{
+	if(isBlank(obj.value))
+	{
+ 		alert(msg+" cannot be blank.");
+		//obj.focus();
+		//obj.select();
+		return false;
+	}
+	return true;
+}
+
+
+function checkTextWithoutAlert(msg,obj)
+{
+	//alert("checktext "+msg+"obj"+obj);	
+	if(isBlank(obj.value))
+	{
+ 		//alert(msg+" cannot be blank.");
+		//obj.focus();
+		obj.select();
+		return false;
+	}
+	return true;
+}
+
+
+	
+function checkNumber(ale,amt)
+{
+	if(isBlank(amt.value))
+	{
+		alert(ale+" cannot be blank. Enter "+ ale);
+		return false;
+	}
+	if(isNaN(amt.value)==true)
+	{
+		alert(ale+" should be a number ");
+		return false;
+	}
+	if(amt.value.charAt(0) < '0' || amt.value.charAt(0) > '9')
+	{
+		alert(ale+" cannot contain characters other than numbers");
+		return false;
+	}	
+	if(parseFloat(amt.value) <= 0)
+	{
+		alert("Enter valid "+ale);
+		return false;
+	}	
+	return true;
+}
+function checkNumberV2(ale,amt)
+{
+	if(isBlank(amt.value))
+	{
+		alert(ale+" cannot be blank. Enter "+ ale);
+		return false;
+	}
+	if(isNaN(amt.value)==true)
+	{
+		alert(ale+" should be a number ");
+		return false;
+	}
+	if(amt.value.charAt(0) < '0' || amt.value.charAt(0) > '9')
+	{
+		alert(ale+" cannot contain characters other than numbers");
+		return false;
+	}	
+	if(parseFloat(amt.value) < 0)
+	{
+		alert("Enter valid "+ale);
+		return false;
+	}	
+	return true;
+}
+
+//To check numbers without any other character ('+' or '-' or '.')
+//created by ratan on 3/7/2 1:33PM
+
+function checkNumberAlone(ale,amt)
+{
+	var len = amt.value.length;
+	if(isBlank(amt.value))
+	{
+		alert(ale+" cannot be blank. Enter "+ ale);
+		return false;
+	}
+	for(i=0;i<len;i++)
+	{
+		if(amt.value.charAt(i) < '0' || amt.value.charAt(i) > '9')
+		{
+			alert(ale+" cannot contain Characters other than Numbers");
+			return false;
+		}	
+	}
+	return true;
+}
+function checkAccountNumberAlone(ale,amt)
+{
+	var len = amt.value.length;
+	
+	for(i=0;i<len;i++)
+	{
+		if(amt.value.charAt(i) < '0' || amt.value.charAt(i) > '9')
+		{
+			alert(ale+" cannot contain Characters other than Numbers");
+			return false;
+		}	
+	}
+	return true;
+}
+function isBlank(s) 
+{	
+	var len = s.length;
+	var i;
+	if(len==0)
+		return true;
+  		
+	for(i=0;i<len;++i)
+	{
+		if(s.charAt(i) != " ") 
+			return false;	     
+	}
+	return true;
+}
+
+function checkTime(msg,argTime)
+{
+	var s=argTime.value;
+	if(isBlank(argTime.value))
+	{
+		alert(ale+" cannot be blank. Enter "+ ale);
+		return false;
+	}
+	if(s.charAt(3)>6)
+	{
+		alert(msg+" is invalid");
+		return false;
+	}	
+	if(isNaN(s.charAt(0)) || isNaN(s.charAt(1)) || isNaN(s.charAt(3)) || isNaN(s.charAt(4)))
+	{	
+		alert(msg+" is invalid");
+		return false;
+	}
+	if(s.charAt(0) > 2)
+	{
+		alert(msg+" is invalid");
+		return false;
+	}
+	if(s.charAt(0)==2 && s.charAt(1)>3)
+	{	
+		alert(msg+" is invalid");
+		return false;
+	}				
+	if(s.charAt(2) != ':')
+	{
+		alert(msg+" is invalid");
+		return false;
+	}
+	if(s.charAt(3) > 5)
+	{	
+		alert(msg+" is invalid ");
+		return false;
+	}
+	return true;
+}	
+
+// Function to Validate the IP Address
+
+function validateIP(ipstr) {
+
+	var s=ipstr;
+	var sub='';
+	var dotocc = 0;
+	
+	if ((s.length > 15) || (s.length == 0) || (s.charAt(0) == '.' ) ) {
+		alert('Invalid IP Address');
+		return false;
+	}
+	
+	
+	for (i=0; i < s.length ; i++)
+	{
+		if(s.charAt(i) != "." && (s.charAt(i)<"0" || s.charAt(i)>"9"))
+		{
+			alert('Invalid IP Address');
+			return false;
+		}
+		if(s.charAt(i) == ".") 
+		{
+			if((sub.length > 3) || (sub.length == 0))
+			{
+				 alert('Invalid IP Address');
+				 return false;
+			}
+				
+			if(isNaN(sub))
+			 {
+				 alert('Invalid IP Address');
+				 return false;
+			}
+			
+			if( parseInt(sub) > 255) {
+				alert('Value exceeds 255');
+				return false;
+			}
+			
+			if( parseInt(sub) < 0) {
+				alert('Value should not be negative');
+				return false;
+			}
+			
+			if ((dotocc == 0) && (parseInt(sub) == 0)) {
+				alert('IP address cannot begin with a zero');
+				return false;
+			}
+			
+			sub='';
+			dotocc++;
+		}
+		else {
+			sub=sub+s.charAt(i);
+		}
+	}
+	
+		if(dotocc != 3) {
+			alert('Invalid IP address');
+			return false;
+		}
+		
+			if((sub.length > 3) || (sub.length == 0))
+			{
+				 alert('Invalid length');
+				 return false;
+			}
+				
+			if(isNaN(sub))
+			{
+				 alert('Invalid character');
+				 return false;
+			}
+			
+			if( parseInt(sub) > 255) {
+				alert('Value exceeds 255');
+				return false;
+			}
+	return true;
+}
+
+
+function validateBankName(bid,failmsg,successmsg,printflag,file,formObj,componentObj)
+{
+	var s;
+	s=bid;
+	if ((!isNaN(parseInt(s.charAt(0)))) || (s.length == 0)) {
+		alert(' Invalid Bank Name!!! '+failmsg);
+		eval("document."+formObj.name+"."+componentObj.name+".focus()");
+		eval("document."+formObj.name+"."+componentObj.name+".select()");
+		//document.BranchConfiguration.BranchId.focus();
+		//document.BranchConfiguration.BranchId.select();
+
+		return false;
+	}
+	alert(successmsg);
+	if(printflag == 0)
+		print('password.lis');
+	previousPage(file);
+	return true;
+}
+
+/*** function added by subbu  latest for validating date ****/
+
+function validateDate(getDate)
+{
+//alert(getDate);
+	var checkvar=getDate;
+	var loopcount;
+	var date,month,year;
+	var local=new Array(9);
+	var chk=true;
+
+	if  ((checkvar.length==0)||(checkvar== "")||(checkvar==null))
+	{
+		alert("Please Enter the Date!");
+		return false;
+	}
+	else if  (checkvar.length>10) 
+        {
+            alert("Enter Date in the format DD/MM/YYYY");
+            return false;
+        }
+      	else if  (checkvar.length<10) 
+        {
+            alert("Enter Date in the format DD/MM/YYYY");
+            return false;
+		}
+        
+        for(loopcount=0;loopcount<(checkvar.length);loopcount++) 
+        {  
+                local[loopcount]=(checkvar.substring(loopcount,loopcount+1) );  
+                if(local[loopcount]==" ")
+		{ 
+			alert("Enter Date in the format DD/MM/YYYY");
+ 			return false;
+		}
+	}
+
+        if (isNaN(local[0]) || isNaN(local[1]) || isNaN(local[3]) || isNaN(local[4])|| isNaN(local[6])
+                      ||isNaN(local[7]) || isNaN(local[8]) || isNaN(local[9]) )            
+        {  
+		alert("Enter Date in the format DD/MM/YYYY");
+                return false;
+        }
+	else if   ( ((local[2]!="/") || (local[5]  !="/")) && ( (local[2]!="-") || (local[5] )!="-") )       
+	{  
+        	alert("Enter Valid Delimiters");
+                return false;
+        }             
+	date=local[0]+local[1];               
+	if(date==08)
+		date=08;
+	if(date==09)
+		date=09;
+	date=parseInt(date); 
+	
+	if (date>31) 
+        { 
+ 		alert("Enter valid day");  
+		return false;  
+	}
+
+        month=local[3]+local[4];
+	if(month==08)
+	month=08;
+
+	if(month==09)
+	month= 09;
+          
+        month=parseInt(month);
+	
+	if(month>12)
+	{
+		alert ("Enter Valid month");
+		return false;
+	}	
+	
+	year = local[6]+local[7]+local[8]+local[9];
+	year=parseInt(year);
+	if((date==0) || (month==0) || (year==0))
+	{
+		alert("Invalid Date");
+		chk=false;
+	}
+
+		if(month==04 || month==06 || month==09 || month==11) 		 
+		{
+			if(date>30)
+			{
+			 	alert("Date should not be greater than 30");
+				chk=false;
+			}
+		}
+		else if(month==02){
+					
+		 	if(year % 4 ==0 && date>29)
+			{
+			
+				alert("Date should not be greater than 29");
+				chk=false;
+			}else if(year % 4 !=0 && date>28){
+						alert("Year 2  "+year);
+			        alert("Date should not be greater than 28");
+				chk=false;
+			}
+			
+		}	
+		
+
+	return chk;
+}
+
+/* Function Valid Port Number */
+function validPortNumber(msg,portno)
+{
+	if (isBlank(portno.value))
+	{
+		alert(msg + " cannot be blank");
+		return (false);
+	}
+	
+	if (isNaN(portno.value))
+	{
+		alert("Invalid Port Number");
+		return (false);
+	}
+
+	if(portno.value.charAt(0)<"0" || portno.value.charAt(0)>"9")
+	{
+		alert("Invalid Port Number");
+		return (false);
+	}
+		
+	return (true);
+}
+
+
+function validatePhone(ptype) {
+		if(eval('document.userform.'+ptype+'1.value.length != 0')  
+		&& (isNaN(eval('document.userform.'+ptype+'1.value')))) {
+			controlTabMenu('AddressDetails');
+			eval('document.userform.'+ptype+'1.focus()');
+			eval('document.userform.'+ptype+'1.select()');
+			alert('Invalid '+ptype+' Number1');
+			return false;
+		}
+		else {
+			if(eval('document.userform.'+ptype+'2.value.length != 0')  
+				&& (isNaN(eval('document.userform.'+ptype+'2.value')))) {
+					controlTabMenu('AddressDetails');
+					eval('document.userform.'+ptype+'2.focus()');
+					eval('document.userform.'+ptype+'2.select()');
+					alert('Invalid '+ptype+' Number2');
+					return false;
+			}
+			else if((eval('document.userform.'+ptype+'1.value.length == 0')
+				&& eval('document.userform.'+ptype+'2.value.length != 0'))
+				|| (eval('document.userform.'+ptype+'2.value.length == 0')
+				&& eval('document.userform.'+ptype+'1.value.length != 0'))) { 
+					controlTabMenu('AddressDetails');
+					eval('document.userform.'+ptype+'1.focus()');
+					eval('document.userform.'+ptype+'1.select()');
+					alert('Invalid '+ptype+' Number12');
+					return false; 
+				}
+			}
+		return true;
+}
+
+
+
+// This Function validates the Address 
+// Argument : r- residential address p-postal address
+
+function validateAddress(addrtype) {
+		if(eval('document.userform.'+addrtype+'Street.value.length == 0')) {
+			controlTabMenu('AddressDetails');
+			eval('document.userform.'+addrtype+'Street.focus()');
+			eval('document.userform.'+addrtype+'Street.select()');
+			alert('Street must be Entered');
+			return false;
+		}
+		/*if(eval('document.userform.'+addrtype+'Suburb.value.length == 0')) {
+			controlTabMenu('AddressDetails');
+			eval('document.userform.'+addrtype+'Suburb.focus()');
+			eval('document.userform.'+addrtype+'Suburb.select()');
+			alert('Suburb must be Entered');
+			return false;
+		}*/
+		if(eval('document.userform.'+addrtype+'State.value.length == 0')) {
+			controlTabMenu('AddressDetails');
+			eval('document.userform.'+addrtype+'State.focus()');
+			eval('document.userform.'+addrtype+'State.select()');
+			alert('State must be Entered');
+			return false;
+		}
+		
+		if(!validatePostalCode(eval('document.userform.'+addrtype+'Postcode.value'))) {
+			
+			controlTabMenu('AddressDetails');
+			eval('document.userform.'+addrtype+'Postcode.focus()');
+			eval('document.userform.'+addrtype+'Postcode.select()');
+			return false;
+		}
+	return true;
+}
+
+
+function validateDateNull(getDate)
+{
+	var checkvar=getDate;
+	var loopcount;
+	var date,month,year;
+	var local=new Array(9);
+	var chk=true;
+	if((checkvar==null)||(checkvar== "")||(checkvar.length==0))
+	{
+		return true;
+	}
+	else if  (checkvar.length>10) 
+        {
+            alert("Enter Date in the format DD/MM/YYYY");
+            return false;
+        }
+      	else if  (checkvar.length<10) 
+        {
+            alert("Enter Date in the format DD/MM/YYYY");
+            return false;
+		}
+        
+        for(loopcount=0;loopcount<(checkvar.length);loopcount++) 
+        {  
+                local[loopcount]=(checkvar.substring(loopcount,loopcount+1) );  
+                if(local[loopcount]==" ")
+		{ 
+			alert("Enter Date in the format DD/MM/YYYY");
+ 			return false;
+		}
+	}
+
+        if (isNaN(local[0]) || isNaN(local[1]) || isNaN(local[3]) || isNaN(local[4])|| isNaN(local[6])
+                      ||isNaN(local[7]) || isNaN(local[8]) || isNaN(local[9]) )            
+        {  
+		alert("Enter Date in the format DD/MM/YYYY");
+                return false;
+        }
+	else if   ( ((local[2]!="/") || (local[5]  !="/")) && ( (local[2]!="-") || (local[5] )!="-") )       
+	{  
+        	alert("Enter Valid Delimiters");
+                return false;
+        }             
+	date=local[0]+local[1];               
+	if(date==08)
+		date=08;
+	if(date==09)
+		date=09;
+	date=parseInt(date); 
+	
+	if (date>31) 
+        { 
+ 		alert("Date should not exceed 31");  
+		return false;  
+	}
+
+        month=local[3]+local[4];
+	if(month==08)
+	month=08;
+
+	if(month==09)
+	month= 09;
+          
+        month=parseInt(month);
+	
+	if(month>12)
+	{
+		alert("Month should not be greater then 12");
+		return false;
+	}	
+	
+	year = local[6]+local[7]+local[8]+local[9];
+	year=parseInt(year);
+	
+	if((date==0) || (month==0) || (year==0))
+	{
+		alert("Invalid Date");
+		chk=false;
+	}
+  		
+		if(month==04 || month==06 || month==09 || month==11) 		 
+		{
+			if(date>30)
+			{
+			 	alert("Date should not be greater than 30");
+				chk=false;
+			}
+		}
+		else if(month==02){
+			
+		 	if(year % 4 ==0 && date>29)
+			{
+				alert("Date should not be greater than 29");
+				chk=false;
+			}
+			else if(year % 4 !=0 && date>28){
+			        alert("Date should not be greater than 28");
+				chk=false;
+			}
+			
+		}	
+			
+	return chk;
+}
+
+function parseComma(amount)
+{
+
+	flag = "0";
+	while(flag == "0")
+	{
+	matcharr = amount.search(",");
+		if(matcharr != "-1")
+		{
+			amount = amount.replace(",","");
+		}
+		else
+		{
+			flag = "1";
+		}
+	}	
+	return amount;
+}
+
+
+function isDateGreater(date1,date2)  
+{ 	
+	if(date1 == null || date2 == null || date1.length==0 || date2.length==0 )
+	{
+		return true;
+	}
+	var dd1;
+	var mm1;
+	var yy1;
+	var dd2;
+	var mm2;
+	var yy2;
+	
+	dd1=date1.substring(0,2)	
+	mm1=date1.substring(3,5)	
+	yy1=date1.substring(6,10)	
+	
+		
+	dd2=date2.substring(0,2)	
+	mm2=date2.substring(3,5)	
+	yy2=date2.substring(6,10)
+
+	if(yy2 == yy1)
+	{
+		if ( mm2 == mm1)
+		{
+			if( dd2 == dd1 )
+			{
+				return true;
+			}
+			else
+			{
+				if ( dd2 > dd1)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				};
+			};
+		}
+		else
+		{
+			if ( mm2 > mm1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			};
+		};
+	}
+	else
+	{
+		if( yy2 > yy1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		};
+	};
+};
+
+
+
+function checkDate(ale,date)
+{
+
+	ck=validateDate(date.value);
+	if(!ck)
+	{
+		//alert("Enter valid "+ ale);
+		date.focus();
+		date.select();
+		return false;
+	}
+	return true;
+}
+
+
+function checkTextOnly(ale,alfanumeric)
+{
+	if(isBlank(alfanumeric.value))
+	{
+		alert(ale+"  cannot be blank. Enter "+ale);
+		alfanumeric.focus();
+		alfanumeric.select();
+		return false;
+	}
+	if(!(isNaN(alfanumeric.value)==true))
+	{
+		alert("Enter Valid "+ale);
+		alfanumeric.select();
+		alfanumeric.focus();
+		return false;
+	}
+	return true;
+}
+
+function isTimeGreater(time1,time2)
+{
+	hh1=time1.substring(0,2);
+	mm1=time1.substring(3,5);
+	hh2=time2.substring(0,2);
+	mm2=time2.substring(3,5);
+	if(hh1 > hh2)
+	{
+		return false;
+	}
+	if(hh1 < hh2)
+	{
+		return true;
+	}
+	if(hh1 == hh2)
+	{
+		if(mm1 > mm2)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	return true;
+}
+	
+function validateURL(url)
+{
+}	
+
+function isEmailAddr(email)
+{
+	
+  var result = false;
+  var theStr = new String(email)
+  var index = theStr.indexOf("@");
+  var lastIndex = theStr.lastIndexOf("@");
+  if(index != lastIndex)
+  {
+  	alert("Only one \'@\' should come");
+  	return false;
+  }
+  if (index > 0)
+  {
+    var pindex = theStr.indexOf(".",index);
+    if ((pindex > index+1) && (theStr.length > pindex+1))
+	result = true;
+  }
+
+  return result;
+}
+
+function validateEmail(email)
+{
+
+  if(isBlank(email.value))
+  {
+    return true;
+  }
+
+  if (!isEmailAddr(email.value))
+  {
+    alert("Please enter a complete email address in the form: yourname@yourdomain.com");
+    return false;
+  }
+   
+  if (email.value.length < 3)
+  {
+    alert("Please enter at least 3 characters in the \"email\" field.");
+    return false;
+  }
+  return true;
+}
+  
+//To validate user id 
+//created by : ratan on :3/7/2 1:23PM
+  
+function checkUserId(arguserid,minlength)
+{
+	var userid = arguserid.value;
+	var len = userid.length;
+	if(!validateSpace(userid))
+	{
+		alert('User ID cannot contain space');		
+		arguserid.select();
+		arguserid.focus();
+		return false;
+	}
+	if(len < minlength)
+	{
+		alert('UserId cannot be less than  '+minlength+' characters');		
+		arguserid.select();
+		arguserid.focus();
+		return false;
+	}
+	
+	return true;
+}	
+
+//To check whether the value contains spaces
+//created by ratan on 3/7/2 1:23PM
+function isBeforeDate(date1)
+{
+	
+	var curDate = new Date();
+	dd = curDate.getDate();
+	mm = curDate.getMonth()+1;
+	
+	//added by sandesh
+	if(mm<10)
+		mm="0"+mm;
+	if(dd<10)
+		dd="0"+dd;
+	yyyy = curDate.getFullYear();
+	
+	if(isDateLesser(date1,dd+'/'+mm+'/'+yyyy))
+	{
+		//alert('Date is normal Date');
+		return true;
+	}
+	else
+	{	
+		//alert('Date is futureDate');
+		return false;
+	}
+}
+function isDateLesser(date1,date2)  
+{ 
+
+	firstDate = date1;
+	
+	secDate = date2;
+	
+	dd1=firstDate.substring(0,2)
+	mm1=firstDate.substring(3,5)
+	yy1=firstDate.substring(6,10)
+	dd2=secDate.substring(0,2)
+	mm2=secDate.substring(3,5)
+	yy2=secDate.substring(6,10)
+	
+	/*dd1=parseInt(firstDate.substring(0,firstDate.indexOf('/'),10));	
+	firstDate = firstDate.substring(firstDate.indexOf('/')+1,firstDate.length);
+	month=firstDate.substring(0,firstDate.indexOf('/'))
+	
+	mm1=parseInt(month,10);	
+	
+	firstDate = firstDate.substring(firstDate.indexOf('/')+1,firstDate.length);
+	yy1 = parseInt(firstDate,10);
+	
+	
+	
+	dd2=parseInt(secDate.substring(0,secDate.indexOf('/'),10));	
+	secDate = secDate.substring(secDate.indexOf('/')+1,secDate.length);
+	mm2=parseInt(secDate.substring(0,secDate.indexOf('/'),10));	
+	secDate = secDate.substring(secDate.indexOf('/')+1,secDate.length);
+	yy2 = parseInt(secDate,10);
+	
+	*/
+	if(yy2 == yy1)
+	{
+		if ( mm2 == mm1)
+		{
+			if( dd2 > dd1 )
+			{
+				
+				return true;
+			}
+			
+				else
+				{
+					return false;
+				};
+			
+		}
+		else
+		{
+			if ( mm2 > mm1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			};
+		};
+	}
+	else
+	{
+		if( yy2 > yy1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		};
+	};
+};
+
+function isFutureDate(date1)
+{
+	var curDate = new Date();
+	dd = curDate.getDate();
+	mm = curDate.getMonth()+1;
+	yyyy = curDate.getYear();
+
+
+	if(dd<10)
+	{
+		dd = '0'+dd;
+	}
+	if(mm<10)
+	{
+		mm = '0'+mm;
+	}
+
+	if(isDateGreaterOrEqual(date1,dd+'/'+mm+'/'+yyyy))
+	{
+//		alert('Date is normal Date');
+		return true;
+	}
+	else
+	{
+		// alert('Date is futureDate');
+		return false;
+	}
+}
+function isDateGreaterOrEqual(date1,date2)
+{
+	if(date1 == null || date2 == null || date1.length==0 || date2.length==0 )
+	{
+		return true;
+	}
+	var dd1;
+	var mm1;
+	var yy1;
+	var dd2;
+	var mm2;
+	var yy2;
+
+	dd1=date1.substring(0,2)
+	mm1=date1.substring(3,5)
+	yy1=date1.substring(6,10)
+	dd2=date2.substring(0,2)
+	mm2=date2.substring(3,5)
+	yy2=date2.substring(6,10)
+
+	if(yy2 == yy1)
+	{
+		if ( mm2 == mm1)
+		{
+			if( dd2 == dd1 )
+			{
+				return true;
+			}
+			else
+			{
+				if ( dd2 < dd1)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				};
+			};
+		}
+		else
+		{
+			if ( mm2 < mm1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			};
+		};
+	}
+	else
+	{
+		if( yy2 < yy1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		};
+	};
+}
+function validateSpace(s)
+{
+	var len = s.length;
+	var i;
+	if(len==0)
+		return true;
+  		
+	for(i=0;i<len;++i)
+	{
+		if(s.charAt(i) == " ") 
+			return false;	     
+	}
+	return true;
+
+}
+	
+function isGreater(min,max)
+{
+	min=parseInt(min);
+	max=parseInt(max);
+	if(min>=max)
+	{
+		return false;
+	}
+	return true;
+}
+
+//To check the pin code
+function validatePostalCode(code)
+{
+	if(code.length == 0)
+	{
+		alert("Postal code must be entered");
+		return false;
+	}
+	for(i=0;i<code.length;i++)
+	{
+		if(isNaN(code.charAt(i)))
+		{
+			alert ("Postal code should contain numbers only");
+			return false;
+		}
+	}
+	return true;
+}
+
+function validateIndianPostalCode(code)
+{
+	if(code.length == 0)
+	{
+		alert("Pincode must be entered");
+		return false;
+	}
+	if(code.length != 6)
+	{
+		alert("Please enter a 6 digit pincode");
+		return false;
+	}
+	
+	for(i=0;i<code.length;i++)
+	{
+		if(isNaN(code.charAt(i)))
+		{
+			alert ("Pincode should contain numbers only");
+			return false;
+		}
+	}
+	return true;
+}
+	
+function mobile(code)
+{
+	if((code.charAt(0)=='-'))
+		{
+			alert ("mobile should not contain "+code.charAt(0));
+			return false;
+		}
+	for(i=0;i<code.length;i++)
+	{
+		if((code.charAt(i)=='.'))
+		{
+			alert ("mobile should not contain "+code.charAt(i));
+			return false;
+		}
+	}
+	return true;
+}
+function validateFile()
+{
+if (!checkFile(document.MultipleUserMaintenance.FileName,"txt"))
+	{
+		return false;
+	}
+	return true;
+}
+function checkFile(filename,extn)
+{
+	dotIndex = filename.value.indexOf('.');
+	var fe=filename.value.substring(dotIndex);
+	var ext = "."+extn;
+
+	if(isBlank(filename.value))
+	{
+		alert('file name should not be blank');
+		filename.focus();
+		filename.select();
+		return false;
+	}
+
+
+	if(fe != ext)
+	{
+		alert('file should be of type .'+extn);
+		filename.focus();
+		filename.select();
+		return false;
+	}
+	var fileBody=filename.value.substring(0,dotIndex);
+
+	if(isBlank(fileBody))
+	{
+		alert('invalid file name');
+		filename.focus();
+		filename.select();
+		return false;
+	}
+	return true;
+}
+function checkNumberwithnoDecimals(ale,amt)
+{
+	var s=amt.value;
+	var t1 = s.indexOf(".");
+	if(isBlank(amt.value))
+	{
+		alert(ale+" cannot be blank. Enter "+ ale);
+		return false;
+	}
+	if(isNaN(amt.value)==true)
+	{
+		alert(ale+" should be a number ");
+		return false;
+	}
+	if(amt.value.charAt(0) < '0' || amt.value.charAt(0) > '9')
+	{
+		alert(ale+" cannot contain characters other than numbers");
+		return false;
+	}
+		if(t1 != -1)
+		{
+			alert(ale+" should be a Number and not decimal");
+			return false;
+		}
+	
+	
+	if(parseFloat(amt.value) <= 0)
+	{
+		alert("Enter valid "+ale);
+		return false;
+	}	
+	return true;
+}
+
+function checkAlphaSpaceAndNumberOnly(msg,obj)
+{
+	if(obj.value.length == 0)
+	{
+		alert(msg+" should be entered");
+		obj.select();
+		return false;
+	}
+	
+	for(i=0; i<obj.value.length; i++)
+	{
+		if(obj.value.charAt(0) ==' ')
+		{
+			alert(msg+" cannot start with space");
+			return false;
+		}
+		if(((obj.value.charAt(i) >= 'a') && (obj.value.charAt(i) <= 'z')) 
+			|| ((obj.value.charAt(i) >= 'A') && (obj.value.charAt(i) <= 'Z')) 
+			|| ((obj.value.charAt(i) >= '0') && (obj.value.charAt(i) <= '9')) || (obj.value.charAt(i) == ' ' ) || (obj.value.charAt(i) == '[' ) || (obj.value.charAt(i) == ']' ) || (obj.value.charAt(i) == '/' ) || (obj.value.charAt(i) == ':' ) || (obj.value.charAt(i) == '.' ) || (obj.value.charAt(i) == ',' ))
+		{
+			// Valid Character
+		}
+		
+		else
+		{
+			 alert(msg+" cannot contain special characters like "+obj.value.charAt(i));
+			 obj.select();
+			 return false;
+		}
+	}
+	return true;
+	}
+	function checkNumberwithnoDecimalsNoCheckforBlank(ale,amt)
+{
+	var s=amt.value;
+	var t1 = s.indexOf(".");
+	if(isBlank(amt.value))
+	{
+		return true;
+	}
+	if(isNaN(amt.value)==true)
+	{
+		alert(ale+" should be a number ");
+		return false;
+	}
+	if(amt.value.charAt(0) < '0' || amt.value.charAt(0) > '9')
+	{
+		alert(ale+" cannot contain characters other than numbers");
+		return false;
+	}
+		if(t1 != -1)
+		{
+			alert(ale+" should be a Number and not decimal");
+			return false;
+		}
+	
+	
+	if(parseFloat(amt.value) <= 0)
+	{
+		alert("Enter valid "+ale);
+		return false;
+	}	
+	return true;
+}
+
+
+
+
+//Added by Sreenivas West Bengal Tax Payment
+function checkNumberforcomm(ale,amt)
+{
+	if(isBlank(amt.value))
+	{
+		alert(ale+" cannot be blank. Enter "+ ale);
+		return false;
+	}
+	if(isNaN(amt.value)==true)
+	{
+		alert(ale+" should be a number ");
+		return false;
+	}
+	/*if(amt.value.charAt(0) < '0' || amt.value.charAt(0) > '9')
+	{
+		
+			alert(ale+" cannot contain characters other than numbers");
+			return false;
+		
+	}	
+	if(parseFloat(amt.value) <= 0)
+	{	
+		
+			alert("Enter valid "+ale);
+			return false;
+		
+	}*/	
+	return true;
+}
+function isValueGreater(data1,data2)
+{
+	data1=parseInt(data1);
+	data2=parseInt(data2);
+	if(data1>data2)
+	{
+		return true;
+	}
+	return false;
+}
+//End here by Sreenivas

@@ -1,8 +1,8 @@
 
-(unity-settings-daemon:2476): Gdk-WARNING **: unity-settings-daemon: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
+(unity-settings-daemon:2755): color-plugin-WARNING **: failed to connect to device: Failed to connect to missing device /org/freedesktop/ColorManager/devices/xrandr_AU_Optronics_vaishali_1000
 
+(unity-settings-daemon:2755): color-plugin-WARNING **: failed to connect to device: Failed to connect to missing device /org/freedesktop/ColorManager/devices/xrandr_AU_Optronics_vaishali_1000
 
-** (unity-settings-daemon:2660): WARNING **: Attempted to init Xsync, found version 3.1 error base 134 event base 83
+(unity-settings-daemon:2755): color-plugin-WARNING **: failed to connect to device: Failed to connect to missing device /org/freedesktop/ColorManager/devices/xrandr_AU_Optronics_vaishali_1000
 
-
-** (unity-settings-daemon:2660): WARNING **: Unable to register client: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+(unity-settings-daemon:2755): color-plugin-WARNING **: failed to find device: property match 'XRANDR_name'='eDP1' does not exist

@@ -1,0 +1,530 @@
+<div id="cha-advanced_login" data-tralics-id="cid49" class="chapter" data-number="9" data-chapter="advanced_login"><h1><a href="advanced_login_fragment.html#cha-advanced_login" class="heading hyperref"><span class="number">Chapter 9 </span>Advanced login</a></h1>
+<p>The basic login system developed in <a href="basic_login_fragment.html#cha-basic_login" class="hyperref">Chapter <span class="ref">8</span></a> is fully functional, but most modern websites include the ability to “remember” users when they visit the site again even if they’ve closed their browsers in the interim.<span class="intersentencespace"></span> In this chapter, we use <em>permanent cookies</em> to implement this behavior.<span class="intersentencespace"></span> We’ll start by automatically remembering users when they log in (<a href="advanced_login_fragment.html#sec-remember_me" class="hyperref">Section <span class="ref">9.1</span></a>), a common model used by sites such as Bitbucket and GitHub.<span class="intersentencespace"></span> We’ll then add the ability to <em>optionally</em> remember users using a “remember me” checkbox, a model used by sites such as Twitter and Facebook.</p>
+<p>Because the <a href="basic_login_fragment.html#cha-basic_login" class="hyperref">Chapter <span class="ref">8</span></a> login system is complete by itself, the core of the sample application will work fine without it, and if desired you can skip right to <a href="updating_and_deleting_users_fragment.html#cha-updating_showing_and_deleting_users" class="hyperref">Chapter <span class="ref">10</span></a> (and from there to <a href="user_microposts_fragment.html#cha-user_microposts" class="hyperref">Chapter <span class="ref">13</span></a>).<span class="intersentencespace"></span> On the other hand, learning how to implement the “remember me” feature is both highly instructive by itself and lays an essential foundation for account activation (<a href="account_activation_fragment.html#cha-account_activation" class="hyperref">Chapter <span class="ref">11</span></a>) and password reset (<a href="password_reset_fragment.html#cha-password_reset" class="hyperref">Chapter <span class="ref">12</span></a>).<span class="intersentencespace"></span> Moreover, the result is an outstanding example of <a href="https://www.learnenough.com/command-line-tutorial#aside-computer_magic" target="_blank" rel="noopener">computer magic</a>: You’ve seen a billion of these “remember me” login forms on the Web, and now’s your chance to learn how to make one.</p>
+</div><div id="sec-remember_me" data-tralics-id="cid50" class="section" data-number="9.1"><h2><a href="advanced_login_fragment.html#sec-remember_me" class="heading hyperref"><span class="number">9.1 </span>Remember me</a></h2>
+<p>In this section, we’ll add the ability to remember our users’ login state even after they close and reopen their browsers.<span class="intersentencespace"></span> This “remember me” behavior will happen automatically, and users will automatically stay logged in until they explicitly log out.<span class="intersentencespace"></span> As we’ll see, the resulting machinery will make it easy to add an optional “remember me” checkbox as well (<a href="advanced_login_fragment.html#sec-remember_me_checkbox" class="hyperref">Section <span class="ref">9.2</span></a>).</p>
+<p>As usual, I suggest switching to a topic branch before proceeding:</p>
+<div class="code"><div class="highlight"><pre><span class="gp">$</span> git checkout -b advanced-login
+</pre></div></div>
+<div id="sec-remember_token" data-tralics-id="uid1087" class="subsection" data-number="9.1.1"><h3><a href="advanced_login_fragment.html#sec-remember_token" class="heading hyperref"><span class="number">9.1.1 </span>Remember token and digest</a></h3>
+<p>In <a href="basic_login_fragment.html#sec-logging_in" class="hyperref">Section <span class="ref">8.2</span></a>, we used the Rails <code>session</code> method to store the user’s id, but this information disappears when the user closes their browser.<span class="intersentencespace"></span> In this section, we’ll take the first step toward persistent sessions by generating a <em>remember token</em> appropriate for creating permanent cookies using the <code>cookies</code> method, together with a secure <em>remember digest</em> for authenticating those tokens.</p>
+<p>As noted in <a href="basic_login_fragment.html#sec-a_working_log_in_method" class="hyperref">Section <span class="ref">8.2.1</span></a>, information stored using <code>session</code> is automatically secure, but this is not the case with information stored using <code>cookies</code>.<span class="intersentencespace"></span> In particular, persistent cookies are vulnerable to <a href="http://en.wikipedia.org/wiki/Session_hijacking" target="_blank" rel="noopener">session hijacking</a>, in which an attacker uses a stolen remember token to log in as a particular user.<span class="intersentencespace"></span> There are four main ways to steal cookies: (1) using a <a href="https://en.wikipedia.org/wiki/Packet_analyzer" target="_blank" rel="noopener">packet sniffer</a> to detect cookies being passed over insecure networks,<sup id="cha-9_footnote-ref-1" class="footnote"><a href="#cha-9_footnote-1">1</a></sup> (2) compromising a database containing remember tokens, (3) using <a href="http://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank" rel="noopener">cross-site scripting (XSS)</a>, and (4) gaining physical access to a machine with a logged-in user.<span class="intersentencespace"></span> We prevented the first problem in <a href="sign_up_fragment.html#sec-professional_grade_deployment" class="hyperref">Section <span class="ref">7.5</span></a> by using <a href="https://en.wikipedia.org/wiki/Transport_Layer_Security" target="_blank" rel="noopener">Secure Sockets Layer</a> (SSL) site-wide, which protects network data from packet sniffers.<span class="intersentencespace"></span> We’ll prevent the second problem by storing a hash digest of the remember tokens instead of the token itself, in much the same way that we stored password digests instead of raw passwords in <a href="modeling_users_fragment.html#sec-adding_a_secure_password" class="hyperref">Section <span class="ref">6.3</span></a>.<sup id="cha-9_footnote-ref-2" class="footnote"><a href="#cha-9_footnote-2">2</a></sup><span class="intersentencespace"></span> Rails automatically prevents the third problem by escaping any content inserted into view templates.<span class="intersentencespace"></span> Finally, although there’s no iron-clad way to stop attackers who have physical access to a logged-in computer, we’ll minimize the fourth problem by changing tokens every time a user logs out and by taking care to <a href="https://en.wikipedia.org/wiki/Digital_signature" target="_blank" rel="noopener"><em>cryptographically sign</em></a> any potentially sensitive information we place on the browser.</p>
+<p>With these design and security considerations in mind, our plan for creating persistent sessions appears as follows:</p>
+<ol>
+<li>Create a random string of digits for use as a remember token.<span class="intersentencespace"></span>
+</li>
+<li>Place the token in the browser cookies with an expiration date far in the future.<span class="intersentencespace"></span>
+</li>
+<li>Save the hash digest of the token to the database.<span class="intersentencespace"></span>
+</li>
+<li>Place an encrypted version of the user’s id in the browser cookies.<span class="intersentencespace"></span>
+</li>
+<li>When presented with a cookie containing a persistent user id, find the user in the database using the given id, and verify that the remember token cookie matches the associated hash digest from the database.<span class="intersentencespace"></span>
+</li></ol>
+<p>Note how similar the final step is to logging a user in, where we retrieve the user by email address and then verify (using the <code>authenticate</code> method) that the submitted password matches the password digest (<a href="basic_login_fragment.html#code-find_authenticate_user" class="hyperref">Listing <span class="ref">8.7</span></a>).<span class="intersentencespace"></span> As a result, our implementation will parallel aspects of <code>has_secure_password</code>.</p>
+<p>We’ll start by adding the required <code>remember_digest</code> attribute to the User model, as shown in <a href="advanced_login_fragment.html#fig-user_model_remember_digest" class="hyperref">Figure <span class="ref">9.1</span></a>.</p>
+<div class="center figure" id="fig-user_model_remember_digest" data-tralics-id="uid1095" data-number="9.1"><span class="graphics"><img src="images/figures/user_model_remember_digest.png" alt="user_model_remember_digest"></span>
+<div class="caption"><span class="header">Figure 9.1: </span><span class="description">The User model with an added <code>remember_digest</code> attribute.
+</span></div></div>
+<p>To add the data model from <a href="advanced_login_fragment.html#fig-user_model_remember_digest" class="hyperref">Figure <span class="ref">9.1</span></a> to our application, we’ll generate a migration:</p>
+<div class="code"><div class="highlight"><pre><span class="gp">$</span> rails generate migration add_remember_digest_to_users remember_digest:string
+</pre></div></div>
+<p>(Compare to the password digest migration in <a href="modeling_users_fragment.html#sec-a_hashed_password" class="hyperref">Section <span class="ref">6.3.1</span></a>.)<span class="intersentencespace"></span> As in previous migrations, we’ve used a migration name that ends in <code>_to_users</code> to tell Rails that the migration is designed to alter the <code>users</code> table in the database.<span class="intersentencespace"></span> Because we also included the attribute (<code>remember_digest</code>) and type (<code>string</code>), Rails generates a default migration for us, as shown in <a href="advanced_login_fragment.html#code-add_remember_digest_to_users_generated" class="hyperref">Listing <span class="ref">9.1</span></a>.</p>
+<div class="codelisting" id="code-add_remember_digest_to_users_generated" data-tralics-id="uid1096" data-number="9.1"><div class="heading"><span class="number">Listing 9.1:</span> 
+
+<span class="description">The generated migration for the remember digest.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">db/migrate/[timestamp]_add_remember_digest_to_users.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">AddRememberDigestToUsers</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="o">[</span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">add_column</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">:remember_digest</span><span class="p">,</span> <span class="ss">:string</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>Because we don’t expect to retrieve users by remember digest, there’s no need to put an index on the <code>remember_digest</code> column, and we can use the default migration as generated above:</p>
+<div class="code"><div class="highlight"><pre>$ rails db:migrate
+</pre></div></div>
+<p>Now we have to decide what to use as a remember token.<span class="intersentencespace"></span> There are many mostly equivalent possibilities—essentially, any long random string will do.<span class="intersentencespace"></span> The <code>urlsafe_base64</code> method from the <code>SecureRandom</code> module in the Ruby standard library fits the bill:<sup id="cha-9_footnote-ref-3" class="footnote"><a href="#cha-9_footnote-3">3</a></sup> it returns a random string of length 22 composed of the characters A–Z, a–z, 0–9, “-”, and “_” (for a total of 64 possibilities, thus “<a href="http://en.wikipedia.org/wiki/Base64" target="_blank" rel="noopener">base64</a>”).<span class="intersentencespace"></span> A typical base64 string appears as follows:</p>
+<div class="code"><div class="highlight"><pre><span class="gp">$</span> rails console
+<span class="gp">&gt;</span>&gt; SecureRandom.urlsafe_base64
+<span class="go">=&gt; "q5lt38hQDc_959PVoo6b7A"</span>
+</pre></div></div>
+<p>Just as it’s perfectly fine if two users have the same password,<sup id="cha-9_footnote-ref-4" class="footnote"><a href="#cha-9_footnote-4">4</a></sup> there’s no need for remember tokens to be unique, but it’s more secure if they are.<sup id="cha-9_footnote-ref-5" class="footnote"><a href="#cha-9_footnote-5">5</a></sup><span class="intersentencespace"></span> In the case of the base64 string above, each of the 22 characters has 64 possibilities, so the probability of two remember tokens colliding is a negligibly small <span class="inline_math">\( 1/64^{22} = 2^{-132} \approx 10^{-40} \)</span>.<sup id="cha-9_footnote-ref-6" class="footnote"><a href="#cha-9_footnote-6">6</a></sup><span class="intersentencespace"></span> As a bonus, by using base64 strings specifically designed to be safe in URLs (as indicated by the name <code>urlsafe_base64</code>), we’ll be able to use the same token generator to make account activation and password reset links in <a href="password_reset_fragment.html#cha-password_reset" class="hyperref">Chapter <span class="ref">12</span></a>.</p>
+<p>Remembering users involves creating a remember token and saving the digest of the token to the database.<span class="intersentencespace"></span> We’ve already defined a <code>digest</code> method for use in the test fixtures (<a href="basic_login_fragment.html#code-digest_method" class="hyperref">Listing <span class="ref">8.21</span></a>), and we can use the results of the discussion above to create a <code>new_token</code> method to create a new token.<span class="intersentencespace"></span> As with <code>digest</code>, the new token method doesn’t need a user object, so we’ll make it a class method.<sup id="cha-9_footnote-ref-7" class="footnote"><a href="#cha-9_footnote-7">7</a></sup><span class="intersentencespace"></span> The result is the User model shown in <a href="advanced_login_fragment.html#code-token_method" class="hyperref">Listing <span class="ref">9.2</span></a>.</p>
+<div class="codelisting" id="code-token_method" data-tralics-id="uid1102" data-number="9.2"><div class="heading"><span class="number">Listing 9.2:</span> 
+
+<span class="description">Adding a method for generating tokens.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/models/user.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">before_save</span> <span class="p">{</span> <span class="nb">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">downcase</span> <span class="p">}</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span>  <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">maximum</span><span class="p">:</span> <span class="mi">50</span> <span class="p">}</span>
+  <span class="no">VALID_EMAIL_REGEX</span> <span class="o">=</span> <span class="sr">/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">maximum</span><span class="p">:</span> <span class="mi">255</span> <span class="p">},</span>
+                    <span class="nb">format</span><span class="p">:</span> <span class="p">{</span> <span class="ss">with</span><span class="p">:</span> <span class="no">VALID_EMAIL_REGEX</span> <span class="p">},</span>
+                    <span class="ss">uniqueness</span><span class="p">:</span> <span class="p">{</span> <span class="ss">case_sensitive</span><span class="p">:</span> <span class="kp">false</span> <span class="p">}</span>
+  <span class="n">has_secure_password</span>
+  <span class="n">validates</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">minimum</span><span class="p">:</span> <span class="mi">6</span> <span class="p">}</span>
+
+  <span class="c1"># Returns the hash digest of the given string.</span>
+  <span class="k">def</span> <span class="nc">User</span><span class="o">.</span><span class="nf">digest</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">SecurePassword</span><span class="o">.</span><span class="n">min_cost</span> <span class="p">?</span> <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">::</span><span class="no">MIN_COST</span> <span class="p">:</span>
+                                                  <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">.</span><span class="n">cost</span>
+    <span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="ss">cost</span><span class="p">:</span> <span class="n">cost</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Returns a random token.</span>
+  <span class="k">def</span> <span class="nc">User</span><span class="o">.</span><span class="nf">new_token</span>
+<span class="hll">    <span class="no">SecureRandom</span><span class="o">.</span><span class="n">urlsafe_base64</span>
+</span>  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>Our plan for the implementation is to make a <code>user.remember</code> method that associates a remember token with the user and saves the corresponding remember digest to the database.<span class="intersentencespace"></span> Because of the migration in <a href="advanced_login_fragment.html#code-add_remember_digest_to_users_generated" class="hyperref">Listing <span class="ref">9.1</span></a>, the User model already has a <code>remember_digest</code> attribute, but it doesn’t yet have a <code>remember_token</code> attribute.<span class="intersentencespace"></span> We need a way to make a token available via <code>user.remember_token</code> (for storage in the cookies) <em>without</em> storing it in the database.<span class="intersentencespace"></span> We solved a similar issue with secure passwords in <a href="modeling_users_fragment.html#sec-adding_a_secure_password" class="hyperref">Section <span class="ref">6.3</span></a>, which paired a virtual <code>password</code> attribute with a secure <code>password_digest</code> attribute in the database.<span class="intersentencespace"></span> In that case, the virtual <code>password</code> attribute was created automatically by <code>has_secure_password</code>, but we’ll have to write the code for a <code>remember_token</code> ourselves.<span class="intersentencespace"></span> The way to do this is to use <code>attr_accessor</code> to create an accessible attribute, which we saw before in <a href="rails_flavored_ruby_fragment.html#sec-a_user_class" class="hyperref">Section <span class="ref">4.4.5</span></a>:</p>
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<span class="hll">  <span class="kp">attr_accessor</span> <span class="ss">:remember_token</span>
+</span>  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="k">def</span> <span class="nf">remember</span>
+<span class="hll">    <span class="nb">self</span><span class="o">.</span><span class="n">remember_token</span> <span class="o">=</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span><span class="hll">    <span class="n">update_attribute</span><span class="p">(</span><span class="ss">:remember_digest</span><span class="p">,</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="p">)</span>
+</span>  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div>
+<p>Note the form of the assignment in the first line of the <code>remember</code> method.<span class="intersentencespace"></span> Because of the way Ruby handles assignments inside objects, without <code>self</code> the assignment would create a <em>local</em> variable called <code>remember_token</code>, which isn’t what we want.<span class="intersentencespace"></span> Using <code>self</code> ensures that assignment sets the user’s <code>remember_token</code> attribute.<span class="intersentencespace"></span> (Now you know why the <code>before_save</code> callback from <a href="modeling_users_fragment.html#code-email_downcase" class="hyperref">Listing <span class="ref">6.32</span></a> uses <code>self.email</code> instead of just <code>email</code>.)<span class="intersentencespace"></span> Meanwhile, the second line of <code>remember</code> uses the <code>update_attribute</code> method to update the remember digest.<span class="intersentencespace"></span> (As noted in <a href="modeling_users_fragment.html#sec-updating_user_objects" class="hyperref">Section <span class="ref">6.1.5</span></a>, this method bypasses the validations, which is necessary in this case because we don’t have access to the user’s password or confirmation.)</p>
+<p>With these considerations in mind, we can create a valid token and associated digest by first making a new remember token using <code>User.new_token</code>, and then updating the remember digest with the result of applying <code>User.digest</code>.<span class="intersentencespace"></span> This procedure gives the <code>remember</code> method shown in <a href="advanced_login_fragment.html#code-user_model_remember" class="hyperref">Listing <span class="ref">9.3</span></a>.</p>
+<div class="codelisting" id="code-user_model_remember" data-tralics-id="uid1103" data-number="9.3"><div class="heading"><span class="number">Listing 9.3:</span> 
+
+<span class="description">Adding a <code>remember</code> method to the User model.<span class="intersentencespace"></span> <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span><span class="break"></span> <span class="filepath">app/models/user.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+<span class="hll">  <span class="kp">attr_accessor</span> <span class="ss">:remember_token</span>
+</span>  <span class="n">before_save</span> <span class="p">{</span> <span class="nb">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">downcase</span> <span class="p">}</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span>  <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">maximum</span><span class="p">:</span> <span class="mi">50</span> <span class="p">}</span>
+  <span class="no">VALID_EMAIL_REGEX</span> <span class="o">=</span> <span class="sr">/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">maximum</span><span class="p">:</span> <span class="mi">255</span> <span class="p">},</span>
+                    <span class="nb">format</span><span class="p">:</span> <span class="p">{</span> <span class="ss">with</span><span class="p">:</span> <span class="no">VALID_EMAIL_REGEX</span> <span class="p">},</span>
+                    <span class="ss">uniqueness</span><span class="p">:</span> <span class="p">{</span> <span class="ss">case_sensitive</span><span class="p">:</span> <span class="kp">false</span> <span class="p">}</span>
+  <span class="n">has_secure_password</span>
+  <span class="n">validates</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">minimum</span><span class="p">:</span> <span class="mi">6</span> <span class="p">}</span>
+
+  <span class="c1"># Returns the hash digest of the given string.</span>
+  <span class="k">def</span> <span class="nc">User</span><span class="o">.</span><span class="nf">digest</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">SecurePassword</span><span class="o">.</span><span class="n">min_cost</span> <span class="p">?</span> <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">::</span><span class="no">MIN_COST</span> <span class="p">:</span>
+                                                  <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">.</span><span class="n">cost</span>
+    <span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="ss">cost</span><span class="p">:</span> <span class="n">cost</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Returns a random token.</span>
+  <span class="k">def</span> <span class="nc">User</span><span class="o">.</span><span class="nf">new_token</span>
+    <span class="no">SecureRandom</span><span class="o">.</span><span class="n">urlsafe_base64</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Remembers a user in the database for use in persistent sessions.</span>
+  <span class="k">def</span> <span class="nf">remember</span>
+<span class="hll">    <span class="nb">self</span><span class="o">.</span><span class="n">remember_token</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new_token</span>
+</span><span class="hll">    <span class="n">update_attribute</span><span class="p">(</span><span class="ss">:remember_digest</span><span class="p">,</span> <span class="no">User</span><span class="o">.</span><span class="n">digest</span><span class="p">(</span><span class="n">remember_token</span><span class="p">))</span>
+</span>  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div>
+<div id="sec-exercises_remember_token" data-tralics-id="uid1104" class="subsubsection" data-number="9.1.1.1"><h4><a href="#sec-exercises_remember_token" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="intersentencespace"></span>  </p></div>
+<ol>
+<li>In the console, assign <code>user</code> to the first user in the database, and verify by calling it directly that the <code>remember</code> method works.<span class="intersentencespace"></span> How do <code>remember_token</code> and <code>remember_digest</code> compare? <span class="exercise" id="ex-edf2eb"></span>
+</li>
+<li>In <a href="advanced_login_fragment.html#code-user_model_remember" class="hyperref">Listing <span class="ref">9.3</span></a>, we defined the new token and digest class methods by explicitly prefixing them with <code>User</code>.<span class="intersentencespace"></span> This works fine and, because they are actually <em>called</em> using <code>User.new_token</code> and <code>User.digest</code>, it is probably the clearest way to define them.<span class="intersentencespace"></span> But there are two perhaps more idiomatically correct ways to define class methods, one slightly confusing and one extremely confusing.<span class="intersentencespace"></span> By running the test suite, verify that the implementations in <a href="advanced_login_fragment.html#code-token_digest_self" class="hyperref">Listing <span class="ref">9.4</span></a> (slightly confusing) and <a href="advanced_login_fragment.html#code-token_digest_class_self" class="hyperref">Listing <span class="ref">9.5</span></a> (extremely confusing) are correct.<span class="intersentencespace"></span> (Note that, in the context of <a href="advanced_login_fragment.html#code-token_digest_self" class="hyperref">Listing <span class="ref">9.4</span></a> and <a href="advanced_login_fragment.html#code-token_digest_class_self" class="hyperref">Listing <span class="ref">9.5</span></a>, <code>self</code> is the <code>User</code> class, whereas the other uses of <code>self</code> in the User model refer to a user object <em>instance</em>.<span class="intersentencespace"></span> This is part of what makes them confusing.) <span class="exercise" id="ex-b22c3e"></span>
+</li></ol>
+<div class="codelisting" id="code-token_digest_self" data-tralics-id="uid1107" data-number="9.4"><div class="heading"><span class="number">Listing 9.4:</span> 
+
+<span class="description">Defining the new token and digest methods using <code>self</code>.<span class="intersentencespace"></span> <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span><span class="break"></span> <span class="filepath">app/models/user.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="c1"># Returns the hash digest of the given string.</span>
+<span class="hll">  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">digest</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</span>    <span class="n">cost</span> <span class="o">=</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">SecurePassword</span><span class="o">.</span><span class="n">min_cost</span> <span class="p">?</span> <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">::</span><span class="no">MIN_COST</span> <span class="p">:</span>
+                                                  <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">.</span><span class="n">cost</span>
+    <span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="ss">cost</span><span class="p">:</span> <span class="n">cost</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Returns a random token.</span>
+<span class="hll">  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">new_token</span>
+</span>    <span class="no">SecureRandom</span><span class="o">.</span><span class="n">urlsafe_base64</span>
+  <span class="k">end</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+<span class="k">end</span>
+</pre></div></div></div><div class="codelisting" id="code-token_digest_class_self" data-tralics-id="uid1108" data-number="9.5"><div class="heading"><span class="number">Listing 9.5:</span> 
+
+<span class="description">Defining the new token and digest methods using <code>class &lt;&lt; self</code>.<span class="intersentencespace"></span> <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span><span class="break"></span> <span class="filepath">app/models/user.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+<span class="hll">  <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+</span>    <span class="c1"># Returns the hash digest of the given string.</span>
+<span class="hll">    <span class="k">def</span> <span class="nf">digest</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</span>      <span class="n">cost</span> <span class="o">=</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">SecurePassword</span><span class="o">.</span><span class="n">min_cost</span> <span class="p">?</span> <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">::</span><span class="no">MIN_COST</span> <span class="p">:</span>
+                                                    <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">.</span><span class="n">cost</span>
+      <span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="ss">cost</span><span class="p">:</span> <span class="n">cost</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="c1"># Returns a random token.</span>
+<span class="hll">    <span class="k">def</span> <span class="nf">new_token</span>
+</span>      <span class="no">SecureRandom</span><span class="o">.</span><span class="n">urlsafe_base64</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+</pre></div></div></div></div></div>
+<div id="sec-login_with_remembering" data-tralics-id="uid1109" class="subsection" data-number="9.1.2"><h3><a href="advanced_login_fragment.html#sec-login_with_remembering" class="heading hyperref"><span class="number">9.1.2 </span>Login with remembering</a></h3>
+<p>Having created a working <code>user.remember</code> method, we’re now in a position to create a persistent session by storing a user’s (encrypted) id and remember token as permanent cookies on the browser.<span class="intersentencespace"></span> The way to do this is with the <code>cookies</code> method, which (as with <code>session</code>) we can treat as a hash.<span class="intersentencespace"></span> A cookie consists of two pieces of information, a <code>value</code> and an optional <code>expires</code> date.<span class="intersentencespace"></span> For example, we could make a persistent session by creating a cookie with value equal to the remember token that expires 20 years from now:</p>
+<div class="code"><div class="highlight"><pre><span class="n">cookies</span><span class="o">[</span><span class="ss">:remember_token</span><span class="o">]</span> <span class="o">=</span> <span class="p">{</span> <span class="ss">value</span><span class="p">:</span>   <span class="n">remember_token</span><span class="p">,</span>
+                             <span class="ss">expires</span><span class="p">:</span> <span class="mi">20</span><span class="o">.</span><span class="n">years</span><span class="o">.</span><span class="n">from_now</span><span class="o">.</span><span class="n">utc</span> <span class="p">}</span>
+</pre></div></div>
+<p>(This uses one of the convenient Rails time helpers, as discussed in <a href="advanced_login_fragment.html#aside-time_helpers" class="hyperref">Box <span class="ref">9.1</span></a>.)<span class="intersentencespace"></span> This pattern of setting a cookie that expires 20 years in the future is so common that Rails has a special <code>permanent</code> method to implement it, so that we can simply write</p>
+<div class="code"><div class="highlight"><pre><span class="n">cookies</span><span class="o">.</span><span class="n">permanent</span><span class="o">[</span><span class="ss">:remember_token</span><span class="o">]</span> <span class="o">=</span> <span class="n">remember_token</span>
+</pre></div></div>
+<p>This causes Rails to set the expiration to <code>20.years.from_now</code> automatically.</p>
+<div class="aside" id="aside-time_helpers" data-tralics-id="uid1110" data-number="9.1"><div class="heading"><span class="number">Box 9.1.</span> 
+
+<span class="description">Cookies expire <code class="tt">20.years.from_now</code></span></div>
+<p>You may recall from <a href="rails_flavored_ruby_fragment.html#sec-a_class_of_our_own" class="hyperref">Section <span class="ref">4.4.2</span></a> that Ruby lets you add methods to <em>any</em> class, even built-in ones.<span class="intersentencespace"></span> In that section, we added a <code class="tt">palindrome?</code> method to the <code class="tt">String</code> class (and discovered as a result that <code class="tt">"deified"</code> is a palindrome), and we also saw how Rails adds a <code class="tt">blank?</code> method to class <code class="tt">Object</code> (so that <code class="tt">"".blank?</code>, <code class="tt">" ".blank?</code>, and <code class="tt">nil.blank?</code> are all <code class="tt">true</code>).<span class="intersentencespace"></span> The <code class="tt">cookies.permanent</code> method, which creates “permanent” cookies with an expiration <code class="tt">20.years.from_now</code>, gives yet another example of this practice through one of Rails’ <em>time helpers</em>, which are methods added to <code class="tt">Fixnum</code> (the base class for integers):</p>
+<pre>  $ rails console
+  &gt;&gt; 1.year.from_now
+  =&gt; Wed, 21 Jun 2017 19:36:29 UTC +00:00
+  &gt;&gt; 10.weeks.ago
+  =&gt; Tue, 12 Apr 2016 19:36:44 UTC +00:00</pre>
+<p>Rails adds other helpers, too:</p>
+<pre>  &gt;&gt; 1.kilobyte
+  =&gt; 1024
+  &gt;&gt; 5.megabytes
+  =&gt; 5242880</pre>
+<p>These are useful for upload validations, making it easy to restrict, say, image uploads to <code class="tt">5.megabytes</code>.</p>
+<p>Although it should be used with caution, the flexibility to add methods to built-in classes allows for extraordinarily natural additions to plain Ruby.<span class="intersentencespace"></span> Indeed, much of the elegance of Rails ultimately derives from the malleability of the underlying Ruby language.</p>
+
+</div><p>To store the user’s id in the cookies, we could follow the pattern used with the <code>session</code> method (<a href="basic_login_fragment.html#code-log_in_function" class="hyperref">Listing <span class="ref">8.14</span></a>) using something like</p>
+<div class="code"><div class="highlight"><pre><span class="n">cookies</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+</pre></div></div>
+<p>Because it places the id as plain text, this method exposes the form of the application’s cookies and makes it easier for an attacker to compromise user accounts.<span class="intersentencespace"></span> To avoid this problem, we’ll use a <em>signed</em> cookie, which securely encrypts the cookie before placing it on the browser:<sup id="cha-9_footnote-ref-8" class="footnote"><a href="#cha-9_footnote-8">8</a></sup></p>
+<div class="code"><div class="highlight"><pre><span class="n">cookies</span><span class="o">.</span><span class="n">signed</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+</pre></div></div>
+<p>Because we want the user id to be paired with the permanent remember token, we should make it permanent as well, which we can do by chaining the <code>signed</code> and <code>permanent</code> methods:</p>
+<div class="code"><div class="highlight"><pre><span class="n">cookies</span><span class="o">.</span><span class="n">permanent</span><span class="o">.</span><span class="n">signed</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+</pre></div></div>
+<p>After the cookies are set, on subsequent page views we can retrieve the user with code like</p>
+<div class="code"><div class="highlight"><pre><span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">cookies</span><span class="o">.</span><span class="n">signed</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+</pre></div></div>
+<p>where <code>cookies.signed[:user_id]</code> automatically decrypts the user id cookie.<span class="intersentencespace"></span> We can then use bcrypt to verify that <code>cookies[:remember_token]</code> matches the <code>remember_digest</code> generated in <a href="advanced_login_fragment.html#code-user_model_remember" class="hyperref">Listing <span class="ref">9.3</span></a>.<span class="intersentencespace"></span> (In case you’re wondering why we don’t just use the signed user id, without the remember token, this would allow an attacker with possession of the encrypted id to log in as the user in perpetuity.<span class="intersentencespace"></span> In the present design, an attacker with both cookies can log in as the user only until the user logs out.)</p>
+<p>The final piece of the puzzle is to verify that a given remember token matches the user’s remember digest, and in this context there are a couple of equivalent ways to use bcrypt to verify a match.<span class="intersentencespace"></span> If you look at the <a href="https://github.com/rails/rails/blob/master/activemodel/lib/active_model/secure_password.rb" target="_blank" rel="noopener">secure password source code</a>, you’ll find a comparison like this:<sup id="cha-9_footnote-ref-9" class="footnote"><a href="#cha-9_footnote-9">9</a></sup></p>
+<div class="code"><div class="highlight"><pre><span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">password_digest</span><span class="p">)</span> <span class="o">==</span> <span class="n">unencrypted_password</span>
+</pre></div></div>
+<p>In our case, the analogous code would look like this:</p>
+<div class="code"><div class="highlight"><pre><span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">remember_digest</span><span class="p">)</span> <span class="o">==</span> <span class="n">remember_token</span>
+</pre></div></div>
+<p>If you think about it, this code is really strange: it appears to be comparing a bcrypt password digest directly with a token, which would imply <em>decrypting</em> the digest in order to compare using <code>==</code>.<span class="intersentencespace"></span> But the whole point of using bcrypt is for hashing to be irreversible, so this can’t be right.<span class="intersentencespace"></span> Indeed, digging into the <a href="https://github.com/codahale/bcrypt-ruby/blob/master/lib/bcrypt/password.rb" target="_blank" rel="noopener">source code of the bcrypt gem</a> verifies that the comparison operator <code>==</code> is being <em>redefined</em>, and under the hood the comparison above is equivalent to the following:</p>
+<div class="code"><div class="highlight"><pre><span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">remember_digest</span><span class="p">)</span><span class="o">.</span><span class="n">is_password?</span><span class="p">(</span><span class="n">remember_token</span><span class="p">)</span>
+</pre></div></div>
+<p>Instead of <code>==</code>, this uses the boolean method <code>is_password?</code> to perform the comparison.<span class="intersentencespace"></span> Because its meaning is a little clearer, we’ll prefer this second comparison form in the application code.</p>
+<p>The above discussion suggests putting the digest–token comparison into an <code>authenticated?</code> method in the User model, which plays a role similar to that of the <code>authenticate</code> method provided by <code>has_secure_password</code> for authenticating a user (<a href="basic_login_fragment.html#code-log_in_success" class="hyperref">Listing <span class="ref">8.15</span></a>).<span class="intersentencespace"></span> The implementation appears in <a href="advanced_login_fragment.html#code-authenticated_p" class="hyperref">Listing <span class="ref">9.6</span></a>.<span class="intersentencespace"></span> (Although the <code>authenticated?</code> method in <a href="advanced_login_fragment.html#code-authenticated_p" class="hyperref">Listing <span class="ref">9.6</span></a> is tied specifically to the remember digest, it will turn out to be useful in other contexts as well, and we’ll generalize it in <a href="account_activation_fragment.html#cha-account_activation" class="hyperref">Chapter <span class="ref">11</span></a>.)</p>
+<div class="codelisting" id="code-authenticated_p" data-tralics-id="uid1113" data-number="9.6"><div class="heading"><span class="number">Listing 9.6:</span> 
+
+<span class="description">Adding an <code>authenticated?</code> method to the User model.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/models/user.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="kp">attr_accessor</span> <span class="ss">:remember_token</span>
+  <span class="n">before_save</span> <span class="p">{</span> <span class="nb">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">downcase</span> <span class="p">}</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span>  <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">maximum</span><span class="p">:</span> <span class="mi">50</span> <span class="p">}</span>
+  <span class="no">VALID_EMAIL_REGEX</span> <span class="o">=</span> <span class="sr">/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">maximum</span><span class="p">:</span> <span class="mi">255</span> <span class="p">},</span>
+                    <span class="nb">format</span><span class="p">:</span> <span class="p">{</span> <span class="ss">with</span><span class="p">:</span> <span class="no">VALID_EMAIL_REGEX</span> <span class="p">},</span>
+                    <span class="ss">uniqueness</span><span class="p">:</span> <span class="p">{</span> <span class="ss">case_sensitive</span><span class="p">:</span> <span class="kp">false</span> <span class="p">}</span>
+  <span class="n">has_secure_password</span>
+  <span class="n">validates</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">minimum</span><span class="p">:</span> <span class="mi">6</span> <span class="p">}</span>
+
+  <span class="c1"># Returns the hash digest of the given string.</span>
+  <span class="k">def</span> <span class="nc">User</span><span class="o">.</span><span class="nf">digest</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">SecurePassword</span><span class="o">.</span><span class="n">min_cost</span> <span class="p">?</span> <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">::</span><span class="no">MIN_COST</span> <span class="p">:</span>
+                                                  <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">.</span><span class="n">cost</span>
+    <span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="ss">cost</span><span class="p">:</span> <span class="n">cost</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Returns a random token.</span>
+  <span class="k">def</span> <span class="nc">User</span><span class="o">.</span><span class="nf">new_token</span>
+    <span class="no">SecureRandom</span><span class="o">.</span><span class="n">urlsafe_base64</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Remembers a user in the database for use in persistent sessions.</span>
+  <span class="k">def</span> <span class="nf">remember</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">remember_token</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new_token</span>
+    <span class="n">update_attribute</span><span class="p">(</span><span class="ss">:remember_digest</span><span class="p">,</span> <span class="no">User</span><span class="o">.</span><span class="n">digest</span><span class="p">(</span><span class="n">remember_token</span><span class="p">))</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Returns true if the given token matches the digest.</span>
+  <span class="k">def</span> <span class="nf">authenticated?</span><span class="p">(</span><span class="n">remember_token</span><span class="p">)</span>
+<span class="hll">    <span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">remember_digest</span><span class="p">)</span><span class="o">.</span><span class="n">is_password?</span><span class="p">(</span><span class="n">remember_token</span><span class="p">)</span>
+</span>  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>Note that the <code>remember_token</code> argument in the <code>authenticated?</code> method defined in <a href="advanced_login_fragment.html#code-authenticated_p" class="hyperref">Listing <span class="ref">9.6</span></a> is not the same as the accessor that we defined in <a href="advanced_login_fragment.html#code-user_model_remember" class="hyperref">Listing <span class="ref">9.3</span></a> using <code>attr_accessor :remember_token</code>; instead, it is a variable local to the method.<span class="intersentencespace"></span> (Because the argument refers to the remember token, it is not uncommon to use a method argument that has the same name.)<span class="intersentencespace"></span> Also note the use of the <code>remember_digest</code> attribute, which is the same as <code>self.remember_digest</code> and, like <code>name</code> and <code>email</code> in <a href="modeling_users_fragment.html#cha-modeling_users" class="hyperref">Chapter <span class="ref">6</span></a>, is created automatically by Active Record based on the name of the corresponding database column (<a href="advanced_login_fragment.html#code-add_remember_digest_to_users_generated" class="hyperref">Listing <span class="ref">9.1</span></a>).</p>
+<p>We’re now in a position to remember a logged-in user, which we’ll do by adding a <code>remember</code> helper to go along with <code>log_in</code>, as shown in <a href="advanced_login_fragment.html#code-log_in_with_remember" class="hyperref">Listing <span class="ref">9.7</span></a>.</p>
+<div class="codelisting" id="code-log_in_with_remember" data-tralics-id="uid1114" data-number="9.7"><div class="heading"><span class="number">Listing 9.7:</span> 
+
+<span class="description">Logging in and remembering a user.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/controllers/sessions_controller.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+
+  <span class="k">def</span> <span class="nf">new</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">create</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="ss">email</span><span class="p">:</span> <span class="n">params</span><span class="o">[</span><span class="ss">:session</span><span class="o">][</span><span class="ss">:email</span><span class="o">].</span><span class="n">downcase</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span> <span class="o">&amp;&amp;</span> <span class="n">user</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:session</span><span class="o">][</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
+      <span class="n">log_in</span> <span class="n">user</span>
+<span class="hll">      <span class="n">remember</span> <span class="n">user</span>
+</span>      <span class="n">redirect_to</span> <span class="n">user</span>
+    <span class="k">else</span>
+      <span class="n">flash</span><span class="o">.</span><span class="n">now</span><span class="o">[</span><span class="ss">:danger</span><span class="o">]</span> <span class="o">=</span> <span class="s1">'Invalid email/password combination'</span>
+      <span class="n">render</span> <span class="s1">'new'</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">destroy</span>
+    <span class="n">log_out</span>
+    <span class="n">redirect_to</span> <span class="n">root_url</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>As with <code>log_in</code>, <a href="advanced_login_fragment.html#code-log_in_with_remember" class="hyperref">Listing <span class="ref">9.7</span></a> defers the real work to the Sessions helper, where we define a <code>remember</code> method that calls <code>user.remember</code>, thereby generating a remember token and saving its digest to the database.<span class="intersentencespace"></span> It then uses <code>cookies</code> to create permanent cookies for the user id and remember token as described above.<span class="intersentencespace"></span> The result appears in <a href="advanced_login_fragment.html#code-remember_method" class="hyperref">Listing <span class="ref">9.8</span></a>.</p>
+<div class="codelisting" id="code-remember_method" data-tralics-id="uid1115" data-number="9.8"><div class="heading"><span class="number">Listing 9.8:</span> 
+
+<span class="description">Remembering the user.<span class="intersentencespace"></span> <span class="break"></span> <span class="filepath">app/helpers/sessions_helper.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">module</span> <span class="nn">SessionsHelper</span>
+
+  <span class="c1"># Logs in the given user.</span>
+  <span class="k">def</span> <span class="nf">log_in</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Remembers a user in a persistent session.</span>
+  <span class="k">def</span> <span class="nf">remember</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="hll">    <span class="n">user</span><span class="o">.</span><span class="n">remember</span>
+</span><span class="hll">    <span class="n">cookies</span><span class="o">.</span><span class="n">permanent</span><span class="o">.</span><span class="n">signed</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+</span><span class="hll">    <span class="n">cookies</span><span class="o">.</span><span class="n">permanent</span><span class="o">[</span><span class="ss">:remember_token</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">remember_token</span>
+</span>  <span class="k">end</span>
+
+  <span class="c1"># Returns the current logged-in user (if any).</span>
+  <span class="k">def</span> <span class="nf">current_user</span>
+    <span class="vi">@current_user</span> <span class="o">||=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Returns true if the user is logged in, false otherwise.</span>
+  <span class="k">def</span> <span class="nf">logged_in?</span>
+    <span class="o">!</span><span class="n">current_user</span><span class="o">.</span><span class="n">nil?</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Logs out the current user.</span>
+  <span class="k">def</span> <span class="nf">log_out</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:user_id</span><span class="p">)</span>
+    <span class="vi">@current_user</span> <span class="o">=</span> <span class="kp">nil</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>With the code in <a href="advanced_login_fragment.html#code-remember_method" class="hyperref">Listing <span class="ref">9.8</span></a>, a user logging in will be remembered in the sense that their browser will get a valid remember token, but it doesn’t yet do us any good because the <code>current_user</code> method defined in <a href="basic_login_fragment.html#code-current_user" class="hyperref">Listing <span class="ref">8.16</span></a> knows only about the temporary session:</p>
+<div class="code"><div class="highlight"><pre><span class="vi">@current_user</span> <span class="o">||=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+</pre></div></div>
+<p>In the case of persistent sessions, we want to retrieve the user from the temporary session if <code>session[:user_id]</code> exists, but otherwise we should look for <code>cookies[:user_id]</code> to retrieve (and log in) the user corresponding to the persistent session.<span class="intersentencespace"></span> We can accomplish this as follows:</p>
+<div class="code"><div class="highlight"><pre><span class="k">if</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span>
+  <span class="vi">@current_user</span> <span class="o">||=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+<span class="k">elsif</span> <span class="n">cookies</span><span class="o">.</span><span class="n">signed</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span>
+  <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">cookies</span><span class="o">.</span><span class="n">signed</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">user</span> <span class="o">&amp;&amp;</span> <span class="n">user</span><span class="o">.</span><span class="n">authenticated?</span><span class="p">(</span><span class="n">cookies</span><span class="o">[</span><span class="ss">:remember_token</span><span class="o">]</span><span class="p">)</span>
+    <span class="n">log_in</span> <span class="n">user</span>
+    <span class="vi">@current_user</span> <span class="o">=</span> <span class="n">user</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div>
+<p>(This follows the same <code>user &amp;&amp; user.authenticated</code> pattern we saw in <a href="basic_login_fragment.html#code-find_authenticate_user" class="hyperref">Listing <span class="ref">8.7</span></a>.)<span class="intersentencespace"></span> The code above will work, but note the repeated use of both <code>session</code> and <code>cookies</code>.<span class="intersentencespace"></span> We can eliminate this duplication as follows:</p>
+<div class="code"><div class="highlight"><pre><span class="hll"><span class="k">if</span> <span class="p">(</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+</span>  <span class="vi">@current_user</span> <span class="o">||=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">user_id</span><span class="p">)</span>
+<span class="hll"><span class="k">elsif</span> <span class="p">(</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">cookies</span><span class="o">.</span><span class="n">signed</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+</span>  <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">user_id</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">user</span> <span class="o">&amp;&amp;</span> <span class="n">user</span><span class="o">.</span><span class="n">authenticated?</span><span class="p">(</span><span class="n">cookies</span><span class="o">[</span><span class="ss">:remember_token</span><span class="o">]</span><span class="p">)</span>
+    <span class="n">log_in</span> <span class="n">user</span>
+    <span class="vi">@current_user</span> <span class="o">=</span> <span class="n">user</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div>
+<p>This uses the common but potentially confusing construction</p>
+<div class="code"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+</pre></div></div>
+<p>Despite appearances, this is <em>not</em> a comparison (which would use double-equals <code>==</code>), but rather is an <em>assignment</em>.<span class="intersentencespace"></span> If you were to read it in words, you wouldn’t say “If user id equals session of user id…”, but rather something like “If session of user id exists (while setting user id to session of user id)…”.<sup id="cha-9_footnote-ref-10" class="footnote"><a href="#cha-9_footnote-10">10</a></sup></p>
+<p>Defining the <code>current_user</code> helper as discussed above leads to the implementation shown in <a href="advanced_login_fragment.html#code-persistent_current_user" class="hyperref">Listing <span class="ref">9.9</span></a>.</p>
+<div class="codelisting" id="code-persistent_current_user" data-tralics-id="uid1117" data-number="9.9"><div class="heading"><span class="number">Listing 9.9:</span> 
+
+<span class="description">Updating <code>current_user</code> for persistent sessions.<span class="intersentencespace"></span> <span style="color: red"><span class="sc"></span><span class="sc"><strong>red</strong></span><span class="sc"></span></span><span class="break"></span> <span class="filepath">app/helpers/sessions_helper.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">module</span> <span class="nn">SessionsHelper</span>
+
+  <span class="c1"># Logs in the given user.</span>
+  <span class="k">def</span> <span class="nf">log_in</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Remembers a user in a persistent session.</span>
+  <span class="k">def</span> <span class="nf">remember</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">user</span><span class="o">.</span><span class="n">remember</span>
+    <span class="n">cookies</span><span class="o">.</span><span class="n">permanent</span><span class="o">.</span><span class="n">signed</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+    <span class="n">cookies</span><span class="o">.</span><span class="n">permanent</span><span class="o">[</span><span class="ss">:remember_token</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">remember_token</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Returns the user corresponding to the remember token cookie.</span>
+  <span class="k">def</span> <span class="nf">current_user</span>
+<span class="hll">    <span class="k">if</span> <span class="p">(</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+</span><span class="hll">      <span class="vi">@current_user</span> <span class="o">||=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">user_id</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">elsif</span> <span class="p">(</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">cookies</span><span class="o">.</span><span class="n">signed</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span><span class="p">)</span>
+</span><span class="hll">      <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">user_id</span><span class="p">)</span>
+</span><span class="hll">      <span class="k">if</span> <span class="n">user</span> <span class="o">&amp;&amp;</span> <span class="n">user</span><span class="o">.</span><span class="n">authenticated?</span><span class="p">(</span><span class="n">cookies</span><span class="o">[</span><span class="ss">:remember_token</span><span class="o">]</span><span class="p">)</span>
+</span><span class="hll">        <span class="n">log_in</span> <span class="n">user</span>
+</span><span class="hll">        <span class="vi">@current_user</span> <span class="o">=</span> <span class="n">user</span>
+</span><span class="hll">      <span class="k">end</span>
+</span><span class="hll">    <span class="k">end</span>
+</span>  <span class="k">end</span>
+
+  <span class="c1"># Returns true if the user is logged in, false otherwise.</span>
+  <span class="k">def</span> <span class="nf">logged_in?</span>
+    <span class="o">!</span><span class="n">current_user</span><span class="o">.</span><span class="n">nil?</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Logs out the current user.</span>
+  <span class="k">def</span> <span class="nf">log_out</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:user_id</span><span class="p">)</span>
+    <span class="vi">@current_user</span> <span class="o">=</span> <span class="kp">nil</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>With the code as in <a href="advanced_login_fragment.html#code-persistent_current_user" class="hyperref">Listing <span class="ref">9.9</span></a>, newly logged in users are correctly remembered, as you can verify by logging in, closing the browser, and checking that you’re still logged in when you restart the sample application and revisit the sample application.<span class="intersentencespace"></span> If you want, you can even inspect the browser cookies to see the result directly (<a href="advanced_login_fragment.html#fig-cookie_in_browser" class="hyperref">Figure <span class="ref">9.2</span></a>).<sup id="cha-9_footnote-ref-11" class="footnote"><a href="#cha-9_footnote-11">11</a></sup></p>
+<div class="center figure" id="fig-cookie_in_browser" data-tralics-id="uid1119" data-number="9.2">
+<div class="graphics image box"><img src="images/figures/cookie_in_browser_chrome.png" alt="images/figures/cookie_in_browser_chrome"></div><div class="caption"><span class="header">Figure 9.2: </span><span class="description">The remember token cookie in the local browser.
+</span></div></div>
+<p>There’s only one problem with our application as it stands: short of clearing their browser cookies (or waiting 20 years), there’s no way for users to log out.<span class="intersentencespace"></span> This is exactly the sort of thing our test suite should catch, and indeed it should currently be <span style="color: red"><span class="sc"></span><span class="sc"><strong>red</strong></span><span class="sc"></span></span>:</p>
+<div class="codelisting" id="uid1120" data-tralics-id="uid1120" data-number="9.10"><div class="heading"><span class="number">Listing 9.10:</span> <span class="description"><span style="color: red"><span class="sc"></span><span class="sc"><strong>red</strong></span><span class="sc"></span></span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre>$ rails test
+</pre></div></div></div>
+<div id="sec-exercises_login_with_remembering" data-tralics-id="uid1121" class="subsubsection" data-number="9.1.2.1"><h4><a href="#sec-exercises_login_with_remembering" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="intersentencespace"></span>  </p></div>
+<ol>
+<li>By finding the cookie in your local browser, verify that a remember token and encrypted user id are present after logging in. <span class="exercise" id="ex-24db9d"></span>
+</li>
+<li>At the console, verify directly that the <code>authenticated?</code> method defined in <a href="advanced_login_fragment.html#code-authenticated_p" class="hyperref">Listing <span class="ref">9.6</span></a> works correctly. <span class="exercise" id="ex-b9298f"></span>
+</li></ol>
+</div></div>
+<div id="sec-forgetting_users" data-tralics-id="uid1124" class="subsection" data-number="9.1.3"><h3><a href="advanced_login_fragment.html#sec-forgetting_users" class="heading hyperref"><span class="number">9.1.3 </span>Forgetting users</a></h3>
+<p>To allow users to log out, we’ll define methods to forget users in analogy with the ones to remember them.<span class="intersentencespace"></span> The resulting <code>user.forget</code> method just undoes <code>user.remember</code> by updating the remember digest with <code>nil</code>, as shown in <a href="advanced_login_fragment.html#code-user_model_forget" class="hyperref">Listing <span class="ref">9.11</span></a>.</p>
+<div class="codelisting" id="code-user_model_forget" data-tralics-id="uid1125" data-number="9.11"><div class="heading"><span class="number">Listing 9.11:</span> 
+
+<span class="description">Adding a <code>forget</code> method to the User model.<span class="intersentencespace"></span> <span style="color: red"><span class="sc"></span><span class="sc"><strong>red</strong></span><span class="sc"></span></span><span class="break"></span> <span class="filepath">app/models/user.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="kp">attr_accessor</span> <span class="ss">:remember_token</span>
+  <span class="n">before_save</span> <span class="p">{</span> <span class="nb">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">downcase</span> <span class="p">}</span>
+  <span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span>  <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">maximum</span><span class="p">:</span> <span class="mi">50</span> <span class="p">}</span>
+  <span class="no">VALID_EMAIL_REGEX</span> <span class="o">=</span> <span class="sr">/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">maximum</span><span class="p">:</span> <span class="mi">255</span> <span class="p">},</span>
+                    <span class="nb">format</span><span class="p">:</span> <span class="p">{</span> <span class="ss">with</span><span class="p">:</span> <span class="no">VALID_EMAIL_REGEX</span> <span class="p">},</span>
+                    <span class="ss">uniqueness</span><span class="p">:</span> <span class="p">{</span> <span class="ss">case_sensitive</span><span class="p">:</span> <span class="kp">false</span> <span class="p">}</span>
+  <span class="n">has_secure_password</span>
+  <span class="n">validates</span> <span class="ss">:password</span><span class="p">,</span> <span class="ss">presence</span><span class="p">:</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">length</span><span class="p">:</span> <span class="p">{</span> <span class="ss">minimum</span><span class="p">:</span> <span class="mi">6</span> <span class="p">}</span>
+
+  <span class="c1"># Returns the hash digest of the given string.</span>
+  <span class="k">def</span> <span class="nc">User</span><span class="o">.</span><span class="nf">digest</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">SecurePassword</span><span class="o">.</span><span class="n">min_cost</span> <span class="p">?</span> <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">::</span><span class="no">MIN_COST</span> <span class="p">:</span>
+                                                  <span class="no">BCrypt</span><span class="o">::</span><span class="no">Engine</span><span class="o">.</span><span class="n">cost</span>
+    <span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="ss">cost</span><span class="p">:</span> <span class="n">cost</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Returns a random token.</span>
+  <span class="k">def</span> <span class="nc">User</span><span class="o">.</span><span class="nf">new_token</span>
+    <span class="no">SecureRandom</span><span class="o">.</span><span class="n">urlsafe_base64</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Remembers a user in the database for use in persistent sessions.</span>
+  <span class="k">def</span> <span class="nf">remember</span>
+    <span class="nb">self</span><span class="o">.</span><span class="n">remember_token</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new_token</span>
+    <span class="n">update_attribute</span><span class="p">(</span><span class="ss">:remember_digest</span><span class="p">,</span> <span class="no">User</span><span class="o">.</span><span class="n">digest</span><span class="p">(</span><span class="n">remember_token</span><span class="p">))</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Returns true if the given token matches the digest.</span>
+  <span class="k">def</span> <span class="nf">authenticated?</span><span class="p">(</span><span class="n">remember_token</span><span class="p">)</span>
+    <span class="no">BCrypt</span><span class="o">::</span><span class="no">Password</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">remember_digest</span><span class="p">)</span><span class="o">.</span><span class="n">is_password?</span><span class="p">(</span><span class="n">remember_token</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="c1"># Forgets a user.</span>
+  <span class="k">def</span> <span class="nf">forget</span>
+<span class="hll">    <span class="n">update_attribute</span><span class="p">(</span><span class="ss">:remember_digest</span><span class="p">,</span> <span class="kp">nil</span><span class="p">)</span>
+</span>  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>With the code in <a href="advanced_login_fragment.html#code-user_model_forget" class="hyperref">Listing <span class="ref">9.11</span></a>, we’re now ready to forget a permanent session by adding a <code>forget</code> helper and calling it from the <code>log_out</code> helper (<a href="advanced_login_fragment.html#code-log_out_with_forget" class="hyperref">Listing <span class="ref">9.12</span></a>).<span class="intersentencespace"></span> As seen in <a href="advanced_login_fragment.html#code-log_out_with_forget" class="hyperref">Listing <span class="ref">9.12</span></a>, the <code>forget</code> helper calls <code>user.forget</code> and then deletes the <code>user_id</code> and <code>remember_token</code> cookies.</p>
+<div class="codelisting" id="code-log_out_with_forget" data-tralics-id="uid1126" data-number="9.12"><div class="heading"><span class="number">Listing 9.12:</span> 
+
+<span class="description">Logging out from a persistent session.<span class="intersentencespace"></span> <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span><span class="break"></span> <span class="filepath">app/helpers/sessions_helper.rb</span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre><span class="k">module</span> <span class="nn">SessionsHelper</span>
+
+  <span class="c1"># Logs in the given user.</span>
+  <span class="k">def</span> <span class="nf">log_in</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">[</span><span class="ss">:user_id</span><span class="o">]</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span>
+  <span class="k">end</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="o">.</span>
+  <span class="c1"># Forgets a persistent session.</span>
+  <span class="k">def</span> <span class="nf">forget</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="hll">    <span class="n">user</span><span class="o">.</span><span class="n">forget</span>
+</span><span class="hll">    <span class="n">cookies</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:user_id</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">cookies</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:remember_token</span><span class="p">)</span>
+</span>  <span class="k">end</span>
+
+  <span class="c1"># Logs out the current user.</span>
+  <span class="k">def</span> <span class="nf">log_out</span>
+<span class="hll">    <span class="n">forget</span><span class="p">(</span><span class="n">current_user</span><span class="p">)</span>
+</span>    <span class="n">session</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:user_id</span><span class="p">)</span>
+    <span class="vi">@current_user</span> <span class="o">=</span> <span class="kp">nil</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div></div></div><p>At this point, the tests suite should be <span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span>:</p>
+<div class="codelisting" id="uid1127" data-tralics-id="uid1127" data-number="9.13"><div class="heading"><span class="number">Listing 9.13:</span> <span class="description"><span style="color: ForestGreen"><span class="sc"></span><span class="sc"><strong>green</strong></span><span class="sc"></span></span></span>
+</div>
+
+<div class="code"><div class="highlight"><pre>$ rails test
+</pre></div></div></div>
+<div id="sec-exercises_forgetting_users" data-tralics-id="uid1128" class="subsubsection" data-number="9.1.3.1"><h4><a href="#sec-exercises_forgetting_users" class="heading">Exercises</a></h4>
+ <div class="society-note">
+<p>Solutions to exercises are available for free at <a href="http://railstutorial.org/solutions" target="_blank" rel="noopener">railstutorial.org/solutions</a> with any Rails Tutorial purchase.<span class="intersentencespace"></span> To see other people’s answers and to record your own, join the <a href="http://learnenough.com/society" target="_blank" rel="noopener">Learn Enough Society</a> at <a href="http://learnenough.com/society" target="_blank" rel="noopener">learnenough.com/society</a>.<span class="inters�D"w�      X�X�4=e�X���  }a,:https://softcover.s3-us-west-2.amazonaws.com/636/ruby_on_rails_tutorial_4th_edition/html/advanced_login_fragment.html?X-Amz-Expires=604800&X-Amz-Date=20170202T095947Z&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJMNNDDBSYVXVHGAA/20170202/us-west-2/s3/aws4_request&X-Amz-SignedHeaders=host&X-Amz-Signature=8b53476d08935399b8c963f97441682898120378aa60e1550746626d963c1cf3 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjoj9ApAYLLhYqsrhSapAAQAAgAAAAAAAAAAAAAAACw4N6+LhUposNgK7YiYWzI/H82DxalM0aJQdnbKfH40ZgoyJpFcT/u7IImFpjLfBfjtg2TO2UxuhrpIr1PDk+YAAAAAAAAGGzCCBhcwggT/oAMCAQICEAkMEh1kGcxPzNQuULyfEo0wDQYJKoZIhvcNAQELBQAwZDELMAkGA1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IEluYzEZMBcGA1UECxMQd3d3LmRpZ2ljZXJ0LmNvbTEjMCEGA1UEAxMaRGlnaUNlcnQgQmFsdGltb3JlIENBLTIgRzIwHhcNMTYwNzE4MDAwMDAwWhcNMTcxMDI2MTIwMDAwWjB1MQswCQYDVQQGEwJVUzETMBEGA1UECBMKV2FzaGluZ3RvbjEQMA4GA1UEBxMHU2VhdHRsZTEYMBYGA1UEChMPQW1hem9uLmNvbSBJbmMuMSUwIwYDVQQDDBwqLnMzLXVzLXdlc3QtMi5hbWF6b25hd3MuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtPtaIwJ9+anWiEq/qLdHgQkQ51FdpjU3C/o1HSP3DGHcijP8q6gpOQ2GIT4xaAOOEstz5v5WY8kOfEE0UXsyB8LxmNyu4nPz4gEE1jCKXaFaMQUexl2nz1hNBCzabnDV10EB2+XPOWPw1troTgtKWuBxZ4EaC7dQXkgpqSqzcio33y9sZHlcEa2ok0DMgxTaEY0ryVdODJMlTIVoFwzkiedRV3dl7yRK8EqWMfWnVJzJ2JVMRqakWjQeLE+8oeo4F0m6BEch9qpIA8JV20oFv0cQLM6QQNFzX2EN/2v5uBtrB5g/g39+5Yu+kgkfhedTSkFunjEGol8G7jssC3jijwIDAQABo4ICsjCCAq4wHwYDVR0jBBgwFoAUwBKyKHRoRmfpcCV0GgBFWwZ9XEQwHQYDVR0OBBYEFF1JaGNuDmFfuVhgXPTd3tg4yz2iMIHhBgNVHREEgdkwgdaCGnMzLXVzLXdlc3QtMi5hbWF6b25hd3MuY29tghwqLnMzLXVzLXdlc3QtMi5hbWF6b25hd3MuY29tghpzMy51cy13ZXN0LTIuYW1hem9uYXdzLmNvbYIcKi5zMy51cy13ZXN0LTIuYW1hem9uYXdzLmNvbYIkczMuZHVhbHN0YWNrLnVzLXdlc3QtMi5hbWF6b25hd3MuY29tgiYqLnMzLmR1YWxzdGFjay51cy13ZXN0LTIuYW1hem9uYXdzLmNvbYISKi5zMy5hbWF6b25hd3MuY29tMA4GA1UdDwEB/wQEAwIFoDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwgYEGA1UdHwR6MHgwOqA4oDaGNGh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEJhbHRpbW9yZUNBLTJHMi5jcmwwOqA4oDaGNGh0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEJhbHRpbW9yZUNBLTJHMi5jcmwwTAYDVR0gBEUwQzA3BglghkgBhv1sAQEwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cuZGlnaWNlcnQuY29tL0NQUzAIBgZngQwBAgIweQYIKwYBBQUHAQEEbTBrMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wQwYIKwYBBQUHMAKGN2h0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEJhbHRpbW9yZUNBLTJHMi5jcnQwDAYDVR0TAQH/BAIwADANBgkqhkiG9w0BAQsFAAOCAQEAYH38ntfWdhwWcuD895IsKMmdlnbReTnnEKe6n6tldoxpWEJkjMA0hURZnZrbr5FL3ar6bWF9wnFKMYPxMfjhNzpB8/lbp63yZSDmVpDIsOIRWjkdcMsnpBHDHQWPV9T7fIgxT4WqAK92O3kQs1+bmsuXISBelIMev1G02BYa7EDD8JZyoltleTcs8rzvRRgE37GfxAtu07fxQqyDSvj7ojpSoIUmTVDVJMTGCkSemYpdR3DqTzmsej6eV7TbLdvFTjFnRJ4Zdehb17CoVvkOTB1v/oXaabIIi3UEsDu3UpxdB7mU4G1qgy8XDMitAtpBL6+EIw0QKw5+JoSuzbybEgAAAIAAAACAAAAAJVRMU19FQ0RIRV9SU0FfV0lUSF9BRVNfMTI4X0dDTV9TSEEyNTYAAAABAAA= request-method GET request-Origin https://www.railstutorial.org response-head HTTP/1.1 200 OK
+x-amz-id-2: yMk+S/takf1/sp5tgjL/UFngwFMP/wgwaF/eGrdZus8DJqUh9m94OPGrudV11E6DCjfo3738q0c=
+x-amz-request-id: 292B3647641551FA
+Date: Thu, 02 Feb 2017 09:59:52 GMT
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET
+Access-Control-Max-Age: 3000
+Vary: Origin, Access-Control-Request-Headers, Access-Control-Request-Method
+Last-Modified: Thu, 22 Dec 2016 05:27:44 GMT
+Etag: "dabfba4d91559c9bf437e39832e16de0"
+Accept-Ranges: bytes
+Content-Type: text/html
+Content-Length: 182416
+Server: AmazonS3
+ uncompressed-len 0  Q�

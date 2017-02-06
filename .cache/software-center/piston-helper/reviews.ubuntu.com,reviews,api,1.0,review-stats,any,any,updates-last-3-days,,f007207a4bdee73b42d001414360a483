@@ -1,0 +1,80 @@
+status: 200
+content-length: 1669
+expires: Tue, 31 Jan 2017 21:37:57 GMT
+content-location: https://reviews.ubuntu.com/reviews/api/1.0/review-stats/any/any/updates-last-3-days/
+strict-transport-security: max-age=15768000; includeSubDomains; preload
+vary: Accept,Accept-Encoding
+server: gunicorn/19.3.0
+last-modified: Tue, 31 Jan 2017 17:37:57 GMT
+-content-encoding: gzip
+x-bzr-revision-number: 321
+cache-control: max-age=14400
+date: Tue, 31 Jan 2017 17:37:57 GMT
+content-type: application/json; charset=utf-8
+-varied-accept-encoding: gzip, deflate
+
+[
+    {
+        "ratings_total": 529, 
+        "ratings_average": "4.36", 
+        "app_name": "", 
+        "package_name": "thunderbird", 
+        "histogram": "[24, 23, 39, 96, 347]"
+    }, 
+    {
+        "ratings_total": 15, 
+        "ratings_average": "3.73", 
+        "app_name": "", 
+        "package_name": "jpilot", 
+        "histogram": "[3, 1, 0, 4, 7]"
+    }, 
+    {
+        "ratings_total": 49, 
+        "ratings_average": "3.96", 
+        "app_name": "", 
+        "package_name": "twinkle", 
+        "histogram": "[8, 1, 3, 10, 27]"
+    }, 
+    {
+        "ratings_total": 424, 
+        "ratings_average": "4.75", 
+        "app_name": "", 
+        "package_name": "smplayer", 
+        "histogram": "[7, 3, 16, 36, 362]"
+    }, 
+    {
+        "ratings_total": 25, 
+        "ratings_average": "4.24", 
+        "app_name": "", 
+        "package_name": "libreoffice-math", 
+        "histogram": "[1, 1, 2, 8, 13]"
+    }, 
+    {
+        "ratings_total": 90, 
+        "ratings_average": "4.49", 
+        "app_name": "", 
+        "package_name": "gpicview", 
+        "histogram": "[3, 4, 6, 10, 67]"
+    }, 
+    {
+        "ratings_total": 1405, 
+        "ratings_average": "4.33", 
+        "app_name": "", 
+        "package_name": "firefox", 
+        "histogram": "[105, 49, 91, 199, 961]"
+    }, 
+    {
+        "ratings_total": 507, 
+        "ratings_average": "4.84", 
+        "app_name": "", 
+        "package_name": "geany", 
+        "histogram": "[1, 0, 10, 59, 437]"
+    }, 
+    {
+        "ratings_total": 1, 
+        "ratings_average": "5.00", 
+        "app_name": "", 
+        "package_name": "update-inetd", 
+        "histogram": "[0, 0, 0, 0, 1]"
+    }
+]

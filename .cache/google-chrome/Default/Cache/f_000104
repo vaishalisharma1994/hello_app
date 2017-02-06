@@ -1,0 +1,1290 @@
+
+
+
+
+<!DOCTYPE HTML PUBLIC>
+<html>
+<head>
+
+
+
+
+
+<script language="javascript">
+window.history.forward();
+</script>
+
+<script language="javascript">
+
+document.onkeydown = function()
+{
+
+
+if(window.event && window.event.keyCode == 115) 
+        { // Capture and remap F5
+	window.event.keyCode = 504;
+  	}  	
+if(window.event && window.event.keyCode == 116) 
+        { // Capture and remap F5
+	window.event.keyCode = 505;
+  	}
+ if(window.event && window.event.keyCode == 117) 
+        { // Capture and remap F5
+	window.event.keyCode = 506;
+  	} 	
+ if(window.event && window.event.keyCode == 122) 
+        { // Capture and remap F5
+	window.event.keyCode = 507;
+  	} 
+ if(window.event && window.event.keyCode == 121) 
+        { // Capture and remap F5
+	window.event.keyCode = 508;
+  	} 
+if(window.event && window.event.keyCode == 504) 
+        { 
+	//alert("'F4' Key is Disabled");
+	return false; 
+	}
+if(window.event && window.event.keyCode == 505) 
+        { 
+	//alert("'F5' Key is Disabled");
+	return false; 
+	}
+if(window.event && window.event.keyCode == 506) 
+        { 
+	//alert("'F6' Key is Disabled");
+	return false; 
+	}	
+if(window.event && window.event.keyCode == 508) 
+        { // Capture and remap F10
+	//alert("'F10' Key is Disabled");
+	return false; 
+  	} 	
+if(window.event && window.event.keyCode == 507) 
+        { 
+	//alert("'F11' Key is Disabled");
+	return false; 
+	}  	
+	
+
+	if(window.event)
+        {
+                key = window.event.keyCode;     //IE
+                if(window.event.ctrlKey)
+                       { isCtrl = true;}
+                else
+                       { isCtrl = false;}
+        }
+        if(isCtrl)
+        {
+               //alert("'Ctrl' Key is Disabled");
+               return false;
+        }
+}
+
+
+function load(obj)
+{
+
+if(obj.flag.value==0)
+   {
+   
+history.go(1);
+}
+
+}
+
+
+function unload(obj)
+{
+
+obj.flag.value=0;
+
+}
+
+blServletFlag=true; 
+function doubleclick(form)
+ {
+ 
+ 	if(blServletFlag==true)
+  	{
+  		blServletFlag=false; 
+ 		//location.href=stlink;
+ 		form.submit();
+ 	}
+ 	else
+ 		{
+ 		alert("Already submited...");
+ 		//location.href=stlink;
+ 		form.submit();
+ 		}
+ }
+    
+
+
+
+function clickIE4(){
+if (event.button==2){
+alert("works");
+return false;
+}
+}
+
+this.top.window.document.title = "CBI Net Banking";
+/*function clickIE() 
+{
+	if (document.all) 
+	{
+		(message);return false;
+	}
+} 
+function clickNS(e) 
+{
+	if(document.layers||(document.getElementById&&!document.all)) 
+	{ 
+		if (e.which==2||e.which==3) 
+		{
+			(message);return false;
+		}
+	}
+} 
+if (document.layers) 
+{
+	document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;
+} 
+else
+{
+	document.onmouseup=clickNS;document.oncontextmenu=clickIE;
+}
+document.oncontextmenu=new Function("return  false");*/ 
+
+this.window.document.oncontextmenu=new Function("return false");
+
+
+if (screen.width == 800)
+{
+
+	document.write('<link href="/cmn/DotNetMSIE.css" type="text/css" rel="stylesheet" />') 
+	//document.write('<link href="/cmn/DotNetMSIE.css" type="text/css" rel="stylesheet" />') 
+
+}
+
+
+else
+{
+
+	document.write('<link href="/cmn/DotNetMSIE.css" type="text/css" rel="stylesheet" />') 
+
+}
+</script>
+<head>
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-store">
+</head>
+ <link rel="stylesheet" type="text/css" href="../cmn/MenuFrame.css" media="screen, projection"/>
+<script language="JavaScript" type="text/javascript">
+function linkdis(a)
+{
+for(var i=0;i<document.anchors.length;i++)
+{var f=document.forms[0];
+	var currlink=document.getElementById(a);
+
+	var l=document.anchors[i];
+	if(l==currlink)
+	{
+			l.className = 'act';
+			l.style.color="#ffffff";
+		 //parent.frames['topframe'].location.href=f.ConnectString.value+'/topHeader?OpenForm';
+	}
+	else
+	{
+	l.style.color="#d54b11";
+	l.className = 'visit';
+		//l.style.color="#000000"
+	}
+  }
+}
+// -->
+</script>
+<script type="text/javascript">
+var persistmenu="yes"; //
+var persisttype="sitewide" ;//
+if (document.getElementById){ //
+document.write('<style type="text/css"/>\n');
+document.write('.bevelmenu{display: none;}\n');
+document.write('</style>\n');
+}
+var globalval="sub1";
+function SwitchMenu(obj){
+	globalval = obj;
+	if(document.getElementById){
+	var el = document.getElementById(obj);
+	var ar = document.getElementById("masterdiv1").getElementsByTagName("span"); 
+	
+		if(el.style.display != "inline"){ 
+		for (var i=0; i<ar.length; i++){
+			if (ar[i].className=="bevelmenu") 
+				ar[i].style.display = "none";
+			}
+			el.style.display = "inline";
+		}else {
+			el.style.display = "none";
+		}
+	}
+}
+function get_cookie(Name) {
+var search = Name + "=";
+var returnvalue = "";
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search);
+if (offset != -1) {
+offset += search.length;
+end = document.cookie.indexOf(";", offset);
+if (end == -1) end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end));
+}
+}
+return returnvalue;
+}
+function onloadfunction()
+{
+if (persistmenu=="yes"){
+var cookiename=(persisttype=="sitewide")? "switchmenu" : window.location.pathname
+var cookievalue=get_cookie(cookiename);
+if (cookievalue!="")
+document.getElementById(cookievalue).style.display="inline";
+}
+toggleDivOLOnLoad("toggleDiv2");
+}
+function savemenustate(){
+var inc=1, blockid="";
+while (document.getElementById("sub"+inc)){
+if (document.getElementById("sub"+inc).style.display=="inline"){
+blockid="sub"+inc;
+break;
+}
+inc++;
+}
+var cookiename=(persisttype=="sitewide")? "switchmenu" : window.location.pathname;
+var cookievalue=(persisttype=="sitewide")? blockid+";path=/" : blockid;
+document.cookie=cookiename+"="+cookievalue;
+}
+if (window.addEventListener)
+window.addEventListener("load", onloadfunction, false);
+else if (window.attachEvent)
+window.attachEvent("onload", onloadfunction);
+else if (document.getElementById)
+window.onload=onloadfunction;
+if (persistmenu=="yes" && document.getElementById)
+window.onunload=savemenustate;
+</script>
+<script type="text/javascript">
+<!--
+function toggleDivOL(obj) {
+	   if(obj=="toggleDiv")
+   	{
+		   var el1 = document.getElementById("toggleDiv2");
+		   if ( el1.style.display != "none" ) {
+		   	el1.style.display = 'none';
+		   }
+   	}
+   else if(obj=="toggleDiv2")
+	{
+	   var el2 = document.getElementById("toggleDiv");
+	   if ( el2.style.display != "none" ) {
+	   	el2.style.display = 'none';
+	   }
+	}
+var el = document.getElementById(obj);
+if ( el.style.display != "none" ) {
+	el.style.display = 'none';
+}
+else {
+	var ml = document.getElementById(globalval);
+	ml.style.display='none';
+	el.style.display = '';
+}
+doc.write("</head >")
+	doc.write("<body link=#FFFFFF vlink=#FFFFFF alink=#FFFFFF onLoad='top.doFocus(document)' oncontextmenu='window.focus(); return='true'>")
+	doc.write("<br>")
+    scriptBegin = "<SCR" + "IPT>";
+    scriptClose = "</SCR" + "IPT>";
+    doc.write(scriptBegin);
+    rightClickFlag=true;
+    doc.write(scriptClose);
+    redrawNode(foldersTree, doc, 3, 4, "")
+
+	doc.write("</body>")
+	doc.close();
+  
+ 
+}
+
+function toggleDivOLOnLoad(obj) {
+	var el = document.getElementById(obj);
+	//if ( el.style.display != "none" ) {
+		el.style.display = 'none';
+/* 	}
+	else {
+		var ml = document.getElementById(globalval);
+		ml.style.display='none';
+		el.style.display = '';
+	}*/
+	doc.write("</head >")
+		doc.write("<body link=#FFFFFF vlink=#FFFFFF alink=#FFFFFF onLoad='top.doFocus(document)' oncontextmenu='window.focus(); return='true'>")
+		doc.write("<br>")
+	    scriptBegin = "<SCR" + "IPT>";
+	    scriptClose = "</SCR" + "IPT>";
+	    doc.write(scriptBegin);
+	    rightClickFlag=true;
+	    doc.write(scriptClose);
+	    redrawNode(foldersTree, doc, 3, 4, "")
+
+		doc.write("</body>")
+		doc.close(); 
+	}
+//function hide(obj){
+//document.getElementById("toggleDiv").style.display='';
+//}
+
+//-->
+</script>
+</head>
+
+
+<body text="#000000" bgcolor="#edfefd" style='margin:0px;padding-left:10px;padding-top:0px;'>
+<form name="treeFrame">
+
+<div align="left" id="masterdiv2" > <a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSAccountSummaryServlet&HandleID=101_ASY" target="folderFrame" class="home"  onClick="toggleDivOL('toggleDiv')"><font size="2">Favourites</font></a>
+  <div id="toggleDiv">
+  		
+<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub1')">
+	 								 <table align="left" style="background-color:##edfefd; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+			
+							
+	 								
+	 								
+	 								
+	 								 
+	 								
+	 											</table>
+	 											</div>
+	 								
+		
+  
+  
+  
+  
+  </div>
+  
+    </div>
+    <!-- ADDED BY SUMETH FOR TESTING -->
+    
+    <div align="left" id="masterdiv1" > <a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSAccountSummaryServlet&HandleID=101_ASY" target="folderFrame" class="home"  onClick="toggleDivOL('toggleDiv2')"><font size="2">Main Menu</font></a>
+    
+  <!--     <br><a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSAccountSummaryServlet&HandleID=101_ASY" target="folderFrame" class="home" onClick="toggleDivOL('toggleDiv2')">Main Menu</a> -->  
+  <div id="toggleDiv2">
+  
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub1')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">ASBA</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub1">
+				
+									<div>
+	 								<li><a id="Application for bid" href="/servlet/ibs.servlets.IBSASBAServlet?HandleID=1_ASBA_APPL" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Application for bid</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Deletion of Bid" href="/servlet/ibs.servlets.IBSASBAServlet?HandleID=1_ASBA_DELETE" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Deletion of Bid</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Enquiry By Account No" href="/servlet/ibs.servlets.IBSASBAServlet?HandleID=1_ASBA_ENQ_ACC" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Enquiry By Account No</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Enquiry By Reference No" href="/servlet/ibs.servlets.IBSASBAServlet?HandleID=1_ASBA_ENQ_REF" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Enquiry By Reference No</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Revision of Bid" href="/servlet/ibs.servlets.IBSASBAServlet?HandleID=1_ASBA_REVISE" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Revision of Bid</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub2')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Aadhaar Registration</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub2">
+				
+									<div>
+	 								<li><a id="Aadhaar-BankAccount-Link" href="/servlet/ibs.Aadhar.servlets.IBSAadharServlet?HandleID=AADHARFIRSTPAGE" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Aadhaar-BankAccount-Link</a></li>
+	 								</div>
+	 						
+				</span>
+			
+				<span class="bevelmenu" id="sub3">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub4">
+				
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub5')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Atal Pension Yojna</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub5">
+				
+									<div>
+	 								<li><a id="Register" href="/servlet/ibs.servlets.IBSAPYServlet?HandleID=ApplyLink" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Register</a></li>
+	 								</div>
+	 						
+				</span>
+			
+				<span class="bevelmenu" id="sub6">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub7">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub8">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub9">
+				
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub10')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">CBEC ePayments</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub10">
+				
+									<div>
+	 								<li><a id="Duplicate Receipt" href="/servlet/ibs.servlets.IBSEpaymentServlet?HandleID=EPAY_025" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Duplicate Receipt</a></li>
+	 								</div>
+	 						
+				</span>
+			
+				<span class="bevelmenu" id="sub11">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub12">
+				
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub13')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Credit Card Bill Payment</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub13">
+				
+									<div>
+	 								<li><a id="Central Bank Credit Card" href="/servlet/ibs.creditcard.servlets.IBSCreditcardPaymentServlet?HandleID=CREDIT_CARD_INPUT" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Central Bank Credit Card</a></li>
+	 								</div>
+	 						
+				</span>
+			
+				<span class="bevelmenu" id="sub14">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub15">
+				
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub16')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Delhi Sales Tax Old</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub16">
+				
+									<div>
+	 								<li><a id="Duplicate Challan" href="/servlet/ibs.servlets.IBSDelhiSalesTaxesServlet?HandleID=DUPLICATE_RECEIPT" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Duplicate Challan</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub17')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Demat</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub17">
+				
+									<div>
+	 								<li><a id="Demat Services" href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSDematServlet&HandleID=601_VEW&UserType=A" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Demat Services</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub18')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Deposit Online Account</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub18">
+				
+									<div>
+	 								<li><a id="Closure enquiry" href="/servlet/ibs.servlets.IBSOnlineDepositServlet?HandleID=DepositEnquiry" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Closure enquiry</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Deposit A/C Closure" href="/servlet/ibs.servlets.IBSOnlineDepositServlet?HandleID=O_DEP_CLOSURE" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Deposit A/C Closure</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Deposit A/C Opening" href="/servlet/ibs.servlets.IBSOnlineDepositServlet?HandleID=O_PROD_LIST" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Deposit A/C Opening</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Download Duplicate Receipt" href="/servlet/ibs.servlets.IBSOnlineDepositServlet?HandleID=DownloadReceipt" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Download Duplicate Receipt</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub19')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Deposit and Loan Modeling</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub19">
+				
+									<div>
+	 								<li><a id="Deposit Modeling" href="/servlet/ibs.depositandloan.servlets.IBSDepositandLoanServlet?HandleID=GETDEPOSITSCHEMEDESC" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Deposit Modeling</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Loan Modeling" href="/servlet/ibs.depositandloan.servlets.IBSDepositandLoanServlet?HandleID=GETLOANSCHEMEDESC" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Loan Modeling</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub20')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Digital Signature Certificate</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub20">
+				
+									<div>
+	 								<li><a id="DSC registration application" href="/servlet/ibs.DSC.servlets.IBSDigitalSignatureServlet?HandleID=DSC_REGISTRATION_APPLICATION" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;DSC registration application</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="De-Registration" href="/servlet/ibs.DSC.servlets.IBSDigitalSignatureServlet?HandleID=DEREGISTRATION" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;De-Registration</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Digital Certificate Registration" href="/servlet/ibs.DSC.servlets.IBSDigitalSignatureServlet?HandleID=I_REGISTRATION" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Digital Certificate Registration</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Re-Registration" href="/servlet/ibs.DSC.servlets.IBSDigitalSignatureServlet?HandleID=REREGISTRATION" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Re-Registration</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub21')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Duplicate Receipt</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub21">
+				
+									<div>
+	 								<li><a id="AndhraPradesh Sales Tax" href="/servlet/ibs.servlets.IBSAPTaxPaymentsServlet?HandleID=DUP_DISPLAY" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;AndhraPradesh Sales Tax</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Bill Payment" href="/servlet/ibs.servlets.IBSOnlinePaymentServlet?HandleID=BILL_DUP" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Bill Payment</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="CBDT ePayments" href="/servlet/ibs.servlets.IBSDirectTaxesServlet?HandleID=DUP_REC" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;CBDT ePayments</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="CBEC ePayments" href="/servlet/ibs.servlets.IBSEpaymentServlet?HandleID=EPAY_025" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;CBEC ePayments</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Delhi VAT" href="/servlet/ibs.servlets.IBSDelhiSalesTaxesServlet?HandleID=DVAT_DUP_CHALLAN" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Delhi VAT</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="EBIZ Payments" href="/servlet/ibs.eBiz.servlets.IBSEbizServlet?HandleID=I_EBIZ" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;EBIZ Payments</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="GRIPS Payments" href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSWBGRIPSServlet&HandleID=DUP_CHALLAN" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;GRIPS Payments</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Gujarat Sales Tax" href="/servlet/ibs.servlets.IBSGujaratSalesTaxesServlet?HandleID=GUJ_CHL_DSP" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Gujarat Sales Tax</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Jharkhand Sales Tax" href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSJharkhandSalesTaxesServlet&HandleID=SALES_DUP_REC" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Jharkhand Sales Tax</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Karnataka Govt Tax Payment" href="/servlet/ibs.servlets.IBSKarnatakaVATServlet?HandleID=DUP_REC" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Karnataka Govt Tax Payment</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="MP Tax" href="/servlet/ibs.mp.servlets.IBSMPServlet?HandleID=I_MP_DUP" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;MP Tax</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Maharastra Professional Tax" href="/servlet/ibs.servlets.IBSMahaSalesTaxesServlet?HandleID=PROF_DUP_REC" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Maharastra Professional Tax</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Maharastra Sales Tax" href="/servlet/ibs.servlets.IBSMahaSalesTaxesServlet?HandleID=SALES_DUP_REC" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Maharastra Sales Tax</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="RAJASTHAN GRAS TAX" href="/servlet/ibs.GRAS.servlets.IBSGrasServlet?HandleID=I_GRAS_TAX" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;RAJASTHAN GRAS TAX</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="TN Sales Tax" href="/servlet/ibs.servlets.IBSTNTaxPaymentsServlet?HandleID=DUPDISPLAY" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;TN Sales Tax</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="UP Commercial Tax Payments" href="/servlet/ibs.servlets.IBSComTaxPaymentServlet?HandleID=COMTAX_DUP_REC" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;UP Commercial Tax Payments</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="eCustoms" href="/servlet/ibs.servlets.IBSCustomsBankServlet?HandleID=CHALLAN_MULTI_DUP" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;eCustoms</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub22')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Duplicate Receipt For Taxes</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub22">
+				
+									<div>
+	 								<li><a id="Chhattisgarh Tax" href="/servlet/ibs.chhattisgarh.servlets.IBSChhattisgarhServlet?HandleID=I_CHHATT_DCHALLAN" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Chhattisgarh Tax</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Himachal Pradesh Tax" href="/servlet/ibs.servlets.IBSHPPaymentSevlet?HandleID=DOWNLOAD" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Himachal Pradesh Tax</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub23')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Enquiry</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub23">
+				
+									<div>
+	 								<li><a id="Account Balance" href="/servlet/ibs.servlets.IBSAccountSummaryServlet?HandleID=101_ASY" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Account Balance</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Cheque Book Issued" href="/servlet/ibs.servlets.IBSInquiryServlet?HandleID=216_CHQBIN" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Cheque Book Issued</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Cheque Book request status" href="/servlet/ibs.servlets.IBSIssueServlet?HandleID=CHEQUEBOOKENQUIRY" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Cheque Book request status</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Cheque Status" href="/servlet/ibs.servlets.IBSInquiryServlet?HandleID=216_RDF" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Cheque Status</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="NEFT 24x7 UTR Enquiry" href="/servlet/ibs.servlets.IBSRTGSServlet?HandleID=UTR_ENQUIRY_1" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;NEFT 24x7 UTR Enquiry</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="NEFT Enquiry" href="/servlet/ibs.servlets.IBSRTGSServlet?HandleID=DISP_MUR_PAGE" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;NEFT Enquiry</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Outward Cheques Status" href="/servlet/ibs.servlets.IBSInquiryServlet?HandleID=220_OUTCHQ" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Outward Cheques Status</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="RTGS Enquiry" href="/servlet/ibs.servlets.IBSRTGSServlet?HandleID=DISP_UTR_PAGE" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;RTGS Enquiry</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Statement Of Accounts" href="/servlet/ibs.servlets.IBSTransactionHistoryServlet?HandleID=102_TXH" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Statement Of Accounts</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Transaction Summary" href="/servlet/ibs.transactionSummary.servlets.IBSTransactionSummaryServlet?HandleID=I_Start" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Transaction Summary</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="View Tax Credit Stmt" href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSForm26ASServlet&HandleID=101_ASY" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;View Tax Credit Stmt</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub24')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Fee Collection</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub24">
+				
+									<div>
+	 								<li><a id="Duplicate Challan - Jiwaji" href="/servlet/ibs.servlets.IBSJiwajiUnivServlet?HandleID=Dup_Display" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Duplicate Challan - Jiwaji</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Duplicate Receipt-MP" href="/servlet/ibs.servlets.IBSHigherEduFeeCollectionServlet?HandleID=Dup_Display" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Duplicate Receipt-MP</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Jiwaji University Fee Payment" href="/servlet/ibs.servlets.IBSJiwajiUnivServlet?HandleID=PayFee" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Jiwaji University Fee Payment</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="MP Higher Education Fee Payment" href="/servlet/ibs.servlets.IBSHigherEduFeeCollectionServlet?HandleID=HIGHEDU_IP" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;MP Higher Education Fee Payment</a></li>
+	 								</div>
+	 						
+				</span>
+			
+				<span class="bevelmenu" id="sub25">
+				
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub26')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Fund Transfer</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub26">
+				
+									<div>
+	 								<li><a id="Add Beneficiary" href="/servlet/ibs.servlets.AddBeneficiaryservlet?HandleID=222_RDF" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Add Beneficiary</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Other Account Transfer" href="/servlet/ibs.servlets.IBSExternalTransferServlet?HandleID=203_ETR" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Other Account Transfer</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Other Bank Accounts" href="/servlet/ibs.servlets.IBSRTGSServlet?HandleID=201_RTGS" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Other Bank Accounts</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Own Account Transfer" href="/servlet/ibs.servlets.IBSTransferFundsServlet?HandleID=202_TFA" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Own Account Transfer</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Standing Instruction" href="/servlet/ibs.servlets.IBSSITransfersServlet?HandleID=217_SIT" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Standing Instruction</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="View Beneficiary" href="/servlet/ibs.servlets.AddBeneficiaryservlet?HandleID=222_BLV" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;View Beneficiary</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub27')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">HOTLISTING OF ATM/DEBIT CARDS</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub27">
+				
+									<div>
+	 								<li><a id="HOTLIST ATM/DEBIT CARD" href="/servlet/ibs.Hotlist.servlets.IBSHotlistServlet?HandleID=QRY_ATM_DTLS" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;HOTLIST ATM/DEBIT CARD</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="HOTLISTING REQUEST STATUS" href="/servlet/ibs.Hotlist.servlets.IBSHotlistServlet?HandleID=QRY_REQ_STATUS" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;HOTLISTING REQUEST STATUS</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub28')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">IMPS</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub28">
+				
+									<div>
+	 								<li><a id="IMPS Funds Transfer Enquiry" href="/jsp/IBSNPCIINBEnquiry.jsp" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;IMPS Funds Transfer Enquiry</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="IMPS-MMID Enquiry" href="/servlet/ibs.servlets.IBSMMIDServlet?HandleID=ACC_MMID_ENQ_START" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;IMPS-MMID Enquiry</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="MMID Cancellation" href="/servlet/ibs.servlets.IBSIMPSServlet?HandleID=RETAIL_MMIDCANCEL_INPUT" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;MMID Cancellation</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="MMID Generation" href="/servlet/ibs.servlets.IBSIMPSServlet?HandleID=RETAIL_MMIDGEN_INPUT" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;MMID Generation</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub29')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">IT Returns</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub29">
+				
+									<div>
+	 								<li><a id="File IT Returns" href="/servlet/ibs.ITR.servlets.IBSITReturnsServlet?HandleID=ITR" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;File IT Returns</a></li>
+	 								</div>
+	 						
+				</span>
+			
+				<span class="bevelmenu" id="sub30">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub31">
+				
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub32')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Locker</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub32">
+				
+									<div>
+	 								<li><a id="Apply for Locker" href="/servlet/ibs.servlets.IBSLockerServlet?HandleID=ApplyLink" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Apply for Locker</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub33')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">MAHARASTRA GRAS TAX</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub33">
+				
+									<div>
+	 								<li><a id="Duplicate Challan" href="/servlet/ibs.maharastragras.servlet.IBSMaharastraGrasServlet?HandleID=I_MAHARASTRA" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Duplicate Challan</a></li>
+	 								</div>
+	 						
+				</span>
+			
+				<span class="bevelmenu" id="sub34">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub35">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub36">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub37">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub38">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub39">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub40">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub41">
+				
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub42')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Multi-Utility Fee/Donation</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub42">
+				
+									<div>
+	 								<li><a id="Pay" href="/servlet/ibs.MultiUtilityFeePayment.servlets.IBSMultiUtilityFeePaymentServlet?HandleID=MULTIUTILITYINPUTPAGE" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Pay</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Pay Via Reference No" href="/servlet/ibs.MultiUtilityFeePayment.servlets.IBSMultiUtilityFeePaymentServlet?HandleID=MULTIUTILITYPAYVIAREFERENCE" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Pay Via Reference No</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub43')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Online Share Trade</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub43">
+				
+									<div>
+	 								<li><a id="Hold Amount Enquiry" href="/servlet/ibs.servlets.IBSOnlineShareTradeServlet?HandleID=OST_HldValue_Pre" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Hold Amount Enquiry</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub44')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Options</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub44">
+				
+									<div>
+	 								<li><a id="Change Logon Password" href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSPersonalOptionServlet&HandleID=501_PSCR&UserType=A" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Change Logon Password</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Change Txn Password" href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSPersonalOptionServlet&HandleID=502_PSCR&UserType=A" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Change Txn Password</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Contact Details" href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSPersonalOptionServlet&HandleID=502_VEW&UserType=A" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Contact Details</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Login History" href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSPersonalOptionServlet&HandleID=SESSION_SUMMARY&UserType=A" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Login History</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Transaction Password Generation" href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSLoginServlet&HandleID=TXN_PSWD_01&UserType=A" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Transaction Password Generation</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub45')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">PM INSURANCE</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub45">
+				
+									<div>
+	 								<li><a id="PMJBY" href="/servlet/ibs.servlets.IBSPMInsuranceServlet?HandleID=PMINSURANCEJBYSTART" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;PMJBY</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="PMSBY" href="/servlet/ibs.servlets.IBSPMInsuranceServlet?HandleID=PMINSURANCESBYSTART" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;PMSBY</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub46')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">PMNRF Donation</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub46">
+				
+									<div>
+	 								<li><a id="Duplicate Ack" href="/servlet/ibs.servlets.IBSPMPayDonationServlet?HandleID=PMFD_DUP_REC" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Duplicate Ack</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Pay Donation" href="/servlet/ibs.servlets.IBSPMPayDonationServlet?HandleID=PAY_INPUT" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Pay Donation</a></li>
+	 								</div>
+	 						
+				</span>
+			
+				<span class="bevelmenu" id="sub47">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub48">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub49">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub50">
+				
+				</span>
+			
+				<span class="bevelmenu" id="sub51">
+				
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub52')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Reports</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub52">
+				
+									<div>
+	 								<li><a id="Scheduled Transfers Reports" href="/servlet/ibs.servlets.IBSExternalTransferServlet?HandleID=H_VIEW_SCHEDULED_TRANSFER_START" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Scheduled Transfers Reports</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub53')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Requests</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub53">
+				
+									<div>
+	 								<li><a id="Cheque book issue" href="/servlet/ibs.servlets.IBSIssueServlet?HandleID=206_RDF" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Cheque book issue</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Stop payment" href="/servlet/ibs.servlets.IBSIssueServlet?HandleID=210_RDF" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Stop payment</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub54')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Sai Baba Trust Donation</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub54">
+				
+									<div>
+	 								<li><a id="Donate Fund" href="/servlet/ibs.saibabadonation.servlets.IBSShridiSaiBabaServlet?HandleID=DONATION_INITIAL_PAGE" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Donate Fund</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Duplicate Challan" href="/servlet/ibs.saibabadonation.servlets.IBSShridiSaiBabaServlet?HandleID=Duplicate_Challan" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Duplicate Challan</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub55')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Tax Payment</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub55">
+				
+									<div>
+	 								<li><a id="CBEC ePayments Payment Info" href="/jsp/Info.jsp" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;CBEC ePayments Payment Info</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Jharkhand Sales Tax" href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSJharkhandSalesTaxesServlet&HandleID=JHARKHAND_CST_TAX" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Jharkhand Sales Tax</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Maharastra Professional Tax" href="/servlet/ibs.servlets.IBSMahaSalesTaxesServlet?HandleID=MAHA_PTEC_TAX" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Maharastra Professional Tax</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Maharastra Sales Tax" href="/servlet/ibs.servlets.IBSMahaSalesTaxesServlet?HandleID=MAHA_CST_TAX" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Maharastra Sales Tax</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub56')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">Telangana Sales Tax</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub56">
+				
+									<div>
+	 								<li><a id="Duplicate Challan" href="/servlet/ibs.servlets.IBSTelanganaTaxPaymentsServlet?HandleID=DUP_DISPLAY" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Duplicate Challan</a></li>
+	 								</div>
+	 						
+				</span>
+			
+								<div style="cursor:pointer; float:left;" onClick="SwitchMenu('sub57')">
+							    <table align="left" style="background-color:#007ACC; border-bottom:1px solid #FFFFFF;" width="180" height="33">
+							    <tr>
+								<td width="1" align="left" style="background-color:#FF3399;"></td>
+								<td style="color:#FFFFFF;">User Transaction Prof Setting</td>
+								</tr>
+								</table>
+								</div>
+					
+				<span class="bevelmenu" id="sub57">
+				
+									<div>
+	 								<li><a id="Beneficiary Limit Setting" href="/servlet/ibs.velocitycheck.servlets.IBSVelocityCheckServlet?HandleID=BENELIMITSETINPUT" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Beneficiary Limit Setting</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Limit Set For Services" href="/servlet/ibs.velocitycheck.servlets.IBSVelocityCheckServlet?HandleID=SERVICES_LIMIT_SET" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Limit Set For Services</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="Security Question Update" href="/servlet/ibs.velocitycheck.servlets.IBSVelocityCheckServlet?HandleID=USER_QUESTION_UPDATE" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;Security Question Update</a></li>
+	 								</div>
+	 						
+									<div>
+	 								<li><a id="View Only Accounts" href="/servlet/ibs.servlets.IBSAccountSummaryServlet?HandleID=ACC_VIEW_ONLY" target="folderFrame" >&nbsp;<span class="pink">&nbsp;</span>&nbsp;View Only Accounts</a></li>
+	 								</div>
+	 						
+				</span>
+			
+				<span class="bevelmenu" id="sub58">
+				
+				</span>
+			
+    </div>
+    <!-- CODE FOR TESTING ENDS HERE -->
+</div>
+</form>
+</body>
+</html>

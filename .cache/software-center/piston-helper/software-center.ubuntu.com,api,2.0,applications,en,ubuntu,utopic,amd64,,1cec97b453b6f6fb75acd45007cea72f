@@ -1,22 +1,21 @@
 status: 200
 content-length: 20993
-via: 1.1 juju-prod45-u1-sca-machine-25 (squid/3.3.8)
-x-cache: HIT from juju-prod45-u1-sca-machine-25
+via: 1.1 juju-prod45-u1-sca-machine-26 (squid/3.3.8)
+x-cache: MISS from juju-prod45-u1-sca-machine-26
 content-language: en
-age: 456
-expires: Mon, 30 Jan 2017 10:08:58 GMT
+x-cache-lookup: HIT from juju-prod45-u1-sca-machine-26:3128
+expires: Thu, 02 Feb 2017 13:33:00 GMT
 vary: Authorization,Accept-Encoding,Accept-Language,Cookie
-x-request-id: 369bfd6e-5aa7-42ac-b263-0533e6312ed5
+x-request-id: d2441244-6f0d-4d4b-ac45-ff7373861200
 -content-encoding: gzip
 server: gunicorn/19.6.0
-last-modified: Mon, 30 Jan 2017 09:58:58 GMT
-x-vcs-revision: 13.2
-etag: "3ffde4f2b5700e583be5cef665ba4cda"
-x-bzr-revision-number: 3764
+last-modified: Thu, 02 Feb 2017 13:23:00 GMT
+etag: "541bf285274d0008ece5d129d57e1f65"
+x-bzr-revision-number: 3767
 cache-control: max-age=600
-date: Mon, 30 Jan 2017 09:58:58 GMT
+date: Thu, 02 Feb 2017 13:23:00 GMT
 content-type: application/json; charset=utf-8
-x-cache-lookup: HIT from juju-prod45-u1-sca-machine-25:3128
+x-vcs-revision: 13.2
 content-location: http://software-center.ubuntu.com/api/2.0/applications/en/ubuntu/utopic/amd64/
 -varied-accept-encoding: gzip, deflate
 

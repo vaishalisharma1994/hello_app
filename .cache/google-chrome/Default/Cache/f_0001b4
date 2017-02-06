@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Example User | Ruby on Rails Tutorial Sample App</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="S0kVXLnOvXwRsUMDIIkjP13bsPekxmHq4HPh5FsCww6F3kzwaLbEf4dNVd5HDAFk6rmts7n4WXAyx6i0z3KtgQ==" />
+    <link rel="stylesheet" media="all" href="/assets/account_activations.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/custom.self-084e6fa7669adc8244a88f783b6f21425ee0849ce53272842dec352bb7bd6f21.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/password_resets.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/relationships.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" data-turbolinks-track="reload" />
+<link rel="stylesheet" media="all" href="/assets/application.self-af04b226fd7202dfc532ce7aedb95a0128277937e90d3b3a3d35e1cce9e16886.css?body=1" data-turbolinks-track="reload" />
+    <script src="/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/bootstrap.self-d0e973a52d36a01036265aeefaf2d1ae3499d2cb231a9be3bd846432daf231de.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/account_activations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/action_cable.self-17ebe4af84895fa064a951f57476799066237d7bb5dc4dc351a8b01cca19cce9.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/cable.self-6e0514260c1aa76eaf252412ce74e63f68819fd19bf740595f592c5ba4c36537.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/password_resets.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/relationships.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" data-turbolinks-track="reload"></script>
+<script src="/assets/application.self-afe802b04eaf1de2ea762489c83c08aa4c4ff3ff13c21566e43cb710683f5abc.js?body=1" data-turbolinks-track="reload"></script>
+    
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <a id="logo" href="/">sample app</a>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/">Home</a></li>
+        <li><a href="/help">Help</a></li>
+         <li><a href="/users">Users</a></li>
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="/users/101">Profile</a></li>
+              
+              <li><a href="/users/101/edit">Settings</a></li>
+              <li class="divider"></li>
+              <li>
+                <a rel="nofollow" data-method="delete" href="/logout">Log out</a>
+              </li>
+            </ul>
+          </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="container">
+
+      <div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1>
+        <img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=80" />
+        Example User
+      </h1>
+    </section>
+    <section class="stats">
+      <div class="stats">
+  <a href="/users/1/following">
+    <strong id="following" class="stat">
+      49
+    </strong>
+    following
+  </a>
+  <a href="/users/1/followers">
+    <strong id="followers" class="stat">
+      38
+    </strong>
+    followers
+  </a>
+</div>
+    </section>
+  </aside>
+  <div class="col-md-8">
+      <div id="follow_form">
+    <form class="new_relationship" id="new_relationship" action="/relationships" accept-charset="UTF-8" data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="k1HhjmY2Ie3qeI5kTYeH//ajAuIAAsjUIaw0oSBSQcpdxrgit05Y7nyEmLkqAqWkQcEfph088E7zGH3xtCIvRQ==" />
+  <div><input type="hidden" name="followed_id" id="followed_id" value="1" /></div>
+  <input type="submit" name="commit" value="Follow" class="btn btn-primary" data-disable-with="Follow" />
+</form>
+  </div>
+
+      <h3>Microposts (50)</h3>
+      <ol class="microposts">
+        <li id="295">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Mollitia itaque ipsa excepturi ipsum ratione deserunt aperiam.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="289">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Consequatur nobis voluptas et molestiae facilis molestias veniam sed.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="283">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Iure ad quo perspiciatis illum qui et itaque earum.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="277">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Omnis eveniet consequatur esse non pariatur ut rerum.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="271">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Autem eum non quis provident quo.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="265">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Aperiam nihil ad illo consequuntur eos rerum omnis ea asperiores.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="259">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Adipisci sit nam ut repellat.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="253">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Dolor ut quidem fuga sint sed saepe aut quia et.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="247">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Veritatis sit quod ducimus et consequatur repellendus.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="241">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Quia sapiente consequatur a sequi.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="235">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Dignissimos ut dolorem deleniti qui quis.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="229">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Repudiandae dignissimos commodi delectus eaque exercitationem rerum qui.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="223">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Odit unde deleniti debitis et.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="217">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Molestias ut sunt pariatur ut omnis est natus.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="211">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Delectus earum minus cupiditate ut adipisci sint dolores ut quas.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="205">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Esse sunt maiores alias quae ea.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="199">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Mollitia tempore repellendus natus enim dolorem.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="193">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Et qui voluptatem odit eum neque ipsum sed dolore.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="187">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Quod ut cumque sapiente nobis.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="181">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Recusandae vel dignissimos labore sunt velit qui.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="175">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Est distinctio eum quia rem consectetur incidunt qui accusamus.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="169">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Pariatur ratione beatae rerum placeat et.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="163">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Corrupti eum tempora dignissimos unde sunt ullam.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="157">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Sed rerum cumque et esse.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="151">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Necessitatibus excepturi ratione aliquid facere occaecati omnis eos inventore et.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="145">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Ratione aut est non in voluptatem deserunt culpa totam.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="139">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Ut adipisci est facilis rerum sed.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="133">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Quo occaecati voluptatem est iste quasi ea.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="127">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Quia et veritatis error soluta sed reprehenderit repellendus at velit.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li><li id="121">
+  <a href="/users/1"><img alt="Example User" class="gravatar" src="https://secure.gravatar.com/avatar/bebfcf57d6d8277d806a9ef3385c078d?s=50" /></a>
+  <span class="user"><a href="/users/1">Example User</a></span>
+  <span class="content">Eum tempora voluptate dolorem consequatur dolor blanditiis doloribus.</span>
+  <span class="timestamp">
+    Posted about 12 hours ago.
+  </span>
+</li>
+      </ol>
+      <div class="pagination"><ul class="pagination"><li class="prev previous_page disabled"><a href="#">&#8592; Previous</a></li> <li class="active"><a rel="start" href="/users/1?page=1">1</a></li> <li><a rel="next" href="/users/1?page=2">2</a></li> <li class="next next_page "><a rel="next" href="/users/1?page=2">Next &#8594;</a></li></ul></div>
+  </div>
+</div>
+      <footer class="footer">
+  <small>
+    The <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+    by <a href="http://www.michaelhartl.com/">Michael Hartl</a>
+  </small>
+  <nav>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="http://news.railstutorial.org/">News</a></li>
+    </ul>
+  </nav>
+</footer>
+      <pre class="debug_dump">--- !ruby/object:ActionController::Parameters
+parameters: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  controller: users
+  action: show
+  id: &#39;1&#39;
+permitted: false
+</pre>
+    </div>
+  </body>
+</html>
+

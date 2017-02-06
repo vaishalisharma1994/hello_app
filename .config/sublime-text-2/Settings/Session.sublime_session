@@ -1,13 +1,16 @@
 {
 	"folder_history":
 	[
+		"/home/vaishali/workspace/sample_app",
+		"/home/vaishali/workspace/toy_app",
+		"/home/vaishali/workspace/hello_app",
+		"/home/vaishali/workspace"
 	],
-	"last_window_id": 1,
+	"last_window_id": 14,
 	"settings":
 	{
-	},
-	"windows":
-	[
+		"new_window_height": 0.0,
+		"new_window_settings":
 		{
 			"auto_complete":
 			{
@@ -15,18 +18,6 @@
 				[
 				]
 			},
-			"buffers":
-			[
-				{
-					"file": "/home/vaishali/Desktop/hi.rb",
-					"settings":
-					{
-						"buffer_size": 30,
-						"line_ending": "Unix",
-						"name": "puts \"hi\";"
-					}
-				}
-			],
 			"build_system": "",
 			"command_palette":
 			{
@@ -51,6 +42,22 @@
 			},
 			"file_history":
 			[
+				"/home/vaishali/workspace/sample_app/test/integration/site_layout_test.rb",
+				"/home/vaishali/workspace/sample_app/test/fixtures/users.yml",
+				"/home/vaishali/workspace/sample_app/test/models/user_test.rb",
+				"/home/vaishali/workspace/sample_app/app/models/user.rb",
+				"/home/vaishali/workspace/sample_app/db/migrate/20170201101456_create_users.rb",
+				"/home/vaishali/workspace/sample_app/Gemfile",
+				"/home/vaishali/workspace/sample_app/app/assets/stylesheets/custom.scss",
+				"/home/vaishali/workspace/sample_app/app/controllers/static_pages_controller.rb",
+				"/home/vaishali/workspace/sample_app/app/helpers/application_helper.rb",
+				"/home/vaishali/workspace/sample_app/app/views/layouts/application.html.erb",
+				"/home/vaishali/workspace/sample_app/app/views/static_pages/about.html.erb",
+				"/home/vaishali/workspace/sample_app/test/controllers/static_pages_controller_test.rb",
+				"/home/vaishali/workspace/sample_app/app/views/static_pages/help.html.erb",
+				"/home/vaishali/workspace/hello_app/app/views/layouts/application.html.erb",
+				"/home/vaishali/workspace/sample_app/app/views/static_pages/home.html.erb",
+				"/home/vaishali/workspace/sample_app/config/routes.rb",
 				"/home/vaishali/Desktop/hello.rb"
 			],
 			"find":
@@ -83,32 +90,3162 @@
 				"whole_word": false,
 				"wrap": true
 			},
+			"incremental_find":
+			{
+				"height": 0.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"replace":
+			{
+				"height": 0.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 238.0,
+			"status_bar_visible": true
+		},
+		"new_window_width": 0.0
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"data",
+						"data_app"
+					]
+				]
+			},
+			"buffers":
+			[
+				{
+					"contents": "",
+					"file": "/home/vaishali/workspace/sample_app/db/migrate/20170201135813_add_password_digest_to_users.rb",
+					"file_size": 0,
+					"file_write_time": 1486112650000000,
+					"settings":
+					{
+						"buffer_size": 0,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/Gemfile",
+					"settings":
+					{
+						"buffer_size": 2079,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/models/user_test.rb",
+					"settings":
+					{
+						"buffer_size": 1489,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/microposts/_micropost.html.erb",
+					"settings":
+					{
+						"buffer_size": 528,
+						"line_ending": "Unix",
+						"name": "<li id=\"micropost-<%= micropost.id %>\">"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/integration/site_layout_test.rb",
+					"settings":
+					{
+						"buffer_size": 421,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 727,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/static_pages/home.html.erb",
+					"settings":
+					{
+						"buffer_size": 903,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/test_helper.rb",
+					"settings":
+					{
+						"buffer_size": 764,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/helpers/application_helper_test.rb",
+					"settings":
+					{
+						"buffer_size": 203,
+						"line_ending": "Unix",
+						"name": "require 'test_helper'"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/controllers/users_controller_test.rb",
+					"settings":
+					{
+						"buffer_size": 2344,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/config/routes.rb",
+					"settings":
+					{
+						"buffer_size": 823,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/users/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 704,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/shared/_error_messages.html.erb",
+					"settings":
+					{
+						"buffer_size": 310,
+						"line_ending": "Unix",
+						"name": "<% if @user.errors.any? %>"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/shared/_user_info.html.erb",
+					"settings":
+					{
+						"buffer_size": 233,
+						"line_ending": "Unix",
+						"name": "<%= link_to gravatar_for(current_user, size: 50),"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/shared/_feed.html.erb",
+					"settings":
+					{
+						"buffer_size": 134,
+						"line_ending": "Unix",
+						"name": "<% if @feed_items.any? %>"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/shared/_stats.html.erb",
+					"settings":
+					{
+						"buffer_size": 371,
+						"line_ending": "Unix",
+						"name": "<% @user ||= current_user %>"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/shared/_micropost_form.html.erb",
+					"settings":
+					{
+						"buffer_size": 257,
+						"line_ending": "Unix",
+						"name": "<%= form_for(@micropost) do |f| %>"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/users/show.html.erb",
+					"settings":
+					{
+						"buffer_size": 588,
+						"line_ending": "Unix",
+						"name": "<% provide(:title, @user.name) %>"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/models/user.rb",
+					"settings":
+					{
+						"buffer_size": 3479,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/assets/stylesheets/custom.scss",
+					"settings":
+					{
+						"buffer_size": 3918,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/users/_follow_form.html.erb",
+					"settings":
+					{
+						"buffer_size": 200,
+						"line_ending": "Unix",
+						"name": "<% unless current_user?(@user) %>"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/controllers/users_controller.rb",
+					"settings":
+					{
+						"buffer_size": 2133,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/users/show_follow.html.erb",
+					"settings":
+					{
+						"buffer_size": 821,
+						"line_ending": "Unix",
+						"name": "% provide(:title, @title) %>"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/users/index.html.erb",
+					"settings":
+					{
+						"buffer_size": 147,
+						"line_ending": "Unix",
+						"name": "<% provide(:title, 'All users') %>"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/users/_user.html.erb",
+					"settings":
+					{
+						"buffer_size": 266,
+						"line_ending": "Unix",
+						"name": "<li>"
+					}
+				},
+				{
+					"settings":
+					{
+						"buffer_size": 0,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/users/edit.html.erb",
+					"settings":
+					{
+						"buffer_size": 848,
+						"line_ending": "Unix",
+						"name": "<% provide(:title, \"Edit user\") %>"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/users/_form.html.erb",
+					"settings":
+					{
+						"buffer_size": 512,
+						"line_ending": "Unix",
+						"name": "<%= form_for(@user) do |f| %>"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/users/_follow.html.erb",
+					"settings":
+					{
+						"buffer_size": 200,
+						"line_ending": "Unix",
+						"name": "<%= form_for(current_user.active_relationships.bui"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/users/_unfollow.html.erb",
+					"settings":
+					{
+						"buffer_size": 208,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/helpers/users_helper.rb",
+					"settings":
+					{
+						"buffer_size": 356,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/integration/users_signup_test.rb",
+					"settings":
+					{
+						"buffer_size": 1750,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/config/environments/production.rb",
+					"settings":
+					{
+						"buffer_size": 3606,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/controllers/sessions_controller_test.rb",
+					"settings":
+					{
+						"buffer_size": 172,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/controllers/sessions_controller.rb",
+					"settings":
+					{
+						"buffer_size": 895,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/sessions/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 746,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/integration/users_login_test.rb",
+					"settings":
+					{
+						"buffer_size": 1345,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/controllers/application_controller.rb",
+					"settings":
+					{
+						"buffer_size": 327,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/helpers/sessions_helper.rb",
+					"settings":
+					{
+						"buffer_size": 1580,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/layouts/_header.html.erb",
+					"settings":
+					{
+						"buffer_size": 1064,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/assets/javascripts/application.js",
+					"settings":
+					{
+						"buffer_size": 764,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/db/migrate/20170202084957_add_password_digest_to_users.rb",
+					"settings":
+					{
+						"buffer_size": 134,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/fixtures/users.yml",
+					"settings":
+					{
+						"buffer_size": 984,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/helpers/sessions_helper_test.rb",
+					"settings":
+					{
+						"buffer_size": 451,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/db/seeds.rb",
+					"settings":
+					{
+						"buffer_size": 1366,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/integration/users_index_test.rb",
+					"settings":
+					{
+						"buffer_size": 830,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/db/migrate/20170202130736_add_admin_to_users.rb",
+					"settings":
+					{
+						"buffer_size": 132,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/db/migrate/20170203060751_add_activation_to_users.rb",
+					"settings":
+					{
+						"buffer_size": 239,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"contents": "<h1>Sample App</h1>\n\n<p>Hi <%= @user.name %>,</p>\n\n<p>\nWelcome to the Sample App! Click on the link below to activate your account:\n</p>\n\n<%= link_to \"Activate\", edit_account_activation_url(@user.activation_token,\n                                                    email: @user.email) %>",
+					"file": "/home/vaishali/workspace/sample_app/app/views/user_mailer/account_activation.html.erb",
+					"file_size": 288,
+					"file_write_time": 1486300050000000,
+					"settings":
+					{
+						"buffer_size": 288,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/user_mailer/account_activation.text.erb",
+					"settings":
+					{
+						"buffer_size": 179,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/mailers/user_mailer.rb",
+					"settings":
+					{
+						"buffer_size": 559,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/mailers/application_mailer.rb",
+					"settings":
+					{
+						"buffer_size": 109,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"contents": "Rails.application.configure do\n  # Settings specified here will take precedence over those in config/application.rb.\n\n  # In the development environment your application's code is reloaded on\n  # every request. This slows down response time but is perfect for development\n  # since you don't have to restart the web server when you make code changes.\n  config.cache_classes = false\n\n  # Do not eager load code on boot.\n  config.eager_load = false\n\n  # Show full error reports.\n  config.consider_all_requests_local = true\n\n  # Enable/disable caching. By default caching is disabled.\n  if Rails.root.join('tmp/caching-dev.txt').exist?\n    config.action_controller.perform_caching = true\n\n    config.cache_store = :memory_store\n    config.public_file_server.headers = {\n      'Cache-Control' => 'public, max-age=172800'\n    }\n  else\n    config.action_controller.perform_caching = false\n\n    config.cache_store = :null_store\n  end\n\n  # Don't care if the mailer can't send.\n  config.action_mailer.raise_delivery_errors = true\n  #config.action_mailer.raise_delivery_errors = true\n  config.action_mailer.delivery_method = :test\n  host = 'localhost:3000' # Don't use this literally; use your local dev host instead\n  config.action_mailer.default_url_options = { host: host, protocol: 'http' }\n\n  config.action_mailer.perform_caching = false\n\n  # Print deprecation notices to the Rails logger.\n  config.active_support.deprecation = :log\n\n  # Raise an error on page load if there are pending migrations.\n  config.active_record.migration_error = :page_load\n\n  # Debug mode disables concatenation and preprocessing of assets.\n  # This option may cause significant delays in view rendering with a large\n  # number of complex assets.\n  config.assets.debug = true\n\n  # Suppress logger output for asset requests.\n  config.assets.quiet = true\n\n  # Raises error for missing translations\n  # config.action_view.raise_on_missing_translations = true\n\n  # Use an evented file watcher to asynchronously detect changes in source code,\n  # routes, locales, etc. This feature depends on the listen gem.\n  config.file_watcher = ActiveSupport::EventedFileUpdateChecker\nend\n",
+					"file": "/home/vaishali/workspace/sample_app/config/environments/development.rb",
+					"file_size": 2145,
+					"file_write_time": 1486299267000000,
+					"settings":
+					{
+						"buffer_size": 2145,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/mailers/previews/user_mailer_preview.rb",
+					"settings":
+					{
+						"buffer_size": 580,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/config/database.yml",
+					"settings":
+					{
+						"buffer_size": 453,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/db/migrate/20170201201237_create_users.rb",
+					"settings":
+					{
+						"buffer_size": 174,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/mailers/user_mailer_test.rb",
+					"settings":
+					{
+						"buffer_size": 950,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/config/environments/test.rb",
+					"settings":
+					{
+						"buffer_size": 1814,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/controllers/account_activations_controller.rb",
+					"settings":
+					{
+						"buffer_size": 533,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/password_resets/new.html.erb",
+					"settings":
+					{
+						"buffer_size": 370,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/controllers/password_resets_controller.rb",
+					"settings":
+					{
+						"buffer_size": 1725,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/user_mailer/password_reset.text.erb",
+					"settings":
+					{
+						"buffer_size": 268,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/user_mailer/password_reset.html.erb",
+					"settings":
+					{
+						"buffer_size": 396,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/password_resets/edit.html.erb",
+					"settings":
+					{
+						"buffer_size": 639,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/integration/password_resets_test.rb",
+					"settings":
+					{
+						"buffer_size": 2872,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/db/migrate/20170205150801_create_microposts.rb",
+					"settings":
+					{
+						"buffer_size": 258,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/models/micropost_test.rb",
+					"settings":
+					{
+						"buffer_size": 707,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/models/micropost.rb",
+					"settings":
+					{
+						"buffer_size": 207,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/fixtures/microposts.yml",
+					"settings":
+					{
+						"buffer_size": 1051,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/integration/users_profile_test.rb",
+					"settings":
+					{
+						"buffer_size": 593,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/controllers/microposts_controller_test.rb",
+					"settings":
+					{
+						"buffer_size": 822,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/controllers/microposts_controller.rb",
+					"settings":
+					{
+						"buffer_size": 791,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/controllers/static_pages_controller.rb",
+					"settings":
+					{
+						"buffer_size": 278,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/integration/microposts_interface_test.rb",
+					"settings":
+					{
+						"buffer_size": 1497,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/db/migrate/20170205180153_create_relationships.rb",
+					"settings":
+					{
+						"buffer_size": 371,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/models/relationship.rb",
+					"settings":
+					{
+						"buffer_size": 211,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/models/relationship_test.rb",
+					"settings":
+					{
+						"buffer_size": 541,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/fixtures/relationships.yml",
+					"settings":
+					{
+						"buffer_size": 178,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/integration/following_test.rb",
+					"settings":
+					{
+						"buffer_size": 1766,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/test/controllers/relationships_controller_test.rb",
+					"settings":
+					{
+						"buffer_size": 474,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/controllers/relationships_controller.rb",
+					"settings":
+					{
+						"buffer_size": 472,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/config/application.rb",
+					"settings":
+					{
+						"buffer_size": 614,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/relationships/create.js.erb",
+					"settings":
+					{
+						"buffer_size": 131,
+						"line_ending": "Unix",
+						"name": "$(\"#follow_form\").html(\"<%= escape_javascript(rend"
+					}
+				},
+				{
+					"file": "/home/vaishali/workspace/sample_app/app/views/relationships/destroy.js.erb",
+					"settings":
+					{
+						"buffer_size": 129,
+						"line_ending": "Unix",
+						"name": "$(\"#follow_form\").html(\"<%= escape_javascript(rend"
+					}
+				}
+			],
+			"build_system": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 0.0
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/vaishali/workspace/sample_app/test/integration/site_layout_test.rb",
+				"/home/vaishali/workspace/sample_app/test/fixtures/users.yml",
+				"/home/vaishali/workspace/sample_app/test/models/user_test.rb",
+				"/home/vaishali/workspace/sample_app/app/models/user.rb",
+				"/home/vaishali/workspace/sample_app/db/migrate/20170201101456_create_users.rb",
+				"/home/vaishali/workspace/sample_app/Gemfile",
+				"/home/vaishali/workspace/sample_app/app/assets/stylesheets/custom.scss",
+				"/home/vaishali/workspace/sample_app/app/controllers/static_pages_controller.rb",
+				"/home/vaishali/workspace/sample_app/app/helpers/application_helper.rb",
+				"/home/vaishali/workspace/sample_app/app/views/layouts/application.html.erb",
+				"/home/vaishali/workspace/sample_app/app/views/static_pages/about.html.erb",
+				"/home/vaishali/workspace/sample_app/test/controllers/static_pages_controller_test.rb",
+				"/home/vaishali/workspace/sample_app/app/views/static_pages/help.html.erb",
+				"/home/vaishali/workspace/hello_app/app/views/layouts/application.html.erb",
+				"/home/vaishali/workspace/sample_app/app/views/static_pages/home.html.erb",
+				"/home/vaishali/workspace/sample_app/config/routes.rb",
+				"/home/vaishali/Desktop/hello.rb"
+			],
+			"find":
+			{
+				"height": 0.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"folders":
+			[
+				{
+					"path": "/home/vaishali/workspace/sample_app"
+				}
+			],
 			"groups":
 			[
 				{
-					"selected": 0,
+					"selected": 10,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/home/vaishali/Desktop/hi.rb",
+							"file": "/home/vaishali/workspace/sample_app/db/migrate/20170201135813_add_password_digest_to_users.rb",
 							"settings":
 							{
-								"buffer_size": 30,
+								"buffer_size": 0,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										30,
-										30
+										0,
+										0
 									]
 								],
 								"settings":
 								{
-									"auto_name": "puts \"hi\";",
 									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/home/vaishali/workspace/sample_app/Gemfile",
+							"settings":
+							{
+								"buffer_size": 2079,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										534,
+										534
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 6.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 2,
+							"file": "/home/vaishali/workspace/sample_app/test/models/user_test.rb",
+							"settings":
+							{
+								"buffer_size": 1489,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1485,
+										1485
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 325.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 3,
+							"file": "/home/vaishali/workspace/sample_app/app/views/microposts/_micropost.html.erb",
+							"settings":
+							{
+								"buffer_size": 528,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										528,
+										528
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<li id=\"micropost-<%= micropost.id %>\">",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 4,
+							"file": "/home/vaishali/workspace/sample_app/test/integration/site_layout_test.rb",
+							"settings":
+							{
+								"buffer_size": 421,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										421,
+										421
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 5,
+							"file": "/home/vaishali/workspace/sample_app/app/views/layouts/application.html.erb",
+							"settings":
+							{
+								"buffer_size": 727,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										481,
+										481
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 6,
+							"file": "/home/vaishali/workspace/sample_app/app/views/static_pages/home.html.erb",
+							"settings":
+							{
+								"buffer_size": 903,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										246,
+										246
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 7,
+							"file": "/home/vaishali/workspace/sample_app/test/test_helper.rb",
+							"settings":
+							{
+								"buffer_size": 764,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										764,
+										764
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 8,
+							"file": "/home/vaishali/workspace/sample_app/test/helpers/application_helper_test.rb",
+							"settings":
+							{
+								"buffer_size": 203,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										108,
+										108
+									]
+								],
+								"settings":
+								{
+									"auto_name": "require 'test_helper'",
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 9,
+							"file": "/home/vaishali/workspace/sample_app/test/controllers/users_controller_test.rb",
+							"settings":
+							{
+								"buffer_size": 2344,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2338,
+										2338
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 604.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 10,
+							"file": "/home/vaishali/workspace/sample_app/config/routes.rb",
+							"settings":
+							{
+								"buffer_size": 823,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										818,
+										818
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 11,
+							"file": "/home/vaishali/workspace/sample_app/app/views/users/new.html.erb",
+							"settings":
+							{
+								"buffer_size": 704,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 12,
+							"file": "/home/vaishali/workspace/sample_app/app/views/shared/_error_messages.html.erb",
+							"settings":
+							{
+								"buffer_size": 310,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<% if @user.errors.any? %>",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 13,
+							"file": "/home/vaishali/workspace/sample_app/app/views/shared/_user_info.html.erb",
+							"settings":
+							{
+								"buffer_size": 233,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										233,
+										233
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<%= link_to gravatar_for(current_user, size: 50),",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 14,
+							"file": "/home/vaishali/workspace/sample_app/app/views/shared/_feed.html.erb",
+							"settings":
+							{
+								"buffer_size": 134,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										134,
+										134
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<% if @feed_items.any? %>",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 15,
+							"file": "/home/vaishali/workspace/sample_app/app/views/shared/_stats.html.erb",
+							"settings":
+							{
+								"buffer_size": 371,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										371,
+										371
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<% @user ||= current_user %>",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 16,
+							"file": "/home/vaishali/workspace/sample_app/app/views/shared/_micropost_form.html.erb",
+							"settings":
+							{
+								"buffer_size": 257,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										257,
+										257
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<%= form_for(@micropost) do |f| %>",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 17,
+							"file": "/home/vaishali/workspace/sample_app/app/views/users/show.html.erb",
+							"settings":
+							{
+								"buffer_size": 588,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										588,
+										588
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<% provide(:title, @user.name) %>",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 18,
+							"file": "/home/vaishali/workspace/sample_app/app/models/user.rb",
+							"settings":
+							{
+								"buffer_size": 3479,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2837,
+										2837
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 1003.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 19,
+							"file": "/home/vaishali/workspace/sample_app/app/assets/stylesheets/custom.scss",
+							"settings":
+							{
+								"buffer_size": 3918,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2595,
+										2595
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Text/Plain text.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 2787.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 20,
+							"file": "/home/vaishali/workspace/sample_app/app/views/users/_follow_form.html.erb",
+							"settings":
+							{
+								"buffer_size": 200,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										200,
+										200
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<% unless current_user?(@user) %>",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 21,
+							"file": "/home/vaishali/workspace/sample_app/app/controllers/users_controller.rb",
+							"settings":
+							{
+								"buffer_size": 2133,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1490,
+										1490
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 468.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 22,
+							"file": "/home/vaishali/workspace/sample_app/app/views/users/show_follow.html.erb",
+							"settings":
+							{
+								"buffer_size": 821,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										821,
+										821
+									]
+								],
+								"settings":
+								{
+									"auto_name": "% provide(:title, @title) %>",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 23,
+							"file": "/home/vaishali/workspace/sample_app/app/views/users/index.html.erb",
+							"settings":
+							{
+								"buffer_size": 147,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										146,
+										146
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<% provide(:title, 'All users') %>",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 24,
+							"file": "/home/vaishali/workspace/sample_app/app/views/users/_user.html.erb",
+							"settings":
+							{
+								"buffer_size": 266,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<li>",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 25,
+							"settings":
+							{
+								"buffer_size": 0,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"default_dir": "/home/vaishali/workspace/sample_app/test/integration",
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 26,
+							"file": "/home/vaishali/workspace/sample_app/app/views/users/edit.html.erb",
+							"settings":
+							{
+								"buffer_size": 848,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1,
+										1
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<% provide(:title, \"Edit user\") %>",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 27,
+							"file": "/home/vaishali/workspace/sample_app/app/views/users/_form.html.erb",
+							"settings":
+							{
+								"buffer_size": 512,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										512,
+										512
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<%= form_for(@user) do |f| %>",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 28,
+							"file": "/home/vaishali/workspace/sample_app/app/views/users/_follow.html.erb",
+							"settings":
+							{
+								"buffer_size": 200,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										200,
+										200
+									]
+								],
+								"settings":
+								{
+									"auto_name": "<%= form_for(current_user.active_relationships.bui",
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 29,
+							"file": "/home/vaishali/workspace/sample_app/app/views/users/_unfollow.html.erb",
+							"settings":
+							{
+								"buffer_size": 208,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										208,
+										208
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 30,
+							"file": "/home/vaishali/workspace/sample_app/app/helpers/users_helper.rb",
+							"settings":
+							{
+								"buffer_size": 356,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										355,
+										355
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 31,
+							"file": "/home/vaishali/workspace/sample_app/test/integration/users_signup_test.rb",
+							"settings":
+							{
+								"buffer_size": 1750,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1750,
+										1750
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 1.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 32,
+							"file": "/home/vaishali/workspace/sample_app/config/environments/production.rb",
+							"settings":
+							{
+								"buffer_size": 3606,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										214,
+										214
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 33,
+							"file": "/home/vaishali/workspace/sample_app/test/controllers/sessions_controller_test.rb",
+							"settings":
+							{
+								"buffer_size": 172,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										131,
+										131
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 34,
+							"file": "/home/vaishali/workspace/sample_app/app/controllers/sessions_controller.rb",
+							"settings":
+							{
+								"buffer_size": 895,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										565,
+										565
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 35,
+							"file": "/home/vaishali/workspace/sample_app/app/views/sessions/new.html.erb",
+							"settings":
+							{
+								"buffer_size": 746,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										287,
+										287
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 36,
+							"file": "/home/vaishali/workspace/sample_app/test/integration/users_login_test.rb",
+							"settings":
+							{
+								"buffer_size": 1345,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1025,
+										1025
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 287.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 37,
+							"file": "/home/vaishali/workspace/sample_app/app/controllers/application_controller.rb",
+							"settings":
+							{
+								"buffer_size": 327,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										326,
+										326
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 38,
+							"file": "/home/vaishali/workspace/sample_app/app/helpers/sessions_helper.rb",
+							"settings":
+							{
+								"buffer_size": 1580,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										874,
+										874
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 159.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 39,
+							"file": "/home/vaishali/workspace/sample_app/app/views/layouts/_header.html.erb",
+							"settings":
+							{
+								"buffer_size": 1064,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										385,
+										385
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 40,
+							"file": "/home/vaishali/workspace/sample_app/app/assets/javascripts/application.js",
+							"settings":
+							{
+								"buffer_size": 764,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										721,
+										721
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 41,
+							"file": "/home/vaishali/workspace/sample_app/db/migrate/20170202084957_add_password_digest_to_users.rb",
+							"settings":
+							{
+								"buffer_size": 134,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 42,
+							"file": "/home/vaishali/workspace/sample_app/test/fixtures/users.yml",
+							"settings":
+							{
+								"buffer_size": 984,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										974,
+										974
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/YAML/YAML.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 43,
+							"file": "/home/vaishali/workspace/sample_app/test/helpers/sessions_helper_test.rb",
+							"settings":
+							{
+								"buffer_size": 451,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										451,
+										451
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 44,
+							"file": "/home/vaishali/workspace/sample_app/db/seeds.rb",
+							"settings":
+							{
+								"buffer_size": 1366,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1366,
+										1366
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 45,
+							"file": "/home/vaishali/workspace/sample_app/test/integration/users_index_test.rb",
+							"settings":
+							{
+								"buffer_size": 830,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										830,
+										830
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 46,
+							"file": "/home/vaishali/workspace/sample_app/db/migrate/20170202130736_add_admin_to_users.rb",
+							"settings":
+							{
+								"buffer_size": 132,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 47,
+							"file": "/home/vaishali/workspace/sample_app/db/migrate/20170203060751_add_activation_to_users.rb",
+							"settings":
+							{
+								"buffer_size": 239,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 48,
+							"file": "/home/vaishali/workspace/sample_app/app/views/user_mailer/account_activation.html.erb",
+							"settings":
+							{
+								"buffer_size": 288,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										190,
+										190
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 49,
+							"file": "/home/vaishali/workspace/sample_app/app/views/user_mailer/account_activation.text.erb",
+							"settings":
+							{
+								"buffer_size": 179,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										179,
+										179
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 50,
+							"file": "/home/vaishali/workspace/sample_app/app/mailers/user_mailer.rb",
+							"settings":
+							{
+								"buffer_size": 559,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										475,
+										475
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 51,
+							"file": "/home/vaishali/workspace/sample_app/app/mailers/application_mailer.rb",
+							"settings":
+							{
+								"buffer_size": 109,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										47,
+										47
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 52,
+							"file": "/home/vaishali/workspace/sample_app/config/environments/development.rb",
+							"settings":
+							{
+								"buffer_size": 2145,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1259,
+										1259
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 218.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 53,
+							"file": "/home/vaishali/workspace/sample_app/test/mailers/previews/user_mailer_preview.rb",
+							"settings":
+							{
+								"buffer_size": 580,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										473,
+										473
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 54,
+							"file": "/home/vaishali/workspace/sample_app/config/database.yml",
+							"settings":
+							{
+								"buffer_size": 453,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										168,
+										168
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/YAML/YAML.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 55,
+							"file": "/home/vaishali/workspace/sample_app/db/migrate/20170201201237_create_users.rb",
+							"settings":
+							{
+								"buffer_size": 174,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 56,
+							"file": "/home/vaishali/workspace/sample_app/test/mailers/user_mailer_test.rb",
+							"settings":
+							{
+								"buffer_size": 950,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										946,
+										946
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 57,
+							"file": "/home/vaishali/workspace/sample_app/config/environments/test.rb",
+							"settings":
+							{
+								"buffer_size": 1814,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1615,
+										1615
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 324.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 58,
+							"file": "/home/vaishali/workspace/sample_app/app/controllers/account_activations_controller.rb",
+							"settings":
+							{
+								"buffer_size": 533,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										438,
+										438
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 59,
+							"file": "/home/vaishali/workspace/sample_app/app/views/password_resets/new.html.erb",
+							"settings":
+							{
+								"buffer_size": 370,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 60,
+							"file": "/home/vaishali/workspace/sample_app/app/controllers/password_resets_controller.rb",
+							"settings":
+							{
+								"buffer_size": 1725,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1725,
+										1725
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 61,
+							"file": "/home/vaishali/workspace/sample_app/app/views/user_mailer/password_reset.text.erb",
+							"settings":
+							{
+								"buffer_size": 268,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 62,
+							"file": "/home/vaishali/workspace/sample_app/app/views/user_mailer/password_reset.html.erb",
+							"settings":
+							{
+								"buffer_size": 396,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 63,
+							"file": "/home/vaishali/workspace/sample_app/app/views/password_resets/edit.html.erb",
+							"settings":
+							{
+								"buffer_size": 639,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 64,
+							"file": "/home/vaishali/workspace/sample_app/test/integration/password_resets_test.rb",
+							"settings":
+							{
+								"buffer_size": 2872,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2868,
+										2868
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 546.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 65,
+							"file": "/home/vaishali/workspace/sample_app/db/migrate/20170205150801_create_microposts.rb",
+							"settings":
+							{
+								"buffer_size": 258,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										247,
+										247
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 66,
+							"file": "/home/vaishali/workspace/sample_app/test/models/micropost_test.rb",
+							"settings":
+							{
+								"buffer_size": 707,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										703,
+										703
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 67,
+							"file": "/home/vaishali/workspace/sample_app/app/models/micropost.rb",
+							"settings":
+							{
+								"buffer_size": 207,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										102,
+										102
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 68,
+							"file": "/home/vaishali/workspace/sample_app/test/fixtures/microposts.yml",
+							"settings":
+							{
+								"buffer_size": 1051,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1049,
+										1049
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/YAML/YAML.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 77.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 69,
+							"file": "/home/vaishali/workspace/sample_app/test/integration/users_profile_test.rb",
+							"settings":
+							{
+								"buffer_size": 593,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										592,
+										592
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 70,
+							"file": "/home/vaishali/workspace/sample_app/test/controllers/microposts_controller_test.rb",
+							"settings":
+							{
+								"buffer_size": 822,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										817,
+										817
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 71,
+							"file": "/home/vaishali/workspace/sample_app/app/controllers/microposts_controller.rb",
+							"settings":
+							{
+								"buffer_size": 791,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										786,
+										786
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 72,
+							"file": "/home/vaishali/workspace/sample_app/app/controllers/static_pages_controller.rb",
+							"settings":
+							{
+								"buffer_size": 278,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										69,
+										69
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 73,
+							"file": "/home/vaishali/workspace/sample_app/test/integration/microposts_interface_test.rb",
+							"settings":
+							{
+								"buffer_size": 1497,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1493,
+										1493
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 128.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 74,
+							"file": "/home/vaishali/workspace/sample_app/db/migrate/20170205180153_create_relationships.rb",
+							"settings":
+							{
+								"buffer_size": 371,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										360,
+										360
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 75,
+							"file": "/home/vaishali/workspace/sample_app/app/models/relationship.rb",
+							"settings":
+							{
+								"buffer_size": 211,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										206,
+										206
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 76,
+							"file": "/home/vaishali/workspace/sample_app/test/models/relationship_test.rb",
+							"settings":
+							{
+								"buffer_size": 541,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										540,
+										540
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 77,
+							"file": "/home/vaishali/workspace/sample_app/test/fixtures/relationships.yml",
+							"settings":
+							{
+								"buffer_size": 178,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										178,
+										178
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/YAML/YAML.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 78,
+							"file": "/home/vaishali/workspace/sample_app/test/integration/following_test.rb",
+							"settings":
+							{
+								"buffer_size": 1766,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										1762,
+										1762
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 423.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 79,
+							"file": "/home/vaishali/workspace/sample_app/test/controllers/relationships_controller_test.rb",
+							"settings":
+							{
+								"buffer_size": 474,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										473,
+										473
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 80,
+							"file": "/home/vaishali/workspace/sample_app/app/controllers/relationships_controller.rb",
+							"settings":
+							{
+								"buffer_size": 472,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										472,
+										472
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 81,
+							"file": "/home/vaishali/workspace/sample_app/config/application.rb",
+							"settings":
+							{
+								"buffer_size": 614,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										603,
+										603
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Ruby/Ruby.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 82,
+							"file": "/home/vaishali/workspace/sample_app/app/views/relationships/create.js.erb",
+							"settings":
+							{
+								"buffer_size": 131,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										131,
+										131
+									]
+								],
+								"settings":
+								{
+									"auto_name": "$(\"#follow_form\").html(\"<%= escape_javascript(rend",
+									"syntax": "Packages/Rails/JavaScript (Rails).tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"type": "text"
+						},
+						{
+							"buffer": 83,
+							"file": "/home/vaishali/workspace/sample_app/app/views/relationships/destroy.js.erb",
+							"settings":
+							{
+								"buffer_size": 129,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										129,
+										129
+									]
+								],
+								"settings":
+								{
+									"auto_name": "$(\"#follow_form\").html(\"<%= escape_javascript(rend",
+									"syntax": "Packages/Rails/JavaScript (Rails).tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
@@ -150,6 +3287,10 @@
 				]
 			},
 			"menu_visible": true,
+			"output.exec":
+			{
+				"height": 112.0
+			},
 			"position": "0,1,0,0,0,0,0,0,0,1366,768",
 			"replace":
 			{
@@ -176,9 +3317,9 @@
 			"show_open_files": false,
 			"show_tabs": true,
 			"side_bar_visible": true,
-			"side_bar_width": 150.0,
+			"side_bar_width": 356.0,
 			"status_bar_visible": true,
-			"window_id": 1,
+			"window_id": 5,
 			"workspace_name": ""
 		}
 	],

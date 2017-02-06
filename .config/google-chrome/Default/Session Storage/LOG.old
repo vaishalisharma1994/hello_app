@@ -1,5 +1,5 @@
-2017/01/30-15:52:32.637 18048 Reusing MANIFEST /home/vaishali/.config/google-chrome/Default/Session Storage/MANIFEST-000001
-2017/01/30-15:52:32.637 18048 Recovering log #3
-2017/01/30-15:52:32.637 18048 Level-0 table #3: started
-2017/01/30-15:52:32.653 18048 Level-0 table #3: 684 bytes OK
-2017/01/30-15:52:32.662 18048 Delete type=0 #3
+2017/02/06-09:23:41.539 3456 Reusing MANIFEST /home/vaishali/.config/google-chrome/Default/Session Storage/MANIFEST-000001
+2017/02/06-09:23:41.539 3456 Recovering log #78
+2017/02/06-09:23:41.568 3456 Level-0 table #81: started
+2017/02/06-09:23:41.591 3456 Level-0 table #81: 28996 bytes OK
+2017/02/06-09:23:41.636 3456 Delete type=0 #78

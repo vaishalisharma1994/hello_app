@@ -1,0 +1,327 @@
+var hexcase = 0;  /* hex output format. 0 - lowercase; 1 - uppercase        */
+var b64pad  = ""; /* base-64 pad character. "=" for strict RFC compliance   */
+var chrsz   = 8;  /* bits per input character. 8 - ASCII; 16 - Unicode      */
+function hex_sha1(s){//
+	return sha256_digest(binb2hex(core_sha1(str2binb(s),s.length * chrsz)));
+    //return (binb2hex(core_sha1(str2binb(s),s.length * chrsz)));
+}
+function b64_sha1(s){return binb2b64(core_sha1(str2binb(s),s.length * chrsz));}
+function str_sha1(s){return binb2str(core_sha1(str2binb(s),s.length * chrsz));}
+function hex_hmac_sha1(key, data){ return binb2hex(core_hmac_sha1(key, data));}
+function b64_hmac_sha1(key, data){ return binb2b64(core_hmac_sha1(key, data));}
+function str_hmac_sha1(key, data){ return binb2str(core_hmac_sha1(key, data));}
+function core_sha1(x, len)
+{
+  /* append padding */
+  x[len >> 5] |= 0x80 << (24 - len % 32);
+  x[((len + 64 >> 9) << 4) + 15] = len;
+
+  var w = Array(80);
+  var a =  1732584193;
+  var b = -271733879;
+  var c = -1732584194;
+  var d =  271733878;
+  var e = -1009589776;
+
+  for(var i = 0; i < x.length; i += 16)
+  {
+    var olda = a;
+    var oldb = b;
+    var oldc = c;
+    var oldd = d;
+    var olde = e;
+
+    for(var j = 0; j < 80; j++)
+    {
+      if(j < 16) w[j] = x[i + j];
+      else w[j] = rol(w[j-3] ^ w[j-8] ^ w[j-14] ^ w[j-16], 1);
+      var t = safe_add(safe_add(rol(a, 5), sha1_ft(j, b, c, d)),
+                       safe_add(safe_add(e, w[j]), sha1_kt(j)));
+      e = d;
+      d = c;
+      c = rol(b, 30);
+      b = a;
+      a = t;
+    }
+
+    a = safe_add(a, olda);
+    b = safe_add(b, oldb);
+    c = safe_add(c, oldc);
+    d = safe_add(d, oldd);
+    e = safe_add(e, olde);
+  }
+  return Array(a, b, c, d, e);
+
+}
+function sha1_ft(t, b, c, d)
+{
+  if(t < 20) return (b & c) | ((~b) & d);
+  if(t < 40) return b ^ c ^ d;
+  if(t < 60) return (b & c) | (b & d) | (c & d);
+  return b ^ c ^ d;
+}
+function sha1_kt(t)
+{
+  return (t < 20) ?  1518500249 : (t < 40) ?  1859775393 :
+         (t < 60) ? -1894007588 : -899497514;
+}
+function core_hmac_sha1(key, data)
+{
+  var bkey = str2binb(key);
+  if(bkey.length > 16) bkey = core_sha1(bkey, key.length * chrsz);
+
+  var ipad = Array(16), opad = Array(16);
+  for(var i = 0; i < 16; i++)
+  {
+    ipad[i] = bkey[i] ^ 0x36363636;
+    opad[i] = bkey[i] ^ 0x5C5C5C5C;
+  }
+
+  var hash = core_sha1(ipad.concat(str2binb(data)), 512 + data.length * chrsz);
+  return core_sha1(opad.concat(hash), 512 + 160);
+}
+
+function rol(num, cnt)
+{
+  return (num << cnt) | (num >>> (32 - cnt));
+}
+function str2binb(str)
+{
+  var bin = Array();
+  var mask = (1 << chrsz) - 1;
+  for(var i = 0; i < str.length * chrsz; i += chrsz)
+    bin[i>>5] |= (str.charCodeAt(i / chrsz) & mask) << (32 - chrsz - i%32);
+  return bin;
+}
+function binb2str(bin)
+{
+  var str = "";
+  var mask = (1 << chrsz) - 1;
+  for(var i = 0; i < bin.length * 32; i += chrsz)
+    str += String.fromCharCode((bin[i>>5] >>> (32 - chrsz - i%32)) & mask);
+  return str;
+}
+function binb2hex(binarray)
+{
+  var hex_tab = hexcase ? "0123456789ABCDEF" : "0123456789abcdef";
+  var str = "";
+  for(var i = 0; i < binarray.length * 4; i++)
+  {
+    str += hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8+4)) & 0xF) +
+           hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8  )) & 0xF);
+  }
+  return str;
+}
+function binb2b64(binarray)
+{
+  var tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+  var str = "";
+  for(var i = 0; i < binarray.length * 4; i += 3)
+  {
+    var triplet = (((binarray[i   >> 2] >> 8 * (3 -  i   %4)) & 0xFF) << 16)
+                | (((binarray[i+1 >> 2] >> 8 * (3 - (i+1)%4)) & 0xFF) << 8 )
+                |  ((binarray[i+2 >> 2] >> 8 * (3 - (i+2)%4)) & 0xFF);
+    for(var j = 0; j < 4; j++)
+    {
+      if(i * 8 + j * 6 > binarray.length * 32) str += b64pad;
+      else str += tab.charAt((triplet >> 6*(3-j)) & 0x3F);
+    }
+  }
+  return str;
+}
+function rotateRight(n,x) {
+	return ((x >>> n) | (x << (32 - n)));
+}
+function choice(x,y,z) {
+	return ((x & y) ^ (~x & z));
+}
+function majority(x,y,z) {
+	return ((x & y) ^ (x & z) ^ (y & z));
+}
+function sha256_Sigma0(x) {
+	return (rotateRight(2, x) ^ rotateRight(13, x) ^ rotateRight(22, x));
+}
+function sha256_Sigma1(x) {
+	return (rotateRight(6, x) ^ rotateRight(11, x) ^ rotateRight(25, x));
+}
+function sha256_sigma0(x) {
+	return (rotateRight(7, x) ^ rotateRight(18, x) ^ (x >>> 3));
+}
+function sha256_sigma1(x) {
+	return (rotateRight(17, x) ^ rotateRight(19, x) ^ (x >>> 10));
+}
+function sha256_expand(W, j) {
+	return (W[j&0x0f] += sha256_sigma1(W[(j+14)&0x0f]) + W[(j+9)&0x0f] + 
+sha256_sigma0(W[(j+1)&0x0f]));
+}
+
+/* Hash constant words K: */
+var K256 = new Array(
+	0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5,
+	0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+	0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3,
+	0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+	0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc,
+	0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+	0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7,
+	0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+	0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13,
+	0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+	0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3,
+	0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+	0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5,
+	0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+	0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208,
+	0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2
+);
+
+/* global arrays */
+var ihash, count, buffer;
+var sha256_hex_digits = "0123456789abcdef";
+
+/* Add 32-bit integers with 16-bit operations (bug in some JS-interpreters: 
+overflow) */
+
+/* Initialise the SHA256 computation */
+function sha256_init() {
+	ihash = new Array(8);
+	count = new Array(2);
+	buffer = new Array(64);
+	count[0] = count[1] = 0;
+	ihash[0] = 0x6a09e667;
+	ihash[1] = 0xbb67ae85;
+	ihash[2] = 0x3c6ef372;
+	ihash[3] = 0xa54ff53a;
+	ihash[4] = 0x510e527f;
+	ihash[5] = 0x9b05688c;
+	ihash[6] = 0x1f83d9ab;
+	ihash[7] = 0x5be0cd19;
+}
+
+/* Transform a 512-bit message block */
+function sha256_transform() {
+	var a, b, c, d, e, f, g, h, T1, T2;
+	var W = new Array(16);
+
+	/* Initialize registers with the previous intermediate value */
+	a = ihash[0];
+	b = ihash[1];
+	c = ihash[2];
+	d = ihash[3];
+	e = ihash[4];
+	f = ihash[5];
+	g = ihash[6];
+	h = ihash[7];
+
+        /* make 32-bit words */
+	for(var i=0; i<16; i++)
+		W[i] = ((buffer[(i<<2)+3]) | (buffer[(i<<2)+2] << 8) | (buffer[(i<<2)+1] 
+<< 16) | (buffer[i<<2] << 24));
+
+        for(var j=0; j<64; j++) {
+		T1 = h + sha256_Sigma1(e) + choice(e, f, g) + K256[j];
+		if(j < 16) T1 += W[j];
+		else T1 += sha256_expand(W, j);
+		T2 = sha256_Sigma0(a) + majority(a, b, c);
+		h = g;
+		g = f;
+		f = e;
+		e = safe_add(d, T1);
+		d = c;
+		c = b;
+		b = a;
+		a = safe_add(T1, T2);
+        }
+
+	/* Compute the current intermediate hash value */
+	ihash[0] += a;
+	ihash[1] += b;
+	ihash[2] += c;
+	ihash[3] += d;
+	ihash[4] += e;
+	ihash[5] += f;
+	ihash[6] += g;
+	ihash[7] += h;
+}
+
+/* Read the next chunk of data and update the SHA256 computation */
+function sha256_update(data, inputLen) {
+	var i, index, curpos = 0;
+	/* Compute number of bytes mod 64 */
+	index = ((count[0] >> 3) & 0x3f);
+        var remainder = (inputLen & 0x3f);
+
+	/* Update number of bits */
+	if ((count[0] += (inputLen << 3)) < (inputLen << 3)) count[1]++;
+	count[1] += (inputLen >> 29);
+
+	/* Transform as many times as possible */
+	for(i=0; i+63<inputLen; i+=64) {
+                for(var j=index; j<64; j++)
+			buffer[j] = data.charCodeAt(curpos++);
+		sha256_transform();
+		index = 0;
+	}
+
+	/* Buffer remaining input */
+	for(var j=0; j<remainder; j++)
+		buffer[j] = data.charCodeAt(curpos++);
+}
+
+/* Finish the computation by operations such as padding */
+function sha256_final() {
+	var index = ((count[0] >> 3) & 0x3f);
+        buffer[index++] = 0x80;
+        if(index <= 56) {
+		for(var i=index; i<56; i++)
+			buffer[i] = 0;
+        } else {
+		for(var i=index; i<64; i++)
+			buffer[i] = 0;
+                sha256_transform();
+                for(var i=0; i<56; i++)
+			buffer[i] = 0;
+	}
+        buffer[56] = (count[1] >>> 24) & 0xff;
+        buffer[57] = (count[1] >>> 16) & 0xff;
+        buffer[58] = (count[1] >>> 8) & 0xff;
+        buffer[59] = count[1] & 0xff;
+        buffer[60] = (count[0] >>> 24) & 0xff;
+        buffer[61] = (count[0] >>> 16) & 0xff;
+        buffer[62] = (count[0] >>> 8) & 0xff;
+        buffer[63] = count[0] & 0xff;
+        sha256_transform();
+}
+/* Get the internal hash as a hex string */
+function sha256_encode_hex() {
+	var output = new String();
+	for(var i=0; i<8; i++) {
+		for(var j=28; j>=0; j-=4)
+			output += sha256_hex_digits.charAt((ihash[i] >>> j) & 0x0f);
+	}
+	return output;
+}
+
+/* Main function: returns a hex string representing the SHA256 value of the 
+given data */
+function sha256_digest(data) {
+	sha256_init();
+	sha256_update(data, data.length);
+	sha256_final();
+        return sha256_encode_hex();
+}
+function safe_add(x, y)
+{
+	var lsw = (x & 0xffff) + (y & 0xffff);
+	var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+	return (msw << 16) | (lsw & 0xffff);
+}
+ŸÀ—M&é      X’À°X’À°=ez¼Y7Èþ   +:https://www.centralbank.net.in/cmn/sha1.js necko:classified 1 security-info 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 request-method GET response-head HTTP/1.1 200 OK
+Date: Wed, 01 Feb 2017 05:28:53 GMT
+Server: Oracle-Application-Server-12c
+Accept-Ranges: bytes
+Content-Length: 9350
+Last-Modified: Mon, 19 Aug 2013 12:18:00 GMT
+Content-Type: text/plain
+Content-Language: en
+ uncompressed-len 0   $†

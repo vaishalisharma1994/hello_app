@@ -1,4 +1,3 @@
-puts "hello"
 a=2
 if a>5
 a=5
@@ -31,6 +30,42 @@ a=3
 case a
 when a>4
 puts I'm good
-else
 puts you are awsum
+f="m"
+"#{f} h"
+puts "foo"
+'\n'
+"hhgfvgcgfxdfxs".length
+s="hhhh"
+if s.empty?
+puts hi
+puts hello
+r="hh"
+if r.empty?
+puts "hi"
+else
+puts "hello"
 end
+false.nil?
+nil.nil?
+0
+!!0
+(1..5).each { |i| puts 2 * i }
+%w[a b c].map { |char| char.upcase }
+"ghgdsaaz".reverse
+rails server
+User.create(name :"ggg",email :"vaishali@payu.in")
+User.create(name: "A Nother", email: "another@example.org")
+rails test:models
+User.create(name: "Example User", email: "user@example.com")
+User.find(1)
+User.create(name: "Foo", email: "foo@bar.com")
+User.find(2)
+User.new(name: "Foo Bar", email: "foo@invalid",password: "dude", password_confirmation: "dude")
+User.create(name: "Foohhhhh", email: "foffo@ar.com")
+User.all
+User.column_names
+User.create(name: "Foohhhhh", email: "foffo@ar.com",password_digest: "goat")
+User.create(name: "Fggggoohhhhh", email: "foo@ar.com",password_digest: "got")
+User.paginate(page: 2)
+quit

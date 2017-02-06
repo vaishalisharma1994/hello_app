@@ -1,0 +1,1028 @@
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+
+
+
+<script language="javascript">
+window.history.forward();
+</script>
+
+<script language="javascript">
+
+document.onkeydown = function()
+{
+
+
+if(window.event && window.event.keyCode == 115) 
+        { // Capture and remap F5
+	window.event.keyCode = 504;
+  	}  	
+if(window.event && window.event.keyCode == 116) 
+        { // Capture and remap F5
+	window.event.keyCode = 505;
+  	}
+ if(window.event && window.event.keyCode == 117) 
+        { // Capture and remap F5
+	window.event.keyCode = 506;
+  	} 	
+ if(window.event && window.event.keyCode == 122) 
+        { // Capture and remap F5
+	window.event.keyCode = 507;
+  	} 
+ if(window.event && window.event.keyCode == 121) 
+        { // Capture and remap F5
+	window.event.keyCode = 508;
+  	} 
+if(window.event && window.event.keyCode == 504) 
+        { 
+	//alert("'F4' Key is Disabled");
+	return false; 
+	}
+if(window.event && window.event.keyCode == 505) 
+        { 
+	//alert("'F5' Key is Disabled");
+	return false; 
+	}
+if(window.event && window.event.keyCode == 506) 
+        { 
+	//alert("'F6' Key is Disabled");
+	return false; 
+	}	
+if(window.event && window.event.keyCode == 508) 
+        { // Capture and remap F10
+	//alert("'F10' Key is Disabled");
+	return false; 
+  	} 	
+if(window.event && window.event.keyCode == 507) 
+        { 
+	//alert("'F11' Key is Disabled");
+	return false; 
+	}  	
+	
+
+	if(window.event)
+        {
+                key = window.event.keyCode;     //IE
+                if(window.event.ctrlKey)
+                       { isCtrl = true;}
+                else
+                       { isCtrl = false;}
+        }
+        if(isCtrl)
+        {
+               //alert("'Ctrl' Key is Disabled");
+               return false;
+        }
+}
+
+
+function load(obj)
+{
+
+if(obj.flag.value==0)
+   {
+   
+history.go(1);
+}
+
+}
+
+
+function unload(obj)
+{
+
+obj.flag.value=0;
+
+}
+
+blServletFlag=true; 
+function doubleclick(form)
+ {
+ 
+ 	if(blServletFlag==true)
+  	{
+  		blServletFlag=false; 
+ 		//location.href=stlink;
+ 		form.submit();
+ 	}
+ 	else
+ 		{
+ 		alert("Already submited...");
+ 		//location.href=stlink;
+ 		form.submit();
+ 		}
+ }
+    
+
+
+
+function clickIE4(){
+if (event.button==2){
+alert("works");
+return false;
+}
+}
+
+this.top.window.document.title = "CBI Net Banking";
+/*function clickIE() 
+{
+	if (document.all) 
+	{
+		(message);return false;
+	}
+} 
+function clickNS(e) 
+{
+	if(document.layers||(document.getElementById&&!document.all)) 
+	{ 
+		if (e.which==2||e.which==3) 
+		{
+			(message);return false;
+		}
+	}
+} 
+if (document.layers) 
+{
+	document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;
+} 
+else
+{
+	document.onmouseup=clickNS;document.oncontextmenu=clickIE;
+}
+document.oncontextmenu=new Function("return  false");*/ 
+
+this.window.document.oncontextmenu=new Function("return false");
+
+
+if (screen.width == 800)
+{
+
+	document.write('<link href="/cmn/DotNetMSIE.css" type="text/css" rel="stylesheet" />') 
+	//document.write('<link href="/cmn/DotNetMSIE.css" type="text/css" rel="stylesheet" />') 
+
+}
+
+
+else
+{
+
+	document.write('<link href="/cmn/DotNetMSIE.css" type="text/css" rel="stylesheet" />') 
+
+}
+</script>
+<head>
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-store">
+</head>
+<!--[if IE 9]>
+<link rel="stylesheet" type="text/css" href="../cmn/style.css" media="screen, projection"/>
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" href="../cmn/style.css" media="screen, projection"/>
+<![endif]-->
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="../cmn/style7.css" media="screen, projection"/>
+<![endif]-->
+<![if !(IE 7)]>
+<link rel="stylesheet" type="text/css" href="../cmn/style.css" media="screen, projection" />
+<![endif]>
+<link rel="stylesheet" type="text/css" href="../cmn/style.css" media="screen, projection" />
+<script type="text/javascript" src="../cmn/jquery-1.3.1.min.js"></script>
+<script type="text/javascript" src="../cmn/jquery.dropdownPlain.js"></script>
+<script language="javascript" src="/cmn/login.js">
+</script>
+<script language="JavaScript">
+var index = -1;
+function doDestroySession()
+{
+}
+window.onunload = doDestroySession;
+</script>
+<script language="javascript" src="/cmn/Mainsub.js"></script>
+
+
+
+<!--  Addition by sandesh for locker -->
+
+
+<!-- Show Modal for Locker -->
+<script language="javascript" src="/cmn/jquery-1.3.1.min.js"></script>
+
+<style type="text/css">
+/* The Modal (background) */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	padding-top: 120px; /* Location of the box */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border: 1px solid #888;
+	width: 50%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	-webkit-animation-name: animatetop;
+	-webkit-animation-duration: 0.4s;
+	animation-name: animatetop;
+	animation-duration: 0.4s
+}
+
+/* Add Animation */
+@
+-webkit-keyframes animatetop {
+	from {top: -300px;
+	opacity: 0
+}
+
+to {
+	top: 0;
+	opacity: 1
+}
+
+}
+@
+keyframes animatetop {
+	from {top: -300px;
+	opacity: 0
+}
+
+to {
+	top: 0;
+	opacity: 1
+}
+
+}
+
+/* The Close Button */
+.close {
+	color: white;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,.close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.modal-header {
+	padding: 5px 16px;
+	background-color: #3399FF;
+	color: white;
+	height: 25px;
+}
+
+.modal-body {
+	padding: 10px 16px;
+}
+
+.modal-footer {
+	padding: 5px 16px;
+	background-color: #3399FF;
+	color: white;
+	height: 25px;
+}
+
+.loaderContainer {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(255, 255, 255, .6)
+		url('/img/loader.gif') 50% 50% no-repeat;
+}
+
+body.loading {
+	overflow: hidden;
+}
+
+body.loading .loaderContainer {
+	display: block;
+}
+
+.infoList li{
+	margin:5px;
+}
+
+</style>
+
+<SCRIPT language="JavaScript">
+window.onload=function(){
+
+	// Get the modal
+	var modal = document.getElementById('myModal');
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks the button, get lockers count and open the modal 
+	modal.style.display = "block";
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	    modal.style.display = "none";
+	}
+}
+</SCRIPT>
+<!-- Show Modal for Locker -->
+
+
+
+<!--  Addition by sandesh for locker ends here -->
+
+
+
+
+
+<body>
+	
+
+	<script language="javascript">
+if (screen.width==800) { 
+document.writeln('<iframe style="position:absolute;top:0px;left:0px;" width="100%" height="17%" allowtransparency="yes" name="topFrame" id="topFrame" scrolling="no" frameborder="no" border="1" noresize src="/jsp/CrlogoTopFrame.jsp">');
+document.writeln('</iframe>');
+document.writeln('<iframe style="position:absolute;top:21%;left:0px; border:2px #bce7f7 solid;" width="16%" height="78%" allowtransparency="yes" name="treeFrame" id="treeFrame" scrolling="yes" frameborder="yes" border="1" noresize src="/jsp/MenuFrame.jsp" target="_right">');
+document.writeln('</iframe>');
+document.writeln('<iframe style="position:absolute;top:21%;left:16.3%;" width="66.8%" height="78%" allowtransparency="yes" name="folderFrame" id="folderFrame" scrolling="yes" frameborder="no" border="1" noresize src="/jsp/LoadTest.jsp" target="_right">');
+document.writeln('</iframe>');
+document.writeln('<iframe style="position:absolute;top:21%;left:83%; border:2px #bce7f7 solid;" width="16%" height="78%" allowtransparency="yes" name="folderFrameAdv" id="folderFrameAdv" scrolling="no" frameborder="yes" noresize src="/jsp/folderFrameRight.jsp" target="_right">');
+document.writeln('</iframe>');
+/* document.writeln('<iframe style="position:absolute;top:97%;left:0px;" width="100%" height="3%" allowtransparency="yes" name="bottomFrame" id="bottomFrame" scrolling="no" frameborder="no" border="1" noresize src="/jsp/BottomFrame.jsp" target="_right">');
+document.writeln('</iframe>'); */
+}
+else
+{ 
+document.writeln('<iframe style="position:absolute;top:0px;left:0px;" width="100%" height="17%" allowtransparency="yes" name="topFrame" id="topFrame" scrolling="no" frameborder="no" border="1" noresize src="/jsp/CrlogoTopFrame.jsp">');
+document.writeln('</iframe>');
+document.writeln('<iframe style="position:absolute;top:21%;left:0px; border:2px #bce7f7 solid;" width="16%" height="78%" allowtransparency="yes" name="treeFrame" id="treeFrame" scrolling="yes" frameborder="yes" border="1" noresize src="/jsp/MenuFrame.jsp" target="_right">');
+document.writeln('</iframe>');
+document.writeln('<iframe style="position:absolute;top:21%;left:16.3%;" width="66.8%" height="78%" allowtransparency="yes" name="folderFrame" id="folderFrame" scrolling="yes" frameborder="no" border="1" noresize src="/jsp/LoadTest.jsp" target="_right">');
+document.writeln('</iframe>');
+document.writeln('<iframe style="position:absolute;top:21%;left:83%; border:2px #bce7f7 solid;" width="16%" height="78%" allowtransparency="yes" name="folderFrameAdv" id="folderFrameAdv" scrolling="no" frameborder="yes" noresize src="/jsp/folderFrameRight.jsp" target="_right">');
+document.writeln('</iframe>');
+/* document.writeln('<iframe style="position:absolute;top:97%;left:0px;" width="100%" height="3%" allowtransparency="yes" name="bottomFrame" id="bottomFrame" scrolling="no" frameborder="no" border="1" noresize src="/jsp/BottomFrame.jsp" target="_right">');
+document.writeln('</iframe>'); */
+} 
+</script>
+	<table valign="top" width="100%" height="105" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+
+	<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="16%">&nbsp;</td>
+			<td width="84%" align=left>
+				<ul class="dropdown">
+					<li class="blue" style="width: 15px; background-color: #007ACC;">&nbsp;</li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">Bill Payment</font></a> 
+						<ul>
+							
+							<li><a href="#">Duplicate Receipt</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSOnlinePaymentServlet?HandleID=BILL_DUP" target="folderFrame">Bill Payment</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+						<ul>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">Enquiry</font></a> 
+						<ul>
+							
+							<li><a href="#">Enquiry</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSAccountSummaryServlet?HandleID=101_ASY" target="folderFrame">Account Balance</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSInquiryServlet?HandleID=216_CHQBIN" target="folderFrame">Cheque Book Issued</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSIssueServlet?HandleID=CHEQUEBOOKENQUIRY" target="folderFrame">Cheque Book request status</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSInquiryServlet?HandleID=216_RDF" target="folderFrame">Cheque Status</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSRTGSServlet?HandleID=UTR_ENQUIRY_1" target="folderFrame">NEFT 24x7 UTR Enquiry</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSRTGSServlet?HandleID=DISP_MUR_PAGE" target="folderFrame">NEFT Enquiry</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSInquiryServlet?HandleID=220_OUTCHQ" target="folderFrame">Outward Cheques Status</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSRTGSServlet?HandleID=DISP_UTR_PAGE" target="folderFrame">RTGS Enquiry</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSTransactionHistoryServlet?HandleID=102_TXH" target="folderFrame">Statement Of Accounts</a></li>
+
+									
+									<li><a href="/servlet/ibs.transactionSummary.servlets.IBSTransactionSummaryServlet?HandleID=I_Start" target="folderFrame">Transaction Summary</a></li>
+
+									
+									<li><a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSForm26ASServlet&HandleID=101_ASY" target="folderFrame">View Tax Credit Stmt</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">Fee Collection</font></a> 
+						<ul>
+							
+							<li><a href="#">Fee Collection</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSJiwajiUnivServlet?HandleID=Dup_Display" target="folderFrame">Duplicate Challan - Jiwaji</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSHigherEduFeeCollectionServlet?HandleID=Dup_Display" target="folderFrame">Duplicate Receipt-MP</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSJiwajiUnivServlet?HandleID=PayFee" target="folderFrame">Jiwaji University Fee Payment</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSHigherEduFeeCollectionServlet?HandleID=HIGHEDU_IP" target="folderFrame">MP Higher Education Fee Payment</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">IMPS</font></a> 
+						<ul>
+							
+							<li><a href="#">IMPS</a>
+								<ul>
+									
+									<li><a href="/jsp/IBSNPCIINBEnquiry.jsp" target="folderFrame">IMPS Funds Transfer Enquiry</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSMMIDServlet?HandleID=ACC_MMID_ENQ_START" target="folderFrame">IMPS-MMID Enquiry</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSIMPSServlet?HandleID=RETAIL_MMIDCANCEL_INPUT" target="folderFrame">MMID Cancellation</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSIMPSServlet?HandleID=RETAIL_MMIDGEN_INPUT" target="folderFrame">MMID Generation</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">Locker</font></a> 
+						<ul>
+							
+							<li><a href="#">Locker</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSLockerServlet?HandleID=ApplyLink" target="folderFrame">Apply for Locker</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">Online Share Trade</font></a> 
+						<ul>
+							
+							<li><a href="#">Online Share Trade</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSOnlineShareTradeServlet?HandleID=OST_HldValue_Pre" target="folderFrame">Hold Amount Enquiry</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">Others</font></a> 
+						<ul>
+							
+							<li><a href="#">ASBA</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSASBAServlet?HandleID=1_ASBA_APPL" target="folderFrame">Application for bid</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSASBAServlet?HandleID=1_ASBA_DELETE" target="folderFrame">Deletion of Bid</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSASBAServlet?HandleID=1_ASBA_ENQ_ACC" target="folderFrame">Enquiry By Account No</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSASBAServlet?HandleID=1_ASBA_ENQ_REF" target="folderFrame">Enquiry By Reference No</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSASBAServlet?HandleID=1_ASBA_REVISE" target="folderFrame">Revision of Bid</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Atal Pension Yojna</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSAPYServlet?HandleID=ApplyLink" target="folderFrame">Register</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">CBEC ePayments</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSEpaymentServlet?HandleID=EPAY_025" target="folderFrame">Duplicate Receipt</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Credit Card Bill Payment</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.creditcard.servlets.IBSCreditcardPaymentServlet?HandleID=CREDIT_CARD_INPUT" target="folderFrame">Central Bank Credit Card</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Demat</a>
+								<ul>
+									
+									<li><a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSDematServlet&HandleID=601_VEW&UserType=A" target="folderFrame">Demat Services</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Deposit and Loan Modeling</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.depositandloan.servlets.IBSDepositandLoanServlet?HandleID=GETDEPOSITSCHEMEDESC" target="folderFrame">Deposit Modeling</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Duplicate Receipt</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSDirectTaxesServlet?HandleID=DUP_REC" target="folderFrame">CBDT ePayments</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSEpaymentServlet?HandleID=EPAY_025" target="folderFrame">CBEC ePayments</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Duplicate Receipt For Taxes</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSHPPaymentSevlet?HandleID=DOWNLOAD" target="folderFrame">Himachal Pradesh Tax</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">HOTLISTING OF ATM/DEBIT CARDS</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.Hotlist.servlets.IBSHotlistServlet?HandleID=QRY_ATM_DTLS" target="folderFrame">HOTLIST ATM/DEBIT CARD</a></li>
+
+									
+									<li><a href="/servlet/ibs.Hotlist.servlets.IBSHotlistServlet?HandleID=QRY_REQ_STATUS" target="folderFrame">HOTLISTING REQUEST STATUS</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Options</a>
+								<ul>
+									
+									<li><a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSPersonalOptionServlet&HandleID=501_PSCR&UserType=A" target="folderFrame">Change Logon Password</a></li>
+
+									
+									<li><a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSPersonalOptionServlet&HandleID=502_PSCR&UserType=A" target="folderFrame">Change Txn Password</a></li>
+
+									
+									<li><a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSPersonalOptionServlet&HandleID=502_VEW&UserType=A" target="folderFrame">Contact Details</a></li>
+
+									
+									<li><a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSPersonalOptionServlet&HandleID=SESSION_SUMMARY&UserType=A" target="folderFrame">Login History</a></li>
+
+									
+									<li><a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSLoginServlet&HandleID=TXN_PSWD_01&UserType=A" target="folderFrame">Transaction Password Generation</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">PM INSURANCE</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSPMInsuranceServlet?HandleID=PMINSURANCEJBYSTART" target="folderFrame">PMJBY</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSPMInsuranceServlet?HandleID=PMINSURANCESBYSTART" target="folderFrame">PMSBY</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">PMNRF Donation</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSPMPayDonationServlet?HandleID=PMFD_DUP_REC" target="folderFrame">Duplicate Ack</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSPMPayDonationServlet?HandleID=PAY_INPUT" target="folderFrame">Pay Donation</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Tax Payment</a>
+								<ul>
+									
+									<li><a href="/jsp/Info.jsp" target="folderFrame">CBEC ePayments Payment Info</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+						<ul>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">Reports</font></a> 
+						<ul>
+							
+							<li><a href="#">Aadhaar Registration</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.Aadhar.servlets.IBSAadharServlet?HandleID=AADHARFIRSTPAGE" target="folderFrame">Aadhaar-BankAccount-Link</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Duplicate Receipt</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.eBiz.servlets.IBSEbizServlet?HandleID=I_EBIZ" target="folderFrame">EBIZ Payments</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Multi-Utility Fee/Donation</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.MultiUtilityFeePayment.servlets.IBSMultiUtilityFeePaymentServlet?HandleID=MULTIUTILITYINPUTPAGE" target="folderFrame">Pay</a></li>
+
+									
+									<li><a href="/servlet/ibs.MultiUtilityFeePayment.servlets.IBSMultiUtilityFeePaymentServlet?HandleID=MULTIUTILITYPAYVIAREFERENCE" target="folderFrame">Pay Via Reference No</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Reports</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSExternalTransferServlet?HandleID=H_VIEW_SCHEDULED_TRANSFER_START" target="folderFrame">Scheduled Transfers Reports</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">Requests</font></a> 
+						<ul>
+							
+							<li><a href="#">Deposit Online Account</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSOnlineDepositServlet?HandleID=DepositEnquiry" target="folderFrame">Closure enquiry</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSOnlineDepositServlet?HandleID=O_DEP_CLOSURE" target="folderFrame">Deposit A/C Closure</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSOnlineDepositServlet?HandleID=O_PROD_LIST" target="folderFrame">Deposit A/C Opening</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSOnlineDepositServlet?HandleID=DownloadReceipt" target="folderFrame">Download Duplicate Receipt</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Deposit and Loan Modeling</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.depositandloan.servlets.IBSDepositandLoanServlet?HandleID=GETLOANSCHEMEDESC" target="folderFrame">Loan Modeling</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Requests</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSIssueServlet?HandleID=206_RDF" target="folderFrame">Cheque book issue</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSIssueServlet?HandleID=210_RDF" target="folderFrame">Stop payment</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">SAIBABA TRUST DONATION</font></a> 
+						<ul>
+							
+							<li><a href="#">Sai Baba Trust Donation</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.saibabadonation.servlets.IBSShridiSaiBabaServlet?HandleID=DONATION_INITIAL_PAGE" target="folderFrame">Donate Fund</a></li>
+
+									
+									<li><a href="/servlet/ibs.saibabadonation.servlets.IBSShridiSaiBabaServlet?HandleID=Duplicate_Challan" target="folderFrame">Duplicate Challan</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">Tax</font></a> 
+						<ul>
+							
+							<li><a href="#">Delhi Sales Tax Old</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSDelhiSalesTaxesServlet?HandleID=DUPLICATE_RECEIPT" target="folderFrame">Duplicate Challan</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Digital Signature Certificate</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.DSC.servlets.IBSDigitalSignatureServlet?HandleID=DSC_REGISTRATION_APPLICATION" target="folderFrame">DSC registration application</a></li>
+
+									
+									<li><a href="/servlet/ibs.DSC.servlets.IBSDigitalSignatureServlet?HandleID=DEREGISTRATION" target="folderFrame">De-Registration</a></li>
+
+									
+									<li><a href="/servlet/ibs.DSC.servlets.IBSDigitalSignatureServlet?HandleID=I_REGISTRATION" target="folderFrame">Digital Certificate Registration</a></li>
+
+									
+									<li><a href="/servlet/ibs.DSC.servlets.IBSDigitalSignatureServlet?HandleID=REREGISTRATION" target="folderFrame">Re-Registration</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Duplicate Receipt</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSAPTaxPaymentsServlet?HandleID=DUP_DISPLAY" target="folderFrame">AndhraPradesh Sales Tax</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSDelhiSalesTaxesServlet?HandleID=DVAT_DUP_CHALLAN" target="folderFrame">Delhi VAT</a></li>
+
+									
+									<li><a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSWBGRIPSServlet&HandleID=DUP_CHALLAN" target="folderFrame">GRIPS Payments</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSGujaratSalesTaxesServlet?HandleID=GUJ_CHL_DSP" target="folderFrame">Gujarat Sales Tax</a></li>
+
+									
+									<li><a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSJharkhandSalesTaxesServlet&HandleID=SALES_DUP_REC" target="folderFrame">Jharkhand Sales Tax</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSKarnatakaVATServlet?HandleID=DUP_REC" target="folderFrame">Karnataka Govt Tax Payment</a></li>
+
+									
+									<li><a href="/servlet/ibs.mp.servlets.IBSMPServlet?HandleID=I_MP_DUP" target="folderFrame">MP Tax</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSMahaSalesTaxesServlet?HandleID=PROF_DUP_REC" target="folderFrame">Maharastra Professional Tax</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSMahaSalesTaxesServlet?HandleID=SALES_DUP_REC" target="folderFrame">Maharastra Sales Tax</a></li>
+
+									
+									<li><a href="/servlet/ibs.GRAS.servlets.IBSGrasServlet?HandleID=I_GRAS_TAX" target="folderFrame">RAJASTHAN GRAS TAX</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSTNTaxPaymentsServlet?HandleID=DUPDISPLAY" target="folderFrame">TN Sales Tax</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSComTaxPaymentServlet?HandleID=COMTAX_DUP_REC" target="folderFrame">UP Commercial Tax Payments</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSCustomsBankServlet?HandleID=CHALLAN_MULTI_DUP" target="folderFrame">eCustoms</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Duplicate Receipt For Taxes</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.chhattisgarh.servlets.IBSChhattisgarhServlet?HandleID=I_CHHATT_DCHALLAN" target="folderFrame">Chhattisgarh Tax</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">IT Returns</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.ITR.servlets.IBSITReturnsServlet?HandleID=ITR" target="folderFrame">File IT Returns</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">MAHARASTRA GRAS TAX</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.maharastragras.servlet.IBSMaharastraGrasServlet?HandleID=I_MAHARASTRA" target="folderFrame">Duplicate Challan</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Tax Payment</a>
+								<ul>
+									
+									<li><a href="/jsp/LoadServlet.jsp?servlet=/servlet/ibs.servlets.IBSJharkhandSalesTaxesServlet&HandleID=JHARKHAND_CST_TAX" target="folderFrame">Jharkhand Sales Tax</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSMahaSalesTaxesServlet?HandleID=MAHA_PTEC_TAX" target="folderFrame">Maharastra Professional Tax</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSMahaSalesTaxesServlet?HandleID=MAHA_CST_TAX" target="folderFrame">Maharastra Sales Tax</a></li>
+
+									
+								</ul></li>
+							
+							<li><a href="#">Telangana Sales Tax</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.IBSTelanganaTaxPaymentsServlet?HandleID=DUP_DISPLAY" target="folderFrame">Duplicate Challan</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">Transfers</font></a> 
+						<ul>
+							
+							<li><a href="#">Fund Transfer</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.servlets.AddBeneficiaryservlet?HandleID=222_RDF" target="folderFrame">Add Beneficiary</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSExternalTransferServlet?HandleID=203_ETR" target="folderFrame">Other Account Transfer</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSRTGSServlet?HandleID=201_RTGS" target="folderFrame">Other Bank Accounts</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSTransferFundsServlet?HandleID=202_TFA" target="folderFrame">Own Account Transfer</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSSITransfersServlet?HandleID=217_SIT" target="folderFrame">Standing Instruction</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.AddBeneficiaryservlet?HandleID=222_BLV" target="folderFrame">View Beneficiary</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;">&nbsp;</li>
+					<li><a href="#"><font style="color:#FFFFFF;">User Transaction Prof Setting</font></a> 
+						<ul>
+							
+							<li><a href="#">User Transaction Prof Setting</a>
+								<ul>
+									
+									<li><a href="/servlet/ibs.velocitycheck.servlets.IBSVelocityCheckServlet?HandleID=BENELIMITSETINPUT" target="folderFrame">Beneficiary Limit Setting</a></li>
+
+									
+									<li><a href="/servlet/ibs.velocitycheck.servlets.IBSVelocityCheckServlet?HandleID=SERVICES_LIMIT_SET" target="folderFrame">Limit Set For Services</a></li>
+
+									
+									<li><a href="/servlet/ibs.velocitycheck.servlets.IBSVelocityCheckServlet?HandleID=USER_QUESTION_UPDATE" target="folderFrame">Security Question Update</a></li>
+
+									
+									<li><a href="/servlet/ibs.servlets.IBSAccountSummaryServlet?HandleID=ACC_VIEW_ONLY" target="folderFrame">View Only Accounts</a></li>
+
+									
+								</ul></li>
+							
+						</ul></li>
+					
+						<ul>
+							
+						</ul></li>
+					
+					<li style="background-color: #FFFFFF; width: 2px;"></li>
+					<li class="blue" style="width: 15px; background-color: #007ACC;">&nbsp;</li>
+				</ul>
+		</tr>
+	</table>
+
+
+
+
+	<!--  Addition by sandesh for locker -->
+
+	
+	<!-- Show Modal for Locker -->
+	<div id="myModal" class="modal">
+		<!-- Modal content -->
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close">x</span>
+				<h1 style="text-align: left; vertical-align: middle;">New Feature in Internet Banking</h1>
+			</div>
+			<div class="modal-body">
+				<h2 style="color: black">Dear Customer, a new facility has been introduced for providing options for selection of second factor authentication (2FA) in the form of Digital signature (DSC) / One time password (OTP) / Grid while doing online transactions. Now enjoy multiple options for 2FA for safe and secure internet banking.</h2>
+			</div>
+			<div class="modal-header">
+				<h1 style="text-align: left; vertical-align: middle;">Demonetisation of Rs 500 and Rs 1000 currency notes</h1>
+			</div>
+			<div class="modal-body">
+				<h2 style="color: black">
+					We at Central Bank of India are committed to ensure that your banking experience is seamless, following the government notification on demonetisation.
+					<ul style="list-style-type: circle; margin-left: 50px; margin-top: 15px;" class ="infoList">
+						<li>You can withdraw money at Central Bank of India branches with a maximum amount of Rs. 24,000/- in a week.</li>
+						<li>You can withdraw money at Central Bank of India ATMs upto Rs. 10,000/- per card per day.</li>
+					</ul>
+					<br>
+					Please note our new call centre number is 1800-22-1911
+					
+				</h2>
+			</div>
+			<div class="modal-footer">
+				<h1 style="text-align: center; vertical-align: middle;">Thank You</h1>
+			</div>
+		</div>
+
+
+	</div>
+	<div id="loaderContainer" class="loaderContainer"></div>
+	<!-- Show Modal for Locker -->
+
+	
+
+	<!--  Addition by sandesh for locker ends here -->
+
+
+
+</body>
+</html>

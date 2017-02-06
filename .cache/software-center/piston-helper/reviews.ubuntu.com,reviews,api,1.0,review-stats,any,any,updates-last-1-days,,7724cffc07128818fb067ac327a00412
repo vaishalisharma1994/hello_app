@@ -1,0 +1,31 @@
+status: 200
+content-length: 374
+expires: Thu, 02 Feb 2017 17:23:00 GMT
+content-location: https://reviews.ubuntu.com/reviews/api/1.0/review-stats/any/any/updates-last-1-days/
+strict-transport-security: max-age=15768000; includeSubDomains; preload
+vary: Accept,Accept-Encoding
+server: gunicorn/19.3.0
+last-modified: Thu, 02 Feb 2017 13:23:00 GMT
+-content-encoding: gzip
+x-bzr-revision-number: 321
+cache-control: max-age=14400
+date: Thu, 02 Feb 2017 13:23:00 GMT
+content-type: application/json; charset=utf-8
+-varied-accept-encoding: gzip, deflate
+
+[
+    {
+        "ratings_total": 169, 
+        "ratings_average": "3.63", 
+        "app_name": "", 
+        "package_name": "clamtk", 
+        "histogram": "[24, 14, 22, 50, 59]"
+    }, 
+    {
+        "ratings_total": 128, 
+        "ratings_average": "4.65", 
+        "app_name": "", 
+        "package_name": "kolourpaint4", 
+        "histogram": "[2, 1, 4, 26, 95]"
+    }
+]
